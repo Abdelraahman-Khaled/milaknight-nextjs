@@ -9,6 +9,16 @@ export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState('ar');
 
     useEffect(() => {
+        // Load saved language on mount
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+            setLanguage(savedLanguage);
+        }
+    }, []);
+
+    useEffect(() => {
+        // Save language and update document attributes
+        localStorage.setItem('language', language);
         document.documentElement.lang = language;
         document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     }, [language]);

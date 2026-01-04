@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "question": {
+            "ar": "ما  الخدمات التي تقدمها ميلانايت؟",
+            "en": "What services does Milaknight offer?"
+        },
+        "answer": {
+            "ar": "<p>نقدم في شركة التسويق الالكتروني Milaknight خدمات شاملة تشمل التسويق الالكتروني بالإضافة إلى حلول متكاملة في إدارة الأعمال، تصوير الفيديو، تصميم الأجنحة، تنظيم الفعاليات كما نسخر خبرتنا في التسويق بالمحتوى وخطط تسويقية متميزة، مع دعم تصميم مواقع الكترونية وإعلانات ممولة لتحقيق أقصى تأثير لعلامتك التجارية.</p>",
+            "en": "<p>At Milaknight Digital Marketing, we offer comprehensive services including digital marketing, integrated solutions for business management, video production, booth design, and event organization. We also leverage our expertise in content marketing and unique marketing plans, along with website design and sponsored ads to maximize the impact of your brand.</p>"
+        }
+    },
+    {
+        "id": 2,
+        "question": {
+            "ar": "هل يمكنكم تصميم استراتيجيات تسويقية مخصصة؟",
+            "en": "Can you design customized marketing strategies?"
+        },
+        "answer": {
+            "ar": "<p>نعم في Milaknight أهم شركة تسويق الكتروني نقوم بتصميم خطط تسويقية واستراتيجيات مخصصة تعتمد على احتياجات عملك وجمهورك المستهدف كما نركز على التسويق بالمحتوى وتصميم مواقع الكترونية مدعومة بـ SEO وإعلانات ممولة لتحقيق أفضل النتائج.</p>",
+            "en": "<p>Yes, at Milaknight, the leading digital marketing company, we design customized marketing plans and strategies based on your business needs and target audience. We also focus on content marketing, SEO-supported website design, and sponsored ads to achieve the best results.</p>"
+        }
+    },
+    {
+        "id": 3,
+        "question": {
+            "ar": "هل تقدمون خدمات انتاج الفيديو للفعاليات؟",
+            "en": "Do you offer video production services for events?"
+        },
+        "answer": {
+            "ar": "<p>نعم في Milaknight كأهم شركة تسويق الكتروني نقدم خدمات تصوير الفيديو الاحترافية والتي تشمل توثيق الفعاليات وتصميم الفيديوهات الترويجية ضمن خطط تسويقية متكاملة ترفع من تأثير التسويق الالكتروني لعلامتك التجارية.</p>",
+            "en": "<p>Yes, at Milaknight, as the leading digital marketing company, we offer professional videography services, including event documentation and promotional video design, all within integrated marketing plans that enhance the impact of your brand's digital marketing.</p>"
+        }
+    },
+    {
+        "id": 4,
+        "question": {
+            "ar": "كيف يمكنني طلب استشارة أولية؟",
+            "en": "How can I request an initial consultation?"
+        },
+        "answer": {
+            "ar": "<p>يمكنك تعبئة نموذج التواصل الموجود على موقع شركة التسويق الالكتروني Milaknight أو إرسال رسالة مباشرة عبر البريد الإلكتروني، وسيقوم فريقنا المتخصص في التسويق الالكتروني بالتواصل معك خلال 24 ساعة عمل لتقديم أفضل خطط تسويقية وحلول تناسب احتياجات علامتك التجارية.</p>",
+            "en": "<p>You can fill out the contact form on the Milaknight website or send a direct email, and our specialized digital marketing team will contact you within 24 business hours to provide the best marketing plans and solutions that suit your brand's needs.</p>"
+        }
+    },
+    {
+        "id": 5,
+        "question": {
+            "ar": "أين يقع مكتبكم الرئيسي؟",
+            "en": "Where is your headquarters located?"
+        },
+        "answer": {
+            "ar": "<p>يقع مقر شركة تسويق الكتروني Milaknight في الطابق السادس، مركز الأعمال، المدرج الكبير بفندق ميدان، شارع ميدان، دبي، الإمارات العربية المتحدة، حيث نقدم خدمات التسويق الالكتروني المتكاملة وخطط تسويقية متميزة لعملائنا.</p>",
+            "en": "<p>Milaknight Digital Marketing is located on on the 6th floor, Business Center, Meydan Grand Hotel, Meydan Street, Dubai, UAE. We offer comprehensive digital marketing services and unique marketing plans to our clients.</p>"
+        }
+    },
+    {
+        "id": 6,
+        "question": {
+            "ar": "كيف يمكنني التواصل مع فريق ميلانايت؟",
+            "en": "How can I contact the Milaknight team?"
+        },
+        "answer": {
+            "ar": "<p>يمكنك التواصل مع شركة التسويق الالكتروني Milaknight عبر الهاتف: <br /> <a dir='ltr' href='tel:971585856774'>+971 585 856 774</a> التحويلة: 2557، أو عبر البريد الإلكتروني: <a href='mailto:info@milaknights.com'>Info[at]milaknights[dot]com</a> فريقنا المتخصص في التسويق الالكتروني جاهز لتقديم الدعم وتنفيذ خطط تسويقية تناسب احتياجاتك.</p>",
+            "en": "<p>You can contact Milaknight Digital Marketing Company by phone: <br> <a dir=\"ltr\" href=\"tel:+971585856774\">+971 58 585 6774</a> ext. 2557, or by email: <a href=\"mailto:info@milaknights.com\">Info[at]milaknights[dot]com</a>. Our specialized digital marketing team is ready to provide support and implement marketing plans that suit your needs.</p>"
+        }
+    }
+]

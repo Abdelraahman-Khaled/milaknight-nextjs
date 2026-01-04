@@ -14,12 +14,12 @@ const HeroSection = ({ title, subtitle, breadcrumb, page }) => {
                     <div className="col-lg-12">
                         <div className="page-header-box">
                             <h1>
-                                {title} <span>{subtitle}</span>
+                                {t(title)} <span>{t(subtitle)}</span>
                             </h1>
                             <nav>
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><Link href="/">{breadcrumb}</Link></li>
-                                    <li className="active breadcrumb-item" aria-current="page">{page}</li>
+                                    <li className="breadcrumb-item"><Link href="/">{t(breadcrumb)}</Link></li>
+                                    <li className="active breadcrumb-item" aria-current="page">{t(page)}</li>
                                 </ol>
                             </nav>
                         </div>
