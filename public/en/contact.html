@@ -45,15 +45,18 @@
 }
 </script>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K2R6JGSQ');</script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K2R6JGSQ');</script>
 
 
-<!-- End Google Tag Manager -->
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
@@ -156,8 +159,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <a class="nav-link company-profile"
                                         href="https://publuu.com/flip-book/902608/1992497" target="_blank"
                                         rel="noopener">
-                                                            Company profile
-                    <i class="fa-solid fa-download ms-1"></i>
+                                        Company profile
+                                        <i class="fa-solid fa-download ms-1"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -453,8 +456,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <form action="../send.php" id="contactForm" method="POST">
                             <div class="row">
                                 <div class="form-group mb-4 col-md-6">
-                                    <input class="form-control" id="fname" name="fname" placeholder="Your Name"
-                                        required>
+                                    <input class="form-control" id="fname" name="name" placeholder="Your Name" required>
                                 </div>
                                 <div class="form-group mb-4 col-md-6">
                                     <input class="form-control" id="phone" name="phone" placeholder="Phone Number"
@@ -465,9 +467,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         type="email">
                                 </div>
                                 <div class="form-group mb-4 col-md-12">
-                                    <input class="form-control" id="subject" name="subject" placeholder="Subject"
-                                        required>
+                                    <input class="form-control" id="subject" name="sub" placeholder="Subject" required>
                                 </div>
+                                <input type="hidden" name="time" id="time_field">
                                 <div class="form-group col-md-12 mb-5">
                                     <textarea class="form-control" id="message" name="message" placeholder="Message"
                                         rows="4" required></textarea>
@@ -766,8 +768,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/milaknight.1/"
-                                            target="_blank" rel="noopener">
+                                        <a href="https://www.instagram.com/milaknight.1/" target="_blank"
+                                            rel="noopener">
                                             <i class="fa-brands fa-instagram"></i>
                                         </a>
                                     </li>
@@ -844,28 +846,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- Main Custom js file -->
     <script src="../js/function.min.js"></script>
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+                publicKey: "__95ljYruCkn_4BS2",
+            });
+        })();
+    </script>
     <script>
         document.getElementById("contactForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
-            let formData = new FormData(this);
+            // Set current time
+            document.getElementById("time_field").value = new Date().toLocaleString();
 
-            fetch("../send.php", {
-                method: "POST",
-                body: formData
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.status === "success") {
-                        document.getElementById("overlay-pop").style.display = "flex";
-                        document.getElementById("contactForm").reset();
-                    } else {
-                        alert(data.message || "حصل خطأ أثناء الإرسال");
-                    }
-                })
-                .catch(err => {
-                    alert("تعذر الإرسال. حاول لاحقاً.");
-                    console.error(err);
+            // Replace with your Service ID and Template ID
+            const serviceID = 'service_10clbm6';
+            const templateID = 'template_va74o57';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    document.getElementById("overlay-pop").style.display = "flex";
+                    document.getElementById("contactForm").reset();
+                }, (err) => {
+                    alert("Unable to send. Please try again later.");
+                    console.error('EmailJS Error:', JSON.stringify(err));
                 });
         });
 

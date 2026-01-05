@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <meta content="Milaknight LLC-FZ" name="author">
   <link rel="shortcut icon" type="image/x-icon" href="../images/icons/favicon.ico">
-    <link rel="stylesheet" href="../css/custom.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/custom.min.css" media="print" onload="this.media='all'">
   <meta name="description"
     content="Competitive pricing for digital marketing services Web design SEO strategies Ad campaign management Graphic design Innovative solutions at affordable rates Smart marketing investments">
   <title>Pricing - Milaknight</title>
@@ -26,8 +26,8 @@
     content="Competitive pricing for digital marketing services Web design SEO strategies Ad campaign management Graphic design Innovative solutions at affordable rates Smart marketing investments">
   <meta name="twitter:image" content="https://mila-knight.com/images/logo-dark-footer.webp">
   <meta name="twitter:url" content="https://mila-knight.com/en/pricing.html">
-  
-  
+
+
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,16 +46,16 @@
 </script>
 
 
-<!-- Google Tag Manager -->
-<script>(function (w, d, s, l, i) {
-    w[l] = w[l] || []; w[l].push({
-      'gtm.start':
-        new Date().getTime(), event: 'gtm.js'
-    }); var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', 'GTM-K2R6JGSQ');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-K2R6JGSQ');</script>
+  <!-- End Google Tag Manager -->
 
 </head>
 
@@ -71,7 +71,7 @@
   <header class="main-header">
     <div class="header-sticky">
       <nav class="navbar navbar-expand-lg">
-        <div class="container">
+        <div class="container-fluid">
           <!-- Logo Start -->
 
           <a class='navbar-brand' href='./'>
@@ -155,12 +155,13 @@
                     Contact us
                   </a>
                 </li>
-                                                <li class="nav-item">
-                                                  <a class="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank" rel="noopener">
-                                                                        Company profile
+                <li class="nav-item">
+                  <a class="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank"
+                    rel="noopener">
+                    Company profile
                     <i class="fa-solid fa-download ms-1"></i>
-                                                  </a>
-                                                </li>
+                  </a>
+                </li>
                 <li class="nav-item">
                   <a class='nav-link ' href='../pricing.html'>
                     <img src="../images/saudi-arabia.png" alt="saudi-arabia-flag">
@@ -590,7 +591,7 @@
         <form action="../sendpricing.php" id="formContactPricing" method="POST">
           <div class="row">
             <div class="mb-4 form-group col-md-12">
-              <input id="fname" name="fname" class="form-control" placeholder="Your name" required>
+              <input id="name" name="name" class="form-control" placeholder="Your name" required>
             </div>
             <div class="mb-4 form-group col-md-5">
               <input id="phone" name="phone" class="form-control" placeholder="Phone number" type="number">
@@ -601,17 +602,19 @@
             <div class="mb-4 form-group col-md-5">
               <input id="email" name="email" class="form-control" placeholder="E-mail" type="email">
             </div>
+            <input type="hidden" name="time" id="time_field">
             <div class="col-lg-12">
               <div class="contact-form-btn">
                 <button class="btn-highlighted" type="submit">
                   Send message
                 </button>
+
                 <br>
                 <br>
                 <div class="h3 hidden" id="msgSubmit"></div>
               </div>
             </div>
-            <input id="selected_package" name="selected_package" type="hidden" value="غير محدد">
+            <input id="selected_package" name="service" type="hidden" value="Not Specified">
           </div>
         </form>
       </div>
@@ -781,8 +784,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/milaknight.1/"
-                      target="_blank" rel="noopener">
+                    <a href="https://www.instagram.com/milaknight.1/" target="_blank" rel="noopener">
                       <i class="fa-brands fa-instagram"></i>
                     </a>
                   </li>
@@ -833,8 +835,8 @@
   <script src="../js/bootstrap.min.js"></script>
   <!-- SlickNav js file -->
   <script src="../js/jquery.slicknav.min.js"></script>
-  
-  
+
+
   <!-- Counter js file -->
   <script src="../js/jquery.waypoints.min.js"></script>
   <script src="../js/jquery.counterup.min.js"></script>
@@ -857,9 +859,111 @@
 
 
   <!-- Main Custom js file -->
-  <script src="../js/function_pricing.min.js"></script>
   <script src="../js/function.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // https://dashboard.emailjs.com/admin/account
+      emailjs.init({
+        publicKey: "n29cI3xy7zDr0TRfO",
+      });
+    })();
+  </script>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Handle selecting custom services
+      document.querySelectorAll('.box-pricing-2 ul li').forEach(item => {
+        item.addEventListener('click', function () {
+          this.classList.toggle('selected');
+        });
+      });
+
+      function initializePopup() {
+        const getQuoteLinks = document.querySelectorAll('.getQuote');
+        const orderPopup = document.querySelector('.order-popup');
+        const contactForm = document.querySelector('.contact-us-form');
+        const overlay = document.querySelector('.overlay');
+        // Note: ID is still selected_package, but name is service for EmailJS
+        const hiddenInput = document.getElementById('selected_package');
+
+        getQuoteLinks.forEach(link => {
+          link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const packageName = this.getAttribute('data-package-name') || "Not Specified";
+            hiddenInput.value = packageName;
+            orderPopup.style.display = 'block';
+            overlay.style.display = 'block';
+          });
+        });
+
+        overlay.addEventListener('click', function () {
+          orderPopup.style.display = 'none';
+          overlay.style.display = 'none';
+        });
+
+        contactForm.addEventListener('click', function (event) {
+          event.stopPropagation();
+        });
+      }
+      initializePopup();
+
+      const form = document.getElementById('formContactPricing');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let fname = document.getElementById("name").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let email = document.getElementById("email").value.trim();
+
+        if (!fname) {
+          alert("Name is required.");
+          return;
+        }
+
+        if (!phone && !email) {
+          alert("Please enter at least your phone number or email address.");
+          return;
+        }
+
+        const hiddenInput = document.getElementById('selected_package');
+        const selectedServices = [];
+        document.querySelectorAll('.box-pricing-2 ul li.selected').forEach(li => {
+          selectedServices.push(li.textContent.trim());
+        });
+
+        if (selectedServices.length > 0) {
+          hiddenInput.value = 'Custom Services: ' + selectedServices.join(', ');
+        }
+
+        // Set current time
+        document.getElementById("time_field").value = new Date().toLocaleString();
+
+        const serviceID = 'service_qav5q6m';
+        const templateID = 'template_u15jgtb';
+
+        emailjs.sendForm(serviceID, templateID, this)
+          .then(() => {
+            document.querySelector('.order-popup').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+            const popup = document.getElementById('overlay-pop');
+            popup.style.display = 'block';
+
+            setTimeout(() => {
+              popup.style.display = 'none';
+              this.reset();
+              hiddenInput.value = "Not Specified";
+              document.querySelectorAll('.box-pricing-2 ul li.selected').forEach(li => {
+                li.classList.remove('selected');
+              });
+            }, 3000);
+          }, (err) => {
+            alert("Unable to send. Please try again later.");
+            console.error('EmailJS Error:', JSON.stringify(err));
+          });
+      });
+    });
+
     document.addEventListener("DOMContentLoaded", function () {
       // تحديد اللغة الحالية من <html lang="...">
       const lang = document.documentElement.lang || "ar";
@@ -907,17 +1011,17 @@
         }
       });
     });
-  
+
     var css1 = document.createElement("link");
     css1.rel = "stylesheet";
     css1.href = "../css/custom.min.css";
     document.head.appendChild(css1);
 
   </script>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2R6JGSQ" height="0" width="0"
-        class="iframe-gtm"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2R6JGSQ" height="0" width="0"
+      class="iframe-gtm"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 </body>
 
 </html>

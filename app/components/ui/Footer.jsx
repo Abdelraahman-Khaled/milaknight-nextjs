@@ -22,7 +22,7 @@ const Footer = () => {
                                     {/* <!-- Work Together Btn Start --> */}
                                     <div className="work-together-btn">
                                         <Link href="contact.html">
-                                            <Image src="images/icons/arrow-dark.svg" alt="arrow" width={24} height={24} />
+                                            <Image src="/images/icons/arrow-dark.svg" alt="arrow" width={24} height={24} />
                                             <span>تواصل معنا</span>
                                         </Link>
                                     </div>
@@ -40,7 +40,7 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-4">
                                 <div className="footer-logo">
-                                    <Image src="images/logo-dark-footer.webp" className="Image-fluid w-100" alt="logo" width={303} height={262} />
+                                    <Image src="/images/logo-dark-footer.webp" className="Image-fluid w-100" alt="logo" width={303} height={262} />
                                 </div>
                             </div>
 
@@ -97,7 +97,7 @@ const Footer = () => {
                                         {/* <!-- Footer Contact Item Start --> */}
                                         <Link href="tel:+971585856774" className="footer-contact-item">
                                             <div className="icon-box">
-                                                <Image src="images/icons/icon-phone.svg" alt="icon-phone" width={18} height={18} />
+                                                <Image src="/images/icons/icon-phone.svg" alt="icon-phone" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content">
                                                 <p dir="ltr">+971 58 585 6774</p>
@@ -109,7 +109,7 @@ const Footer = () => {
                                         <Link href="mailto:&#073;&#110;&#102;&#111;&#064;&#109;&#105;&#108;&#097;&#107;&#110;&#105;&#103;&#104;&#116;&#115;&#046;&#099;&#111;&#109;"
                                             className="footer-contact-item">
                                             <div className="icon-box">
-                                                <Image src="images/icons/icon-mail.svg" alt="icon-mail" width={18} height={18} />
+                                                <Image src="/images/icons/icon-mail.svg" alt="icon-mail" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content">
                                                 <p>Info[at]milaknights[dot]com</p>
@@ -188,12 +188,12 @@ const Footer = () => {
             </footer>
 
             <Link href="https://calendly.com/milaknights-info" target="_blank" rel="noopener" className="whatsapp meeting">
-                <Image src="images/icons/calender.webp" loading="lazy" alt="meeting" width={24} height={24} />
+                <Image src="/images/icons/calender.webp" loading="lazy" alt="meeting" width={24} height={24} />
                 <span>طلب إجتماع</span>
             </Link>
 
             <Link href="https://api.whatsapp.com/send?phone=971585856774" target="_blank" rel="noopener" className="whatsapp">
-                <Image src="images/icons/whatsapp_white_icon.png" loading="lazy" alt="whatsapp" width={24} height={24} />
+                <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="whatsapp" width={24} height={24} />
                 <span>استشارة مجانية</span>
             </Link>
         </>

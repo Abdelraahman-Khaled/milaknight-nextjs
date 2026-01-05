@@ -3,48 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const blogs = [
-    {
-        id: 1,
-        category: 'branding',
-        title: 'خطوات تحسين معدل التحويل في المواقع الإلكترونية',
-        image: '/images/blogs/61/تحسين-معدل-التحويل-في-المواقع-الإلكترونية.webp',
-        link: 'blog/تحسين-معدل-التحويل-في-المواقع-الإلكترونية.html',
-        alt: 'تحسين معدل التحويل في المواقع الإلكترونية'
-    },
-    {
-        id: 2,
-        category: 'branding',
-        title: 'تحسين ظهور العلامة التجارية على منصات التواصل الاجتماعي',
-        image: '/images/blogs/60/العلامة-التجارية-الشخصية-في-التسويق-الرقمي.webp',
-        link: 'blog/بناء-الهوية-الرقمية.html',
-        alt: 'العلامة التجارية الشخصية في التسويق الرقمي'
-    },
-    {
-        id: 3,
-        category: 'digital',
-        title: 'المحتوى التفاعلي في التسويق الرقمي: كيف تُحوّل جمهورك من مشاهدين إلى مشاركين؟',
-        image: '/images/blogs/59/المحتوى-التفاعلي-في-التسويق-الرقمي.webp',
-        link: 'blog/المحتوى-التفاعلي-في-التسويق-الرقمي.html',
-        alt: 'المحتوى التفاعلي في التسويق الرقمي'
-    },
-    {
-        id: 4,
-        category: 'digital',
-        title: 'استراتيجية المحتوى الرقمي: كيف تبني حضورًا رقميًا ؟',
-        image: '/images/blogs/58/استراتيجية-المحتوى-الرقمي.webp',
-        link: 'blog/استراتيجية-المحتوى-الرقمي.html',
-        alt: 'استراتيجية المحتوى الرقمي'
-    },
-    {
-        id: 5,
-        category: 'digital',
-        title: 'التسويق عبر الذكاء الاصطناعي: كيف تُحدث ثورة في استراتيجيتك الرقمية؟',
-        image: '/images/blogs/57/التسويق-عبر-الذكاء-الاصطناعي.webp',
-        link: 'blog/التسويق-عبر-الذكاء-الاصطناعي.html',
-        alt: 'التسويق عبر الذكاء الاصطناعي'
-    }
-];
+import { blogs } from '@/app/data/blogs';
 
 const filters = [
     { label: 'جميع المقالات', value: '*' },
@@ -99,14 +58,14 @@ const BlogsTabs = () => {
                                 <div className="post-featured-image">
                                     <figure>
                                         <Link
-                                            href={blog.link}
+                                            href={`/blog/${blog.slug}`}
                                             className="image-anime"
                                             data-cursor-text="قراءة المقالة"
                                             style={{ display: 'block', position: 'relative', width: '100%', height: 'auto' }}
                                         >
                                             <Image
                                                 src={blog.image}
-                                                alt={blog.alt}
+                                                alt={blog.title}
                                                 width={0}
                                                 height={0}
                                                 sizes="100vw"
@@ -122,7 +81,7 @@ const BlogsTabs = () => {
                                     {/* <!-- Post Item Content Start --> */}
                                     <div className="post-item-content">
                                         <h3>
-                                            <Link href={blog.link}>
+                                            <Link href={`/blog/${blog.slug}`}>
                                                 {blog.title}
                                             </Link>
                                         </h3>
@@ -131,7 +90,7 @@ const BlogsTabs = () => {
 
                                     {/* <!-- Post Item Readmore Button Start--> */}
                                     <div className="post-item-btn">
-                                        <Link href={blog.link}>اقرأ المزيد</Link>
+                                        <Link href={`/blog/${blog.slug}`}>اقرأ المزيد</Link>
                                     </div>
                                     {/* <!-- Post Item Readmore Button End--> */}
                                 </div>

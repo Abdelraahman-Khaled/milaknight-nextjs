@@ -41,15 +41,18 @@
                       }
                     }
                     </script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K2R6JGSQ');</script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K2R6JGSQ');</script>
 
 
-<!-- End Google Tag Manager -->
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
@@ -152,8 +155,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <a class="nav-link company-profile"
                                         href="https://publuu.com/flip-book/902608/1992497" target="_blank"
                                         rel="noopener">
-                                                            Company profile
-                    <i class="fa-solid fa-download ms-1"></i>
+                                        Company profile
+                                        <i class="fa-solid fa-download ms-1"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -607,7 +610,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                 method="POST">
                                                 <div class="row">
                                                     <div class="form-group col-md-12 mb-4">
-                                                        <input type="text" name="fname" class="form-control" id="fname"
+                                                        <input type="text" name="name" class="form-control" id="name"
                                                             placeholder="Your name" required>
                                                     </div>
 
@@ -626,6 +629,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                     </div>
 
                                                     <input type="hidden" name="service" value="Video Production">
+                                                    <input type="hidden" name="time" id="time_field">
 
                                                     <div class="col-lg-12">
                                                         <div class="contact-form-btn">
@@ -860,8 +864,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/milaknight.1/"
-                                            target="_blank" rel="noopener">
+                                        <a href="https://www.instagram.com/milaknight.1/" target="_blank"
+                                            rel="noopener">
                                             <i class="fa-brands fa-instagram"></i>
                                         </a>
                                     </li>
@@ -939,6 +943,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Main Custom js file -->
     <script src="../../js/function.min.js"></script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+                publicKey: "n29cI3xy7zDr0TRfO",
+            });
+        })();
+    </script>
     <script>
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
@@ -970,7 +983,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         document.getElementById("formContactServiceOrder").addEventListener("submit", function (e) {
-            let fname = document.getElementById("fname").value.trim();
+            let fname = document.getElementById("name").value.trim();
             let phone = document.getElementById("phone").value.trim();
             let email = document.getElementById("email").value.trim();
 
@@ -985,29 +998,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 alert("Please enter at least your phone number or email address.");
                 return;
             }
-        });
 
-        document.getElementById("formContactServiceOrder").addEventListener("submit", function (e) {
             e.preventDefault();
 
-            let formData = new FormData(this);
+            // Set current time
+            document.getElementById("time_field").value = new Date().toLocaleString();
 
-            fetch("../../sendservice.php", {
-                method: "POST",
-                body: formData
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.status === "success") {
-                        document.getElementById("overlay-pop").style.display = "flex";
-                        this.reset();
-                    } else {
-                        alert(data.message);
-                    }
-                })
-                .catch(err => {
-                    alert("Failed to send. Try again later.");
-                    console.error(err);
+            const serviceID = 'service_qav5q6m';
+            const templateID = 'template_u15jgtb';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    document.getElementById("overlay-pop").style.display = "flex";
+                    this.reset();
+                }, (err) => {
+                    alert("Unable to send. Please try again later.");
+                    console.error('EmailJS Error:', JSON.stringify(err));
                 });
         });
 
