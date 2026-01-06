@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Tajawal, Fustat } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import BootstrapClient from "./components/BootstrapClient";
@@ -7,16 +7,21 @@ import Script from "next/script";
 
 import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
+import LegacyScripts from "./components/LegacyScripts";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const tajawal = Tajawal({
+  subsets: ["arabic", "latin"],
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
+  variable: "--font-tajawal",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fustat = Fustat({
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-fustat",
 });
+
+
 
 export const viewport = {
   width: "device-width",
@@ -213,7 +218,7 @@ export default function RootLayout({ children }) {
         </Script>
         {/* End Google Tag Manager */}
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${tajawal.variable} ${fustat.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -224,6 +229,7 @@ export default function RootLayout({ children }) {
           <BootstrapClient />
           {/* <Navbar /> */}
           {children}
+          <LegacyScripts />
         </Providers>
       </body>
     </html>
