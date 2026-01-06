@@ -17,17 +17,17 @@ export async function generateStaticParams() {
 // Allow dynamic params for new blog posts added after build
 export const dynamicParams = true;
 
-// Revalidate page every hour (ISR)
-export const revalidate = 3600;
-
-// Helper to get blog data directly (works in both dev and production)
+// Helper to fetch data with ISR
 async function getBlog(slug) {
     try {
-        // Directly find the blog from the imported data
-        const blog = blogs.find(b => b.slug === slug);
-        return blog || undefined;
+        const res = await fetch(`http://localhost:3000/api/blogs/${slug}`, {
+            next: { revalidate: 3600 } // Revalidate every hour (3600 seconds)
+        });
+        if (!res.ok) return undefined;
+        return res.json();
+
     } catch (error) {
-        console.error("Failed to get blog:", error);
+        console.error("Failed to fetch blog:", error);
         return undefined;
     }
 }
