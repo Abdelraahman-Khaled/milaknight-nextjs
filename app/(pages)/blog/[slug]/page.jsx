@@ -20,7 +20,7 @@ export const dynamicParams = true;
 // Helper to fetch data with ISR
 async function getBlog(slug) {
     try {
-        const res = await fetch(`http://localhost:3000/api/blogs/${slug}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}`, {
             next: { revalidate: 3600 } // Revalidate every hour (3600 seconds)
         });
         if (!res.ok) return undefined;
