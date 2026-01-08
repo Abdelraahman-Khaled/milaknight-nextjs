@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SectionTitle = ({ title, subtitle, span, subtitle_end, description }) => {
+const SectionTitle = ({ title, subtitle, span, subtitle_end, description, className }) => {
     return (
-        <div className="section-title">
+        <div className={`section-title ${className}`}>
             <h2 className="first-section-title">{title}</h2>
             <p>
                 {subtitle && subtitle} {span && <span>{span}</span>} {subtitle_end && subtitle_end}

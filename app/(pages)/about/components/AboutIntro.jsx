@@ -48,7 +48,7 @@ const AboutIntro = () => {
                                 {/* Section Title End */}
 
                                 {/* About Us Body Start */}
-                                <TextBox text={c.body} />
+                                <TextBox text={c.body} className={"about-us-body"} />
                                 {/* About Us Body End */}
 
                                 {/* About Us Footer Start */}

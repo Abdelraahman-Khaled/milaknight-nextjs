@@ -9,17 +9,6 @@ import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
 import LegacyScripts from "./components/LegacyScripts";
 
-const tajawal = Tajawal({
-  subsets: ["arabic", "latin"],
-  weight: ["200", "300", "400", "500", "700", "800", "900"],
-  variable: "--font-tajawal",
-});
-
-const fustat = Fustat({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-  variable: "--font-fustat",
-});
 
 
 
@@ -218,7 +207,7 @@ export default function RootLayout({ children }) {
         </Script>
         {/* End Google Tag Manager */}
       </head>
-      <body className={`${tajawal.variable} ${fustat.variable}`}>
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

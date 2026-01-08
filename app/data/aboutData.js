@@ -45,6 +45,10 @@ export const aboutData = {
         why_us_highlight: "نموك",
         why_us_end: "الرقمي",
         why_us_desc: "باعتبارنا في Milaknight أفضل شركة تسويق الكتروني نؤمن بأن نجاحك نجاح مؤكد لنا نقدم لك حلول تسويق الكتروني متكاملة، خبرة أصيلة في التسويق الالكتروني وشغفاً لا حد له لتحويل أفكارك إلى إنجازات ملهمة ترتقي بعلامتك التجارية إلى القمة.",
+        why_us_title_home: "لماذا تختار ميلانايت لإنجاز خدماتك؟",
+        why_us_subtitle_home: "استشارتك معنا،",
+        why_us_highlight_home: "مجانية وموثوقة",
+        why_us_desc_home: "لأننا في Milaknight، شركة تسويق الكتروني، نؤمن بأن نجاحك هو امتداد لنجاحنا. نُقدّم لك حلول تسويق الكتروني متكاملة تجمع بين الخبرة العميقة، الخطط التسويقية المدروسة، وشغف لا حدود له لتحويل أفكارك إلى إنجازات ملهمة. نُتقن التسويق بالمحتوى، ونسخّر التقنيات الحديثة والإعلانات الممولة لخلق تجربة تسويقية تقودك نحو التميّز.",
         why_items: [
             { title: "خبرة متكاملة", desc: "نمتلك في Milaknight أفضل شركة تسويق الكتروني فريقاً متخصصاً بخبرة واسعة في جميع مجالات التسويق الالكتروني، من التسويق بالمحتوى إلى الإعلانات الممولة وتصميم مواقع الكترونية متوافقة مع معايير SEO." },
             { title: "حلول شاملة", desc: "نقدم لك كل ما تحتاجه تحت سقف واحد، نعمل على تصميم استراتيجيات دقيقة ضمن خطط تسويقية متكاملة تضمن تحقيق أهدافك بأعلى درجات الإتقان." },
@@ -102,6 +106,10 @@ export const aboutData = {
         why_us_highlight: "Digital Growth",
         why_us_end: "",
         why_us_desc: "As the best digital marketing company in the world, Milaknight believes that your success is ours. We offer comprehensive digital marketing solutions, authentic digital marketing expertise, and an endless passion for transforming your ideas into inspiring achievements that take your brand to the top.",
+        why_us_title_home: "Why Choose Milaknight for Your Services?",
+        why_us_subtitle_home: "Your consultation with us is ",
+        why_us_highlight_home: "free and reliable.",
+        why_us_desc_home: "Because at Milaknight, an online marketing company, we believe that your success is an extension of our own. We offer integrated online marketing solutions that combine deep expertise, thoughtful marketing plans, and a boundless passion for transforming your ideas into inspiring achievements. We master content marketing, harnessing modern technologies and sponsored ads to create a marketing experience that leads you to excellence.",
         why_items: [
             { title: "Comprehensive Expertise", desc: "At Milaknight, the best digital marketing company, we have a specialized team with extensive experience in allareas of digital marketing, from content marketing to sponsored ads and SEO-compliant website design." },
             { title: "Comprehensive Solutions", desc: "We offer everything you need under one roof. We work to design precise strategies within integrated marketing plans that ensure your goals are achieved with the highest degree of mastery." },

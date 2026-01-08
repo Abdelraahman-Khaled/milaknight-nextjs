@@ -45,7 +45,7 @@ const Navbar = () => {
                                         <Link className="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank"
                                             rel="noopener">
                                             {t('company_profile')}
-                                            <i className="fa-solid fa-download me-1"></i>
+                                            <i className={`fa-solid fa-download ${language === 'ar' ? 'me-1' : 'ms-1'}`}></i>
                                         </Link>
                                     </li>
                                     <li className="nav-item">

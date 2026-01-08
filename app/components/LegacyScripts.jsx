@@ -47,11 +47,70 @@ const LegacyScripts = () => {
                     });
                 }
             }
+            // 4. Magnific Popup (Lightbox)
+            if ($('.gallery-items').length && $.fn.magnificPopup) {
+                if (!$('.gallery-items').data('magnific-init')) {
+                    $('.gallery-items').data('magnific-init', true).magnificPopup({
+                        delegate: 'a',
+                        type: 'image',
+                        closeOnContentClick: false,
+                        closeBtnInside: false,
+                        mainClass: 'mfp-with-zoom',
+                        image: { verticalFit: true },
+                        gallery: { enabled: true },
+                        zoom: {
+                            enabled: true,
+                            duration: 300,
+                            opener: function (element) {
+                                return element.find('img');
+                            }
+                        }
+                    });
+                }
+            }
+
+            // 5. Popup Video
+            if ($('.popup-video').length && $.fn.magnificPopup) {
+                if (!$('.popup-video').data('magnific-init')) {
+                    $('.popup-video').data('magnific-init', true).magnificPopup({
+                        type: 'iframe',
+                        mainClass: 'mfp-fade',
+                        removalDelay: 160,
+                        preloader: false,
+                        fixedContentPos: true
+                    });
+                }
+            }
+
+            // 6. Swiper Sliders
+            if (window.Swiper) {
+                if ($('.testimonial-slider').length && !$('.testimonial-slider .swiper-initialized').length) {
+                    new window.Swiper('.testimonial-slider .swiper', {
+                        slidesPerView: 1,
+                        speed: 1000,
+                        spaceBetween: 60,
+                        loop: true,
+                        autoplay: { delay: 5000 },
+                        pagination: { el: '.testimonial-pagination', clickable: true },
+                        breakpoints: { 768: { slidesPerView: 2 }, 991: { slidesPerView: 2 } }
+                    });
+                }
+                if ($('.agency-supports-slider').length && !$('.agency-supports-slider .swiper-initialized').length) {
+                    new window.Swiper('.agency-supports-slider .swiper', {
+                        slidesPerView: 2,
+                        speed: 2000,
+                        spaceBetween: 30,
+                        loop: true,
+                        autoplay: { delay: 5000 },
+                        breakpoints: { 768: { slidesPerView: 4 }, 991: { slidesPerView: 6 } }
+                    });
+                }
+            }
         };
 
         // Retry logic to wait for scripts to load
         const intervalId = setInterval(() => {
-            if (window.jQuery && window.gsap && window.ScrollTrigger && window.jQuery.fn.counterUp) {
+            if (window.jQuery && window.gsap && window.ScrollTrigger && window.jQuery.fn.counterUp && window.jQuery.fn.magnificPopup && window.Swiper) {
                 initLegacyScripts();
                 clearInterval(intervalId);
             }
@@ -66,6 +125,8 @@ const LegacyScripts = () => {
             <Script src="/js/jquery-3.7.1.min.js" strategy="beforeInteractive" />
             <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
             <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
+            <Script src="/js/jquery.magnific-popup.min.js" strategy="lazyOnload" />
+            <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
             <Script src="/js/gsap.min.js" strategy="lazyOnload" />
             <Script src="/js/ScrollTrigger.min.js" strategy="lazyOnload" />
             <Script src="/js/SplitText.min.js" strategy="lazyOnload" />

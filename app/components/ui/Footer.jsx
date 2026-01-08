@@ -1,8 +1,14 @@
+'use client';
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
+import { LanguageContext } from '@/app/context/LanguageContext'
+import { footerData } from '@/app/data/footerData'
 
 const Footer = () => {
+    const { language } = useContext(LanguageContext);
+    const content = footerData[language];
+
     return (
         <>
             <footer className="main-footer">
@@ -14,8 +20,8 @@ const Footer = () => {
                                 <div className="work-together-box">
                                     {/* <!-- Work Together Content Start --> */}
                                     <div className="work-together-content">
-                                        <h3 className="work-together-content-h2">دعونا نتعاون</h3>
-                                        <h2>دعونا نعمل معاً</h2>
+                                        <h3 className="work-together-content-h2">{content.letsWork.subTitle}</h3>
+                                        <h2>{content.letsWork.title}</h2>
                                     </div>
                                     {/* <!-- Work Together Content End --> */}
 
@@ -23,7 +29,7 @@ const Footer = () => {
                                     <div className="work-together-btn">
                                         <Link href="contact.html">
                                             <Image src="/images/icons/arrow-dark.svg" alt="arrow" width={24} height={24} />
-                                            <span>تواصل معنا</span>
+                                            <span>{content.letsWork.buttonText}</span>
                                         </Link>
                                     </div>
                                     {/* <!-- Work Together Btn End --> */}
@@ -47,23 +53,13 @@ const Footer = () => {
                             <div className="col-lg-2 col-md-3 col-6">
                                 {/* <!-- Footer Links start --> */}
                                 <div className="footer-links">
-                                    <h3>روابط سريعة</h3>
+                                    <h3>{content.quickLinks.title}</h3>
                                     <ul>
-                                        <li>
-                                            <Link href="./">الرئيسية</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="about.html">من نحن</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="projects.html">أعمالنا</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="pricing.html">أسعارنا</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="contact.html">تواصل معنا</Link>
-                                        </li>
+                                        {content.quickLinks.links.map((link, index) => (
+                                            <li key={index}>
+                                                <Link href={link.href}>{link.text}</Link>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                                 {/* <!-- Footer Links end --> */}
@@ -72,18 +68,13 @@ const Footer = () => {
                             <div className="col-lg-2 col-md-3 col-6">
                                 {/* <!-- Footer Links start --> */}
                                 <div className="footer-links">
-                                    <h3>الخدمات</h3>
+                                    <h3>{content.services.title}</h3>
                                     <ul>
-                                        <li><Link href="service/web-development.html">تصميم و برمجة المواقع</Link>
-                                        </li>
-                                        <li><Link href="service/digital-marketing.html">وسائل التواصل الاجتماعي</Link>
-                                        </li>
-                                        <li><Link href="service/graphic-design.html">التصميم الجرافيكي</Link>
-                                        </li>
-                                        <li><Link href="service/video-production.html">إنتاج الفيديو</Link>
-                                        </li>
-                                        <li><Link href="service/e-commerce.html">التجارة الإلكتروني</Link>
-                                        </li>
+                                        {content.services.links.map((link, index) => (
+                                            <li key={index}>
+                                                <Link href={link.href}>{link.text}</Link>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                                 {/* <!-- Footer Links end --> */}
@@ -100,7 +91,7 @@ const Footer = () => {
                                                 <Image src="/images/icons/icon-phone.svg" alt="icon-phone" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content">
-                                                <p dir="ltr">+971 58 585 6774</p>
+                                                <p>{content.contact.phone}</p>
                                             </div>
                                         </Link>
                                         {/* <!-- Footer Contact Item End --> */}
@@ -112,7 +103,7 @@ const Footer = () => {
                                                 <Image src="/images/icons/icon-mail.svg" alt="icon-mail" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content">
-                                                <p>Info[at]milaknights[dot]com</p>
+                                                <p>{content.contact.email}</p>
                                             </div>
                                         </Link>
                                         {/* <!-- Footer Contact Item End --> */}
@@ -175,7 +166,7 @@ const Footer = () => {
                                 <div className="col-lg-12">
                                     {/* <!-- Footer Copyright Start --> */}
                                     <div className="footer-copyright-text">
-                                        <p>جميع الحقوق محفوظة © Milaknight LLC-FZ 2025</p>
+                                        <p>{content.copyright}</p>
                                     </div>
                                     {/* <!-- Footer Copyright End --> */}
                                 </div>
@@ -189,12 +180,12 @@ const Footer = () => {
 
             <Link href="https://calendly.com/milaknights-info" target="_blank" rel="noopener" className="whatsapp meeting">
                 <Image src="/images/icons/calender.webp" loading="lazy" alt="meeting" width={24} height={24} />
-                <span>طلب إجتماع</span>
+                <span>{content.floatingButtons.meeting}</span>
             </Link>
 
             <Link href="https://api.whatsapp.com/send?phone=971585856774" target="_blank" rel="noopener" className="whatsapp">
                 <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="whatsapp" width={24} height={24} />
-                <span>استشارة مجانية</span>
+                <span>{content.floatingButtons.consultation}</span>
             </Link>
         </>
 

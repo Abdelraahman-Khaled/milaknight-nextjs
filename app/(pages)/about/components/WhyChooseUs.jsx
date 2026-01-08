@@ -6,7 +6,7 @@ import { aboutData } from '@/app/data/aboutData';
 import SectionTitle from '@/app/components/ui/SectionTitle';
 import TextBox from '@/app/components/ui/TextBox';
 
-const WhyChooseUs = () => {
+const WhyChooseUs = ({ home = false }) => {
     const { language } = useContext(LanguageContext);
     const c = aboutData[language];
 
@@ -15,17 +15,33 @@ const WhyChooseUs = () => {
             <div className="container">
                 <div className="row align-items-center section-row">
                     <div className="col-lg-7">
-                        <SectionTitle
-                            title={c.why_us_title}
-                            subtitle={c.why_us_subtitle}
-                            span={c.why_us_highlight}
-                            subtitle_end={c.why_us_end}
-                        />
+                        {
+                            home ?
+                                <SectionTitle
+                                    title={c.why_us_title_home}
+                                    subtitle={c.why_us_subtitle_home}
+                                    span={c.why_us_highlight_home}
+                                    subtitle_end={""}
+                                />
+                                :
+                                <SectionTitle
+                                    title={c.why_us_title}
+                                    subtitle={c.why_us_subtitle}
+                                    span={c.why_us_highlight}
+                                    subtitle_end={c.why_us_end}
+                                />
+
+                        }
                     </div>
                     <div className="col-lg-5">
                         <div className="section-content-btn">
                             <div className="section-title-content">
-                                <p>{c.why_us_desc}</p>
+                                {
+                                    home ?
+                                        <p>{c.why_us_desc_home}</p>
+                                        :
+                                        <p>{c.why_us_desc}</p>
+                                }
                             </div>
                         </div>
                     </div>
