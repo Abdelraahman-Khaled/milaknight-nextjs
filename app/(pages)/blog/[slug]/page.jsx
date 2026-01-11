@@ -53,14 +53,14 @@ export async function generateMetadata({ params }) {
         : (blog.meta_description_en || blog.description_en);
 
     return {
-        title,
+        title: `Milaknight | ${title}`,
         description,
         icons: {
             icon: '/images/icons/favicon.ico',
             shortcut: '/images/icons/favicon.ico',
         },
         openGraph: {
-            title,
+            title: "Milaknight" | title,
             description,
             images: blog.photo_url ? [blog.photo_url] : ["/images/icons/favicon.ico"],
         },
