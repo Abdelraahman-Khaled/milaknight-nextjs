@@ -19,6 +19,8 @@ export const LanguageProvider = ({ children }) => {
     useEffect(() => {
         // Save language and update document attributes
         localStorage.setItem('language', language);
+        // Set cookie for server-side access
+        document.cookie = `NEXT_LOCALE=${language}; path=/; max-age=31536000; SameSite=Lax`;
         document.documentElement.lang = language;
         document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     }, [language]);

@@ -4,6 +4,8 @@ import LegacyScripts from '@/app/components/LegacyScripts';
 import { getBlogDetails, getBlogs } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
 
+import { cookies } from 'next/headers';
+
 // Generate static params for all blog posts at build time
 export async function generateStaticParams() {
     try {
@@ -27,7 +29,6 @@ export const revalidate = 3600;
 async function getBlog(slug) {
     try {
         const data = await getBlogDetails(slug);
-        console.log(data);
 
         if (!data) return undefined;
         return data;
@@ -43,17 +44,27 @@ export async function generateMetadata({ params }) {
 
     if (!blog) return {};
 
-    // Note: Server-side doesn't know the client language yet, defaults to Arabic or both in meta
+    const cookieStore = await cookies();
+    const language = cookieStore.get('NEXT_LOCALE')?.value || 'ar'; // Default to 'ar'
+
+    const title = language === 'ar'
+        ? (blog.meta_title_ar || blog.meta_title_en)
+        : (blog.meta_title_en || blog.meta_title_ar);
+
+    const description = language === 'ar'
+        ? (blog.meta_description_ar || blog.meta_description_en)
+        : (blog.meta_description_en || blog.meta_description_ar);
+
     return {
-        title: blog.meta_title_ar || blog.meta_title_en,
-        description: blog.meta_description_ar || blog.meta_description_en,
+        title: title,
+        description: description,
         icons: {
             icon: '/images/icons/favicon.ico',
             shortcut: '/images/icons/favicon.ico',
         },
         openGraph: {
-            title: blog.meta_title_ar || blog.meta_title_en,
-            description: blog.meta_description_ar || blog.meta_description_en,
+            title: title,
+            description: description,
             images: [blog.image],
         }
     };
@@ -68,6 +79,7 @@ export default async function BlogDetailsPage({ params }) {
     }
 
     return (
+
         <>
             <BlogDetailContent blog={blog} />
             <LegacyScripts />
