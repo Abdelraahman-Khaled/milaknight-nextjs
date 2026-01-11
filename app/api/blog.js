@@ -24,6 +24,8 @@ export const getBlogDetails = async (slug) => {
         const response = await axiosInstance.get('/plog_show', {
             params: { slug }
         });
+        console.log("params", slug);
+
         return response.data;
     } catch (error) {
         console.error(`Error fetching blog details for slug: ${slug}`, error);

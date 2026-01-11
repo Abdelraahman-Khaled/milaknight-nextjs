@@ -39,6 +39,7 @@ async function getBlog(slug) {
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     const blog = await getBlog(slug);
+    console.log(slug);
 
     if (!blog) return {};
 
@@ -71,6 +72,7 @@ export async function generateMetadata({ params }) {
 export default async function BlogDetailsPage({ params }) {
     const { slug } = await params;
     const blog = await getBlog(slug);
+    console.log(slug);
 
     if (!blog) {
         notFound();
