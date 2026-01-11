@@ -1,34 +1,19 @@
-import axiosInstance from './axiosInstance';
+const API = process.env.NEXT_PUBLIC_BASE_URL;
 
-/**
- * Fetch all blogs from the backend API.
- * @returns {Promise<Array>} List of blog posts.
- */
 export const getBlogs = async () => {
-    try {
-        const response = await axiosInstance.get('/plogs_landing');
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching blogs:', error);
-        throw error;
-    }
+    const res = await fetch(`${API}/plogs_landing`, {
+        next: { revalidate: 60 }, // or cache: 'no-store'
+    });
+
+    if (!res.ok) throw new Error('Failed to fetch blogs');
+    return res.json();
 };
 
-/**
- * Fetch a single blog post by its slug.
- * @param {string} slug - The unique slug of the blog.
- * @returns {Promise<Object>} The blog post details.
- */
 export const getBlogDetails = async (slug) => {
-    try {
-        const response = await axiosInstance.get('/plog_show', {
-            params: { slug }
-        });
-        console.log("params", slug);
+    const res = await fetch(`${API}/plog_show?slug=${slug}`, {
+        next: { revalidate: 60 }, // IMPORTANT
+    });
 
-        return response.data;
-    } catch (error) {
-        console.error(`Error fetching blog details for slug: ${slug}`, error);
-        throw error;
-    }
+    if (!res.ok) throw new Error('Failed to fetch blog');
+    return res.json();
 };

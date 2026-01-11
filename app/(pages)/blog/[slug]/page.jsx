@@ -4,7 +4,9 @@ import LegacyScripts from '@/app/components/LegacyScripts';
 import { getBlogDetails, getBlogs } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
 
-import { cookies } from 'next/headers';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 // Generate static params for all blog posts at build time
 export async function generateStaticParams() {
@@ -37,7 +39,7 @@ async function getBlog(slug) {
 }
 
 export async function generateMetadata({ params }) {
-    const { slug } = await params;
+    const { slug } = params;
     const blog = await getBlog(slug);
     console.log(slug);
 
