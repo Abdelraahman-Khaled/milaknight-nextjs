@@ -53,6 +53,7 @@ export async function generateMetadata({ params }) {
     const description = language === 'ar'
         ? (blog.meta_description_ar || blog.meta_description_en)
         : (blog.meta_description_en || blog.meta_description_ar);
+    console.log("title", title, "description", description);
 
     return {
         title: title,
