@@ -90,7 +90,7 @@ const Footer = () => {
                                             <div className="icon-box">
                                                 <Image src="/images/icons/icon-phone.svg" alt="icon-phone" width={18} height={18} />
                                             </div>
-                                            <div className="footer-contact-content">
+                                            <div className="footer-contact-content" dir='ltr'>
                                                 <p>{content.contact.phone}</p>
                                             </div>
                                         </Link>
