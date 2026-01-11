@@ -21,9 +21,7 @@ export async function generateStaticParams() {
 }
 
 // Allow dynamic params for new blog posts added after build
-export const dynamicParams = true;
-// Revalidate every hour
-export const revalidate = 3600;
+export const dynamicParams = false;
 
 // Helper to fetch data with ISR
 async function getBlog(slug) {
@@ -44,8 +42,8 @@ export async function generateMetadata({ params }) {
 
     if (!blog) return {};
 
-    const cookieStore = await cookies();
-    const language = cookieStore.get('NEXT_LOCALE')?.value || 'ar'; // Default to 'ar'
+    // const cookieStore = await cookies();
+    const language = 'ar'; // Default to 'ar' for static export
 
     const title = language === 'ar'
         ? (blog.meta_title_ar || blog.meta_title_en)

@@ -1,6 +1,5 @@
 "use client";
 import React, { useContext } from 'react';
-import Image from 'next/image';
 import { LanguageContext } from '@/app/context/LanguageContext';
 
 const BlogFaqs = ({ faqs }) => {

@@ -55,7 +55,7 @@ const LatestNews = () => {
             </div>
             <div className="text-center mt-4">
                 <div className="section-btn">
-                    <Link href="blog.html" className="btn-default">{content.moreArticles}</Link>
+                    <Link href="blog" className="btn-default">{content.moreArticles}</Link>
                 </div>
             </div>
         </div>
