@@ -2,16 +2,25 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { LanguageContext } from '../context/LanguageContext';
+import BlogFaqs from './blogs/BlogFaqs';
+import { getFaqs } from '../api/FAQ';
 
 const Faqs = () => {
     const { language } = useContext(LanguageContext);
     const [faqs, setFaqs] = useState([]);
 
     useEffect(() => {
-        fetch('/api/faqs')
-            .then(res => res.json())
-            .then(data => setFaqs(data))
-            .catch(err => console.error("Failed to fetch FAQs:", err));
+        const fetchFaqs = async () => {
+            try {
+                const data = await getFaqs();
+                if (data) {
+                    setFaqs(data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch faqs:", error);
+            }
+        };
+        fetchFaqs();
     }, []);
 
     const content = {
@@ -56,39 +65,7 @@ const Faqs = () => {
                                 <h2 className=" first-section-title">{c.faq_title}</h2>
                                 <p>{c.faq_subtitle}</p>
                             </div>
-                            <div className="faq-accordion" id="faqaccordion">
-                                {/* Map FAQs from API */}
-                                {faqs.map((faq, index) => {
-                                    // Get translated content for the question/answer
-                                    const question = faq.question[language] || faq.question['en'];
-                                    const answer = faq.answer[language] || faq.answer['en'];
-
-                                    return (
-                                        <div className="accordion-item" key={faq.id}>
-                                            <h3 className="accordion-header" id={`heading${faq.id}`}>
-                                                <button
-                                                    className="accordion-button collapsed"
-                                                    type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target={`#collapse${faq.id}`}
-                                                    aria-expanded="false"
-                                                    aria-controls={`collapse${faq.id}`}
-                                                >
-                                                    {question}
-                                                </button>
-                                            </h3>
-                                            <div
-                                                id={`collapse${faq.id}`}
-                                                className="accordion-collapse collapse"
-                                                aria-labelledby={`heading${faq.id}`}
-                                                data-bs-parent="#faqaccordion"
-                                            >
-                                                <div className="accordion-body" dangerouslySetInnerHTML={{ __html: answer }} />
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
+                            <BlogFaqs faqs={faqs} />
                         </div>
                     </div>
                 </div>

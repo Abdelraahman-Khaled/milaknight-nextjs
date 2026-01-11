@@ -33651,18 +33651,15 @@ body:has(.offcanvas) {
 }
 
 .post-entry p {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
     color: #000;
     font-size: 20px;
 }
 
-.post-entry p:last-child {
-    margin-bottom: 0;
-}
-
-.post-entry p strong {
+.post-entry p strong,
+.post-entry strong {
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .post-entry ol {
@@ -35958,6 +35955,7 @@ body:has(.offcanvas) {
         margin-bottom: 15px;
         padding-left: 25px;
     }
+
 
     .service-entry-list ul li::before {
         font-size: 16px;
@@ -38438,9 +38436,19 @@ body {
     padding-right: 30px;
 }
 
+[dir=ltr] .service-entry-list ul li {
+    padding-right: 0;
+    padding-left: 30px;
+}
+
 .service-entry-list ul li::before {
     right: 0;
     left: initial;
+}
+
+[dir="ltr"] .service-entry-list ul li::before {
+    right: initial;
+    left: 0px;
 }
 
 .service-catagery-list ul li a::before {

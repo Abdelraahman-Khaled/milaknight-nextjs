@@ -25,7 +25,16 @@ const translations = {
         follow_us_linkedin: "Follow us on LinkedIn",
         follow_us_tiktok: "Follow us on TikTok",
         subscribe_youtube: "Subscribe to our YouTube channel",
-        latest: "Latest"
+        latest: "Latest",
+        all_articles: "All Articles",
+        branding_and_identity: "Branding & Identity",
+        web_design_label: "Web Design",
+        graphic_design_label: "Graphic Design",
+        digital_marketing_label: "Digital Marketing",
+        e_commerce_label: "E-commerce",
+        loading_articles: "Loading articles...",
+        no_articles_found: "No articles found in this category.",
+        read_article: "Read Article"
     },
     ar: {
         home: "الرئيسية",
@@ -53,7 +62,16 @@ const translations = {
         follow_us_linkedin: "تابعنا على لينكد إن",
         follow_us_tiktok: "تابعنا على تيك توك",
         subscribe_youtube: "اشترك في قناتنا على يوتيوب",
-        latest: "أحدث"
+        latest: "أحدث",
+        all_articles: "جميع المقالات",
+        branding_and_identity: "العلامة التجارية والهوية",
+        web_design_label: "تصميم المواقع",
+        graphic_design_label: "التصميم الجرافيكي",
+        digital_marketing_label: "التسويق الرقمي",
+        e_commerce_label: "التجارة الكترونية",
+        loading_articles: "جاري تحميل المقالات...",
+        no_articles_found: "لا توجد مقالات في هذا القسم حالياً.",
+        read_article: "قراءة المقالة"
     }
 };
 
