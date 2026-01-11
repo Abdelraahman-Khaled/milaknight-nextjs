@@ -7,6 +7,8 @@ import { LanguageContext } from '@/app/context/LanguageContext';
 import ScrollTicker from '../ui/ScrollTicker';
 import BlogFaqs from './BlogFaqs';
 
+
+
 const BlogDetailContent = ({ blog }) => {
     const { language, t } = useContext(LanguageContext);
 
