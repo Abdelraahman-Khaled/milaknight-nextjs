@@ -1,12 +1,17 @@
 "use client";
 
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useRef } from 'react';
 import translations from './translations';
 
 export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState('ar');
+    const prevLanguage = useRef(language);
+
+    useEffect(() => {
+        prevLanguage.current = language;
+    }, [language]);
 
     useEffect(() => {
         // Load saved language on mount
@@ -34,7 +39,7 @@ export const LanguageProvider = ({ children }) => {
     };
 
     return (
-        <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+        <LanguageContext.Provider value={{ language, toggleLanguage, t, prevLanguage }}>
             {children}
         </LanguageContext.Provider>
     );

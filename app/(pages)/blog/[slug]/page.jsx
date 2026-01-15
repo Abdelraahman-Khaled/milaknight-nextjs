@@ -11,12 +11,16 @@ async function getBlog(slug) {
     try {
         // 1. Try with the original slug
         let data = await getBlogDetails(slug);
+        console.log(data);
+
         if (data && data.id) return data;
 
         // 2. If it has hyphens, try replacing them with spaces
         if (slug.includes('-')) {
             const spaceSlug = slug.replace(/-/g, ' ');
             data = await getBlogDetails(spaceSlug);
+            console.log(data);
+
             if (data && data.id) return data;
         }
 
@@ -24,6 +28,7 @@ async function getBlog(slug) {
         if (slug.includes(' ')) {
             const hyphenSlug = slug.replace(/ /g, '-');
             data = await getBlogDetails(hyphenSlug);
+
             if (data && data.id) return data;
         }
 
@@ -64,7 +69,14 @@ export async function generateMetadata({ params }) {
             description,
             images: blog.photo_url ? [blog.photo_url] : ["/images/icons/favicon.ico"],
         },
-    };
+        alternates: {
+            canonical: `/blog/${blog.slug}`,
+            languages: {
+                ar: `/blog/${blog.slug_ar}`,
+                en: `/blog/${blog.slug}`,
+            }
+        }
+    }
 }
 
 export default async function BlogDetailsPage({ params }) {

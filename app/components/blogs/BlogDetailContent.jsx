@@ -1,16 +1,37 @@
 "use client";
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import ScrollTicker from '../ui/ScrollTicker';
 import BlogFaqs from './BlogFaqs';
+import { useRouter, usePathname } from "next/navigation";
 
 
 
 const BlogDetailContent = ({ blog }) => {
-    const { language, t } = useContext(LanguageContext);
+    const { language, t, prevLanguage } = useContext(LanguageContext);
+    const router = useRouter();
+
+    // guard علشان يمنع التكرار
+
+    useEffect(() => {
+        if (!blog) return;
+
+        // لو اللغة متغيرتش → اعمل nothing
+        if (prevLanguage.current === language) return;
+
+        const targetSlug =
+            language === "ar"
+                ? blog.slug_ar || blog.slug
+                : blog.slug || blog.slug_ar;
+
+        router.replace(`/blog/${targetSlug}`, { scroll: false });
+    }, [language, blog, router, prevLanguage]);
+
+
+
 
     // Fallback logic for content
     const renderContent = () => {
