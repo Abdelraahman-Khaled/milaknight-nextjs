@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { getBlogs } from "@/app/api/blog";
 import { LanguageContext } from "@/app/context/LanguageContext";
 
@@ -11,7 +10,6 @@ const BlogsTabs = () => {
   const [activeFilter, setActiveFilter] = useState("*");
   const [blogsList, setBlogsList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   const filters = [
     { label: t("all_articles"), value: "*" },
