@@ -106,22 +106,30 @@ const BlogsTabs = () => {
                             height: "auto",
                           }}
                         >
-                          <Image
-                            src={blog.photo_url}
-                            alt={
-                              language === "ar"
-                                ? blog.image_alt_text_ar
-                                : blog.image_alt_text_en
-                            }
-                            width={0}
-                            height={0}
-                            sizes="100vw"
-                            style={{
-                              objectFit: "cover",
-                              width: "100%",
-                              height: "auto",
-                            }}
-                          />
+                          {(() => {
+                            const photo = blog.photos?.find(
+                              (p) => p.is_arabic === (language === "ar")
+                            );
+                            return (
+                              <Image
+                                src={photo?.url || blog.photo_url}
+                                alt={
+                                  photo?.alt ||
+                                  (language === "ar"
+                                    ? blog.image_alt_text_ar
+                                    : blog.image_alt_text_en)
+                                }
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                style={{
+                                  objectFit: "cover",
+                                  width: "100%",
+                                  height: "auto",
+                                }}
+                              />
+                            );
+                          })()}
                         </Link>
                       </figure>
                     </div>

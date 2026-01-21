@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getBlogDetails } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
-import LegacyScripts from '@/app/components/LegacyScripts';
 import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
@@ -57,6 +56,9 @@ export async function generateMetadata({ params }) {
         ? (blog.meta_description_ar || blog.description_ar)
         : (blog.meta_description_en || blog.description_en);
 
+    const featuredPhoto = blog.photos?.find(p => p.is_arabic === (language === 'ar')) || blog.photos?.[0];
+    const photoUrl = featuredPhoto?.url || blog.photo_url;
+
     return {
         title: `Milaknight | ${title}`,
         description,
@@ -67,7 +69,7 @@ export async function generateMetadata({ params }) {
         openGraph: {
             title: "Milaknight" | title,
             description,
-            images: blog.photo_url ? [blog.photo_url] : ["/images/icons/favicon.ico"],
+            images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
         },
         alternates: {
             canonical: `/blog/${blog.slug}`,
@@ -89,7 +91,6 @@ export default async function BlogDetailsPage({ params }) {
     return (
         <>
             <BlogDetailContent blog={blog} />
-            <LegacyScripts />
         </>
     );
 }

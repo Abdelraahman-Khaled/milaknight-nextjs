@@ -1,140 +1,118 @@
 "use client";
-import { useEffect } from 'react';
-import Script from 'next/script';
+import React, { useEffect } from 'react';
 
 const LegacyScripts = () => {
     useEffect(() => {
-        // Initialize legacy scripts logic after component mount and scripts load
-        const initLegacyScripts = () => {
-            if (typeof window === 'undefined' || !window.jQuery) return;
-            const $ = window.jQuery;
+        // List of scripts that need to be re-executed
+        // We target the main function script and maybe others if needed.
+        // Since they are in public/js, we can reload them.
 
-            // 1. Counters
-            if ($('.counter').length && $.fn.counterUp) {
-                $('.counter').counterUp({ delay: 6, time: 3000 });
+        // Function to load a script
+        const loadScript = (src) => {
+            // CLEANUP: Remove any existing dynamically generated SlickNav menus to prevent duplication
+            const existingSlicknav = document.querySelectorAll('.slicknav_menu, .slicknav_btn');
+            existingSlicknav.forEach(el => el.remove());
+
+            const responsiveMenu = document.querySelector('.responsive-menu');
+            if (responsiveMenu) responsiveMenu.innerHTML = '';
+
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            if (navbarToggle) {
+                navbarToggle.innerHTML = '';
             }
 
-            // 2. GSAP Reveal
-            if ($('.reveal').length && window.gsap && window.ScrollTrigger) {
-                const gsap = window.gsap;
-                const ScrollTrigger = window.ScrollTrigger;
-                gsap.registerPlugin(ScrollTrigger);
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = false;
+            document.body.appendChild(script);
 
-                const revealContainers = document.querySelectorAll(".reveal");
-                revealContainers.forEach((container) => {
-                    if (container.classList.contains('reveal-initialized')) return;
-                    container.classList.add('reveal-initialized');
-                    let image = container.querySelector("img");
-                    let tl = gsap.timeline({ scrollTrigger: { trigger: container, toggleActions: "play none none none" } });
-                    tl.set(container, { autoAlpha: 1 });
-                    tl.from(container, 1, { xPercent: 0, ease: "power2.out" });
-                    tl.from(image, 1, { xPercent: 100, scale: 1, delay: -1, ease: "power2.out" });
-                });
-            }
-
-            // 3. Why Choose Us Hover
-            if ($('.why-choose-content').length) {
-                const element = $('.why-choose-content');
-                const items = element.find('.why-choose-item');
-                if (items.length) {
-                    items.off('mouseenter mouseleave').on({
-                        mouseenter: function () {
-                            if ($(this).hasClass('active')) return;
-                            items.removeClass('active');
-                            $(this).addClass('active');
-                        },
-                        mouseleave: function () { }
-                    });
-                }
-            }
-            // 4. Magnific Popup (Lightbox)
-            if ($('.gallery-items').length && $.fn.magnificPopup) {
-                if (!$('.gallery-items').data('magnific-init')) {
-                    $('.gallery-items').data('magnific-init', true).magnificPopup({
-                        delegate: 'a',
-                        type: 'image',
-                        closeOnContentClick: false,
-                        closeBtnInside: false,
-                        mainClass: 'mfp-with-zoom',
-                        image: { verticalFit: true },
-                        gallery: { enabled: true },
-                        zoom: {
-                            enabled: true,
-                            duration: 300,
-                            opener: function (element) {
-                                return element.find('img');
-                            }
-                        }
-                    });
-                }
-            }
-
-            // 5. Popup Video
-            if ($('.popup-video').length && $.fn.magnificPopup) {
-                if (!$('.popup-video').data('magnific-init')) {
-                    $('.popup-video').data('magnific-init', true).magnificPopup({
-                        type: 'iframe',
-                        mainClass: 'mfp-fade',
-                        removalDelay: 160,
-                        preloader: false,
-                        fixedContentPos: true
-                    });
-                }
-            }
-
-            // 6. Swiper Sliders
-            if (window.Swiper) {
-                if ($('.testimonial-slider').length && !$('.testimonial-slider .swiper-initialized').length) {
-                    new window.Swiper('.testimonial-slider .swiper', {
-                        slidesPerView: 1,
-                        speed: 1000,
-                        spaceBetween: 60,
-                        loop: true,
-                        autoplay: { delay: 5000 },
-                        pagination: { el: '.testimonial-pagination', clickable: true },
-                        breakpoints: { 768: { slidesPerView: 2 }, 991: { slidesPerView: 2 } }
-                    });
-                }
-                if ($('.agency-supports-slider').length && !$('.agency-supports-slider .swiper-initialized').length) {
-                    new window.Swiper('.agency-supports-slider .swiper', {
-                        slidesPerView: 2,
-                        speed: 2000,
-                        spaceBetween: 30,
-                        loop: true,
-                        autoplay: { delay: 5000 },
-                        breakpoints: { 768: { slidesPerView: 4 }, 991: { slidesPerView: 6 } }
-                    });
-                }
-            }
+            return script;
         };
 
-        // Retry logic to wait for scripts to load
-        const intervalId = setInterval(() => {
-            if (window.jQuery && window.gsap && window.ScrollTrigger && window.jQuery.fn.counterUp && window.jQuery.fn.magnificPopup && window.Swiper) {
-                initLegacyScripts();
-                clearInterval(intervalId);
+        const scripts = [
+            "/js/jquery-3.7.1.min.js",
+            "/js/bootstrap.min.js",
+            "/js/swiper-bundle.min.js",
+            "/js/jquery.slicknav.min.js",
+            "/js/jquery.waypoints.min.js",
+            "/js/jquery.counterup.min.js",
+            "/js/isotope.min.js",
+            "/js/jquery.magnific-popup.min.js",
+            "/js/SmoothScroll.min.js",
+            "/js/gsap.min.js",
+            // "/js/magiccursor.min.js", // Disabled in favor of React Cursor component
+            "/js/SplitText.min.js",
+            "/js/ScrollTrigger.min.js",
+            "/js/jquery.mb.YTPlayer.min.js",
+            "/js/typed.min.js",
+            "/js/function.min.js"
+        ];
+
+        const loadedScripts = [];
+
+        const loadNext = (index) => {
+            if (index >= scripts.length) return;
+            const src = scripts[index];
+
+            const singleRunScripts = [
+                "/js/magiccursor.min.js",
+                "/js/jquery.mb.YTPlayer.min.js"
+            ];
+
+            if (singleRunScripts.includes(src)) {
+                let skip = false;
+                if (src.includes("magiccursor.min.js") && (window.Cursor || document.querySelector(`script[src="${src}"]`))) {
+                    skip = true;
+                }
+                if (src.includes("jquery.mb.YTPlayer.min.js") && (typeof window.YTPRndSuffix !== 'undefined' || document.querySelector(`script[src="${src}"]`))) {
+                    skip = true;
+                }
+
+                if (skip) {
+                    loadNext(index + 1);
+                    return;
+                }
             }
-        }, 100);
 
-        // Cleanup
-        return () => clearInterval(intervalId);
-    }, []); // Run once on mount
+            const oldScripts = document.querySelectorAll(`script[src="${src}"]`);
+            if (oldScripts.length > 0) {
+                if (singleRunScripts.includes(src)) {
+                    loadNext(index + 1);
+                    return;
+                }
+                oldScripts.forEach(s => s.remove());
+            }
 
-    return (
-        <>
-            <Script src="/js/jquery-3.7.1.min.js" strategy="beforeInteractive" />
-            <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
-            <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
-            <Script src="/js/jquery.magnific-popup.min.js" strategy="lazyOnload" />
-            <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
-            <Script src="/js/gsap.min.js" strategy="lazyOnload" />
-            <Script src="/js/ScrollTrigger.min.js" strategy="lazyOnload" />
-            <Script src="/js/SplitText.min.js" strategy="lazyOnload" />
-            <Script src="/js/jquery.slicknav.min.js" strategy="lazyOnload" />
-            <Script src="/js/type.min.js" strategy="lazyOnload" />
-            <Script src="/js/magiccursor.min.js" strategy="lazyOnload" />
-        </>
-    );
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = false;
+            script.onload = () => loadNext(index + 1);
+            document.body.appendChild(script);
+            loadedScripts.push(script);
+        };
+
+        loadNext(0);
+
+        const playVideos = () => {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                if (video.paused) {
+                    video.play().catch(e => console.log("Video play failed:", e));
+                }
+            });
+        };
+
+        setTimeout(playVideos, 100);
+        setTimeout(playVideos, 1000);
+
+        return () => {
+            loadedScripts.forEach(s => {
+                if (s.parentNode) s.parentNode.removeChild(s);
+            });
+        };
+    }, []);
+
+    return null;
 };
 
 export default LegacyScripts;

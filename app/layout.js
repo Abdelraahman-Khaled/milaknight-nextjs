@@ -8,6 +8,7 @@ import Script from "next/script";
 import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
 import LegacyScripts from "./components/LegacyScripts";
+import Navbar from "./components/Navbar";
 
 
 
@@ -216,7 +217,7 @@ export default function RootLayout({ children }) {
           <Preloader />
           <Cursor />
           <BootstrapClient />
-          {/* <Navbar /> */}
+          <Navbar />
           {children}
           <LegacyScripts />
         </Providers>

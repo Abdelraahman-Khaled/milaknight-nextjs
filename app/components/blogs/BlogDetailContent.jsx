@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import ScrollTicker from '../ui/ScrollTicker';
 import BlogFaqs from './BlogFaqs';
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 
 
@@ -105,8 +105,15 @@ const BlogDetailContent = ({ blog }) => {
                             <div className="post-image">
                                 <figure className="image-anime reveal">
                                     <Image
-                                        src={blog.photo_url}
-                                        alt={language === 'ar' ? (blog.image_alt_text_ar || blog.image_alt_text_en) : (blog.image_alt_text_en || blog.image_alt_text_ar)}
+                                        src={
+                                            (blog.photos?.find(p => p.is_arabic === (language === 'ar'))?.url) ||
+                                            (blog.photos?.[0]?.url) ||
+                                            blog.photo_url
+                                        }
+                                        alt={
+                                            (blog.photos?.find(p => p.is_arabic === (language === 'ar'))?.alt) ||
+                                            (language === 'ar' ? (blog.image_alt_text_ar || blog.image_alt_text_en) : (blog.image_alt_text_en || blog.image_alt_text_ar))
+                                        }
                                         width={1200}
                                         height={630}
                                     />

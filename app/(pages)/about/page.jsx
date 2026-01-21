@@ -8,7 +8,6 @@ import AboutIntro from './components/AboutIntro';
 import ConsultancySection from './components/ConsultancySection';
 import WhoWeAre from './components/WhoWeAre';
 import WhyChooseUs from './components/WhyChooseUs';
-import LegacyScripts from '@/app/components/LegacyScripts';
 
 
 
@@ -31,7 +30,6 @@ export default function AboutPage() {
 
             <Faqs />
 
-            <LegacyScripts />
         </>
     );
 }
