@@ -7,7 +7,7 @@ const seoData = {
         title: 'أسعارنا - Milaknight',
         description: 'أسعار تنافسية لخدمات التسويق الرقمي تصميم المواقع استراتيجيات سيو إدارة حملات الإعلانات تصميم جرافيكي حلول مبتكرة بأسعار مناسبة لكل الشركات استثمارات تسويقية ذكية',
         url: 'https://mila-knight.com/pricing',
-        locale: 'ar_SA',
+        locale: 'KSA',
         jsonLd: {
             "@context": "https://schema.org",
             "@type": "CollectionPage",

@@ -18,8 +18,22 @@ const HeroSection = ({ title, subtitle, breadcrumb, page }) => {
                             </h1>
                             <nav>
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><Link href="/">{t(breadcrumb)}</Link></li>
-                                    <li className="active breadcrumb-item" aria-current="page">{t(page)}</li>
+                                    {Array.isArray(breadcrumb) ? (
+                                        breadcrumb.map((item, index) => (
+                                            <li key={index} className={`breadcrumb-item ${!item.href ? 'active' : ''}`} aria-current={!item.href ? 'page' : undefined}>
+                                                {item.href ? (
+                                                    <Link href={item.href}>{t(item.label)}</Link>
+                                                ) : (
+                                                    t(item.label)
+                                                )}
+                                            </li>
+                                        ))
+                                    ) : (
+                                        <>
+                                            <li className="breadcrumb-item"><Link href="/">{t(breadcrumb)}</Link></li>
+                                            <li className="active breadcrumb-item" aria-current="page">{t(page)}</li>
+                                        </>
+                                    )}
                                 </ol>
                             </nav>
                         </div>

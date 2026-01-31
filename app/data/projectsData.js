@@ -30,6 +30,7 @@ export const projectsSEO = {
     }
 };
 
+
 export const projectCategories = [
     {
         id: 'graphic-design',
@@ -46,12 +47,12 @@ export const projectCategories = [
         title: { ar: 'هوية العلامة التجارية', en: 'Brand identity' },
         mediaType: 'image',
         items: [
-            ...Array.from({ length: 10 }, (_, i) => ({
-                id: `logo-${i + 1}`,
-                path: `/images/projects/Brand-identity/Logos/${(i + 1).toString().padStart(2, '0')}.webp`,
+            ...[2, 3, 4, 5, 6].map(id => ({
+                id: `logo-${id}`,
+                path: `/images/projects/Brand-identity/Logos/${id.toString().padStart(2, '0')}.webp`,
                 alt: 'Milaknight - ميلانايت'
             })),
-            ...Array.from({ length: 5 }, (_, i) => ({
+            ...Array.from({ length: 4 }, (_, i) => ({
                 id: `card-${i + 1}`,
                 path: `/images/projects/Brand-identity/Business-Cards/${i + 1}.webp`,
                 alt: 'Milaknight - ميلانايت'
@@ -87,9 +88,9 @@ export const projectCategories = [
         id: 'stickers',
         title: { ar: 'ملصقات', en: 'Stickers' },
         mediaType: 'image',
-        items: Array.from({ length: 13 }, (_, i) => ({
+        items: Array.from({ length: 8 }, (_, i) => ({
             id: i + 1,
-            path: `/images/projects/Graphic design/Sticker/${i + 1}.webp`,
+            path: `/images/projects/Stickers/${i + 1}.webp`,
             alt: 'Milaknight - ميلانايت'
         }))
     },
@@ -97,19 +98,20 @@ export const projectCategories = [
         id: 'email-marketing',
         title: { ar: 'التسويق عبر البريد الإلكتروني', en: 'Email Marketing' },
         mediaType: 'image',
-        items: Array.from({ length: 12 }, (_, i) => ({
+        objectFit: 'contain',
+        items: Array.from({ length: 7 }, (_, i) => ({
             id: i + 1,
-            path: `/images/projects/Email marketing/${i + 1}.webp`,
+            path: `/images/projects/Email Marketing/${i + 1}.webp`,
             alt: 'Milaknight - ميلانايت'
         }))
     },
     {
         id: 'video-production',
         title: { ar: 'إنتاج الفيديوهات', en: 'Video Production' },
-        mediaType: 'image',
-        items: Array.from({ length: 5 }, (_, i) => ({
+        mediaType: 'video',
+        items: Array.from({ length: 8 }, (_, i) => ({
             id: i + 1,
-            path: `/images/projects/Video Production/${i + 1}.webp`,
+            path: `/images/projects/Video Production/${i + 1}.mp4`,
             alt: 'Milaknight - ميلانايت'
         }))
     },
@@ -117,19 +119,27 @@ export const projectCategories = [
         id: 'event-management',
         title: { ar: 'إدارة الفعاليات', en: 'Event Management' },
         mediaType: 'image',
-        items: Array.from({ length: 19 }, (_, i) => ({
-            id: i + 1,
-            path: `/images/projects/Event Management/${i + 1}.webp`,
-            alt: 'Milaknight - ميلانايت'
-        }))
+        items: [
+            ...Array.from({ length: 10 }, (_, i) => ({
+                id: `brochure-${i + 1}`,
+                path: `/images/projects/Event Management/Brochures/${i + 1}.webp`,
+                alt: 'Milaknight - ميلانايت'
+            })),
+            ...Array.from({ length: 3 }, (_, i) => ({
+                id: `invitation-${i + 1}`,
+                path: `/images/projects/Event Management/Invitations/${i + 1}.webp`,
+                alt: 'Milaknight - ميلانايت'
+            }))
+        ]
     },
     {
         id: 'photoshoots',
         title: { ar: 'جلسات التصوير', en: 'Photoshoots' },
         mediaType: 'image',
-        items: Array.from({ length: 14 }, (_, i) => ({
+        objectFit: 'contain',
+        items: Array.from({ length: 8 }, (_, i) => ({
             id: i + 1,
-            path: `/images/projects/Photo-session/${i + 1}.webp`,
+            path: `/images/projects/Photoshoots/${i + 1}.webp`,
             alt: 'Milaknight - ميلانايت'
         }))
     }

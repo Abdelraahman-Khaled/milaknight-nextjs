@@ -116,10 +116,10 @@ export const aboutData = {
             { title: "Limitless Creativity", desc: "We excel at creating distinctive ideas and transforming them into effective marketing campaigns that resonate with your audience and build a strong relationship between your brand and the market." }
         ],
         about_us_image_alt: "about-us-image",
-        consultancy_alts: ["ميلانايت", "ميلانايت", "ميلانايت", "ميلانايت"],
-        client_images_alts: ["تحسين ترتيب موقعك في جوجل", "افضل ادوات السيو", "افضل متخصص سيو", "التسويق عبر المؤثرين", "هوية بصرية كاملة pdf"],
-        experts_counter_alts: ["لوجو جاهز بدون اسم", "شركة سيو", "محركات البحث seo", "فحص سرعة الموقع"],
-        why_us_image_alt: "شركة ادارة حسابات السوشيال ميديا والتسويق",
+        consultancy_alts: ["Milaknight", "Milaknight", "Milaknight", "Milaknight"],
+        client_images_alts: ["Improve your Google ranking", "Best SEO tools", "Best SEO specialist", "Influencer marketing", "Full visual identity PDF"],
+        experts_counter_alts: ["Ready-made logo without name", "SEO Company", "SEO search engines", "Website speed check"],
+        why_us_image_alt: "Social media management and marketing company",
         faq_title: "Do you have any questions?",
         faq_subtitle: "Let's answer your questions today!"
     }

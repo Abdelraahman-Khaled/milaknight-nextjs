@@ -35,11 +35,11 @@ const ProjectsContent = () => {
 
             <div className="text-center my-5">
                 <a
-                    className="nav-link company-profile d-inline-block py-3 px-5"
+                    className="nav-link company-profile d-inline-block py-3 px-5 text-white!"
                     href={isArabic ? "https://publuu.com/flip-book/902608/2188910" : "https://publuu.com/flip-book/902608/1992497"}
                     target="_blank"
                     rel="noopener"
-                    style={{ backgroundColor: 'var(--accent-color)', color: '#fff', borderRadius: '50px' }}
+                    style={{ backgroundColor: 'var(--accent-color)', color: '#fff !important', borderRadius: '50px' }}
                 >
                     {translations.viewGallery}
                     <i className={`fa-solid fa-download ${isArabic ? 'me-2' : 'ms-2'}`}></i>

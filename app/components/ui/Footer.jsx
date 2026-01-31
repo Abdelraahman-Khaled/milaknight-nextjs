@@ -27,7 +27,7 @@ const Footer = () => {
 
                                     {/* <!-- Work Together Btn Start --> */}
                                     <div className="work-together-btn">
-                                        <Link href="contact.html">
+                                        <Link href="/contact">
                                             <Image src="/images/icons/arrow-dark.svg" alt="arrow" width={24} height={24} />
                                             <span>{content.letsWork.buttonText}</span>
                                         </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-4">
                                 <div className="footer-logo">
-                                    <Image src="/images/logo-dark-footer.webp" className="Image-fluid w-100" alt="logo" width={303} height={262} />
+                                    <Image src="/images/logo-dark-footer.webp" className="Image-fluid  h-auto" alt="logo" width={512} height={200} />
                                 </div>
                             </div>
 

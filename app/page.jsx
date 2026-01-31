@@ -9,8 +9,11 @@ import WhatWeDo from './(pages)/home/components/WhatWeDo'
 import BestWorks from './(pages)/home/components/BestWorks'
 import Testimonial from './(pages)/home/components/Testimonial'
 import LatestNews from './(pages)/home/components/LatestNews'
+import { getBlogs } from '@/app/api/blog'
 
-const HomePage = () => {
+const HomePage = async () => {
+    const blogs = await getBlogs();
+
     return (
         <>
             <HeroHome />
@@ -22,7 +25,7 @@ const HomePage = () => {
             <WhatWeDo />
             <BestWorks />
             <Testimonial />
-            <LatestNews />
+            <LatestNews initialBlogs={blogs} />
         </>
     )
 }

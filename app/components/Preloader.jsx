@@ -1,17 +1,21 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 
 export default function Preloader() {
     const pathname = usePathname();
+    const { language } = useContext(LanguageContext);
     const [loading, setLoading] = useState(true);
     const [render, setRender] = useState(true);
     const [prevPathname, setPrevPathname] = useState(pathname);
+    const [prevLanguage, setPrevLanguage] = useState(language);
 
-    // Render-phase state update to avoid FOUC (Flash of Unstyled Content)
-    // When pathname changes, we reset loading IMMEDIATELY before paint.
-    if (pathname !== prevPathname) {
+    // Render-phase state update to avoid FOUC
+    if (pathname !== prevPathname || language !== prevLanguage) {
         setPrevPathname(pathname);
+        setPrevLanguage(language);
         setLoading(true);
         setRender(true);
     }
@@ -28,14 +32,12 @@ export default function Preloader() {
     }, [loading]);
 
     useEffect(() => {
-        // Start the timer to hide preloader
-        // We don't need setLoading(true) here because the render-phase check handled it.
         const timer = setTimeout(() => {
             setLoading(false);
         }, 500); // Adjust duration as needed
 
         return () => clearTimeout(timer);
-    }, [pathname, loading]);
+    }, [pathname, language, loading]);
 
 
     if (!render) return null;

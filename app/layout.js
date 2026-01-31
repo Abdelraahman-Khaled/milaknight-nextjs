@@ -5,10 +5,12 @@ import BootstrapClient from "./components/BootstrapClient";
 import Providers from "./components/Providers";
 import Script from "next/script";
 
-import Cursor from "./components/Cursor";
+import DynamicSEO from "./components/DynamicSEO";
 import Preloader from "./components/Preloader";
+import Cursor from "./components/Cursor";
 import LegacyScripts from "./components/LegacyScripts";
 import Navbar from "./components/Navbar";
+import Footer from "./components/ui/Footer";
 
 
 
@@ -23,8 +25,7 @@ export const metadata = {
   title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
   description:
     "وكالة تسويق رقمي خدمات تحسين محركات البحث تسويق عبر السوشيال ميديا إدارة حملات إعلانية تصميم مواقع الكترونية تحسين ظهور المواقع تسويق محتوى احترافي تحليل بيانات السوق حلول تسويقية ذكية",
-  keywords:
-    "تصميم و برمجة المواقع, تخطيط و تنفيذ الفعاليات, إنتاج الفيديوهات, التجارة الإلكترونية, التصميم الجرافيكي, التسويق الرقمي",
+  keywords: "تصميم و برمجة المواقع, تخطيط و تنفيذ الفعاليات, إنتاج الفيديوهات, التجارة الإلكترونية, التصميم الجرافيكي, التسويق الرقمي",
   authors: [{ name: "Milaknight LLC-FZ" }],
   icons: {
     icon: "images/icons/favicon.ico",
@@ -35,7 +36,7 @@ export const metadata = {
     google: "sqr_XrhbIC_Q9Y0ZnpTsc6JrOkYMoCBmdASKMLNz7aA",
   },
   openGraph: {
-    locale: "ar_SA",
+    locale: "KSA",
     siteName: "Milaknight",
     type: "website",
     title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
@@ -214,11 +215,13 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Providers>
+          <DynamicSEO />
           <Preloader />
           <Cursor />
           <BootstrapClient />
           <Navbar />
           {children}
+          <Footer />
           <LegacyScripts />
         </Providers>
       </body>

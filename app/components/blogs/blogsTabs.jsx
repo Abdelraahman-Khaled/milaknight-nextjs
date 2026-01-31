@@ -1,15 +1,21 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+
+import React, { useState, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getBlogs } from "@/app/api/blog";
 import { LanguageContext } from "@/app/context/LanguageContext";
+import { useQuery } from "@tanstack/react-query";
+import { getBlogs } from "@/app/api/blog";
 
 const BlogsTabs = () => {
   const { language, t } = useContext(LanguageContext);
   const [activeFilter, setActiveFilter] = useState("*");
-  const [blogsList, setBlogsList] = useState([]);
-  const [loading, setLoading] = useState(true);
+
+  const { data: blogsList = [], isLoading } = useQuery({
+    queryKey: ["blogs"],
+    queryFn: getBlogs,
+    refetchInterval: 10000, // 10 seconds polling for live updates
+  });
 
   const filters = [
     { label: t("all_articles"), value: "*" },
@@ -19,21 +25,6 @@ const BlogsTabs = () => {
     { label: t("digital_marketing_label"), value: "digital_marketing" },
     { label: t("e_commerce_label"), value: "e_commerce" },
   ];
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const data = await getBlogs();
-        setBlogsList(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Failed to fetch blogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBlogs();
-  }, []);
 
   const filteredBlogs =
     activeFilter === "*"
@@ -72,7 +63,7 @@ const BlogsTabs = () => {
         </div>
 
         <div className="row">
-          {loading ? (
+          {isLoading ? (
             <div className="col-12 text-center mt-5">
               <div className="spinner-border text-primary" role="status">
                 <span className="visually-hidden">Loading...</span>
@@ -110,9 +101,11 @@ const BlogsTabs = () => {
                             const photo = blog.photos?.find(
                               (p) => p.is_arabic === (language === "ar")
                             );
+                            const photoUrl = photo?.url || blog.photo_url;
+                            if (!photoUrl || photoUrl === "") return null;
                             return (
                               <Image
-                                src={photo?.url || blog.photo_url}
+                                src={photoUrl}
                                 alt={
                                   photo?.alt ||
                                   (language === "ar"

@@ -1,18 +1,25 @@
 "use client";
 
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import ScrollTicker from '../ui/ScrollTicker';
 import BlogFaqs from './BlogFaqs';
 import { useRouter } from "next/navigation";
+import { useQuery } from '@tanstack/react-query';
+import { getBlogDetails } from '@/app/api/blog';
 
-
-
-const BlogDetailContent = ({ blog }) => {
+const BlogDetailContent = ({ slug, initialBlog }) => {
     const { language, t, prevLanguage } = useContext(LanguageContext);
     const router = useRouter();
+
+    const { data: blog = initialBlog } = useQuery({
+        queryKey: ['blog', slug],
+        queryFn: () => getBlogDetails(slug),
+        initialData: initialBlog,
+        refetchInterval: 10000, // 10 seconds polling for live updates
+    });
 
     // guard علشان يمنع التكرار
 
@@ -44,19 +51,22 @@ const BlogDetailContent = ({ blog }) => {
                     {/* Render section images if they exist */}
                     {section.photos && section.photos.length > 0 && (
                         <div className="row row-images">
-                            {section.photos.map((img, imgIndex) => (
-                                <div key={imgIndex} className="col-12 col-md-6">
-                                    <figure>
-                                        <Image
-                                            src={img.url}
-                                            alt={language === 'ar' ? (img.alt_ar || img.alt_en) : (img.alt_en || img.alt_ar)}
-                                            width={1200}
-                                            height={630}
-                                            className="img-fluid"
-                                        />
-                                    </figure>
-                                </div>
-                            ))}
+                            {section.photos.map((img, imgIndex) => {
+                                if (!img.url || img.url === "") return null;
+                                return (
+                                    <div key={imgIndex} className="col-12 col-md-6">
+                                        <figure>
+                                            <Image
+                                                src={img.url}
+                                                alt={language === 'ar' ? (img.alt_ar || img.alt_en) : (img.alt_en || img.alt_ar)}
+                                                width={1200}
+                                                height={630}
+                                                className="img-fluid"
+                                            />
+                                        </figure>
+                                    </div>
+                                );
+                            })}
                         </div>
                     )}
                 </div>
@@ -104,19 +114,25 @@ const BlogDetailContent = ({ blog }) => {
                             {/* Post Featured Image Start */}
                             <div className="post-image">
                                 <figure className="image-anime reveal">
-                                    <Image
-                                        src={
-                                            (blog.photos?.find(p => p.is_arabic === (language === 'ar'))?.url) ||
+                                    {(() => {
+                                        const featuredUrl = (blog.photos?.find(p => p.is_arabic === (language === 'ar'))?.url) ||
                                             (blog.photos?.[0]?.url) ||
-                                            blog.photo_url
-                                        }
-                                        alt={
-                                            (blog.photos?.find(p => p.is_arabic === (language === 'ar'))?.alt) ||
-                                            (language === 'ar' ? (blog.image_alt_text_ar || blog.image_alt_text_en) : (blog.image_alt_text_en || blog.image_alt_text_ar))
-                                        }
-                                        width={1200}
-                                        height={630}
-                                    />
+                                            blog.photo_url;
+
+                                        if (!featuredUrl || featuredUrl === "") return null;
+
+                                        return (
+                                            <Image
+                                                src={featuredUrl}
+                                                alt={
+                                                    (blog.photos?.find(p => p.is_arabic === (language === 'ar'))?.alt) ||
+                                                    (language === 'ar' ? (blog.image_alt_text_ar || blog.image_alt_text_en) : (blog.image_alt_text_en || blog.image_alt_text_ar))
+                                                }
+                                                width={1200}
+                                                height={630}
+                                            />
+                                        );
+                                    })()}
                                 </figure>
                             </div>
                             {/* Post Featured Image End */}

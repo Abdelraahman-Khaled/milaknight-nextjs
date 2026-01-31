@@ -25,10 +25,10 @@ const BestWorks = () => {
             <div className="gallery-items new-scrolling page-gallery-box">
                 {allImages.map((src, index) => (
                     <div key={index} className="box-new-scrolling">
-                        <div className="photo-gallery" data-cursor-text={content.viewText}>
-                            <a href={src}>
+                        <div className="photo-gallery">
+                            <a href={src} data-cursor-text={content.viewText}>
                                 <figure className="image-anime">
-                                    <Image width="250" height="333" alt="image" src={src} />
+                                    <Image width="250" height="333" alt={`MilaKnight Project - ${index + 1}`} src={src} />
                                 </figure>
                             </a>
                         </div>

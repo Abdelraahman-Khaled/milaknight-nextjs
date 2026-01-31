@@ -21,7 +21,7 @@ const AboutAgency = () => {
                             <div className="about-agency-list">
                                 {
                                     aboutAgencyData[language].cards.map((card, index) => (
-                                        <TextBox key={index} className={"about-agency-item agency-item-content"} title={card.title} img={card.img} text={card.text} />
+                                        <TextBox key={index} className={"about-agency-item agency-item-content"} title={card.title} img={card.img} text={card.text} alt={card.alt} />
                                     ))
                                 }
                             </div>

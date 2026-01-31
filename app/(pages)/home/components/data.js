@@ -7,6 +7,7 @@ export const aboutAgencyData = {
             {
                 title: "خبرتنا",
                 img: "/images/icons/icon-about-agency-2.webp",
+                alt: "خبرة ميلانايت في التسويق الرقمي",
                 text: `خبرتنا متنوعة ضمن مختلف مجالات التسويق الالكتروني لنقدم لكم
                                                 كل ما يلزم لإظهار علامتكم التجارية بأسلوب احترافي ومؤثر، من
                                                 التسويق الرقمي إلى التسويق التقليدي نضع بين أيديكم خبرة
@@ -17,11 +18,13 @@ export const aboutAgencyData = {
             {
                 title: "هدفنا",
                 img: "/images/icons/icon-about-agency-1.webp",
+                alt: "هدف ميلانايت في بناء العلامة التجارية",
                 text: `في شركة تسويق الكتروني مثل Milaknight نهدف إلى بناء أقوى رابط بين علامتكم التجارية والجمهور المستهدف عبر تسويق الكتروني يعتمد على الإبداع والابتكار، نحن شغوفون بـالتسويق بالمحتوى، سرد قصص ملهمة تترك أثراً حقيقياً مع التركيز على تصميم استراتيجيات دقيقة وخطط تسويقية قوية ورؤيتنا مبنية على شراكات طويلة الأمد ونجاحات مستدامة مدعومة بالتحليل، الابتكار وإعلانات ممولة تحقق نتائج ملموسة.`
             },
             {
                 title: "تفوقنا التكنولوجي",
                 img: "/images/icons/icon-about-agency-3.webp",
+                alt: "التفوق التكنولوجي في التسويق الالكتروني",
                 text: `تفوقنا التكنولوجي هو ما يمنحنا الأفضلية كـ شركة تسويق الكتروني رائدة، نعتمد على أحدث الأدوات الرقمية والتقنيات الذكية التي تضمن تميز علامتكم التجارية وعبر نهج قائم على تحليل البيانات نبتكر استراتيجيات تسويق الكتروني إبداعية تركز على النتائج وتحقق أداء ملموس قابل للقياس عبر مختلف القنوات والمنصات.`
             }
         ]
@@ -35,16 +38,19 @@ export const aboutAgencyData = {
             {
                 title: "Our Experience",
                 img: "/images/icons/icon-about-agency-2.webp",
+                alt: "digital marketing",
                 text: `Our diverse expertise spans various digital marketing fields, providing you with everything you need to showcase your brand in a professional and impactful manner. From digital to traditional marketing, we offer you extensive experience in designing innovative marketing strategies that guarantee you a strong and distinctive presence on all digital and real-world platforms. At Milaknight, we strive to create a true, inspiring success story from every idea.`
             },
             {
                 title: "Our Goal",
                 img: "/images/icons/icon-about-agency-1.webp",
+                alt: "digital marketing services",
                 text: `At an online marketing company like Milaknight, we aim to build a stronger connection between your brand and your target audience through online marketing that relies on creativity and innovation. We are passionate about content marketing, telling inspiring stories that leave a real impact, and focusing on designing precise strategies and strong marketing plans. Our vision is built on long-term partnerships and sustainable successes supported by analysis, innovation, and sponsored ads that achieve tangible results.`
             },
             {
                 title: "Our Technological Superiority",
                 img: "/images/icons/icon-about-agency-3.webp",
+                alt: "digital marketing agency",
                 text: `Our technological superiority is what gives us the edge as a leading digital marketing company. We rely on the latest digital tools and smart technologies to ensure your brand's distinction. Through a data-driven approach, we create creative digital marketing strategies that focus on results and achieve tangible, measurable performance across various channels and platforms.`
             }
         ]
@@ -63,49 +69,49 @@ export const servicesData = {
                 title: "تصميم و برمجة المواقع",
                 alt: "تصميم موقع الكتروني",
                 icon: "/images/icons/ICON-WebDesign.gif",
-                href: "service/web-development.html"
+                href: "service/web-development"
             },
             {
                 title: "وسائل التواصل الاجتماعي",
                 alt: "وسائل التواصل الاجتماعي",
                 icon: "/images/icons/ICON-SocialMediaMarketing.gif",
-                href: "service/digital-marketing.html"
+                href: "service/digital-marketing"
             },
             {
                 title: "التصميم الجرافيكي",
                 alt: "التصميم الجرافيكي",
                 icon: "/images/icons/ICON-GraphicDesign.gif",
-                href: "service/graphic-design.html"
+                href: "service/graphic-design"
             },
             {
                 title: "تخطيط و تنفيذ الفعاليات",
                 alt: "تخطيط و تنفيذ الفعاليات",
                 icon: "/images/icons/event.webp",
-                href: "service/event-planning.html"
+                href: "service/event-planning"
             },
             {
                 title: "تحسين محركات البحث",
                 alt: "تحسين محركات البحث",
                 icon: "/images/icons/ICON-SEO.gif",
-                href: "service/digital-marketing.html"
+                href: "service/digital-marketing"
             },
             {
                 title: "إنتاج الفيديو",
                 alt: "إنتاج الفيديو",
                 icon: "/images/icons/ICON-Video.gif",
-                href: "service/e-commerce.html"
+                href: "service/e-commerce"
             },
             {
                 title: "التجارة الإلكترونية",
                 alt: "التجارة الإلكترونية",
                 icon: "/images/icons/ICON-OnlineCompanyStores.gif",
-                href: "service/e-commerce.html"
+                href: "service/e-commerce"
             },
             {
                 title: "التصوير الفوتوغرافي",
                 alt: "التصوير الفوتوغرافي",
                 icon: "/images/icons/ICON-Photography.gif",
-                href: "service/video-production.html"
+                href: "service/video-production"
             }
         ],
         footerText: "دعونا نفعل شيئًا رائعًا معًا.",
@@ -120,51 +126,51 @@ export const servicesData = {
         services: [
             {
                 title: "Web Development",
-                alt: "Website Design",
+                alt: "Web Development and Programming",
                 icon: "/images/icons/ICON-WebDesign.gif",
-                href: "service/web-development.html"
+                href: "service/web-development"
             },
             {
                 title: "Social Media",
-                alt: "Social Media",
+                alt: "Social Media Marketing",
                 icon: "/images/icons/ICON-SocialMediaMarketing.gif",
-                href: "service/digital-marketing.html"
+                href: "service/digital-marketing"
             },
             {
                 title: "Graphic Design",
-                alt: "Graphic Design",
+                alt: "Graphic Design and Creative Branding",
                 icon: "/images/icons/ICON-GraphicDesign.gif",
-                href: "service/graphic-design.html"
+                href: "service/graphic-design"
             },
             {
                 title: "Event Planning & Execution",
-                alt: "Event Planning & Execution",
+                alt: "Event Planning and Logistics",
                 icon: "/images/icons/event.webp",
-                href: "service/event-planning.html"
+                href: "service/event-planning"
             },
             {
                 title: "Search Engine Optimization",
-                alt: "Search Engine Optimization",
+                alt: "SEO Services and Strategy",
                 icon: "/images/icons/ICON-SEO.gif",
-                href: "service/digital-marketing.html"
+                href: "service/digital-marketing"
             },
             {
                 title: "Video Production",
-                alt: "Video Production",
+                alt: "Professional Video Production",
                 icon: "/images/icons/ICON-Video.gif",
-                href: "service/e-commerce.html"
+                href: "service/e-commerce"
             },
             {
                 title: "E-Commerce",
-                alt: "E-Commerce",
+                alt: "E-Commerce Store Design",
                 icon: "/images/icons/ICON-OnlineCompanyStores.gif",
-                href: "service/e-commerce.html"
+                href: "service/e-commerce"
             },
             {
                 title: "Photography",
-                alt: "Photography",
+                alt: "Commercial Photography Services",
                 icon: "/images/icons/ICON-Photography.gif",
-                href: "service/video-production.html"
+                href: "service/video-production"
             }
         ],
         footerText: "Let's do something great together.",
@@ -179,32 +185,32 @@ export const videosPortfolioData = {
             {
                 video: "/images/we-do/Video-Editing-Thumbnail.mp4",
                 label: "إنتاج الفيديو",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Websites.mp4",
                 label: "مواقع الويب",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Posts.mp4",
                 label: "التصميم الجرافيكي",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Logos-Animation.mp4",
                 label: "رسوم متحركة للشعارات",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Motion-Graphics.mp4",
                 label: "الرسوم المتحركة",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Brand-Identity.mp4",
                 label: "هوية العلامة التجارية",
-                href: "projects.html"
+                href: "projects"
             }
         ]
     },
@@ -213,32 +219,32 @@ export const videosPortfolioData = {
             {
                 video: "/images/we-do/Video-Editing-Thumbnail.mp4",
                 label: "Video Production",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Websites.mp4",
                 label: "Websites",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Posts.mp4",
                 label: "Graphic Design",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Logos-Animation.mp4",
                 label: "Logos Animation",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Motion-Graphics.mp4",
                 label: "Motion Graphics",
-                href: "projects.html"
+                href: "projects"
             },
             {
                 video: "/images/we-do/Brand-Identity.mp4",
                 label: "Brand Identity",
-                href: "projects.html"
+                href: "projects"
             }
         ]
     }
@@ -391,19 +397,19 @@ export const latestNewsData = {
         items: [
             {
                 title: "التسويق بالمؤثرين: متى يكون استثمار ومتى يكون خسارة؟",
-                link: "blog/التسويق-بالمؤثرين.html",
+                link: "blog/التسويق-بالمؤثرين",
                 image: "/images/blogs/45/التسويق-بالمؤثرين.webp",
                 alt: "التسويق بالمؤثرين"
             },
             {
                 title: "أهمية التحليل والبيانات في تطوير استراتيجيات التسويق الرقمي",
-                link: "blog/اهمية-التحليل-والبيانات-في-تطوير-استراتيجيات-التسويق.html",
+                link: "blog/اهمية-التحليل-والبيانات-في-تطوير-استراتيجيات-التسويق",
                 image: "/images/blogs/44/تحسين الحملة التسويقية.webp",
                 alt: "تحسين الحملة التسويقية"
             },
             {
                 title: "كيف تختار الاستراتيجية التسويقية المناسبة لمشروعك الناشئ؟",
-                link: "blog/خطة-تسويقية.html",
+                link: "blog/خطة-تسويقية",
                 image: "/images/blogs/43/كيف تختار الاستراتيجية التسويقية المناسبة لمشروعك الناشئ.webp",
                 alt: "كيف تختار الاستراتيجية التسويقية المناسبة لمشروعك الناشئ"
             }
@@ -421,21 +427,21 @@ export const latestNewsData = {
         items: [
             {
                 title: "Top Digital Marketing Strategies for Startups in 2025",
-                link: "blog/digital-marketing-strategies.html",
+                link: "blog/digital-marketing-strategies",
                 image: "/images/blogs/51/digital-marketing-strategies.webp",
                 alt: "digital-marketing-strategies"
             },
             {
                 title: "How SEO Can Transform Your Brand Visibility in Saudi Arabia",
-                link: "blog/how-seo-can-transform-your-brand.html",
+                link: "blog/how-seo-can-transform-your-brand",
                 image: "/images/blogs/52/SEO-Saudi-Arabia.webp",
                 alt: "cart abandonment solutions"
             },
             {
                 title: "The Role of Web Design in Building Customer Trust",
-                link: "blog/role-of-web-design.html",
-                image: "/images/blogs/53/role-of-web-design.html.webp",
-                alt: "role-of-web-design.html"
+                link: "blog/role-of-web-design",
+                image: "/images/blogs/53/role-of-web-design.webp",
+                alt: "role-of-web-design"
             }
         ]
     }

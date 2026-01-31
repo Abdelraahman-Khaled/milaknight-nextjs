@@ -1,11 +1,29 @@
 "use client";
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+
+import { usePathname } from 'next/navigation';
+import { LanguageContext } from '../context/LanguageContext';
 
 const LegacyScripts = () => {
+    const pathname = usePathname();
+    const { language } = useContext(LanguageContext);
+
     useEffect(() => {
         // List of scripts that need to be re-executed
         // We target the main function script and maybe others if needed.
         // Since they are in public/js, we can reload them.
+
+        // CLEANUP: Kill any active ScrollTrigger instances
+        if (window.ScrollTrigger) {
+            window.ScrollTrigger.getAll().forEach(st => st.kill());
+        }
+
+        // Remove 'initialized' classes to allow re-initialization
+        const initializedElements = document.querySelectorAll('[class*="-initialized"]');
+        initializedElements.forEach(el => {
+            const classes = el.className.split(' ').filter(c => !c.endsWith('-initialized'));
+            el.className = classes.join(' ');
+        });
 
         // Function to load a script
         const loadScript = (src) => {
@@ -31,7 +49,6 @@ const LegacyScripts = () => {
 
         const scripts = [
             "/js/jquery-3.7.1.min.js",
-            "/js/bootstrap.min.js",
             "/js/swiper-bundle.min.js",
             "/js/jquery.slicknav.min.js",
             "/js/jquery.waypoints.min.js",
@@ -74,6 +91,19 @@ const LegacyScripts = () => {
                 }
             }
 
+            const isCoreScript = (src) => {
+                if (src.includes("jquery-3.7.1.min.js") && window.jQuery) return true;
+                if (src.includes("swiper-bundle.min.js") && window.Swiper) return true;
+                if (src.includes("jquery.slicknav.min.js") && window.jQuery && window.jQuery.fn.slicknav) return true;
+                if (src.includes("gsap.min.js") && window.gsap) return true;
+                return false;
+            };
+
+            if (isCoreScript(src)) {
+                loadNext(index + 1);
+                return;
+            }
+
             const oldScripts = document.querySelectorAll(`script[src="${src}"]`);
             if (oldScripts.length > 0) {
                 if (singleRunScripts.includes(src)) {
@@ -107,10 +137,21 @@ const LegacyScripts = () => {
 
         return () => {
             loadedScripts.forEach(s => {
+                const src = s.getAttribute('src');
+                const singleRunScripts = [
+                    "/js/magiccursor.min.js",
+                    "/js/jquery.mb.YTPlayer.min.js"
+                ];
+
+                // Do not remove single-run scripts to prevent re-declaration errors
+                if (singleRunScripts.some(single => src.includes(single))) {
+                    return;
+                }
+
                 if (s.parentNode) s.parentNode.removeChild(s);
             });
         };
-    }, []);
+    }, [pathname, language]);
 
     return null;
 };

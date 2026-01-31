@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import React from 'react'
 
-const TextBox = ({ title, text, className, img }) => {
+const TextBox = ({ title, text, className, img, alt }) => {
     return (
         <div className={` ${className}`}>
             {
                 img &&
                 (
                     <div className="icon-box">
-                        <Image alt="شركة تسويق رقمي" src={img} width={50} height={50} />
+                        <Image alt={alt || title || "Milaknight"} src={img} width={50} height={50} />
                     </div>
                 )
             }

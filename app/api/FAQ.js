@@ -1,16 +1,11 @@
-import axiosInstance from './axiosInstance';
 
-/**
- * Fetch all faqs from the backend API.
- * @returns {Promise<Array>} List of faqs.
- */
+const API = process.env.NEXT_PUBLIC_BASE_URL;
+
 export const getFaqs = async () => {
-    try {
-        const response = await axiosInstance.get('/faq_about_us');
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching faqs:', error);
-        throw error;
-    }
-};
+    const res = await fetch(`${API}/faq_about_us`, {
+        cache: 'no-store',
+    });
 
+    if (!res.ok) throw new Error('Failed to fetch faqs');
+    return res.json();
+};

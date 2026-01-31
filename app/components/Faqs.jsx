@@ -1,27 +1,12 @@
 "use client";
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import { LanguageContext } from '../context/LanguageContext';
 import BlogFaqs from './blogs/BlogFaqs';
-import { getFaqs } from '../api/FAQ';
 
-const Faqs = () => {
+const Faqs = ({ initialFaqs = [] }) => {
     const { language } = useContext(LanguageContext);
-    const [faqs, setFaqs] = useState([]);
-
-    useEffect(() => {
-        const fetchFaqs = async () => {
-            try {
-                const data = await getFaqs();
-                if (data) {
-                    setFaqs(data);
-                }
-            } catch (error) {
-                console.error("Failed to fetch faqs:", error);
-            }
-        };
-        fetchFaqs();
-    }, []);
+    const faqs = initialFaqs;
 
     const content = {
         ar: {

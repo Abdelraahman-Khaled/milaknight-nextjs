@@ -29155,6 +29155,12 @@ screen and (max-height: 300px) {
     transition: opacity 0.3s, color 0.4s;
 }
 
+@media (max-width: 768px) {
+    .cb-cursor {
+        display: none !important;
+    }
+}
+
 .cb-cursor:before {
     content: "";
     position: absolute;
@@ -30694,7 +30700,6 @@ body:has(.offcanvas) {
 }
 
 .about-us-body {
-    position: relative;
     padding: 30px;
     border: 2px solid var(--accent-color);
     border-radius: 20px;
@@ -30749,6 +30754,15 @@ body:has(.offcanvas) {
     overflow: hidden;
     z-index: 1;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media (min-width: 768px) and (max-width: 1284px) {
+    .about-us-list {
+        position: relative;
+        display: flex;
+        max-width: 100%;
+        margin-top: 30px;
+    }
 }
 
 [dir="ltr"] .about-us-list {
@@ -31553,7 +31567,8 @@ body:has(.offcanvas) {
 }
 
 .our-portfolio {
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .our-Project-nav {
@@ -31760,7 +31775,8 @@ body:has(.offcanvas) {
 }
 
 .our-blog {
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .our-blog .section-row .section-title {
@@ -32307,15 +32323,20 @@ body:has(.offcanvas) {
     padding-right: 90px;
 }
 
+.experts-rating-video {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
 .experts-rating-video-image {
-    width: 100%;
+    width: 60%;
     height: 250px;
     position: relative;
     border-radius: 20px;
     cursor: none;
     overflow: hidden;
     z-index: 1;
-    margin-bottom: 30px;
 }
 
 .experts-rating-video-image iframe {
@@ -32424,7 +32445,7 @@ body:has(.offcanvas) {
 }
 
 .who-we-are-client {
-    width: 50%;
+    width: 40%;
 }
 
 .comapny-client-rating {
@@ -32451,6 +32472,7 @@ body:has(.offcanvas) {
 
 .company-client-images {
     margin-bottom: 20px;
+    padding: 0  10px;
 }
 
 .company-client-images .client-image {
@@ -33263,7 +33285,8 @@ body:has(.offcanvas) {
 
 .our-testimonial {
     position: relative;
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .our-testimonial::before {
@@ -35626,7 +35649,8 @@ body:has(.offcanvas) {
     }
 
     .our-portfolio {
-        padding: 40px 0 10px;
+        padding-top: 40px;
+        padding-bottom: 10px;
     }
 
     .our-Project-nav {
@@ -35687,7 +35711,8 @@ body:has(.offcanvas) {
     }
 
     .our-blog {
-        padding: 40px 0 10px;
+        padding-top: 40px;
+        padding-bottom: 10px;
     }
 
     .post-featured-image {
@@ -36783,6 +36808,10 @@ body:has(.offcanvas) {
         font-size: 18px;
     }
 
+    .experts-rating-video {
+        flex-direction: column;
+    }
+
     .experts-rating-video-image {
         width: 100%;
         margin-bottom: 20px;
@@ -37740,12 +37769,12 @@ html {
     .about-us-list {
         padding: 20px;
         gap: 25px;
-        position: initial;
+        position: relative;
         background-color: #fff;
     }
 
     .about-us-list::before {
-        position: initial;
+        position: absolute;
     }
 
     .about-list-item .icon-box {
@@ -37959,7 +37988,8 @@ html {
     }
 
     .our-testimonial {
-        padding: 40px 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .testimonial-review-box {
@@ -38189,7 +38219,10 @@ body {
     margin-left: 40px !important;
     margin-right: 0;
 }
-
+.scrolling-content {
+    animation: scroll-rtl 200s linear infinite !important;
+    -webkit-animation: scroll-rtl 200s linear infinite !important;
+}
 .company-client-images .client-image {
     margin-left: -18px;
     margin-right: 0;
@@ -38268,6 +38301,10 @@ body {
 .who-we-are::after {
     right: initial;
     left: -90px;
+}
+[dir=ltr] .who-we-are::after{
+    left: initial;
+    right: -90px;
 }
 
 .our-consultancy-images {
@@ -38370,6 +38407,10 @@ body {
     margin-left: 10px;
     margin-right: 0;
 }
+[dir = ltr] .box-pricing-2 ul li::before{
+    margin-left:0 ;
+    margin-right:10px ;
+}
 
 @media (max-width: 900px) {
     .mfp-container {
@@ -38387,8 +38428,15 @@ body {
     margin: 0 0 0 30px;
 }
 
+[dir= ltr] .contact-info-box .info-box-2 .icon-box {
+margin: 0 30px 0 0 ;
+}
+
 .contact-info-box .info-box-2 .contact-item-content {
     text-align: right;
+}
+[dir = ltr] .contact-info-box .info-box-2 .contact-item-content {
+text-align: left;
 }
 
 @media only screen and (max-width: 767px) {
@@ -38426,6 +38474,10 @@ body {
     padding-right: 0;
     padding-left: 20px;
 }
+[dir = ltr] .page-pricing .box-pricing ul li::before{
+    padding-left: 0;
+    padding-right: 20px;
+}
 
 .page-pricing .box-pricing .pricing-header h4 {
     font-size: 28px;
@@ -38455,25 +38507,44 @@ body {
     right: initial;
     left: 0;
 }
+[dir = ltr] .service-catagery-list ul li a::before {
+left: initial;
+right: 0;
+}
 
 .about-agency::before {
     left: initial;
     right: -120px;
+}
+[dir= ltr] .about-agency::before {
+    left: -120px;
+    right: initial;
 }
 
 .why-choose-us::before {
     left: initial;
     right: -90px;
 }
+[dir = ltr] .why-choose-us::before{
+    left: -90px;
+    right: initial;
+}
 
 .footer-work-together::before {
     left: initial;
     right: -120px;
 }
-
+[dir= ltr] .footer-work-together::before {
+    left: -120px;
+    right: initial;
+}
 .who-we-are::before {
     right: initial;
     left: -90px;
+}
+[dir = ltr] .who-we-are::before {
+    right: -90px;
+    left: initial;
 }
 
 .page-project::before,
@@ -38515,6 +38586,10 @@ body {
     right: initial;
     left: 0;
 }
+[dir = ltr] .contact-info-box .info-box-1 .contact-info-item::before {
+right: 0;
+left: initial;
+}
 
 .example-box {
     text-align: right;
@@ -38555,7 +38630,10 @@ body {
     right: initial;
     left: -70px;
 }
-
+[dir=ltr] .about-us::before {
+    right: -70px;
+    left: initial;
+}
 @media (max-width: 768px) {
     .whatsapp {
         width: 55px;

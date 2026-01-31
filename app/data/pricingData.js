@@ -14,7 +14,7 @@ export const pricingTranslations = {
         sendMessage: 'إرسال الرسالة'
     },
     en: {
-        pageTitle: 'Our Pricing',
+        pageTitle: 'Pricing',
         home: 'Home',
         showMore: 'Read More',
         showLess: 'Show Less',
@@ -47,13 +47,13 @@ export const pricingPackages = [
             ],
             en: [
                 'Custom monthly content plan',
-                'Number of managed accounts (2)',
-                'SEO optimization (Basic: initial analysis + keyword selection)',
+                'Number of accounts managed (2)',
+                'SEO (basic: initial analysis + keyword selection)',
                 'Number of designs (up to 8 designs)',
                 'Publishing and scheduling',
                 'One social media performance report',
-                'One sponsored ad campaign setup per month',
-                'Suitable for startups and first beginnings'
+                'Set up one paid advertising campaign per month',
+                'Suitable for startups and early start-ups'
             ]
         }
     },
@@ -73,12 +73,12 @@ export const pricingPackages = [
                 'مصممة للأعمال التي تتطلع للتوسع والنمو'
             ],
             en: [
-                'Strategic marketing plan',
-                'Managing 4 social media accounts',
+                'Strategic Marketing Plan',
+                'Manage 4 social media accounts',
                 'Basic SEO optimization',
                 'Number of designs (up to 15 designs)',
-                'Professional content writing (up to 15 posts, up to 2 articles)',
-                'Two social media performance reports',
+                'Write comprehensive professional content (posts up to 15, articles up to 2)',
+                '2 reports on social media performance',
                 'Design up to 3 videos',
                 'Designed for businesses looking to expand and grow'
             ]
@@ -102,13 +102,13 @@ export const pricingPackages = [
             ],
             en: [
                 'Comprehensive and detailed marketing plan with market and competitor analysis',
-                'Unlimited account management',
-                'Advanced SEO (comprehensive analysis and content optimization)',
+                'Manage unlimited number of accounts',
+                'SEO (advanced: comprehensive analysis and content optimization)',
                 'Number of designs (up to 20 designs)',
-                'Professional content writing (up to 20 posts, up to 3 articles)',
-                'Weekly social media performance report',
+                'Writing comprehensive professional content (posts up to 20, articles up to 3)',
+                'Weekly report on social media performance',
                 'Design up to 5 videos',
-                'Suitable for businesses that need integrated and customized support'
+                'Suitable for businesses that need integrated and dedicated support'
             ]
         }
     }
@@ -120,7 +120,7 @@ export const customServices = {
     subtitle: { ar: 'خدمات اختيارية حسب الطلب:', en: 'Optional services on demand:' },
     description: {
         ar: 'تتيح هذه الباقة للعملاء تصميم خطة تسويقية مرنة ومخصصة تناسب احتياجاتهم الفريدة، من خلال اختيار خدمات التسويق الالكتروني المطلوبة وتحديد الكميات المناسبة لهم، مما يضمن تحقيق أفضل النتائج بفعالية مذهلة.',
-        en: 'This package allows clients to design a flexible and customized marketing plan that suits their unique needs, by selecting the required digital marketing services and determining the appropriate quantities for them, ensuring the best results with remarkable effectiveness.'
+        en: 'This package allows clients to design a flexible, customized marketing plan that suits their unique needs by selecting the required e-marketing services and determining the appropriate quantities, ensuring the best results with amazing effectiveness.'
     },
     services: {
         ar: [
@@ -136,16 +136,16 @@ export const customServices = {
             'تحسين SEO (اختياري: أساسي أو متقدم)'
         ],
         en: [
-            'Website design',
-            'E-commerce store building',
-            'E-commerce store management',
-            'Email marketing',
-            'Article writing',
-            'WhatsApp marketing',
-            'Visual content creation',
+            'Website Design',
+            'Building Online Stores',
+            'Managing Online Stores',
+            'Email Marketing',
+            'Writing Articles',
+            'WhatsApp Marketing',
+            'Creating Visual Content',
             'Photography',
-            'Exhibition booth design',
-            'SEO optimization (optional: basic or advanced)'
+            'Designing Exhibition Booths',
+            'SEO Optimization (Optional: Basic or Advanced)'
         ]
     }
 };

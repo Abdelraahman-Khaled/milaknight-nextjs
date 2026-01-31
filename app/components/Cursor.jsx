@@ -2,9 +2,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
+import { usePathname } from 'next/navigation';
+
 const Cursor = () => {
     const cursorRef = useRef(null);
     const textRef = useRef(null);
+    const pathname = usePathname();
     const [visible, setVisible] = useState(true);
     const pos = useRef({ x: 0, y: 0 });
     const visibleTimeoutRef = useRef(null);
@@ -59,6 +62,12 @@ const Cursor = () => {
         };
         const removeText = () => cursor.classList.remove('-text');
 
+        // Reset cursor on route change
+        removeText();
+        // Remove common cursor classes
+        const statesToRemove = ['-pointer', '-active', '-text'];
+        statesToRemove.forEach(s => removeState(s));
+
         const setStick = (el) => {
             const bound = el.getBoundingClientRect();
             stickData = {
@@ -89,23 +98,25 @@ const Cursor = () => {
         document.body.addEventListener('mouseup', () => removeState('-active'));
 
         const onMouseOver = (e) => {
-            const target = e.target.closest('a, input, textarea, button, .hoverable, [data-cursor], [data-cursor-text], [data-cursor-stick]');
+            const target = e.target.closest('a, input, textarea, button, .hoverable, [data-cursor], [data-cursor-text], [data-cursor-stick], [data-cursor-hidden]');
             if (!target) return;
 
             if (target.matches('a, input, textarea, button, .hoverable')) setState('-pointer');
             if (target.dataset.cursor) setState(target.dataset.cursor);
             if (target.dataset.cursorText) setText(target.dataset.cursorText);
             if (target.dataset.cursorStick) setStick(target);
+            if (target.hasAttribute('data-cursor-hidden')) setState('-hidden');
         };
 
         const onMouseOut = (e) => {
-            const target = e.target.closest('a, input, textarea, button, .hoverable, [data-cursor], [data-cursor-text], [data-cursor-stick]');
+            const target = e.target.closest('a, input, textarea, button, .hoverable, [data-cursor], [data-cursor-text], [data-cursor-stick], [data-cursor-hidden]');
             if (!target) return;
 
             if (target.matches('a, input, textarea, button, .hoverable')) removeState('-pointer');
             if (target.dataset.cursor) removeState(target.dataset.cursor);
             if (target.dataset.cursorText) removeText();
             if (target.dataset.cursorStick) removeStick();
+            if (target.hasAttribute('data-cursor-hidden')) removeState('-hidden');
         };
 
         document.addEventListener('mouseover', onMouseOver);
@@ -118,7 +129,7 @@ const Cursor = () => {
             document.removeEventListener('mouseover', onMouseOver);
             document.removeEventListener('mouseout', onMouseOut);
         };
-    }, []);
+    }, [pathname]);
 
     return (
         <div ref={cursorRef} className="cb-cursor">

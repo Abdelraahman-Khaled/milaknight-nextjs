@@ -6,7 +6,8 @@ import { useContext } from 'react';
 import { LanguageContext } from './context/LanguageContext';
 
 export default function NotFound() {
-    const { language } = useContext(LanguageContext);
+    const context = useContext(LanguageContext);
+    const language = context?.language || 'ar';
 
     const content = {
         ar: {

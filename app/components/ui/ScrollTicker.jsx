@@ -76,7 +76,7 @@ const ScrollTicker = () => {
     return (
         <div className="our-scrolling-ticker">
             <div className="scrolling-ticker-box">
-                {[1, 2].map((_, index) => (
+                {[1, 2, 3, 4].map((_, index) => (
                     <div key={index} className="scrolling-content">
                         {items.map((item, i) => (
                             <span key={i}>
@@ -85,7 +85,7 @@ const ScrollTicker = () => {
                                     alt={item.alt}
                                     width={20}
                                     height={20}
-                                    style={{ objectFit: 'contain', marginInlineEnd: '5px' }} // inline styling to ensure it sits nicely
+                                    style={{ objectFit: 'contain', marginInlineEnd: '5px' }}
                                 />
                                 {item.text}
                             </span>

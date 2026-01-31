@@ -19,7 +19,7 @@ export async function generateMetadata({ searchParams }) {
             images: ['https://mila-knight.com/images/logo-dark-footer.webp'],
             url: `https://mila-knight.com/projects.html`,
             type: 'website',
-            locale: lang === 'ar' ? 'ar_SA' : 'en_US',
+            locale: "KSA",
         },
         twitter: {
             card: 'summary_large_image',

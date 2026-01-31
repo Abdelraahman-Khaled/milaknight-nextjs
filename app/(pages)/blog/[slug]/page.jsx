@@ -2,46 +2,17 @@ import { notFound } from 'next/navigation';
 import { getBlogDetails } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
 import { cookies } from 'next/headers';
+import {
+    dehydrate,
+    HydrationBoundary,
+    QueryClient,
+} from '@tanstack/react-query';
 
 export const dynamic = 'force-dynamic';
 
-// Helper to fetch data with resilient slug handling
-async function getBlog(slug) {
-    try {
-        // 1. Try with the original slug
-        let data = await getBlogDetails(slug);
-        console.log(data);
-
-        if (data && data.id) return data;
-
-        // 2. If it has hyphens, try replacing them with spaces
-        if (slug.includes('-')) {
-            const spaceSlug = slug.replace(/-/g, ' ');
-            data = await getBlogDetails(spaceSlug);
-            console.log(data);
-
-            if (data && data.id) return data;
-        }
-
-        // 3. If it has spaces, try replacing them with hyphens
-        if (slug.includes(' ')) {
-            const hyphenSlug = slug.replace(/ /g, '-');
-            data = await getBlogDetails(hyphenSlug);
-
-            if (data && data.id) return data;
-        }
-
-        return null;
-    } catch (error) {
-        console.error(`Error fetching blog "${slug}":`, error.message);
-        return null;
-    }
-}
-
 export async function generateMetadata({ params }) {
-    const { slug: encodedSlug } = await params;
-    const slug = decodeURIComponent(encodedSlug);
-    const blog = await getBlog(slug);
+    const { slug } = await params;
+    const blog = await getBlogDetails(slug);
 
     if (!blog) return {};
 
@@ -67,7 +38,7 @@ export async function generateMetadata({ params }) {
             shortcut: '/images/icons/favicon.ico',
         },
         openGraph: {
-            title: "Milaknight" | title,
+            title: `Milaknight | ${title}`,
             description,
             images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
         },
@@ -82,15 +53,24 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogDetailsPage({ params }) {
-    const { slug: encodedSlug } = await params;
-    const slug = decodeURIComponent(encodedSlug);
-    const blog = await getBlog(slug);
+    const { slug } = await params;
+
+    const queryClient = new QueryClient();
+
+    // Use getBlogDetails for prefetching
+    await queryClient.prefetchQuery({
+        queryKey: ['blog', slug],
+        queryFn: () => getBlogDetails(slug),
+    });
+
+    // Get the data from cache or fetch again if needed (usually it's in cache now)
+    const blog = queryClient.getQueryData(['blog', slug]);
 
     if (!blog) notFound();
 
     return (
-        <>
-            <BlogDetailContent blog={blog} />
-        </>
+        <HydrationBoundary state={dehydrate(queryClient)}>
+            <BlogDetailContent slug={slug} initialBlog={blog} />
+        </HydrationBoundary>
     );
 }
