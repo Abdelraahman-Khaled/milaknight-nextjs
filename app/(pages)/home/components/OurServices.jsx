@@ -56,13 +56,13 @@ const OurServices = () => {
                     <div className="service-footer">
                         <p>
                             {content.footerText}
-                            <Link href="pricing.html">{content.footerLinkText}</Link>
+                            <Link href="/pricing">{content.footerLinkText}</Link>
                         </p>
                     </div>
 
                     <div className="text-center mt-4">
                         <div className="section-btn">
-                            <Link href="services.html" className="btn-default">{content.moreServicesText}</Link>
+                            <Link href="/services" className="btn-default">{content.moreServicesText}</Link>
                         </div>
                     </div>
                 </div>

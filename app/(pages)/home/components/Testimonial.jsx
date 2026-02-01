@@ -55,7 +55,7 @@ const Testimonial = () => {
                         </div>
 
                         <div className="testimonial-review-btn">
-                            <Link href="contact.html" className="btn-default">{content.contactBtn}</Link>
+                            <Link href="/contact" className="btn-default">{content.contactBtn}</Link>
                         </div>
                     </div>
                 </div>

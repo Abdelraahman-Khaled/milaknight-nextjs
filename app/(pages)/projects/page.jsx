@@ -11,13 +11,13 @@ export async function generateMetadata({ searchParams }) {
         description: seo.description,
         keywords: seo.keywords,
         alternates: {
-            canonical: 'https://mila-knight.com/projects.html',
+            canonical: 'https://mila-knight.com/projects',
         },
         openGraph: {
             title: seo.title,
             description: seo.description,
             images: ['https://mila-knight.com/images/logo-dark-footer.webp'],
-            url: `https://mila-knight.com/projects.html`,
+            url: `https://mila-knight.com/projects`,
             type: 'website',
             locale: "KSA",
         },

@@ -37,7 +37,7 @@ const BestWorks = () => {
             </div>
             <div className="text-center mt-4">
                 <div className="section-btn">
-                    <Link href="projects.html" className="btn-default">{content.moreWorks}</Link>
+                    <Link href="/projects" className="btn-default">{content.moreWorks}</Link>
                 </div>
             </div>
         </div>
