@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+.env
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.netlify
+deno.lock
+eslint.config.mjs
+jsconfig.json
+netlify.toml

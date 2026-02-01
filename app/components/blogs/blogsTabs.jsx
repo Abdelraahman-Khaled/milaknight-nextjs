@@ -14,7 +14,7 @@ const BlogsTabs = () => {
   const { data: blogsList = [], isLoading } = useQuery({
     queryKey: ["blogs"],
     queryFn: getBlogs,
-    refetchInterval: 10000, // 10 seconds polling for live updates
+    refetchInterval: 5000, // 5 seconds polling for live updates
   });
 
   const filters = [

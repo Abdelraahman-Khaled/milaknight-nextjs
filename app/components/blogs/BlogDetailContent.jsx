@@ -18,7 +18,7 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
         queryKey: ['blog', slug],
         queryFn: () => getBlogDetails(slug),
         initialData: initialBlog,
-        refetchInterval: 10000, // 10 seconds polling for live updates
+        refetchInterval: 5000, // 5 seconds polling for live updates
     });
 
     // guard علشان يمنع التكرار
