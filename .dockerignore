@@ -1,7 +1,6 @@
 node_modules
 .next
 .git
-.env
 README.md
 Dockerfile
 docker-compose.yml
@@ -11,6 +10,4 @@ yarn-debug.log*
 yarn-error.log*
 .netlify
 deno.lock
-eslint.config.mjs
-jsconfig.json
 netlify.toml
