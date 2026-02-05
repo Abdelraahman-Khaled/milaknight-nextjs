@@ -12,32 +12,26 @@ const Navbar = () => {
 
     const isActive = (path) => pathname === path ? "nav-link active" : "nav-link";
 
-    // Manually update SlickNav menu text after language change
+    // Update SlickNav menu text after language change
     const handleLanguageToggle = () => {
-        // First, toggle the language
         toggleLanguage();
 
-        // Wait for React to update the DOM with new translations
+        // Wait for React to update DOM with translations
         setTimeout(() => {
             const originalMenu = document.querySelector('#menu');
             const slicknavMenu = document.querySelector('.slicknav_nav');
 
             if (originalMenu && slicknavMenu) {
-                // Get all links from both menus
                 const originalLinks = originalMenu.querySelectorAll('a');
                 const clonedLinks = slicknavMenu.querySelectorAll('a');
 
-                // Update each cloned link by matching href
                 clonedLinks.forEach((clonedLink) => {
                     const href = clonedLink.getAttribute('href');
-
-                    // Find matching original link by href
                     const matchingOriginal = Array.from(originalLinks).find(
                         link => link.getAttribute('href') === href
                     );
 
                     if (matchingOriginal) {
-                        // Get only the direct text content (not from child elements)
                         const getDirectText = (element) => {
                             return Array.from(element.childNodes)
                                 .filter(node => node.nodeType === Node.TEXT_NODE)
@@ -48,12 +42,10 @@ const Navbar = () => {
                         const newText = getDirectText(matchingOriginal);
 
                         if (newText) {
-                            // Remove old text nodes from cloned link
                             Array.from(clonedLink.childNodes)
                                 .filter(node => node.nodeType === Node.TEXT_NODE)
                                 .forEach(node => node.remove());
 
-                            // Add new text at the beginning
                             clonedLink.insertBefore(
                                 document.createTextNode(newText),
                                 clonedLink.firstChild
@@ -62,7 +54,7 @@ const Navbar = () => {
                     }
                 });
             }
-        }, 150);
+        }, 200);
     };
 
     return (

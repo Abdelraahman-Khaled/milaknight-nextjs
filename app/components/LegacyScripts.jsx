@@ -47,10 +47,11 @@ const LegacyScripts = () => {
             return script;
         };
 
+        // Load jQuery and SlickNav first for faster mobile menu
         const scripts = [
             "/js/jquery-3.7.1.min.js",
-            "/js/swiper-bundle.min.js",
             "/js/jquery.slicknav.min.js",
+            "/js/swiper-bundle.min.js",
             "/js/jquery.waypoints.min.js",
             "/js/jquery.counterup.min.js",
             "/js/isotope.min.js",
@@ -116,20 +117,7 @@ const LegacyScripts = () => {
             const script = document.createElement('script');
             script.src = src;
             script.async = false;
-            script.onload = () => {
-                // Early SlickNav initialization for faster mobile menu display
-                if (src.includes('jquery.slicknav.min.js')) {
-                    setTimeout(() => {
-                        if (window.jQuery && window.jQuery.fn.slicknav) {
-                            const menu = window.jQuery('#menu');
-                            if (menu.length && !window.jQuery('.slicknav_menu').length) {
-                                menu.slicknav({ label: '', prependTo: '.responsive-menu' });
-                            }
-                        }
-                    }, 50);
-                }
-                loadNext(index + 1);
-            };
+            script.onload = () => loadNext(index + 1);
             document.body.appendChild(script);
             loadedScripts.push(script);
         };
