@@ -151,7 +151,7 @@ const LegacyScripts = () => {
                 if (s.parentNode) s.parentNode.removeChild(s);
             });
         };
-    }, [pathname, language]);
+    }, [pathname]); // Only reload on route change, NOT language change (Navbar handles SlickNav)
 
     return null;
 };

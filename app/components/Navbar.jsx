@@ -12,6 +12,59 @@ const Navbar = () => {
 
     const isActive = (path) => pathname === path ? "nav-link active" : "nav-link";
 
+    // Manually update SlickNav menu text after language change
+    const handleLanguageToggle = () => {
+        // First, toggle the language
+        toggleLanguage();
+
+        // Wait for React to update the DOM with new translations
+        setTimeout(() => {
+            const originalMenu = document.querySelector('#menu');
+            const slicknavMenu = document.querySelector('.slicknav_nav');
+
+            if (originalMenu && slicknavMenu) {
+                // Get all links from both menus
+                const originalLinks = originalMenu.querySelectorAll('a');
+                const clonedLinks = slicknavMenu.querySelectorAll('a');
+
+                // Update each cloned link by matching href
+                clonedLinks.forEach((clonedLink) => {
+                    const href = clonedLink.getAttribute('href');
+
+                    // Find matching original link by href
+                    const matchingOriginal = Array.from(originalLinks).find(
+                        link => link.getAttribute('href') === href
+                    );
+
+                    if (matchingOriginal) {
+                        // Get only the direct text content (not from child elements)
+                        const getDirectText = (element) => {
+                            return Array.from(element.childNodes)
+                                .filter(node => node.nodeType === Node.TEXT_NODE)
+                                .map(node => node.textContent.trim())
+                                .join(' ');
+                        };
+
+                        const newText = getDirectText(matchingOriginal);
+
+                        if (newText) {
+                            // Remove old text nodes from cloned link
+                            Array.from(clonedLink.childNodes)
+                                .filter(node => node.nodeType === Node.TEXT_NODE)
+                                .forEach(node => node.remove());
+
+                            // Add new text at the beginning
+                            clonedLink.insertBefore(
+                                document.createTextNode(newText),
+                                clonedLink.firstChild
+                            );
+                        }
+                    }
+                });
+            }
+        }, 150);
+    };
+
     return (
 
         <header className="main-header">
@@ -26,14 +79,11 @@ const Navbar = () => {
                                     <li className="nav-item"><Link className={isActive("/about")} href="/about">{t('about_us')}</Link></li>
                                     <li className="nav-item submenu"><Link className={isActive("/services")} href="/services">{t('services')}</Link>
                                         <ul>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/web-development">{t('web_development')}</Link>
-                                            </li>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/digital-marketing">{t('digital_marketing')}</Link>
-                                            </li>
+                                            <li className="nav-item"><Link className="nav-link" href="/service/web-development">{t('web_development')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href="/service/digital-marketing">{t('digital_marketing')}</Link></li>
                                             <li className="nav-item"><Link className="nav-link" href="/service/graphic-design">{t('graphic_design')}</Link></li>
                                             <li className="nav-item"><Link className="nav-link" href="/service/e-commerce">{t('e_commerce')}</Link></li>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/video-production">{t('video_production')}</Link>
-                                            </li>
+                                            <li className="nav-item"><Link className="nav-link" href="/service/video-production">{t('video_production')}</Link></li>
                                             <li className="nav-item"><Link className="nav-link" href="/service/event-planning">{t('event_planning')}</Link></li>
                                         </ul>
                                     </li>
@@ -42,8 +92,7 @@ const Navbar = () => {
                                     <li className="nav-item"><Link className={pathname && pathname.startsWith("/blog") ? "nav-link active" : "nav-link"} href="/blog">{t('blog')}</Link></li>
                                     <li className="nav-item"><Link className={isActive("/contact")} href="/contact">{t('contact_us')}</Link></li>
                                     <li className="nav-item">
-                                        <Link className="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank"
-                                            rel="noopener">
+                                        <Link className="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank" rel="noopener">
                                             {t('company_profile')}
                                             <i className={`fa-solid fa-download ${language === 'ar' ? 'me-1' : 'ms-1'}`}></i>
                                         </Link>
@@ -74,7 +123,7 @@ const Navbar = () => {
                                             className="fa-brands fa-youtube"></i></Link></li>
                                 </ul>
                             </div>
-                            <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={toggleLanguage} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
+                            <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={handleLanguageToggle} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
                                 {language === 'en' ? (
                                     <Image src="/images/saudi-arabia.png" alt="Switch to Arabic" width={32} height={32} />
                                 ) : (
