@@ -61,7 +61,11 @@ const translations = {
         subject: "Subject",
         message: "Message",
         send_message: "Send Message",
-        message_sent: "Your message has been sent successfully."
+        message_sent: "Your message has been sent successfully.",
+        // 404 Error Page
+        error_404_title: "Page Not Found",
+        error_404_description: "The page you are looking for does not exist",
+        error_404_home_button: "Home Page"
     },
     ar: {
         home: "الرئيسية",
@@ -125,7 +129,11 @@ const translations = {
         subject: "الموضوع",
         message: "الرسالة",
         send_message: "إرسال الرسالة",
-        message_sent: "تم ارسال رسالتك بنجاح"
+        message_sent: "تم ارسال رسالتك بنجاح",
+        // 404 Error Page
+        error_404_title: "لم يتم العثور على الصفحة",
+        error_404_description: "الصفحة التي تبحث عنها غير موجودة",
+        error_404_home_button: "الصفحة الرئيسية"
     }
 };
 
