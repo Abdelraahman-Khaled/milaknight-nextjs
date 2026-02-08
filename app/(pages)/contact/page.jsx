@@ -26,20 +26,20 @@ const seoData = {
     en: {
         title: 'Contact us - Milaknight',
         description: 'We are a digital marketing agency SEO experts Brand building specialists Smart marketing solutions Data driven strategies Helping your business grow with innovative tools',
-        url: 'https://mila-knight.com/en/contact',
+        url: 'https://mila-knight.com/contact',
         locale: 'en_US',
         jsonLd: {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "@id": "https://mila-knight.com/en/contact#contactpage",
-            "url": "https://mila-knight.com/en/contact",
+            "@id": "https://mila-knight.com/contact#contactpage",
+            "url": "https://mila-knight.com/contact",
             "name": "Contact Us - MilaKnight LLC-FZ",
             "description": "MilaKnight LLC-FZ is a digital marketing agency specializing in SEO, brand building, smart marketing solutions, and data-driven strategies to help your business grow with innovative tools.",
             "isPartOf": {
-                "@id": "https://mila-knight.com/en/#corporation"
+                "@id": "https://mila-knight.com/#corporation"
             },
             "publisher": {
-                "@id": "https://mila-knight.com/en/#corporation"
+                "@id": "https://mila-knight.com/#corporation"
             }
         }
     }

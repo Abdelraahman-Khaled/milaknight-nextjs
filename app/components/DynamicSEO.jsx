@@ -9,12 +9,12 @@ const DynamicSEO = () => {
     const pathname = usePathname();
 
     useEffect(() => {
-        const isHome = pathname === "/" || pathname === "/en" || pathname === "/";
-        const isAboutPage = pathname === "/about" || pathname === "/about" || pathname === "/en/about" || pathname === "/en/about";
-        const isServicesPage = pathname === "/services" || pathname === "/services" || pathname === "/en/services" || pathname === "/en/services";
-        const isContactPage = pathname === "/contact" || pathname === "/contact" || pathname === "/en/contact" || pathname === "/en/contact";
-        const isProjectsPage = pathname === "/projects" || pathname === "/projects" || pathname === "/en/projects" || pathname === "/en/projects";
-        const isPricingPage = pathname === "/pricing" || pathname === "/pricing" || pathname === "/en/pricing" || pathname === "/en/pricing";
+        const isHome = pathname === "/";
+        const isAboutPage = pathname === "/about";
+        const isServicesPage = pathname === "/services";
+        const isContactPage = pathname === "/contact";
+        const isProjectsPage = pathname === "/projects";
+        const isPricingPage = pathname === "/pricing";
 
         if (!isHome && !isAboutPage && !isServicesPage && !isProjectsPage && !isPricingPage && !isContactPage) return;
 

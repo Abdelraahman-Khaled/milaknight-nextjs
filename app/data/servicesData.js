@@ -109,8 +109,8 @@ export const servicesData = {
                 title_end: "",
                 subtitle: "",
                 breadcrumb: [
-                    { label: "Home", href: "/en" },
-                    { label: "Services", href: "/en/services" },
+                    { label: "Home", href: "/" },
+                    { label: "Services", href: "/services" },
                     { label: "Web Design & Development", href: null }
                 ]
             },
@@ -306,8 +306,8 @@ export const servicesData = {
                 title_end: "",
                 subtitle: "Marketing",
                 breadcrumb: [
-                    { label: "Home", href: "/en" },
-                    { label: "Services", href: "/en/services" },
+                    { label: "Home", href: "/" },
+                    { label: "Services", href: "/services" },
                     { label: "Digital Marketing", href: null }
                 ]
             },
@@ -501,8 +501,8 @@ export const servicesData = {
                 title_end: "",
                 subtitle: "",
                 breadcrumb: [
-                    { label: "Home", href: "/en" },
-                    { label: "Services", href: "/en/services" },
+                    { label: "Home", href: "/" },
+                    { label: "Services", href: "/services" },
                     { label: "Graphic Design", href: null }
                 ]
             },
@@ -708,8 +708,8 @@ export const servicesData = {
                 title_end: "",
                 subtitle: "Commerce",
                 breadcrumb: [
-                    { label: "Home", href: "/en" },
-                    { label: "Services", href: "/en/services" },
+                    { label: "Home", href: "/" },
+                    { label: "Services", href: "/services" },
                     { label: "E-Commerce", href: null }
                 ]
             },
@@ -915,8 +915,8 @@ export const servicesData = {
                 title_end: "",
                 subtitle: "Production",
                 breadcrumb: [
-                    { label: "Home", href: "/en" },
-                    { label: "Services", href: "/en/services" },
+                    { label: "Home", href: "/" },
+                    { label: "Services", href: "/services" },
                     { label: "Video Production", href: null }
                 ]
             },
@@ -1117,8 +1117,8 @@ export const servicesData = {
                 title_end: "",
                 subtitle: "Planning",
                 breadcrumb: [
-                    { label: "Home", href: "/en" },
-                    { label: "Services", href: "/en/services" },
+                    { label: "Home", href: "/" },
+                    { label: "Services", href: "/services" },
                     { label: "Event Planning", href: null }
                 ]
             },
