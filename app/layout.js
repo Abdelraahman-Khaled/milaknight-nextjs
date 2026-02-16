@@ -12,9 +12,6 @@ import LegacyScripts from "./components/LegacyScripts";
 import Navbar from "./components/Navbar";
 import Footer from "./components/ui/Footer";
 
-
-
-
 export const viewport = {
   width: "device-width",
   initialScale: 1,
@@ -25,7 +22,8 @@ export const metadata = {
   title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
   description:
     "وكالة تسويق رقمي خدمات تحسين محركات البحث تسويق عبر السوشيال ميديا إدارة حملات إعلانية تصميم مواقع الكترونية تحسين ظهور المواقع تسويق محتوى احترافي تحليل بيانات السوق حلول تسويقية ذكية",
-  keywords: "تصميم و برمجة المواقع, تخطيط و تنفيذ الفعاليات, إنتاج الفيديوهات, التجارة الإلكترونية, التصميم الجرافيكي, التسويق الرقمي",
+  keywords:
+    "تصميم و برمجة المواقع, تخطيط و تنفيذ الفعاليات, إنتاج الفيديوهات, التجارة الإلكترونية, التصميم الجرافيكي, التسويق الرقمي",
   authors: [{ name: "Milaknight LLC-FZ" }],
   icons: {
     icon: "images/icons/favicon.ico",
@@ -200,21 +198,24 @@ export default function RootLayout({ children }) {
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-K2R6JGSQ');
+            })(window,document,'script','dataLayer','GTM-NSPXXGG5');
           `}
         </Script>
         {/* End Google Tag Manager */}
-
       </head>
       <body>
         {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
-          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2R6JGSQ"
-            height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NSPXXGG5"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
         <script
