@@ -259,7 +259,7 @@ const ContactContent = () => {
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.instagram.com/milaknight.1/" rel="noopener" target="_blank">
+                                    <a href="https://www.instagram.com/milaknight.mena/" rel="noopener" target="_blank">
                                         <i className="fa-brands fa-instagram"></i>
                                     </a>
                                 </div>
@@ -268,7 +268,7 @@ const ContactContent = () => {
                                     <p>@milaknight.mk</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.instagram.com/milaknight.1/" rel="noopener" target="_blank" className="readmore-btn">
+                                    <a href="https://www.instagram.com/milaknight.mena/" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
                                     </a>
                                 </div>

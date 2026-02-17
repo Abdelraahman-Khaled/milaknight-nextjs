@@ -141,7 +141,7 @@ const Footer = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.instagram.com/milaknight.1/" target="_blank"
+                                                <Link href="https://www.instagram.com/milaknight.mena/" target="_blank"
                                                     rel="noopener">
                                                     <i className="fa-brands fa-instagram"></i>
                                                 </Link>

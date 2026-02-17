@@ -82,7 +82,7 @@ const jsonLd = {
       openingHours: "Mo-Su 00:00-23:59",
       sameAs: [
         "https://www.linkedin.com/company/milaknight/",
-        "https://www.instagram.com/milaknight.1//",
+        "https://www.instagram.com/milaknight.mena/",
         "https://x.com/milaknight731",
         "https://www.snapchat.com/add/milaknight.mk",
         "https://www.facebook.com/people/milaknight/61557223981208/",
