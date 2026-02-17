@@ -37,7 +37,7 @@ const ServiceContactForm = ({ serviceName, ctaData }) => {
         };
 
         const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_SERVICE;
         const userID = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
 
         emailjs.send(serviceID, templateID, currentFormData, userID)

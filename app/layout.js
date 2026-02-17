@@ -26,8 +26,8 @@ export const metadata = {
     "تصميم و برمجة المواقع, تخطيط و تنفيذ الفعاليات, إنتاج الفيديوهات, التجارة الإلكترونية, التصميم الجرافيكي, التسويق الرقمي",
   authors: [{ name: "Milaknight LLC-FZ" }],
   icons: {
-    icon: "images/icons/favicon.ico",
-    shortcut: "images/icons/favicon.ico",
+    icon: "/images/icons/favicon.ico",
+    shortcut: "/images/icons/favicon.ico",
   },
   manifest: "/manifest-ar.json",
   verification: {

@@ -3,7 +3,7 @@ import ServiceVideo from './ServiceVideo';
 import ServiceContactForm from './ServiceContactForm';
 import ServiceProcess from './ServiceProcess';
 import Link from 'next/link';
-const ServiceContent = ({ content }) => {
+const ServiceContent = ({ content, hero }) => {
     return (
         <div className="service-single-content">
             <ServiceVideo videoId={content.video_id} />
@@ -118,7 +118,7 @@ const ServiceContent = ({ content }) => {
                 </div>
 
                 <ServiceContactForm
-                    serviceName={content.title}
+                    serviceName={hero.title + " " + hero.span}
                     ctaData={content.cta}
                 />
             </div>

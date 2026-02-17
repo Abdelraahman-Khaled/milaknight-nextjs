@@ -60,7 +60,7 @@ const ServicePage = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
-                            <ServiceContent content={data.content} />
+                            <ServiceContent content={data.content} hero={data.hero} />
                         </div>
                         <div className="col-lg-4">
                             <ServiceSidebar

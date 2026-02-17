@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import emailjs from 'emailjs-com';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import ScrollTicker from '@/app/components/ui/ScrollTicker';
 
@@ -10,19 +11,32 @@ const ContactContent = () => {
     const { t, language } = useContext(LanguageContext);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const form = useRef();
 
-    // Form submission handler (placeholder for now, similar to original)
-    const handleSubmit = async (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setIsError(false);
 
-        // Simulating form submission
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSuccess(true);
-            setTimeout(() => setIsSuccess(false), 3000);
-            e.target.reset();
-        }, 1000);
+        emailjs.sendForm(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+            form.current,
+            process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+        )
+            .then((result) => {
+                console.log(result.text);
+                setIsSubmitting(false);
+                setIsSuccess(true);
+                setTimeout(() => setIsSuccess(false), 3000);
+                e.target.reset();
+            }, (error) => {
+                console.log(error.text);
+                setIsSubmitting(false);
+                setIsError(true);
+                setTimeout(() => setIsError(false), 3000);
+            });
     };
 
     return (
@@ -106,19 +120,20 @@ const ContactContent = () => {
                         </div>
                         <div className="col-lg-6">
                             <div className="contact-us-form">
-                                <form id="contactForm" onSubmit={handleSubmit}>
+                                <form id="contactForm" ref={form} onSubmit={sendEmail}>
+                                    <input type="hidden" name="time" value={new Date().toLocaleString()} />
                                     <div className="row">
                                         <div className="form-group mb-4 col-md-6">
                                             <input className="form-control" id="fname" name="name" placeholder={t('your_name')} required />
                                         </div>
                                         <div className="form-group mb-4 col-md-6">
-                                            <input className="form-control" id="phone" name="phone" placeholder={t('phone_number')} required type="number" />
+                                            <input className="form-control" id="phone" name="phone" placeholder={t('phone_number')} required type="tel" />
                                         </div>
                                         <div className="form-group mb-4 col-md-12">
                                             <input className="form-control" id="email" name="email" placeholder={t('email')} required type="email" />
                                         </div>
                                         <div className="form-group mb-4 col-md-12">
-                                            <input className="form-control" id="subject" name="sub" placeholder={t('subject')} required />
+                                            <input className="form-control" id="subject" name="subject" placeholder={t('subject')} required />
                                         </div>
                                         <div className="form-group col-md-12 mb-5">
                                             <textarea className="form-control" id="message" name="message" placeholder={t('message')} rows="4" required></textarea>
@@ -147,7 +162,21 @@ const ContactContent = () => {
                                 <h2>{t('message_sent')}</h2>
                             </div>
                             <div>
-                                <Image width={50} height={50} alt="success" src="/images/icons/message.gif" unoptimized />
+                                <Image width={150} height={150} alt="success" src="/images/icons/message.gif" unoptimized />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Error Popup - Optional to add later, for now just using console log */}
+            {isError && (
+                <div className="overlay-pop" id="overlay-pop-error" style={{ display: 'flex' }}>
+                    <div className="pop-up" id="pop-up-error">
+                        <div className="msg" id="msg-error">
+                            <div>
+                                <h2 style={{ color: 'red' }}>Error Sending Message</h2>
+                                <p>Please try again later.</p>
                             </div>
                         </div>
                     </div>
