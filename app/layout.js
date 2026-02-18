@@ -85,7 +85,7 @@ const jsonLd = {
         "https://www.instagram.com/milaknight.mena/",
         "https://x.com/milaknight731",
         "https://www.snapchat.com/add/milaknight.mk",
-        "https://www.facebook.com/people/milaknight/61557223981208/",
+        "https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#",
         "https://www.tiktok.com/@milaknight.mk",
         "https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA",
       ],

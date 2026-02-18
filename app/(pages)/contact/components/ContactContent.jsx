@@ -223,7 +223,7 @@ const ContactContent = () => {
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.facebook.com/people/milaknight/61557223981208" rel="noopener" target="_blank">
+                                    <a href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" rel="noopener" target="_blank">
                                         <i className="fa-brands fa-facebook-f"></i>
                                     </a>
                                 </div>
@@ -232,7 +232,7 @@ const ContactContent = () => {
                                     <p>milaknight</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.facebook.com/people/milaknight/61557223981208" rel="noopener" target="_blank" className="readmore-btn">
+                                    <a href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
                                     </a>
                                 </div>

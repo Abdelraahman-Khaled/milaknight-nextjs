@@ -73,8 +73,7 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
             ));
         } else {
             // Fallback for old format (single HTML string) or missing content
-            return <div dangerouslySetInnerHTML={{ __html: blog.contents }} />;
-        }
+jnu        }
     };
 
     const title = language === 'ar' ? (blog.title_ar || blog.title_en) : (blog.title_en || blog.title_ar);

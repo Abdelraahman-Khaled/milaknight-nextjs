@@ -99,7 +99,7 @@ const Navbar = () => {
                                         title={t('follow_us_twitter')}><i className="fa-brands fa-x-twitter"></i></Link></li>
                                     <li><Link href="https://www.snapchat.com/add/milaknight.mk" target="_blank" rel="noopener"
                                         aria-label="Snapchat" title={t('follow_us_snapchat')}><i className="fa-brands fa-snapchat"></i></Link></li>
-                                    <li><Link href="https://www.facebook.com/people/milaknight/61557223981208" target="_blank" rel="noopener"
+                                    <li><Link href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" target="_blank" rel="noopener"
                                         aria-label="Facebook" title={t('follow_us_facebook')}><i className="fa-brands fa-facebook-f"></i></Link>
                                     </li>
                                     <li><Link href="https://www.instagram.com/milaknight.mena/" target="_blank" rel="noopener"

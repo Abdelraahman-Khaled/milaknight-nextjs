@@ -135,7 +135,7 @@ const Footer = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.facebook.com/people/milaknight/61557223981208/?mibextid=hu50Ix&amp;rdid=ueZrQfnq2frKALxa&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FSPiK45DVgjNPbx1T%2F%3Fmibextid%3Dhu50Ix"
+                                                <Link href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#"
                                                     target="_blank" rel="noopener">
                                                     <i className="fa-brands fa-facebook-f"></i>
                                                 </Link>
