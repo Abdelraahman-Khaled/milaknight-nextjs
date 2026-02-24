@@ -6,33 +6,33 @@ const seoData = {
     ar: {
         title: 'أسعارنا - Milaknight',
         description: 'أسعار تنافسية لخدمات التسويق الرقمي تصميم المواقع استراتيجيات سيو إدارة حملات الإعلانات تصميم جرافيكي حلول مبتكرة بأسعار مناسبة لكل الشركات استثمارات تسويقية ذكية',
-        url: 'https://mila-knight.com/pricing',
+        url: 'https://www.mila-knight.com/pricing',
         locale: 'KSA',
         jsonLd: {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "@id": "https://mila-knight.com/pricing#pricingpage",
-            "url": "https://mila-knight.com/pricing",
+            "@id": "https://www.mila-knight.com/pricing#pricingpage",
+            "url": "https://www.mila-knight.com/pricing",
             "name": "أسعارنا - MilaKnight LLC-FZ",
             "description": "أسعار تنافسية لخدمات التسويق الرقمي، تصميم المواقع، استراتيجيات سيو، إدارة الحملات الإعلانية، التصميم الجرافيكي، وحلول مبتكرة بأسعار مناسبة لكل الشركات.",
-            "isPartOf": { "@id": "https://mila-knight.com/#corporation" },
-            "publisher": { "@id": "https://mila-knight.com/#corporation" }
+            "isPartOf": { "@id": "https://www.mila-knight.com/#corporation" },
+            "publisher": { "@id": "https://www.mila-knight.com/#corporation" }
         }
     },
     en: {
         title: 'Pricing - Milaknight',
         description: 'Competitive pricing for digital marketing services Web design SEO strategies Ad campaign management Graphic design Innovative solutions at affordable rates Smart marketing investments',
-        url: 'https://mila-knight.com/pricing',
+        url: 'https://www.mila-knight.com/pricing',
         locale: 'en_US',
         jsonLd: {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "@id": "https://mila-knight.com/pricing#pricingpage",
-            "url": "https://mila-knight.com/pricing",
+            "@id": "https://www.mila-knight.com/pricing#pricingpage",
+            "url": "https://www.mila-knight.com/pricing",
             "name": "Pricing - MilaKnight LLC-FZ",
             "description": "Competitive pricing for digital marketing services, web design, SEO strategies, ad campaign management, graphic design, and innovative solutions at affordable rates. Smart marketing investments for every business.",
-            "isPartOf": { "@id": "https://mila-knight.com/#corporation" },
-            "publisher": { "@id": "https://mila-knight.com/#corporation" }
+            "isPartOf": { "@id": "https://www.mila-knight.com/#corporation" },
+            "publisher": { "@id": "https://www.mila-knight.com/#corporation" }
         }
     }
 };
@@ -56,7 +56,7 @@ export async function generateMetadata() {
             locale: seo.locale,
             images: [
                 {
-                    url: 'https://mila-knight.com/images/logo-dark-footer.webp',
+                    url: 'https://www.mila-knight.com/images/logo-dark-footer.webp',
                     width: 1200,
                     height: 630,
                     alt: language === 'ar' ? 'شعار Mila Knight لتسويق رقمي' : 'Mila Knight Digital Marketing Logo'
@@ -67,7 +67,7 @@ export async function generateMetadata() {
             card: 'summary_large_image',
             title: seo.title,
             description: seo.description,
-            images: ['https://mila-knight.com/images/logo-dark-footer.webp']
+            images: ['https://www.mila-knight.com/images/logo-dark-footer.webp']
         }
     };
 }

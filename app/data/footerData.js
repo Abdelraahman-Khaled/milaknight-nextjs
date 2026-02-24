@@ -9,10 +9,10 @@ export const footerData = {
       title: "روابط سريعة",
       links: [
         { text: "الرئيسية", href: "/" },
-        { text: "من نحن", href: "about" },
-        { text: "أعمالنا", href: "projects" },
-        { text: "أسعارنا", href: "pricing" },
-        { text: "تواصل معنا", href: "contact" },
+        { text: "من نحن", href: "/about" },
+        { text: "أعمالنا", href: "/projects" },
+        { text: "أسعارنا", href: "/pricing" },
+        { text: "تواصل معنا", href: "/contact" },
       ],
     },
     services: {
@@ -45,10 +45,10 @@ export const footerData = {
       title: "Quick Links",
       links: [
         { text: "Home", href: "/" },
-        { text: "About Us", href: "about" },
-        { text: "Our Work", href: "projects" },
-        { text: "Pricing", href: "pricing" },
-        { text: "Contact Us", href: "contact" },
+        { text: "About Us", href: "/about" },
+        { text: "Our Work", href: "/projects" },
+        { text: "Pricing", href: "/pricing" },
+        { text: "Contact Us", href: "/contact" },
       ],
     },
     services: {

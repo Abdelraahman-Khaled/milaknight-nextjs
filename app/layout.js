@@ -19,6 +19,15 @@ export const viewport = {
 };
 
 export const metadata = {
+  metadataBase: new URL("https://www.mila-knight.com"),
+  alternates: {
+    canonical: "./",
+    languages: {
+      ar: "./",
+      en: "./",
+      "x-default": "./",
+    },
+  },
   title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
   description:
     "وكالة تسويق رقمي خدمات تحسين محركات البحث تسويق عبر السوشيال ميديا إدارة حملات إعلانية تصميم مواقع الكترونية تحسين ظهور المواقع تسويق محتوى احترافي تحليل بيانات السوق حلول تسويقية ذكية",
@@ -40,10 +49,10 @@ export const metadata = {
     title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
     description:
       "وكالة تسويق رقمي خدمات تحسين محركات البحث تسويق عبر السوشيال ميديا إدارة حملات إعلانية تصميم مواقع الكترونية تحسين ظهور المواقع تسويق محتوى احترافي تحليل بيانات السوق حلول تسويقية ذكية",
-    url: "https://mila-knight.com/",
+    url: "https://www.mila-knight.com/",
     images: [
       {
-        url: "https://mila-knight.com/images/logo-dark-footer.webp",
+        url: "https://www.mila-knight.com/images/logo-dark-footer.webp",
         width: 1200,
         height: 630,
         alt: "شعار Mila Knight لتسويق رقمي",
@@ -55,7 +64,7 @@ export const metadata = {
     title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
     description:
       "وكالة تسويق رقمي خدمات تحسين محركات البحث تسويق عبر السوشيال ميديا إدارة حملات إعلانية تصميم مواقع الكترونية تحسين ظهور المواقع تسويق محتوى احترافي تحليل بيانات السوق حلول تسويقية ذكية",
-    images: ["https://mila-knight.com/images/logo-dark-footer.webp"],
+    images: ["https://www.mila-knight.com/images/logo-dark-footer.webp"],
   },
 };
 
@@ -63,123 +72,127 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Corporation",
-      "@id": "https://mila-knight.com/#localbusiness",
+      "@type": "ProfessionalService",
+      "@id": "https://www.mila-knight.com/#business",
       name: "MilaKnight LLC-FZ",
+      url: "https://www.mila-knight.com/",
+      logo: "https://www.mila-knight.com/images/logo.svg",
+      image: "https://www.mila-knight.com/images/logo.svg",
       description:
-        "نحن وكالة تسويق رقمي خبراء سيو خبراء تسويق إلكتروني متخصصون في بناء العلامات التجارية نبتكر حلول تسويقية ذكية نستخدم أحدث أدوات التحليل نساعدك على النمو والانتشار",
-      url: "https://mila-knight.com/",
-      logo: "https://mila-knight.com/assets/images/logo-dark.webp",
-      image: "https://mila-knight.com/assets/images/logo-dark.webp",
+        "وكالة تسويق رقمي متخصصة في السيو والتسويق الإلكتروني وبناء العلامات التجارية وتطوير الحلول الرقمية.",
+      telephone: "+971585856774",
+      priceRange: "$$",
+      areaServed: "AE",
       address: {
         "@type": "PostalAddress",
         streetAddress:
           "الطابق السادس، مركز الأعمال، المدرج الكبير بفندق ميدان، شارع ميدان",
         addressLocality: "دبي",
-        addressCountry: "الإمارات العربية المتحدة",
+        addressCountry: "AE",
       },
-      telephone: "+971585856774",
-      openingHours: "Mo-Su 00:00-23:59",
       sameAs: [
         "https://www.linkedin.com/company/milaknight/",
         "https://www.instagram.com/milaknight.mena/",
         "https://x.com/milaknight731",
         "https://www.snapchat.com/add/milaknight.mk",
-        "https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#",
+        "https://www.facebook.com/milaknight.mena",
         "https://www.tiktok.com/@milaknight.mk",
         "https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA",
       ],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          opens: "00:00",
+          closes: "23:59",
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.mila-knight.com/#website",
+      url: "https://www.mila-knight.com/",
+      name: "MilaKnight",
+      publisher: {
+        "@id": "https://www.mila-knight.com/#business",
+      },
     },
     {
       "@type": "WebPage",
-      "@id": "https://mila-knight.com/#home",
-      url: "https://mila-knight.com/",
+      "@id": "https://www.mila-knight.com/#home",
+      url: "https://www.mila-knight.com/",
       name: "الصفحة الرئيسية",
-      isPartOf: { "@id": "https://mila-knight.com/#localbusiness" },
+      isPartOf: {
+        "@id": "https://www.mila-knight.com/#website",
+      },
+      about: {
+        "@id": "https://www.mila-knight.com/#business",
+      },
     },
     {
-      "@type": "AboutPage",
-      "@id": "https://mila-knight.com/about",
-      url: "https://mila-knight.com/about",
-      name: "من نحن",
-      isPartOf: { "@id": "https://mila-knight.com/#localbusiness" },
-    },
-    {
-      "@type": "CollectionPage",
-      "@id": "https://mila-knight.com/services",
-      url: "https://mila-knight.com/services",
-      name: "خدماتنا",
-      isPartOf: { "@id": "https://mila-knight.com/#localbusiness" },
-    },
-    {
-      "@type": "Service",
-      "@id": "https://mila-knight.com/service/web-development",
-      url: "https://mila-knight.com/service/web-development",
-      name: "تصميم و برمجة المواقع",
-      isPartOf: { "@id": "https://mila-knight.com/services" },
+      "@type": "BreadcrumbList",
+      "@id": "https://www.mila-knight.com/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "الرئيسية",
+          item: "https://www.mila-knight.com/",
+        },
+      ],
     },
     {
       "@type": "Service",
-      "@id": "https://mila-knight.com/service/digital-marketing",
-      url: "https://mila-knight.com/service/digital-marketing",
+      "@id": "https://www.mila-knight.com/service/digital-marketing",
       name: "التسويق الإلكتروني",
-      isPartOf: { "@id": "https://mila-knight.com/services" },
+      url: "https://www.mila-knight.com/service/digital-marketing",
+      provider: {
+        "@id": "https://www.mila-knight.com/#business",
+      },
     },
     {
       "@type": "Service",
-      "@id": "https://mila-knight.com/service/graphic-design",
-      url: "https://mila-knight.com/service/graphic-design",
+      "@id": "https://www.mila-knight.com/service/web-development",
+      name: "تصميم وبرمجة المواقع",
+      url: "https://www.mila-knight.com/service/web-development",
+      provider: {
+        "@id": "https://www.mila-knight.com/#business",
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.mila-knight.com/service/graphic-design",
       name: "التصميم الجرافيكي",
-      isPartOf: { "@id": "https://mila-knight.com/services" },
+      url: "https://www.mila-knight.com/service/graphic-design",
+      provider: {
+        "@id": "https://www.mila-knight.com/#business",
+      },
     },
     {
       "@type": "Service",
-      "@id": "https://mila-knight.com/service/e-commerce",
-      url: "https://mila-knight.com/service/e-commerce",
+      "@id": "https://www.mila-knight.com/service/e-commerce",
       name: "التجارة الإلكترونية",
-      isPartOf: { "@id": "https://mila-knight.com/services" },
+      url: "https://www.mila-knight.com/service/e-commerce",
+      provider: {
+        "@id": "https://www.mila-knight.com/#business",
+      },
     },
     {
       "@type": "Service",
-      "@id": "https://mila-knight.com/service/video-production",
-      url: "https://mila-knight.com/service/video-production",
+      "@id": "https://www.mila-knight.com/service/video-production",
       name: "إنتاج الفيديو",
-      isPartOf: { "@id": "https://mila-knight.com/services" },
-    },
-    {
-      "@type": "Service",
-      "@id": "https://mila-knight.com/service/event-planning",
-      url: "https://mila-knight.com/service/event-planning",
-      name: "تخطيط وتنفيذ الفعاليات",
-      isPartOf: { "@id": "https://mila-knight.com/services" },
-    },
-    {
-      "@type": "CollectionPage",
-      "@id": "https://mila-knight.com/projects",
-      url: "https://mila-knight.com/projects",
-      name: "أعمالنا",
-      isPartOf: { "@id": "https://mila-knight.com/#localbusiness" },
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://mila-knight.com/pricing",
-      url: "https://mila-knight.com/pricing",
-      name: "الأسعار",
-      isPartOf: { "@id": "https://mila-knight.com/#localbusiness" },
-    },
-    {
-      "@type": "Blog",
-      "@id": "https://mila-knight.com/blog",
-      url: "https://mila-knight.com/blog",
-      name: "المدونة",
-      isPartOf: { "@id": "https://mila-knight.com/#localbusiness" },
-    },
-    {
-      "@type": "ContactPage",
-      "@id": "https://mila-knight.com/contact",
-      url: "https://mila-knight.com/contact",
-      name: "اتصل بنا",
-      isPartOf: { "@id": "https://mila-knight.com/#localbusiness" },
+      url: "https://www.mila-knight.com/service/video-production",
+      provider: {
+        "@id": "https://www.mila-knight.com/#business",
+      },
     },
   ],
 };

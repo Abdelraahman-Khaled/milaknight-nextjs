@@ -10,6 +10,7 @@ import { getBlogs } from "@/app/api/blog";
 const BlogsTabs = () => {
   const { language, t } = useContext(LanguageContext);
   const [activeFilter, setActiveFilter] = useState("*");
+  const [visibleCount, setVisibleCount] = useState(9);
 
   const { data: blogsList = [], isLoading } = useQuery({
     queryKey: ["blogs"],
@@ -31,10 +32,17 @@ const BlogsTabs = () => {
       ? blogsList
       : blogsList.filter((blog) => blog.category === activeFilter);
 
+  const currentBlogs = [...filteredBlogs].reverse().slice(0, visibleCount);
 
   const handleFilterClick = (e, filterValue) => {
     e.preventDefault();
     setActiveFilter(filterValue);
+    setVisibleCount(9);
+  };
+
+  const handleShowMore = (e) => {
+    e.preventDefault();
+    setVisibleCount((prev) => prev + 9);
   };
 
   return (
@@ -72,7 +80,7 @@ const BlogsTabs = () => {
             </div>
           ) : (
             <>
-              {filteredBlogs.map((blog) => (
+              {(currentBlogs).map((blog) => (
                 <div
                   key={blog.id}
                   className={`col-lg-4 col-md-6 ${blog.category}`}
@@ -169,6 +177,20 @@ const BlogsTabs = () => {
               {filteredBlogs.length === 0 && (
                 <div className="col-12 text-center mt-5">
                   <p>{t("no_articles_found")}</p>
+                </div>
+              )}
+
+              {visibleCount < filteredBlogs.length && (
+                <div className="col-12 mt-5 mb-4 text-center">
+                  <div className=" d-inline-block section-btn">
+                    <Link
+                      href="#"
+                      onClick={handleShowMore}
+                      className="btn-default"
+                    >
+                      {language === "ar" ? "عرض المزيد" : "Show More"}
+                    </Link>
+                  </div>
                 </div>
               )}
             </>

@@ -6,40 +6,40 @@ const seoData = {
     ar: {
         title: 'تواصل معنا - Milaknight',
         description: 'تواصل معنا للحصول على استشارات تسويقية خدمات سيو تصميم مواقع حلول تسويق رقمي استفسارات حول أعمالنا وخدماتنا دعم فني استراتيجيات مبتكرة لتحسين أداء عملك',
-        url: 'https://mila-knight.com/contact',
+        url: 'https://www.mila-knight.com/contact',
         locale: 'ar_SA',
         jsonLd: {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "@id": "https://mila-knight.com/contact#contactpage",
-            "url": "https://mila-knight.com/contact",
+            "@id": "https://www.mila-knight.com/contact#contactpage",
+            "url": "https://www.mila-knight.com/contact",
             "name": "تواصل معنا - MilaKnight LLC-FZ",
             "description": "تواصل معنا للحصول على استشارات تسويقية خدمات سيو تصميم مواقع حلول تسويق رقمي استفسارات حول أعمالنا وخدماتنا دعم فني استراتيجيات مبتكرة لتحسين أداء عملك",
             "isPartOf": {
-                "@id": "https://mila-knight.com/#corporation"
+                "@id": "https://www.mila-knight.com/#corporation"
             },
             "publisher": {
-                "@id": "https://mila-knight.com/#corporation"
+                "@id": "https://www.mila-knight.com/#corporation"
             }
         }
     },
     en: {
         title: 'Contact us - Milaknight',
         description: 'We are a digital marketing agency SEO experts Brand building specialists Smart marketing solutions Data driven strategies Helping your business grow with innovative tools',
-        url: 'https://mila-knight.com/contact',
+        url: 'https://www.mila-knight.com/contact',
         locale: 'en_US',
         jsonLd: {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "@id": "https://mila-knight.com/contact#contactpage",
-            "url": "https://mila-knight.com/contact",
+            "@id": "https://www.mila-knight.com/contact#contactpage",
+            "url": "https://www.mila-knight.com/contact",
             "name": "Contact Us - MilaKnight LLC-FZ",
             "description": "MilaKnight LLC-FZ is a digital marketing agency specializing in SEO, brand building, smart marketing solutions, and data-driven strategies to help your business grow with innovative tools.",
             "isPartOf": {
-                "@id": "https://mila-knight.com/#corporation"
+                "@id": "https://www.mila-knight.com/#corporation"
             },
             "publisher": {
-                "@id": "https://mila-knight.com/#corporation"
+                "@id": "https://www.mila-knight.com/#corporation"
             }
         }
     }
@@ -61,7 +61,7 @@ export async function generateMetadata() {
             locale: seo.locale,
             images: [
                 {
-                    url: 'https://mila-knight.com/images/logo-dark-footer.webp',
+                    url: 'https://www.mila-knight.com/images/logo-dark-footer.webp',
                     width: 1200,
                     height: 630,
                     alt: language === 'ar' ? 'شعار Mila Knight لتسويق رقمي' : 'Mila Knight Digital Marketing Logo'
@@ -72,7 +72,7 @@ export async function generateMetadata() {
             card: 'summary_large_image',
             title: seo.title,
             description: seo.description,
-            images: ['https://mila-knight.com/images/logo-dark-footer.webp']
+            images: ['https://www.mila-knight.com/images/logo-dark-footer.webp']
         }
     };
 }

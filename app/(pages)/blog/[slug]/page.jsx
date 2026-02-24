@@ -30,6 +30,8 @@ export async function generateMetadata({ params }) {
     const featuredPhoto = blog.photos?.find(p => p.is_arabic === (language === 'ar')) || blog.photos?.[0];
     const photoUrl = featuredPhoto?.url || blog.photo_url;
 
+    const canonical = language === 'ar' ? blog.slug_ar : blog.slug;
+
     return {
         title: `Milaknight | ${title}`,
         description,
@@ -42,11 +44,17 @@ export async function generateMetadata({ params }) {
             description,
             images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
         },
+        twitter: {
+            title: `Milaknight | ${title}`,
+            description,
+            images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
+        },
         alternates: {
-            canonical: `/blog/${blog.slug}`,
+            canonical: `https://www.mila-knight.com/blog/${canonical}`,
             languages: {
-                ar: `/blog/${blog.slug_ar}`,
-                en: `/blog/${blog.slug}`,
+                "ar": `https://www.mila-knight.com/blog/${blog.slug_ar}`,
+                "en": `https://www.mila-knight.com/blog/${blog.slug}`,
+                "x-default": `https://www.mila-knight.com/blog/${canonical}`,
             }
         }
     }
