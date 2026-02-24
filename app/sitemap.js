@@ -1,12 +1,13 @@
 import { getBlogs } from "./api/blog";
 import { servicesData } from "./data/servicesData";
 
-export const dynamic = "force-dynamic"; // Ensures it fetches live blogs on request instead of caching at build
+export const dynamic = "force-dynamic";
 
 export default async function sitemap() {
   const baseUrl = "https://www.mila-knight.com";
+  const currentDate = new Date().toISOString().split("T")[0];
 
-  // Static route definitions
+  // 1. الصفحات الثابتة
   const staticRoutes = [
     "",
     "/about",
@@ -16,44 +17,47 @@ export default async function sitemap() {
     "/contact",
     "/blog",
   ];
-
-  // Map static pages to sitemap object format
   const staticPages = staticRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
+    lastModified: currentDate,
     changeFrequency: "weekly",
     priority: route === "" ? 1 : 0.8,
   }));
 
-  // Map service pages dynamically from servicesData keys
-  const serviceSlugs = Object.keys(servicesData);
-  const servicePages = serviceSlugs.map((slug) => ({
+  // 2. صفحات الخدمات (تحويل مفاتيح الكائن إلى مصفوفة روابط)
+  const servicePages = Object.keys(servicesData).map((slug) => ({
     url: `${baseUrl}/service/${slug}`,
-    lastModified: new Date().toISOString(),
+    lastModified: currentDate,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  // Map blog pages dynamically from API
+  // 3. صفحات المقالات مع الروابط البديلة (Alternates)
   let blogPages = [];
   try {
     const rawData = await getBlogs();
     const blogsArray = Array.isArray(rawData) ? rawData : [];
 
     blogPages = blogsArray.map((blog) => {
-      // Safely handling both English and Arabic slugs
-      const canonicalSlug = blog.slug_ar || blog.slug;
+      // تشفير الروابط لضمان سلامة الحروف العربية
+      const arabicSlug = encodeURI(blog.slug_ar || "");
+      const englishSlug = encodeURI(blog.slug || "");
+
+      const arabicUrl = `${baseUrl}/blog/${arabicSlug}`;
+      const englishUrl = `${baseUrl}/blog/${englishSlug}`;
 
       return {
-        url: `${baseUrl}/blog/${canonicalSlug}`,
-        lastModified: new Date(blog.created_at || new Date()).toISOString(),
+        url: arabicUrl, // الرابط الافتراضي
+        lastModified: new Date(blog.updated_at || blog.created_at || new Date())
+          .toISOString()
+          .split("T")[0],
         changeFrequency: "weekly",
-        priority: 0.8,
+        priority: 0.7,
+        // هذه الخاصية هي التي تجعل الكود يبدو "بشعاً" في المتصفح لكنها كنز للـ SEO
         alternates: {
           languages: {
-            ar: `${baseUrl}/blog/${blog.slug_ar}`,
-            en: `${baseUrl}/blog/${blog.slug}`,
-            "x-default": `${baseUrl}/blog/${canonicalSlug}`,
+            ar: arabicUrl,
+            en: englishUrl,
           },
         },
       };
@@ -62,6 +66,5 @@ export default async function sitemap() {
     console.error("Error fetching blogs for sitemap:", error);
   }
 
-  // Merge and return all sitemap items
   return [...staticPages, ...servicePages, ...blogPages];
 }
