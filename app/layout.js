@@ -1,4 +1,3 @@
-import { Tajawal, Fustat } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import BootstrapClient from "./components/BootstrapClient";
