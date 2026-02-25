@@ -35,7 +35,7 @@ const ProjectsContent = () => {
 
             <div className="text-center my-5">
                 <a
-                    className="nav-link company-profile d-inline-block py-3 px-5 text-white!"
+                    className="nav-link  d-inline-block py-3 px-5 text-white"
                     href={isArabic ? "https://publuu.com/flip-book/902608/2188910" : "https://publuu.com/flip-book/902608/1992497"}
                     target="_blank"
                     rel="noopener"
