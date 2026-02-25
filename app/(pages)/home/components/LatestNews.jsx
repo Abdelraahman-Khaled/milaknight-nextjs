@@ -12,7 +12,7 @@ const LatestNews = ({ initialBlogs = [] }) => {
 
     // Use top 3 blogs from API if available, otherwise fallback to static data
     const blogsToShow = initialBlogs.length > 0
-        ? initialBlogs.slice(0, 3).map(blog => {
+        ? [...initialBlogs].reverse().slice(0, 3).map(blog => {
             const photo = blog.photos?.find(p => p.is_arabic === (language === 'ar'));
             return {
                 title: language === 'ar' ? blog.title_ar : blog.title_en,
