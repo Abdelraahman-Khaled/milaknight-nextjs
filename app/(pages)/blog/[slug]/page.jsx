@@ -54,7 +54,6 @@ export async function generateMetadata({ params }) {
             languages: {
                 "ar": `https://www.mila-knight.com/blog/${blog.slug_ar}`,
                 "en": `https://www.mila-knight.com/blog/${blog.slug}`,
-                "x-default": `https://www.mila-knight.com/blog/${canonical}`,
             }
         }
     }

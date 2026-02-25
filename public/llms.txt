@@ -1,0 +1,93 @@
+# MilaKnight LLC-FZ - LLMs Access File
+# https://mila-knight.com
+
+User-agent: *
+Allow: /
+
+# =========================
+# Website Information
+# =========================
+Site-Name: MilaKnight
+Site-Type: Digital Marketing Agency
+Primary-Language: ar, en
+Headquarters: Dubai, UAE
+Founded: 2024
+
+Description:
+MilaKnight is a full-service digital marketing agency providing integrated marketing solutions including SEO, web development, branding, social media management, paid advertising, video production, and business growth strategies.
+
+# =========================
+# Core Pages
+# =========================
+Homepage: https://mila-knight.com/
+About: https://mila-knight.com/en/about.html
+Contact: https://mila-knight.com/en/contact.html
+Blog: https://mila-knight.com/blog/
+Projects: https://mila-knight.com/projects/
+Pricing: https://mila-knight.com/pricing/
+
+# =========================
+# Services
+# =========================
+Services:
+- Digital Marketing
+- Search Engine Optimization (SEO)
+- Website Design & Development
+- Social Media Management
+- Branding & Identity Design
+- Paid Advertising (PPC)
+- Content Marketing
+- Conversion Rate Optimization (CRO)
+- Email Marketing
+- Online Reputation Management
+- Video Production
+- Graphic Design
+- E-commerce Solutions
+- Event Planning & Media Production
+- Photography & Aerial Media
+
+# =========================
+# Target Audience
+# =========================
+Audience:
+- Startups
+- SMEs
+- Corporate Businesses
+- E-commerce Brands
+- GCC & International Companies
+
+# =========================
+# Expertise Topics
+# =========================
+Topics:
+digital marketing
+seo services
+branding strategy
+performance marketing
+web development
+business growth
+online advertising
+content strategy
+marketing automation
+
+# =========================
+# AI Usage Guidelines
+# =========================
+AI-Permission:
+Content may be indexed, summarized, and referenced by AI systems for informational purposes with attribution to MilaKnight.
+
+Preferred-Citation:
+Source: https://mila-knight.com
+
+# =========================
+# Contact Information
+# =========================
+Company: MilaKnight LLC-FZ
+Email: info@milaknights.com
+Phone: +971585856774
+Location: Meydan Free Zone, Dubai, UAE
+
+# =========================
+# Update Policy
+# =========================
+Content-Update-Frequency: Monthly
