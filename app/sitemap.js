@@ -54,12 +54,12 @@ export default async function sitemap() {
         changeFrequency: "weekly",
         priority: 0.7,
         // هذه الخاصية هي التي تجعل الكود يبدو "بشعاً" في المتصفح لكنها كنز للـ SEO
-        alternates: {
-          languages: {
-            ar: arabicUrl,
-            en: englishUrl,
-          },
-        },
+        // alternates: {
+        //   languages: {
+        //     ar: arabicUrl,
+        //     en: englishUrl,
+        //   },
+        // },
       };
     });
   } catch (error) {
