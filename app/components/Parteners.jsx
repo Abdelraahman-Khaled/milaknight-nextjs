@@ -28,6 +28,9 @@ const Parteners = () => {
                 "عمل المستقبل",
                 "elevate-360",
                 "Falcon", "Falcon", "Falcon", "Falcon", "Falcon", "Falcon", "Falcon"
+                , "paper-mints"
+                , "white-horse"
+                , "top-brands"
             ]
         },
         en: {
@@ -51,6 +54,9 @@ const Parteners = () => {
                 "Future Work",
                 "Elevate-360",
                 "Falcon", "Falcon", "Falcon", "Falcon", "Falcon", "Falcon", "Falcon"
+                , "paper-mints"
+                , "white-horse"
+                , "top-brands"
             ]
         }
     };
