@@ -23,6 +23,7 @@ export const footerData = {
         { text: "التصميم الجرافيكي", href: "/service/graphic-design" },
         { text: "إنتاج الفيديو", href: "/service/video-production" },
         { text: "التجارة الإلكتروني", href: "/service/e-commerce" },
+        { text: "المبيعات عن بعد", href: "#" },
       ],
     },
     contact: {
@@ -59,6 +60,7 @@ export const footerData = {
         { text: "Graphic Design", href: "/service/graphic-design" },
         { text: "Video Production", href: "/service/video-production" },
         { text: "E-Commerce", href: "/service/e-commerce" },
+        { text: "Remote Sales", href: "#" },
       ],
     },
     contact: {

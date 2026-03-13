@@ -6,6 +6,12 @@ import Image from 'next/image';
 import emailjs from 'emailjs-com';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import ScrollTicker from '@/app/components/ui/ScrollTicker';
+import dynamic from 'next/dynamic';
+
+const DynamicMap = dynamic(() => import('@/app/components/MapComponent'), {
+    ssr: false,
+    loading: () => <div style={{ height: '500px', width: '100%', background: '#f5f5f5', borderRadius: '15px' }} />
+});
 
 const ContactContent = () => {
     const { t, language } = useContext(LanguageContext);
@@ -102,16 +108,33 @@ const ContactContent = () => {
                                         </a>
                                     </div>
                                     <div className="info-box-2">
-                                        <div className="contact-info-item">
-                                            <div className="icon-box">
+                                        <div className="contact-info-item align-items-start">
+                                            <div className="icon-box mt-1">
                                                 <Image width={50} height={50} alt="location" src="/images/icons/icon-location.svg" />
                                             </div>
-                                            <div className="contact-item-content">
+                                            <div className="contact-item-content w-100">
                                                 <h3>{t('address')}</h3>
-                                                <a href="https://www.google.com/maps/place/The+Meydan+Hotel/@25.155658,55.3003012,17z/data=!3m1!4b1!4m9!3m8!1s0x3e5f688c5516ea0f:0x44800f32689f57e2!5m2!4m1!1i2!8m2!3d25.155658!4d55.3003012!16s%2Fg%2F11c2yrjfv6?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
-                                                    rel="noopener" target="_blank">
-                                                    {t('full_address')}
-                                                </a>
+                                                <div className="locations-list d-flex flex-column gap-3 mt-3">
+                                                    <div>
+
+                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'السعودية' : 'Saudi Arabia'}</strong> - {language === 'ar' ? 'الرياض، حي العليا' : 'Riyadh, Al Olaya District'}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'الإمارات العربية المتحدة' : 'United Arab Emirates'}</strong> - {language === 'ar'
+                                                            ? 'الدور السادس، مركز الأعمال، القاعة الكبرى، فندق الميدان، شارع الميدان، دبي'
+                                                            : '6th Floor, Business Centre, Grand Auditorium, Meydan Hotel, Meydan Street, Dubai'}
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'سوريا' : 'Syria'}</strong> - {language === 'ar' ? 'دمشق، المنطقة الحرة' : 'Damascus, Free Zone'}</p>
+                                                    </div>
+                                                    {/* <div>
+                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'البرتغال' : 'Portugal'}</strong> - {language === 'ar' ? 'البرتغال' : 'Portugal'}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'كندا' : 'Canada'}</strong> - {language === 'ar' ? 'كندا' : 'Canada'}</p>
+                                                    </div> */}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -332,16 +355,21 @@ const ContactContent = () => {
                 </div>
             </div>
 
-            <div className="google-map">
-                <div className="container">
+            <div className="google-map py-5">
+                <div className="container" style={{ margin: '50px auto' }}>
+                    <div className="row mb-4">
+                        <div className="col-lg-12 text-center section-title">
+                            <h2 className="first-section-title">
+                                {language === 'ar' ? 'أماكننا حول العالم' : 'Our Locations Worldwide'}
+                            </h2>
+                            <p className="mt-2">
+                                {language === 'ar' ? 'نحن نتواجد في عدة مواقع حول العالم لخدمتكم بشكل أفضل.' : 'We are present in several locations worldwide to serve you better.'}
+                            </p>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="google-map-iframe">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.121988073094!2d55.3003109!3d25.1567646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69873436577b%3A0xfa9205019ca3faa6!2sMilaknight%20LLC-FZ!5e1!3m2!1sen!2seg!4v1760186957510!5m2!1sen!2seg"
-                                    width="600" height="450" allowFullScreen loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
+                            <DynamicMap language={language} />
                         </div>
                     </div>
                 </div>

@@ -77,6 +77,7 @@ const Navbar = () => {
                                             <li className="nav-item"><Link className="nav-link" href="/service/e-commerce">{t('e_commerce')}</Link></li>
                                             <li className="nav-item"><Link className="nav-link" href="/service/video-production">{t('video_production')}</Link></li>
                                             <li className="nav-item"><Link className="nav-link" href="/service/event-planning">{t('event_planning')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href="#">{t('remote_sales')}</Link></li>
                                         </ul>
                                     </li>
                                     <li className="nav-item"><Link className={isActive("/projects")} href="/projects">{t('projects')}</Link></li>
