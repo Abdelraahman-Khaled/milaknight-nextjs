@@ -167,6 +167,10 @@ const Footer = () => {
                                     {/* <!-- Footer Copyright Start --> */}
                                     <div className="footer-copyright-text">
                                         <p>{content.copyright}</p>
+                                        <div className="d-flex flex-wrap justify-content-center gap-3 mt-1" style={{ fontSize: '14px', opacity: 0.8 }}>
+                                            <span>{content.contact.crNumber}</span>
+                                            <span>{content.contact.taxNumber}</span>
+                                        </div>
                                     </div>
                                     {/* <!-- Footer Copyright End --> */}
                                 </div>
