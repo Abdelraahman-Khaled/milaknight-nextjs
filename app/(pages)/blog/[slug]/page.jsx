@@ -50,10 +50,10 @@ export async function generateMetadata({ params }) {
             images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
         },
         alternates: {
-            canonical: `https://www.mila-knight.com/blog/${canonical}`,
+            canonical: `https://mila-knight.com/blog/${canonical}`,
             languages: {
-                "ar": `https://www.mila-knight.com/blog/${blog.slug_ar}`,
-                "en": `https://www.mila-knight.com/blog/${blog.slug}`,
+                "ar": `https://mila-knight.com/blog/${blog.slug_ar}`,
+                "en": `https://mila-knight.com/blog/${blog.slug}`,
             }
         }
     }

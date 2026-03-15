@@ -11,13 +11,13 @@ export async function generateMetadata({ searchParams }) {
         description: seo.description,
         keywords: seo.keywords,
         alternates: {
-            canonical: 'https://www.mila-knight.com/projects',
+            canonical: 'https://mila-knight.com/projects',
         },
         openGraph: {
             title: seo.title,
             description: seo.description,
-            images: ['https://www.mila-knight.com/images/logo-dark-footer.webp'],
-            url: `https://www.mila-knight.com/projects`,
+            images: ['https://mila-knight.com/images/logo-dark-footer.webp'],
+            url: `https://mila-knight.com/projects`,
             type: 'website',
             locale: "KSA",
         },
@@ -25,7 +25,7 @@ export async function generateMetadata({ searchParams }) {
             card: 'summary_large_image',
             title: seo.title,
             description: seo.description,
-            images: ['https://www.mila-knight.com/images/logo-dark-footer.webp'],
+            images: ['https://mila-knight.com/images/logo-dark-footer.webp'],
         }
     };
 }

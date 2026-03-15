@@ -3,6 +3,7 @@ import HeroHome from './(pages)/home/components/HeroHome'
 import ScrollTicker from '@/app/components/ui/ScrollTicker'
 import AboutAgency from './(pages)/home/components/AboutAgency'
 import Parteners from '@/app/components/Parteners'
+import TechPartners from '@/app/components/TechPartners'
 import OurServices from './(pages)/home/components/OurServices'
 import WhyChooseUs from './(pages)/about/components/WhyChooseUs'
 import WhatWeDo from './(pages)/home/components/WhatWeDo'
@@ -20,6 +21,7 @@ const HomePage = async () => {
             <ScrollTicker />
             <AboutAgency />
             <Parteners />
+            <TechPartners />
             <OurServices />
             <WhyChooseUs home={true} />
             <WhatWeDo />

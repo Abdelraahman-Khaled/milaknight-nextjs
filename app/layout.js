@@ -18,7 +18,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL("https://www.mila-knight.com"),
+  metadataBase: new URL("https://mila-knight.com"),
   alternates: {
     canonical: "./",
     languages: {
@@ -43,10 +43,10 @@ export const metadata = {
     title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
     description:
       "وكالة تسويق رقمي خدمات تحسين محركات البحث تسويق عبر السوشيال ميديا إدارة حملات إعلانية تصميم مواقع الكترونية تحسين ظهور المواقع تسويق محتوى احترافي تحليل بيانات السوق حلول تسويقية ذكية",
-    url: "https://www.mila-knight.com/",
+    url: "https://mila-knight.com/",
     images: [
       {
-        url: "https://www.mila-knight.com/images/logo-dark-footer.webp",
+        url: "https://mila-knight.com/images/logo-dark-footer.webp",
         width: 1200,
         height: 630,
         alt: "شعار Mila Knight لتسويق رقمي",
@@ -58,7 +58,7 @@ export const metadata = {
     title: "Milaknight | حلول تسويق رقمي واستراتيجيات نمو متكاملة",
     description:
       "وكالة تسويق رقمي خدمات تحسين محركات البحث تسويق عبر السوشيال ميديا إدارة حملات إعلانية تصميم مواقع الكترونية تحسين ظهور المواقع تسويق محتوى احترافي تحليل بيانات السوق حلول تسويقية ذكية",
-    images: ["https://www.mila-knight.com/images/logo-dark-footer.webp"],
+    images: ["https://mila-knight.com/images/logo-dark-footer.webp"],
   },
 };
 
@@ -67,11 +67,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "ProfessionalService",
-      "@id": "https://www.mila-knight.com/#business",
+      "@id": "https://mila-knight.com/#business",
       name: "MilaKnight LLC-FZ",
-      url: "https://www.mila-knight.com/",
-      logo: "https://www.mila-knight.com/images/logo.svg",
-      image: "https://www.mila-knight.com/images/logo.svg",
+      url: "https://mila-knight.com/",
+      logo: "https://mila-knight.com/images/logo.svg",
+      image: "https://mila-knight.com/images/logo.svg",
       description:
         "وكالة تسويق رقمي متخصصة في السيو والتسويق الإلكتروني وبناء العلامات التجارية وتطوير الحلول الرقمية.",
       telephone: "+971585856774",
@@ -112,80 +112,80 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.mila-knight.com/#website",
-      url: "https://www.mila-knight.com/",
+      "@id": "https://mila-knight.com/#website",
+      url: "https://mila-knight.com/",
       name: "MilaKnight",
       publisher: {
-        "@id": "https://www.mila-knight.com/#business",
+        "@id": "https://mila-knight.com/#business",
       },
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.mila-knight.com/#home",
-      url: "https://www.mila-knight.com/",
+      "@id": "https://mila-knight.com/#home",
+      url: "https://mila-knight.com/",
       name: "الصفحة الرئيسية",
       isPartOf: {
-        "@id": "https://www.mila-knight.com/#website",
+        "@id": "https://mila-knight.com/#website",
       },
       about: {
-        "@id": "https://www.mila-knight.com/#business",
+        "@id": "https://mila-knight.com/#business",
       },
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.mila-knight.com/#breadcrumb",
+      "@id": "https://mila-knight.com/#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "الرئيسية",
-          item: "https://www.mila-knight.com/",
+          item: "https://mila-knight.com/",
         },
       ],
     },
     {
       "@type": "Service",
-      "@id": "https://www.mila-knight.com/service/digital-marketing",
+      "@id": "https://mila-knight.com/service/digital-marketing",
       name: "التسويق الإلكتروني",
-      url: "https://www.mila-knight.com/service/digital-marketing",
+      url: "https://mila-knight.com/service/digital-marketing",
       provider: {
-        "@id": "https://www.mila-knight.com/#business",
+        "@id": "https://mila-knight.com/#business",
       },
     },
     {
       "@type": "Service",
-      "@id": "https://www.mila-knight.com/service/web-development",
+      "@id": "https://mila-knight.com/service/web-development",
       name: "تصميم وبرمجة المواقع",
-      url: "https://www.mila-knight.com/service/web-development",
+      url: "https://mila-knight.com/service/web-development",
       provider: {
-        "@id": "https://www.mila-knight.com/#business",
+        "@id": "https://mila-knight.com/#business",
       },
     },
     {
       "@type": "Service",
-      "@id": "https://www.mila-knight.com/service/graphic-design",
+      "@id": "https://mila-knight.com/service/graphic-design",
       name: "التصميم الجرافيكي",
-      url: "https://www.mila-knight.com/service/graphic-design",
+      url: "https://mila-knight.com/service/graphic-design",
       provider: {
-        "@id": "https://www.mila-knight.com/#business",
+        "@id": "https://mila-knight.com/#business",
       },
     },
     {
       "@type": "Service",
-      "@id": "https://www.mila-knight.com/service/e-commerce",
+      "@id": "https://mila-knight.com/service/e-commerce",
       name: "التجارة الإلكترونية",
-      url: "https://www.mila-knight.com/service/e-commerce",
+      url: "https://mila-knight.com/service/e-commerce",
       provider: {
-        "@id": "https://www.mila-knight.com/#business",
+        "@id": "https://mila-knight.com/#business",
       },
     },
     {
       "@type": "Service",
-      "@id": "https://www.mila-knight.com/service/video-production",
+      "@id": "https://mila-knight.com/service/video-production",
       name: "إنتاج الفيديو",
-      url: "https://www.mila-knight.com/service/video-production",
+      url: "https://mila-knight.com/service/video-production",
       provider: {
-        "@id": "https://www.mila-knight.com/#business",
+        "@id": "https://mila-knight.com/#business",
       },
     },
   ],
@@ -195,6 +195,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
       <head>
+        <link rel="stylesheet" href="/css/tech-partners.css" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"

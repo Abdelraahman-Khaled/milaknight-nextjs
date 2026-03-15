@@ -9,6 +9,6 @@ export default function robots() {
         "/cdn-cgi/", // Cloudflare internal scripts
       ],
     },
-    sitemap: "https://www.mila-knight.com/sitemap.xml",
+    sitemap: "https://mila-knight.com/sitemap.xml",
   };
 }

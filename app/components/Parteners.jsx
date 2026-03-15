@@ -64,7 +64,7 @@ const Parteners = () => {
     const c = content[language];
 
     return (
-        <div className="how-work-company-slider">
+        <div className="how-work-company-slider py-5">
             <div className="container">
                 <h3 className="text-center pb-5">{c.partners_title}</h3>
                 {/* Reuse/Copy slider HTML or static list for now since original had many static slides */}

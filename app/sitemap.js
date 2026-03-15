@@ -4,7 +4,7 @@ import { servicesData } from "./data/servicesData";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap() {
-  const baseUrl = "https://www.mila-knight.com";
+  const baseUrl = "https://mila-knight.com";
   const currentDate = new Date().toISOString().split("T")[0];
 
   // 1. الصفحات الثابتة
