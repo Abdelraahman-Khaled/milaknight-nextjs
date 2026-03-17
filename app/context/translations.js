@@ -43,9 +43,9 @@ const translations = {
     seo_keywords:
       "Digital Marketing Agency, Search Engine Optimization (SEO), Paid Advertising (PPC), Digital Marketing Strategies, Advertising Campaign Management, Professional Website Design, Social Media Marketing, Marketing Data Analysis, Content Marketing, Email Marketing, Google Ads, Local SEO Strategies, User Experience (UX) Optimization, Advertising Campaign Analysis and Optimization, Digital Marketing Services, Visual Identity Design, Marketing Consulting, Video Marketing, Product Marketing, Online Marketing, Digital Marketing Prices, SEO Services Prices, Advertising Campaign Cost, Competitive Marketing Services, Website Design Cost, Website Design Price, Website Design Cost, E-commerce Design Prices, E-commerce Store Design Prices, Affordable E-commerce Store Design, Logo Design Cost, Professional Logo Design Prices, Competitive WordPress Website Design, Commercial Website Design Price, E-commerce Store Design at Low Prices, Graphic Logo Design at Affordable Prices",
     seo_image_alt: "Milaknight Digital Marketing Logo",
-    about_seo_title: "About Us | Milaknight Digital Marketing",
+    about_seo_title: "Milaknight offers integrated digital marketing solutions that guarantee your excellence",
     about_seo_description:
-      "Milaknight is a digital marketing and brand design agency helping businesses grow with smart marketing solutions, SEO expertise, and creative branding strategies.",
+      "Specialists in transforming brands through plans. Our digital services empower brands through innovative strategies and solutions for sustainable growth and engagement.",
     services_seo_title: "Services - Milaknight",
     services_seo_description:
       "Digital marketing services SEO optimization Ad campaign management Professional web design Social media marketing on all platforms Market analysis Visual branding Digital strategy consulting",
@@ -81,6 +81,8 @@ const translations = {
     error_404_title: "Page Not Found",
     error_404_description: "The page you are looking for does not exist",
     error_404_home_button: "Home Page",
+    blog_seo_title: "Browse More News and Articles about Digital Marketing from Milaknight",
+    blog_seo_description: "Browse more articles and get to know us. We strive to develop marketing plans that blend the latest technologies with precise insights, believing that every brand deserves its own success story.",
   },
   ar: {
     home: "الرئيسية",
@@ -126,9 +128,9 @@ const translations = {
     seo_keywords:
       "تصميم و برمجة المواقع, تخطيط و تنفيذ الفعاليات, إنتاج الفيديوهات, التجارة الإلكترونية, التصميم الجرافيكي, التسويق الرقمي",
     seo_image_alt: "شعار Mila Knight لتسويق رقمي",
-    about_seo_title: "من نحن - Milaknight | متخصصين في التسويق الإلكتروني",
+    about_seo_title: "ميلانايت تقدم حلول تسويق الكتروني متكاملة تضمن لك التميز",
     about_seo_description:
-      "نحن وكالة تسويق رقمي خبراء سيو خبراء تسويق إلكتروني متخصصون في بناء العلامات التجارية نبتكر حلول تسويقية ذكية نستخدم أحدث أدوات التحليل نساعدك على النمو والانتشار",
+      "متخصصون في تحويل العلامات التجارية عبر خطط تعمل خدماتنا الرقمية على تمكين العلامات التجارية من خلال استراتيجيات وحلول مبتكرة لتحقيق النمو المستدام والمشاركة",
     services_seo_title: "خدمات التسويق الرقمي - Milaknight",
     services_seo_description:
       "نقدم في Milaknight خدمات التسويق الرقمي وتصميم المواقع الاحترافية، إدارة الحملات الإعلانية، تحسين محركات البحث، تطوير الهوية البصرية، وتحليل بيانات السوق لنجاح علامتك التجارية.",
@@ -162,6 +164,8 @@ const translations = {
     error_404_title: "لم يتم العثور على الصفحة",
     error_404_description: "الصفحة التي تبحث عنها غير موجودة",
     error_404_home_button: "الصفحة الرئيسية",
+    blog_seo_title: "تصفح المزيد من أخبار ومقالات عن التسويق الالكتروني من ميلا نايت",
+    blog_seo_description: "تصفح المزيد من المقالات وتعرف علينا فنحن نسعى إلى تطوير خطط تسويقية تمزج بين أحدث التقنيات وأدق رؤى ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
   },
 };
 

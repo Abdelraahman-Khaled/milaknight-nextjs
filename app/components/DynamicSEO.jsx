@@ -15,8 +15,9 @@ const DynamicSEO = () => {
         const isContactPage = pathname === "/contact";
         const isProjectsPage = pathname === "/projects";
         const isPricingPage = pathname === "/pricing";
+        const isBlogPage = pathname === "/blog";
 
-        if (!isHome && !isAboutPage && !isServicesPage && !isProjectsPage && !isPricingPage && !isContactPage) return;
+        if (!isHome && !isAboutPage && !isServicesPage && !isProjectsPage && !isPricingPage && !isContactPage && !isBlogPage) return;
 
         let titleKey = "seo_title";
         let descKey = "seo_description";
@@ -40,6 +41,9 @@ const DynamicSEO = () => {
         } else if (isContactPage) {
             titleKey = "contact_seo_title";
             descKey = "contact_seo_description";
+        } else if (isBlogPage) {
+            titleKey = "blog_seo_title";
+            descKey = "blog_seo_description";
         }
 
         // Update Title

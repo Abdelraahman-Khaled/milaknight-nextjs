@@ -8,6 +8,12 @@ import {
     QueryClient,
 } from '@tanstack/react-query';
 
+export const metadata = {
+    title: "تصفح المزيد من أخبار ومقالات عن التسويق الالكتروني من ميلا نايت",
+    description:
+        "تصفح المزيد من المقالات وتعرف علينا فنحن نسعى إلى تطوير خطط تسويقية تمزج بين أحدث التقنيات وأدق رؤى ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
+};
+
 export default async function BlogPage() {
     const queryClient = new QueryClient();
 

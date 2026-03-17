@@ -1,9 +1,9 @@
 export const servicesData = {
   "web-development": {
     ar: {
-      meta_title: "الخدمات - تصميم و برمجة المواقع - Milaknight",
+      meta_title: "خدمات تصميم مواقع الكترونية مع ميلا نايت",
       meta_description:
-        "تصميم مواقع احترافية برمجة مواقع متجاوبة تطوير واجهات المستخدم تحسين تجربة المستخدم استضافة مواقع آمنة تصميم مواقع ووردبريس حلول تجارة إلكترونية بناء مواقع مخصصة حسب الطلب",
+        "تصميم مواقع الكترونية ضمن باقة متكاملة من خدمات التسويق الالكتروني لنجمع بين الأداء العالي لتجربة المستخدم وندعمها بـ SEO وخطط تسويقية تحقق نتائج ملموسة.",
       hero: {
         title: "تصميم و برمجة المواقع",
         span: "برمجة",
@@ -103,9 +103,9 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Services - Web Design and Development - Milaknight",
+      meta_title: "Website design services with Mila Knight",
       meta_description:
-        "Professional web design Responsive website development UI UX optimization Secure hosting WordPress websites E commerce solutions Custom website design Tailored web development",
+        "Website design within a comprehensive package of digital marketing services to combine high performance for user experience and support it with SEO and marketing plans that achieve tangible results.",
       hero: {
         title: "Web Design and Development",
         span: "Development",
@@ -208,9 +208,9 @@ export const servicesData = {
   },
   "digital-marketing": {
     ar: {
-      meta_title: "الخدمات - التسويق الرقمي - Milaknight",
+      meta_title: "نصنع نجاحك الرقمي خطوة بخطوة مع ميلانايت - تواصل معنا الآن",
       meta_description:
-        "خدمات التسويق الرقمي استراتيجيات سيو تسويق عبر منصات التواصل الاجتماعي إدارة حملات إعلانات مدفوعة تحسين ظهور المواقع حلول تسويق إلكتروني مبتكرة تحليل بيانات التسويق",
+        "نستفيد من التحليلات القائمة على البيانات وأحدث الاتجاهات الرقمية لتعظيم التفاعل، وزيادة حركة المرور، وتعزيز معدلات التحويل، مما يحقق عائداً ملموساً على استثمارك",
       hero: {
         title: "التسويق",
         span: "الرقمي",
@@ -308,9 +308,10 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Services - Digital Marketing - Milaknight",
+      meta_title:
+        "We build your digital success step by step with Melanite - contact us now",
       meta_description:
-        "Digital marketing services SEO strategies Social media marketing Paid ad campaigns Website optimization Innovative digital marketing solutions Marketing data analysis",
+        "We leverage data-driven analytics and the latest digital trends to maximize engagement, drive traffic, and boost conversion rates, delivering a tangible return on your investment.",
       hero: {
         title: "Digital",
         span: "Marketing",
@@ -410,9 +411,10 @@ export const servicesData = {
   },
   "graphic-design": {
     ar: {
-      meta_title: "الخدمات - التصميم الجرافيكي - Milaknight",
+      meta_title:
+        "خدمة التصميم الجرافيكي من ميلانايت - الصورة أبلغ من ألف كلمة",
       meta_description:
-        "تصميم جرافيكي احترافي تصميم شعارات هوية بصرية تصميم اعلانات تصميم مواد تسويقية تصميم واجهات مواقع تصميم رسومات إبداعية تصميم ملصقات ونشرات تسويق بصري مبتكر",
+        "نحول أفكارك إلى تصاميم تنبض بالحياة وتعكس هوية علامتك التجارية بأسلوب فريد ومميز. دعنا نُبرز علامتك التجارية بصرياً، وابدأ اليوم بتصميم يترك انطباعاً لا يُنسى",
       hero: {
         title: "التصميم",
         span: "الجرافيكي",
@@ -511,9 +513,10 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Services - Graphic Design - Milaknight",
+      meta_title:
+        "Graphic design service from Melanet - a picture is worth a thousand words",
       meta_description:
-        "Professional graphic design Logo design Visual identity Ad design Marketing materials Web design graphics Creative illustrations Banner and flyer design Innovative visual marketing",
+        "We transform your ideas into vibrant designs that reflect your brand identity in a unique and distinctive style. Let us visually showcase your brand, and start today with a design that leaves a lasting impression.",
       hero: {
         title: "Graphic",
         span: "Design",
@@ -614,9 +617,10 @@ export const servicesData = {
   },
   "e-commerce": {
     ar: {
-      meta_title: "الخدمات - التجارة الإلكترونية - Milaknight",
+      meta_title:
+        "في شركة Milaknight نقدم حلولاً شاملة واحترافية للتجارة الإلكترونية",
       meta_description:
-        "حلول التجارة الإلكترونية تصميم مواقع متجر إلكتروني تحسين تجربة الشراء عبر الإنترنت إدارة المتاجر الإلكترونية استراتيجيات تسويق المنتجات تحسين محركات البحث للتجارة الإلكترونية",
+        "في Milaknight نقدم حلولاً احترافية للتجارة الإلكترونية تتضمن خطط تسويقية متكاملة، التسويق بالمحتوى، تصميم مواقع الكترونية ومتجار جاهزة مخصصة تلبي احتياجاتك",
       hero: {
         title: "التجارة",
         span: "الإلكترونية",
@@ -730,9 +734,10 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Services - E-commerce - Milaknight",
+      meta_title:
+        "At Milaknight, we offer comprehensive and professional e-commerce solutions.",
       meta_description:
-        "E-commerce solutions Online store design Shopping experience optimization E-commerce store management Product marketing strategies SEO for e-commerce websites",
+        "At Milaknight, we provide professional e-commerce solutions including integrated marketing plans, content marketing, and custom e-commerce websites tailored to your needs.",
       hero: {
         title: "E-",
         span: "",
@@ -847,9 +852,9 @@ export const servicesData = {
   },
   "video-production": {
     ar: {
-      meta_title: "الخدمات - إنتاج الفيديوهات - Milaknight",
+      meta_title: "خدمة انشاء الفيديو من ميلانايت دع قصتك تنبض بالحياة",
       meta_description:
-        "إنتاج فيديو احترافي تصميم فيديوهات تسويقية فيديوهات ترويجية فيديوهات تعليمية تصميم فيديوهات لوسائل التواصل الاجتماعي تصوير فيديو احترافي مونتاج فيديو إعلانات مرئية مبتكرة",
+        "يعد الفيديو من أقوى أدوات التسويق الالكتروني لنقل رسالتك وإيصال قيم علامتك التجارية بفعالية، في Milaknight أفضل شركة تقدم حلول إنتاج فيديوهات احترافية متكاملة",
       hero: {
         title: "إنتاج",
         span: "الفيديوهات",
@@ -949,9 +954,9 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Services - Video Production - Milaknight",
+      meta_title: "Melanit's video creation service lets your story come to life.",
       meta_description:
-        "Professional video production Marketing videos Promotional videos Educational videos Social media video design Video shooting Video editing Creative video ads",
+        "Video is one of the most powerful digital marketing tools to convey your message and communicate your brand values effectively. At Milaknight, the best company, we offer comprehensive professional video production solutions.",
       hero: {
         title: "Video",
         span: "Production",
@@ -1053,9 +1058,9 @@ export const servicesData = {
   },
   "event-planning": {
     ar: {
-      meta_title: "الخدمات - تخطيط و تنفيذ الفعاليات - Milaknight",
+      meta_title: "خدمة تخطيط وتنفيذ الفعاليات مع ميلانايت",
       meta_description:
-        "تخطيط وتنفيذ الفعاليات خطوات تخطيط إدارة وتنظيم الفعاليات كيف تخطط وتنظم للفعاليات والمناسبات الخاصة بالمعرض احجز مع أفضل شركة تسويق رقمي لتنظيم فعالياتك بأسلوب فريد تنظيم وادارة الفعاليات لجذب العملاء الجدد",
+       "تخطيط وتنفيذ الفعاليات من خلال عملية منظمة لتنظيم وتنفيذ الفعاليات الناجحة عبر خدمة ابتكار وتصميم وتنفيذ، من الندوات إلى الفعاليات والمؤتمرات والمعارض التجارية",
       hero: {
         title: "تخطيط ",
         span: "الفعاليات وتنفيذ",
@@ -1158,9 +1163,9 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Services - Event Planning - Milaknight",
+      meta_title: "Event planning and execution services with Melanite",
       meta_description:
-        "Looking for expert event planning and exhibition organization? Partner with our digital marketing company to manage special occasions, attract clients, and ensure unique, successful events.",
+        "Event planning and execution through a systematic process for organizing and executing successful events through the best innovation, design, and execution services, from seminars to events, conferences, and trade shows.",
       hero: {
         title: "Event",
         span: "& Execution",
