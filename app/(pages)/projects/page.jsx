@@ -2,8 +2,11 @@ import React from 'react';
 import ProjectsContent from './components/ProjectsContent';
 import { projectsSEO } from '@/app/data/projectsData';
 
+import { cookies } from 'next/headers';
+
 export async function generateMetadata({ searchParams }) {
-    const lang = searchParams?.lang || 'ar';
+    const cookieStore = await cookies();
+    const lang = (await searchParams)?.lang || cookieStore.get('NEXT_LOCALE')?.value || 'ar';
     const seo = projectsSEO[lang] || projectsSEO.ar;
 
     return {

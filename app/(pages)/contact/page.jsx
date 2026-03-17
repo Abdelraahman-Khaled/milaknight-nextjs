@@ -79,7 +79,7 @@ export async function generateMetadata() {
 
 export default async function ContactPage() {
     const cookieStore = await cookies();
-    const language = cookieStore.get('language')?.value || 'ar';
+    const language = cookieStore.get('NEXT_LOCALE')?.value || 'ar';
     const seo = seoData[language] || seoData.ar;
 
     return (

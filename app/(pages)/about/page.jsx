@@ -8,11 +8,19 @@ import WhoWeAre from './components/WhoWeAre';
 import WhyChooseUs from './components/WhyChooseUs';
 import { getFaqs } from '@/app/api/FAQ';
 
-export const metadata = {
-    title: "ميلانايت تقدم حلول تسويق الكتروني متكاملة تضمن لك التميز",
-    description:
-        "متخصصون في تحويل العلامات التجارية عبر خطط تعمل خدماتنا الرقمية على تمكين العلامات التجارية من خلال استراتيجيات وحلول مبتكرة لتحقيق النمو المستدام والمشاركة",
-};
+import translations from '@/app/context/translations';
+import { cookies } from 'next/headers';
+
+export async function generateMetadata() {
+    const cookieStore = await cookies();
+    const language = cookieStore.get('NEXT_LOCALE')?.value || 'ar';
+    const t = translations[language];
+
+    return {
+        title: t.about_seo_title,
+        description: t.about_seo_description,
+    };
+}
 
 export default async function AboutPage() {
     const faqs = await getFaqs();

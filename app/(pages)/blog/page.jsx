@@ -8,11 +8,19 @@ import {
     QueryClient,
 } from '@tanstack/react-query';
 
-export const metadata = {
-    title: "تصفح المزيد من أخبار ومقالات عن التسويق الالكتروني من ميلا نايت",
-    description:
-        "تصفح المزيد من المقالات وتعرف علينا فنحن نسعى إلى تطوير خطط تسويقية تمزج بين أحدث التقنيات وأدق رؤى ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
-};
+import translations from '@/app/context/translations';
+import { cookies } from 'next/headers';
+
+export async function generateMetadata() {
+    const cookieStore = await cookies();
+    const language = cookieStore.get('NEXT_LOCALE')?.value || 'ar';
+    const t = translations[language];
+
+    return {
+        title: t.blog_seo_title,
+        description: t.blog_seo_description,
+    };
+}
 
 export default async function BlogPage() {
     const queryClient = new QueryClient();

@@ -12,6 +12,24 @@ import Testimonial from './(pages)/home/components/Testimonial'
 import LatestNews from './(pages)/home/components/LatestNews'
 import { getBlogs } from '@/app/api/blog'
 
+import translations from './context/translations';
+import { cookies } from 'next/headers';
+
+export async function generateMetadata() {
+    const cookieStore = await cookies();
+    const language = cookieStore.get('NEXT_LOCALE')?.value || 'ar';
+    const t = translations[language];
+
+    return {
+        title: t.seo_title,
+        description: t.seo_description,
+        openGraph: {
+            title: t.seo_title,
+            description: t.seo_description,
+        },
+    };
+}
+
 const HomePage = async () => {
     const blogs = await getBlogs();
 
