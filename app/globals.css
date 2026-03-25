@@ -31358,10 +31358,8 @@ body:has(.offcanvas) {
 }
 
 .about-us-list {
-  position: absolute;
   bottom: 0;
   right: 0;
-  max-width: 860px;
   display: flex;
   gap: 80px;
   flex-wrap: wrap;
@@ -31370,6 +31368,8 @@ body:has(.offcanvas) {
   overflow: hidden;
   z-index: 1;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
+  background-color: #fff;
 }
 
 @media (min-width: 768px) and (max-width: 1284px) {
@@ -31388,14 +31388,12 @@ body:has(.offcanvas) {
 }
 
 .about-us-list::before {
-  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: #fff;
-  height: 100%;
   width: 100%;
   z-index: -1;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

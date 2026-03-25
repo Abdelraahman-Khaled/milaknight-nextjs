@@ -96,16 +96,16 @@ const MapComponent = ({ language }) => {
         },
         {
             id: "portugal",
-            titleAr: "البرتغال",
-            titleEn: "Portugal",
-            coords: [39.3999, -8.2245],
+            titleAr: "البرتغال، لشبونة",
+            titleEn: "Portugal, Lisbon",
+            coords: [38.7169, -9.1395],
             isProminent: false,
         },
         {
             id: "canada",
-            titleAr: "كندا",
-            titleEn: "Canada",
-            coords: [56.1304, -106.3468],
+            titleAr: "كندا، أوتاوا",
+            titleEn: "Canada, Ottawa",
+            coords: [45.4215, -75.6972],
             isProminent: false,
         },
     ];

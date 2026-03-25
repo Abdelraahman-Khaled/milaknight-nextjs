@@ -128,12 +128,12 @@ const ContactContent = () => {
                                                     <div>
                                                         <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'سوريا' : 'Syria'}</strong> - {language === 'ar' ? 'دمشق، المنطقة الحرة' : 'Damascus, Free Zone'}</p>
                                                     </div>
-                                                    {/* <div>
-                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'البرتغال' : 'Portugal'}</strong> - {language === 'ar' ? 'البرتغال' : 'Portugal'}</p>
+                                                    <div>
+                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'البرتغال' : 'Portugal'}</strong> - {language === 'ar' ? 'لشبونة' : 'Lisbon'}</p>
                                                     </div>
                                                     <div>
-                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'كندا' : 'Canada'}</strong> - {language === 'ar' ? 'كندا' : 'Canada'}</p>
-                                                    </div> */}
+                                                        <p className="mb-0" >  <strong style={{ color: '#bf5ec6' }}>{language === 'ar' ? 'كندا' : 'Canada'}</strong> - {language === 'ar' ? 'أوتاوا' : 'Ottawa'}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
