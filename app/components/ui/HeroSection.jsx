@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LanguageContext } from '../../context/LanguageContext';
 
 const HeroSection = ({ title, subtitle, breadcrumb, page }) => {
-    const { t } = useContext(LanguageContext);
+    const { language, t } = useContext(LanguageContext);
 
     return (
         <div className="page-header">
@@ -22,7 +22,7 @@ const HeroSection = ({ title, subtitle, breadcrumb, page }) => {
                                         breadcrumb.map((item, index) => (
                                             <li key={index} className={`breadcrumb-item ${!item.href ? 'active' : ''}`} aria-current={!item.href ? 'page' : undefined}>
                                                 {item.href ? (
-                                                    <Link href={item.href}>{t(item.label)}</Link>
+                                                    <Link href={`/${language}${item.href.startsWith('/') ? item.href : `/${item.href}`}`}>{t(item.label)}</Link>
                                                 ) : (
                                                     t(item.label)
                                                 )}
@@ -30,7 +30,7 @@ const HeroSection = ({ title, subtitle, breadcrumb, page }) => {
                                         ))
                                     ) : (
                                         <>
-                                            <li className="breadcrumb-item"><Link href="/">{t(breadcrumb)}</Link></li>
+                                            <li className="breadcrumb-item"><Link href={`/${language}`}>{t(breadcrumb)}</Link></li>
                                             <li className="active breadcrumb-item" aria-current="page">{t(page)}</li>
                                         </>
                                     )}

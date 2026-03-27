@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
 import { LanguageProvider } from '../context/LanguageContext';
 
-export default function Providers({ children }) {
+export default function Providers({ children, lang }) {
     const [queryClient] = useState(
         () =>
             new QueryClient({
@@ -20,7 +20,7 @@ export default function Providers({ children }) {
     );
 
     return (
-        <LanguageProvider>
+        <LanguageProvider lang={lang}>
             <QueryClientProvider client={queryClient}>
                 {children}
                 <ReactQueryDevtools initialIsOpen={false} />

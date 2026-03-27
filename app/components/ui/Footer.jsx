@@ -27,7 +27,7 @@ const Footer = () => {
 
                                     {/* <!-- Work Together Btn Start --> */}
                                     <div className="work-together-btn">
-                                        <Link href="/contact">
+                                        <Link href={`/${language}/contact`}>
                                             <Image src="/images/icons/arrow-dark.svg" alt="arrow" width={24} height={24} />
                                             <span>{content.letsWork.buttonText}</span>
                                         </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
                                     <ul>
                                         {content.quickLinks.links.map((link, index) => (
                                             <li key={index}>
-                                                <Link href={link.href}>{link.text}</Link>
+                                                <Link href={`/${language}${link.href.startsWith('/') ? link.href : `/${link.href}`}`}>{link.text}</Link>
                                             </li>
                                         ))}
                                     </ul>
@@ -72,7 +72,7 @@ const Footer = () => {
                                     <ul>
                                         {content.services.links.map((link, index) => (
                                             <li key={index}>
-                                                <Link href={link.href}>{link.text}</Link>
+                                                <Link href={`/${language}${link.href.startsWith('/') ? link.href : `/${link.href}`}`}>{link.text}</Link>
                                             </li>
                                         ))}
                                     </ul>

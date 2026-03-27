@@ -10,7 +10,9 @@ const Navbar = () => {
     const { language, toggleLanguage, t } = useContext(LanguageContext);
     const pathname = usePathname();
 
-    const isActive = (path) => pathname === path ? "nav-link active" : "nav-link";
+    const isActive = (path) => pathname === `/${language}${path === '/' ? '' : path}` ? "nav-link active" : "nav-link";
+
+    const getLangPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
     // Update SlickNav menu text after language change
     const handleLanguageToggle = () => {
@@ -62,28 +64,28 @@ const Navbar = () => {
         <header className="main-header">
             <div className="header-sticky">
                 <nav className="navbar navbar-expand-lg">
-                    <div className="container-fluid"><Link className="navbar-brand" href="/" style={{ position: 'relative', width: '169px', height: '51px', display: 'block' }}><Image src="/images/logo.svg"
+                    <div className="container-fluid"><Link className="navbar-brand" href={getLangPath("/")} style={{ position: 'relative', width: '169px', height: '51px', display: 'block' }}><Image src="/images/logo.svg"
                         alt="Milaknight" fill /></Link>
                         <div className="collapse navbar-collapse main-menu">
                             <div className="nav-menu-wrapper">
                                 <ul className="navbar-nav mx-auto" id="menu">
-                                    <li className="nav-item"><Link className={isActive("/")} href="/">{t('home')}</Link></li>
-                                    <li className="nav-item"><Link className={isActive("/about")} href="/about">{t('about_us')}</Link></li>
-                                    <li className="nav-item submenu"><Link className={isActive("/services")} href="/services">{t('services')}</Link>
+                                    <li className="nav-item"><Link className={isActive("/")} href={getLangPath("/")}>{t('home')}</Link></li>
+                                    <li className="nav-item"><Link className={isActive("/about")} href={getLangPath("/about")}>{t('about_us')}</Link></li>
+                                    <li className="nav-item submenu"><Link className={isActive("/services")} href={getLangPath("/services")}>{t('services')}</Link>
                                         <ul>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/web-development">{t('web_development')}</Link></li>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/digital-marketing">{t('digital_marketing')}</Link></li>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/graphic-design">{t('graphic_design')}</Link></li>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/e-commerce">{t('e_commerce')}</Link></li>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/video-production">{t('video_production')}</Link></li>
-                                            <li className="nav-item"><Link className="nav-link" href="/service/event-planning">{t('event_planning')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/web-development")}>{t('web_development')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/digital-marketing")}>{t('digital_marketing')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/graphic-design")}>{t('graphic_design')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/e-commerce")}>{t('e_commerce')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/video-production")}>{t('video_production')}</Link></li>
+                                            <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/event-planning")}>{t('event_planning')}</Link></li>
                                             <li className="nav-item"><Link className="nav-link" href="#">{t('remote_sales')}</Link></li>
                                         </ul>
                                     </li>
-                                    <li className="nav-item"><Link className={isActive("/projects")} href="/projects">{t('projects')}</Link></li>
-                                    <li className="nav-item"><Link className={isActive("/pricing")} href="/pricing">{t('pricing')}</Link></li>
-                                    <li className="nav-item"><Link className={pathname && pathname.startsWith("/blog") ? "nav-link active" : "nav-link"} href="/blog">{t('blog')}</Link></li>
-                                    <li className="nav-item"><Link className={isActive("/contact")} href="/contact">{t('contact_us')}</Link></li>
+                                    <li className="nav-item"><Link className={isActive("/projects")} href={getLangPath("/projects")}>{t('projects')}</Link></li>
+                                    <li className="nav-item"><Link className={isActive("/pricing")} href={getLangPath("/pricing")}>{t('pricing')}</Link></li>
+                                    <li className="nav-item"><Link className={pathname && pathname.startsWith(`/${language}/blog`) ? "nav-link active" : "nav-link"} href={getLangPath("/blog")}>{t('blog')}</Link></li>
+                                    <li className="nav-item"><Link className={isActive("/contact")} href={getLangPath("/contact")}>{t('contact_us')}</Link></li>
                                     <li className="nav-item">
                                         <Link className="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank" rel="noopener">
                                             {t('company_profile')}

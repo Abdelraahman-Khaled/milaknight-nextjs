@@ -17,50 +17,65 @@ export default async function sitemap() {
     "/contact",
     "/blog",
   ];
-  const staticPages = staticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: currentDate,
-    changeFrequency: "weekly",
-    priority: route === "" ? 1 : 0.8,
-  }));
+  const staticPages = staticRoutes.flatMap((route) => [
+    {
+      url: `${baseUrl}/ar${route}`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: route === "" ? 1 : 0.8,
+    },
+    {
+      url: `${baseUrl}/en${route}`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: route === "" ? 0.9 : 0.7,
+    }
+  ]);
 
-  // 2. صفحات الخدمات (تحويل مفاتيح الكائن إلى مصفوفة روابط)
-  const servicePages = Object.keys(servicesData).map((slug) => ({
-    url: `${baseUrl}/service/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  // 2. صفحات الخدمات
+  const servicePages = Object.keys(servicesData).flatMap((slug) => [
+    {
+      url: `${baseUrl}/ar/service/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/en/service/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }
+  ]);
 
-  // 3. صفحات المقالات مع الروابط البديلة (Alternates)
+  // 3. صفحات المقالات
   let blogPages = [];
   try {
     const rawData = await getBlogs();
     const blogsArray = Array.isArray(rawData) ? rawData : [];
 
-    blogPages = blogsArray.map((blog) => {
-      // تشفير الروابط لضمان سلامة الحروف العربية
+    blogPages = blogsArray.flatMap((blog) => {
       const arabicSlug = encodeURI(blog.slug_ar || "");
       const englishSlug = encodeURI(blog.slug || "");
 
-      const arabicUrl = `${baseUrl}/blog/${arabicSlug}`;
-      const englishUrl = `${baseUrl}/blog/${englishSlug}`;
+      const lastMod = new Date(blog.updated_at || blog.created_at || new Date())
+        .toISOString()
+        .split("T")[0];
 
-      return {
-        url: arabicUrl, // الرابط الافتراضي
-        lastModified: new Date(blog.updated_at || blog.created_at || new Date())
-          .toISOString()
-          .split("T")[0],
-        changeFrequency: "weekly",
-        priority: 0.7,
-        // هذه الخاصية هي التي تجعل الكود يبدو "بشعاً" في المتصفح لكنها كنز للـ SEO
-        // alternates: {
-        //   languages: {
-        //     ar: arabicUrl,
-        //     en: englishUrl,
-        //   },
-        // },
-      };
+      return [
+        {
+          url: `${baseUrl}/ar/blog/${arabicSlug}`,
+          lastModified: lastMod,
+          changeFrequency: "weekly",
+          priority: 0.7,
+        },
+        {
+          url: `${baseUrl}/en/blog/${englishSlug}`,
+          lastModified: lastMod,
+          changeFrequency: "weekly",
+          priority: 0.7,
+        }
+      ];
     });
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);

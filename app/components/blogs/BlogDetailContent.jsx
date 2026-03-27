@@ -11,7 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getBlogDetails } from '@/app/api/blog';
 
 const BlogDetailContent = ({ slug, initialBlog }) => {
-    const { language, t, prevLanguage } = useContext(LanguageContext);
+    const { language, t, setAlternatePath } = useContext(LanguageContext);
     const router = useRouter();
 
     const { data: blog = initialBlog } = useQuery({
@@ -21,23 +21,34 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
         refetchInterval: 5000, // 5 seconds polling for live updates
     });
 
-    // guard علشان يمنع التكرار
-
     useEffect(() => {
         if (!blog) return;
 
-        // لو اللغة متغيرتش → اعمل nothing
-        if (prevLanguage.current === language) return;
+        // Decode the slug from props to handle non-Latin characters correctly
+        const decodedSlug = decodeURIComponent(slug);
 
-        const targetSlug =
-            language === "ar"
-                ? blog.slug_ar || blog.slug
-                : blog.slug || blog.slug_ar;
+        // Register the alternate language path for the global toggle
+        const alternateLang = language === 'ar' ? 'en' : 'ar';
+        const targetSlug = alternateLang === 'ar'
+            ? blog.slug_ar || blog.slug
+            : blog.slug || blog.slug_ar;
 
-        router.replace(`/blog/${targetSlug}`, { scroll: false });
-    }, [language, blog, router, prevLanguage]);
+        const newAlternatePath = `/${alternateLang}/blog/${targetSlug}`;
+        
+        if (setAlternatePath) {
+            // Only update if it's different to prevent loops
+            setAlternatePath(prev => prev === newAlternatePath ? prev : newAlternatePath);
+        }
 
+        // Check if the current decoded slug matches the current language
+        const expectedSlug = language === "ar"
+            ? blog.slug_ar || blog.slug
+            : blog.slug || blog.slug_ar;
 
+        if (decodedSlug !== expectedSlug) {
+            router.replace(`/${language}/blog/${expectedSlug}`, { scroll: false });
+        }
+    }, [language, blog, slug, router, setAlternatePath]);
 
 
     // Fallback logic for content
@@ -73,7 +84,8 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
             ));
         } else {
             // Fallback for old format (single HTML string) or missing content
-jnu        }
+             return null;
+        }
     };
 
     const title = language === 'ar' ? (blog.title_ar || blog.title_en) : (blog.title_en || blog.title_ar);
@@ -91,8 +103,8 @@ jnu        }
                                 </h1>
                                 <nav className="mt-3">
                                     <ol className="breadcrumb">
-                                        <li className="breadcrumb-item"><Link href="/">{t('home')}</Link></li>
-                                        <li className="breadcrumb-item"><Link href="/blog">{t('blog')}</Link></li>
+                                        <li className="breadcrumb-item"><Link href={`/${language}`}>{t('home')}</Link></li>
+                                        <li className="breadcrumb-item"><Link href={`/${language}/blog`}>{t('blog')}</Link></li>
                                         <li className="active breadcrumb-item" aria-current="page">
                                             {title}
                                         </li>
