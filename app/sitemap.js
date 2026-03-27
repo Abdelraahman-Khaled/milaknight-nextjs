@@ -55,27 +55,33 @@ export default async function sitemap() {
     const blogsArray = Array.isArray(rawData) ? rawData : [];
 
     blogPages = blogsArray.flatMap((blog) => {
-      const arabicSlug = encodeURI(blog.slug_ar || "");
-      const englishSlug = encodeURI(blog.slug || "");
+      const arabicSlugStr = blog.slug_ar || blog.slug;
+      const englishSlugStr = blog.slug || blog.slug_ar;
+
+      if (!arabicSlugStr && !englishSlugStr) return [];
 
       const lastMod = new Date(blog.updated_at || blog.created_at || new Date())
         .toISOString()
         .split("T")[0];
 
-      return [
-        {
-          url: `${baseUrl}/ar/blog/${arabicSlug}`,
+      const pages = [];
+      if (arabicSlugStr) {
+        pages.push({
+          url: `${baseUrl}/ar/blog/${encodeURI(arabicSlugStr)}`,
           lastModified: lastMod,
           changeFrequency: "weekly",
           priority: 0.7,
-        },
-        {
-          url: `${baseUrl}/en/blog/${englishSlug}`,
+        });
+      }
+      if (englishSlugStr) {
+        pages.push({
+          url: `${baseUrl}/en/blog/${encodeURI(englishSlugStr)}`,
           lastModified: lastMod,
           changeFrequency: "weekly",
           priority: 0.7,
-        }
-      ];
+        });
+      }
+      return pages;
     });
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);

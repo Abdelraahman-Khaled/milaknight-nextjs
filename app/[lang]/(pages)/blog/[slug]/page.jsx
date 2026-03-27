@@ -29,7 +29,9 @@ export async function generateMetadata({ params }) {
     const featuredPhoto = blog.photos?.find(p => p.is_arabic === (language === 'ar')) || blog.photos?.[0];
     const photoUrl = featuredPhoto?.url || blog.photo_url;
 
-    const canonical = language === 'ar' ? blog.slug_ar : blog.slug;
+    const arSlug = blog.slug_ar || blog.slug;
+    const enSlug = blog.slug || blog.slug_ar;
+    const canonicalSlug = language === 'ar' ? arSlug : enSlug;
 
     return {
         title: `Milaknight | ${title}`,
@@ -49,10 +51,11 @@ export async function generateMetadata({ params }) {
             images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
         },
         alternates: {
-            canonical: `https://mila-knight.com/${language}/blog/${canonical}`,
+            canonical: `https://mila-knight.com/${language}/blog/${canonicalSlug}`,
             languages: {
-                "ar": `https://mila-knight.com/ar/blog/${blog.slug_ar}`,
-                "en": `https://mila-knight.com/en/blog/${blog.slug}`,
+                "ar": `https://mila-knight.com/ar/blog/${arSlug}`,
+                "en": `https://mila-knight.com/en/blog/${enSlug}`,
+                "x-default": `https://mila-knight.com/ar/blog/${arSlug}`
             }
         }
     }
@@ -74,6 +77,14 @@ export default async function BlogDetailsPage({ params }) {
 
     if (!blog) {
         permanentRedirect(`/${lang || 'ar'}`);
+    }
+
+    const currentLang = lang || 'ar';
+    const expectedSlug = currentLang === 'ar' ? (blog.slug_ar || blog.slug) : (blog.slug || blog.slug_ar);
+
+    // Server-side redirect if slug doesn't match the localized version
+    if (decodeURIComponent(slug) !== expectedSlug) {
+        permanentRedirect(`/${currentLang}/blog/${expectedSlug}`);
     }
 
     return (
