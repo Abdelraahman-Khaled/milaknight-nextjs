@@ -25,7 +25,12 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
         if (!blog) return;
 
         // Decode the slug from props to handle non-Latin characters correctly
-        const decodedSlug = decodeURIComponent(slug);
+        let decodedSlug = slug;
+        try {
+            decodedSlug = decodeURIComponent(slug);
+        } catch (e) {
+            console.error("Failed to decode slug:", e);
+        }
 
         // Register the alternate language path for the global toggle
         const alternateLang = language === 'ar' ? 'en' : 'ar';
@@ -46,7 +51,7 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
             : blog.slug || blog.slug_ar;
 
         if (decodedSlug !== expectedSlug) {
-            router.replace(`/${language}/blog/${expectedSlug}`, { scroll: false });
+            router.replace(`/${language}/blog/${encodeURIComponent(expectedSlug)}`, { scroll: false });
         }
     }, [language, blog, slug, router, setAlternatePath]);
 

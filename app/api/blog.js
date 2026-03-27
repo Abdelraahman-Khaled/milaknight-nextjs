@@ -10,10 +10,17 @@ export const getBlogs = async () => {
 };
 
 export const getBlogDetails = async (slug) => {
-    const res = await fetch(`${API}/plog_show?slug=${slug}`, {
-        cache: 'no-store',
-    });
+    try {
+        const res = await fetch(`${API}/plog_show?slug=${slug}`, {
+            cache: 'no-store',
+        });
 
-    if (!res.ok) throw new Error('Failed to fetch blog');
-    return res.json();
+        if (!res.ok) return null;
+        const data = await res.json();
+        // Handle cases where the API returns an array instead of a single object
+        return Array.isArray(data) ? data[0] : (data || null);
+    } catch (error) {
+        console.error('Error fetching blog details:', error);
+        return null;
+    }
 };
