@@ -5,6 +5,7 @@
 .tech-partners-section {
   padding: 100px 0;
   overflow: hidden;
+  position: relative;
 }
 
 /* Subtle background decoration */
@@ -128,6 +129,7 @@
   position: relative;
   width: 100%;
   padding: 10px 0;
+  overflow: hidden;
   /* Fade edges for smooth entry/exit */
   mask-image: linear-gradient(
     to right,

@@ -99,7 +99,7 @@ const TechPartners = () => {
 
       track.addEventListener("mouseenter", () => tl.pause());
       track.addEventListener("mouseleave", () => tl.play());
-    }, containerRef);
+    }, containerRef.current);
 
     return () => ctx.revert();
   }, [language]);
@@ -118,7 +118,7 @@ const TechPartners = () => {
         />
       </div>
 
-      <div className="tech-partners-slider-container">
+      <div className="tech-partners-slider-container" style={{ overflow: 'hidden' }}>
         <div
           className="tech-partners-track"
           ref={trackRef}
