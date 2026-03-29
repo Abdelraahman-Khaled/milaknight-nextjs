@@ -131,11 +131,9 @@ export default async function BlogDetailsPage({ params }) {
         return (
             <HydrationBoundary state={dehydrate(queryClient)}>
                 <Preloader />
-                <Navbar />
                 <main>
                     <BlogDetailContent slug={slug} initialBlog={blog} />
                 </main>
-                <Footer />
                 <LegacyScripts />
             </HydrationBoundary>
         );
