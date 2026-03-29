@@ -2,6 +2,11 @@ import { permanentRedirect } from 'next/navigation';
 import { getBlogDetails } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
 import { cookies } from 'next/headers';
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/ui/Footer";
+import Preloader from "@/app/components/Preloader";
+import LegacyScripts from "@/app/components/LegacyScripts";
+
 import {
     dehydrate,
     HydrationBoundary,
@@ -10,6 +15,7 @@ import {
 
 export const dynamic = 'force-dynamic';
 
+// Generate metadata for SEO
 export async function generateMetadata({ params }) {
     try {
         const { lang, slug } = await params;
@@ -86,8 +92,7 @@ export default async function BlogDetailsPage({ params }) {
         }
 
         const currentLang = lang || 'ar';
-        const expectedSlug = currentLang === 'ar' ? (blog.slug_ar || blog.slug) : (blog.slug || blog.slug_ar);
-
+        
         // Safe decode
         let decodedSlug = slug;
         try {
@@ -96,14 +101,42 @@ export default async function BlogDetailsPage({ params }) {
             console.error("Slug decoding failed on server:", e);
         }
 
-        // Server-side redirect ONLY if we have a valid expected slug and it's different
-        if (expectedSlug && decodedSlug !== expectedSlug) {
-            permanentRedirect(`/${currentLang}/blog/${encodeURIComponent(expectedSlug)}`);
+        // Canonical slugs from API
+        const arSlug = blog.slug_ar || blog.slug; // Arabic canonical
+        const enSlug = blog.slug || blog.slug_ar;    // English canonical
+
+        // 🔁 CROSS LANGUAGE REDIRECT LOGIC
+        // Determine which language this slug belongs to (only if they are different)
+        const isEnglishSlug = decodedSlug === enSlug;
+        const isArabicSlug = decodedSlug === arSlug;
+
+        // Condition for redirecting between languages:
+        // Slug is English-only and we are in Arabic section -> Switch to English
+        if (isEnglishSlug && !isArabicSlug && currentLang === 'ar') {
+            permanentRedirect(`/en/blog/${encodeURIComponent(enSlug)}`);
+        }
+        // Slug is Arabic-only and we are in English section -> Switch to Arabic
+        if (isArabicSlug && !isEnglishSlug && currentLang === 'en') {
+            permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
+        }
+
+        // 🔧 NORMALIZATION within the same language context
+        if (currentLang === "ar" && decodedSlug !== arSlug) {
+            permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
+        }
+        if (currentLang === "en" && decodedSlug !== enSlug) {
+            permanentRedirect(`/en/blog/${encodeURIComponent(enSlug)}`);
         }
 
         return (
             <HydrationBoundary state={dehydrate(queryClient)}>
-                <BlogDetailContent slug={slug} initialBlog={blog} />
+                <Preloader />
+                <Navbar />
+                <main>
+                    <BlogDetailContent slug={slug} initialBlog={blog} />
+                </main>
+                <Footer />
+                <LegacyScripts />
             </HydrationBoundary>
         );
     } catch (error) {
@@ -112,6 +145,7 @@ export default async function BlogDetailsPage({ params }) {
             throw error;
         }
         console.error("BlogDetailsPage error:", error);
-        permanentRedirect('/ar/blog');
+        permanentRedirect(`/${lang || 'ar'}/blog`);
     }
 }
+
