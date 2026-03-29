@@ -144,8 +144,8 @@ const BlogsTabs = () => {
                           <Link
                             href={
                               language === "ar"
-                                ? `/blog/${blog.slug_ar}`
-                                : `/blog/${blog.slug}`
+                                ? `/ar/blog/${blog.slug_ar}`
+                                : `/en/blog/${blog.slug}`
                             }
                           >
                             {language === "ar" ? blog.title_ar : blog.title_en}
@@ -159,8 +159,8 @@ const BlogsTabs = () => {
                         <Link
                           href={
                             language === "ar"
-                              ? `/blog/${blog.slug_ar}`
-                              : `/blog/${blog.slug}`
+                              ? `/ar/blog/${blog.slug_ar}`
+                              : `/en/blog/${blog.slug}`
                           }
                         >
                           {language === "ar" ? "اقرأ المزيد" : "Read More"}
