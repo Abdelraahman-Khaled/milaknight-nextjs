@@ -23,7 +23,14 @@ const ServiceProcess = ({ step }) => {
             </div>
             <div className="process-step-image">
                 <figure className="image-anime">
-                    <Image alt={step.image_alt || step.title} src={step.image} width={400} height={300} loading="lazy" />
+                    <Image 
+                        alt={step.image_alt || step.title} 
+                        src={step.image} 
+                        width={400} 
+                        height={300} 
+                        loading="lazy" 
+                        unoptimized={true} 
+                    />
                 </figure>
             </div>
         </div>

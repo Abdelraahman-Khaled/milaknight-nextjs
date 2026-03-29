@@ -312,9 +312,9 @@ export const servicesData = {
     },
     en: {
       meta_title:
-        "We build your digital success step by step with Melanite - contact us now",
+        "We build your digital success step by step with milaknighte - contact us now",
       title:
-        "We build your digital success step by step with Melanite - contact us now",
+        "We build your digital success step by step with milaknighte - contact us now",
       meta_description:
         "We leverage data-driven analytics and the latest digital trends to maximize engagement, drive traffic, and boost conversion rates, delivering a tangible return on your investment.",
       hero: {
@@ -418,8 +418,7 @@ export const servicesData = {
     ar: {
       meta_title:
         "خدمة التصميم الجرافيكي من ميلانايت - الصورة أبلغ من ألف كلمة",
-      title:
-        "خدمة التصميم الجرافيكي من ميلانايت - الصورة أبلغ من ألف كلمة",
+      title: "خدمة التصميم الجرافيكي من ميلانايت - الصورة أبلغ من ألف كلمة",
       meta_description:
         "نحول أفكارك إلى تصاميم تنبض بالحياة وتعكس هوية علامتك التجارية بأسلوب فريد ومميز. دعنا نُبرز علامتك التجارية بصرياً، وابدأ اليوم بتصميم يترك انطباعاً لا يُنسى",
       hero: {
@@ -968,8 +967,9 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Melanit's video creation service lets your story come to life.",
-      title: "Melanit's video creation service lets your story come to life.",
+      meta_title:
+        "milaknight's video creation service lets your story come to life.",
+      title: "milaknight's video creation service lets your story come to life.",
       meta_description:
         "Video is one of the most powerful digital marketing tools to convey your message and communicate your brand values effectively. At Milaknight, the best company, we offer comprehensive professional video production solutions.",
       hero: {
@@ -1076,7 +1076,7 @@ export const servicesData = {
       meta_title: "خدمة تخطيط وتنفيذ الفعاليات مع ميلانايت",
       title: "خدمة تخطيط وتنفيذ الفعاليات مع ميلانايت",
       meta_description:
-       "تخطيط وتنفيذ الفعاليات من خلال عملية منظمة لتنظيم وتنفيذ الفعاليات الناجحة عبر خدمة ابتكار وتصميم وتنفيذ، من الندوات إلى الفعاليات والمؤتمرات والمعارض التجارية",
+        "تخطيط وتنفيذ الفعاليات من خلال عملية منظمة لتنظيم وتنفيذ الفعاليات الناجحة عبر خدمة ابتكار وتصميم وتنفيذ، من الندوات إلى الفعاليات والمؤتمرات والمعارض التجارية",
       hero: {
         title: "تخطيط ",
         span: "الفعاليات وتنفيذ",
@@ -1179,8 +1179,8 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Event planning and execution services with Melanite",
-      title: "Event planning and execution services with Melanite",
+      meta_title: "Event planning and execution services with milaknighte",
+      title: "Event planning and execution services with milaknighte",
       meta_description:
         "Event planning and execution through a systematic process for organizing and executing successful events through the best innovation, design, and execution services, from seminars to events, conferences, and trade shows.",
       hero: {
