@@ -312,9 +312,9 @@ export const servicesData = {
     },
     en: {
       meta_title:
-        "We build your digital success step by step with milaknighte - contact us now",
+        "We build your digital success step by step with milaknight - contact us now",
       title:
-        "We build your digital success step by step with milaknighte - contact us now",
+        "We build your digital success step by step with milaknight - contact us now",
       meta_description:
         "We leverage data-driven analytics and the latest digital trends to maximize engagement, drive traffic, and boost conversion rates, delivering a tangible return on your investment.",
       hero: {
@@ -1179,8 +1179,8 @@ export const servicesData = {
       },
     },
     en: {
-      meta_title: "Event planning and execution services with milaknighte",
-      title: "Event planning and execution services with milaknighte",
+      meta_title: "Event planning and execution services with milaknight",
+      title: "Event planning and execution services with milaknight",
       meta_description:
         "Event planning and execution through a systematic process for organizing and executing successful events through the best innovation, design, and execution services, from seminars to events, conferences, and trade shows.",
       hero: {
