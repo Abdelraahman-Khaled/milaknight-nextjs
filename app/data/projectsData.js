@@ -19,13 +19,13 @@ export const projectsTranslations = {
 
 export const projectsSEO = {
   ar: {
-    title: "أعمالنا - Milaknight",
+    title: "أعمالنا",
     description:
       "أعمالنا في التسويق الرقمي تصميم مواقع إعلانات مدفوعة استراتيجيات سيو تصميم جرافيكي تسويق عبر منصات التواصل تطوير الهوية البصرية حلول مبتكرة لنجاح عملائنا في الأسواق",
     keywords: "تسويق رقمي, تصميم مواقع, تصميم جرافيكي, سيو, هوية بصرية",
   },
   en: {
-    title: "Projects - Milaknight",
+    title: "Projects",
     description:
       "Our work in digital marketing Web design Paid ads SEO strategies Graphic design Social media marketing Visual identity development Innovative solutions for client success",
     keywords:

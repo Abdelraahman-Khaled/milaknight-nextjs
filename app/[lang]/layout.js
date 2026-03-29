@@ -3,7 +3,7 @@ import "../globals.css";
 import BootstrapClient from "../components/BootstrapClient";
 import Providers from "../components/Providers";
 import Script from "next/script";
-import localFont from 'next/font/local';
+import localFont from "next/font/local";
 
 import DynamicSEO from "../components/DynamicSEO";
 import Preloader from "../components/Preloader";
@@ -15,31 +15,31 @@ import Footer from "../components/ui/Footer";
 // Configure local fonts (Tajawal for Arabic/English)
 const tajawal = localFont({
   src: [
-    { path: '../fonts/tajawal-v12-arabic_latin-200.woff2', weight: '200' },
-    { path: '../fonts/tajawal-v12-arabic_latin-300.woff2', weight: '300' },
-    { path: '../fonts/tajawal-v12-arabic_latin-regular.woff2', weight: '400' },
-    { path: '../fonts/tajawal-v12-arabic_latin-500.woff2', weight: '500' },
-    { path: '../fonts/tajawal-v12-arabic_latin-700.woff2', weight: '700' },
-    { path: '../fonts/tajawal-v12-arabic_latin-800.woff2', weight: '800' },
-    { path: '../fonts/tajawal-v12-arabic_latin-900.woff2', weight: '900' },
+    { path: "../fonts/tajawal-v12-arabic_latin-200.woff2", weight: "200" },
+    { path: "../fonts/tajawal-v12-arabic_latin-300.woff2", weight: "300" },
+    { path: "../fonts/tajawal-v12-arabic_latin-regular.woff2", weight: "400" },
+    { path: "../fonts/tajawal-v12-arabic_latin-500.woff2", weight: "500" },
+    { path: "../fonts/tajawal-v12-arabic_latin-700.woff2", weight: "700" },
+    { path: "../fonts/tajawal-v12-arabic_latin-800.woff2", weight: "800" },
+    { path: "../fonts/tajawal-v12-arabic_latin-900.woff2", weight: "900" },
   ],
-  variable: '--font-tajawal',
-  display: 'swap',
+  variable: "--font-tajawal",
+  display: "swap",
 });
 
 // Fustat fallback or secondary font
 const fustat = localFont({
   src: [
-    { path: '../fonts/fustat-v4-latin_latin-ext-200.woff2', weight: '200' },
-    { path: '../fonts/fustat-v4-latin_latin-ext-300.woff2', weight: '300' },
-    { path: '../fonts/fustat-v4-latin_latin-ext-regular.woff2', weight: '400' },
-    { path: '../fonts/fustat-v4-latin_latin-ext-500.woff2', weight: '500' },
-    { path: '../fonts/fustat-v4-latin_latin-ext-600.woff2', weight: '600' },
-    { path: '../fonts/fustat-v4-latin_latin-ext-700.woff2', weight: '700' },
-    { path: '../fonts/fustat-v4-latin_latin-ext-800.woff2', weight: '800' },
+    { path: "../fonts/fustat-v4-latin_latin-ext-200.woff2", weight: "200" },
+    { path: "../fonts/fustat-v4-latin_latin-ext-300.woff2", weight: "300" },
+    { path: "../fonts/fustat-v4-latin_latin-ext-regular.woff2", weight: "400" },
+    { path: "../fonts/fustat-v4-latin_latin-ext-500.woff2", weight: "500" },
+    { path: "../fonts/fustat-v4-latin_latin-ext-600.woff2", weight: "600" },
+    { path: "../fonts/fustat-v4-latin_latin-ext-700.woff2", weight: "700" },
+    { path: "../fonts/fustat-v4-latin_latin-ext-800.woff2", weight: "800" },
   ],
-  variable: '--font-fustat',
-  display: 'swap',
+  variable: "--font-fustat",
+  display: "swap",
 });
 
 export const viewport = {
@@ -59,25 +59,33 @@ export async function generateMetadata({ params }) {
         en: "./",
       },
     },
-    title: lang === 'en' ? "Milaknight | Digital Marketing milestones" : "Milaknight علامة فارقة في مجال التسويق الالكتروني",
-    description: lang === 'en'
-      ? "We develop innovative marketing plans blending latest tech with market insights, believing every brand deserves its success story."
-      : "نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
+    title:
+      lang === "en"
+        ? " Digital Marketing milestones"
+        : "Milaknight علامة فارقة في مجال التسويق الالكتروني",
+    description:
+      lang === "en"
+        ? "We develop innovative marketing plans blending latest tech with market insights, believing every brand deserves its success story."
+        : "نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
     keywords:
       "تصميم و برمجة المواقع, تخطيط و تنفيذ الفعاليات, إنتاج الفيديوهات, التجارة الإلكترونية, التصميم الجرافيكي, التسويق الرقمي",
     authors: [{ name: "Milaknight LLC-FZ" }],
-    manifest: lang === 'en' ? "/manifest-en.json" : "/manifest-ar.json",
+    manifest: lang === "en" ? "/manifest-en.json" : "/manifest-ar.json",
     verification: {
       google: "sqr_XrhbIC_Q9Y0ZnpTsc6JrOkYMoCBmdASKMLNz7aA",
     },
     openGraph: {
-      locale: lang === 'en' ? "en_US" : "ar_SA",
+      locale: lang === "en" ? "en_US" : "ar_SA",
       siteName: "Milaknight",
       type: "website",
-      title: lang === 'en' ? "Milaknight | Digital Marketing milestones" : "Milaknight علامة فارقة في مجال التسويق الالكتروني",
-      description: lang === 'en'
-        ? "We develop innovative marketing plans blending latest tech with market insights, believing every brand deserves its success story."
-        : " نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
+      title:
+        lang === "en"
+          ? " Digital Marketing milestones"
+          : "Milaknight علامة فارقة في مجال التسويق الالكتروني",
+      description:
+        lang === "en"
+          ? "We develop innovative marketing plans blending latest tech with market insights, believing every brand deserves its success story."
+          : " نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
       url: "https://mila-knight.com/",
       images: [
         {
@@ -90,10 +98,14 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: lang === 'en' ? "Milaknight | Digital Marketing milestones" : "Milaknight علامة فارقة في مجال التسويق الالكتروني",
-      description: lang === 'en'
-        ? "We develop innovative marketing plans blending latest tech with market insights, believing every brand deserves its success story."
-        : " نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
+      title:
+        lang === "en"
+          ? " Digital Marketing milestones"
+          : "Milaknight علامة فارقة في مجال التسويق الالكتروني",
+      description:
+        lang === "en"
+          ? "We develop innovative marketing plans blending latest tech with market insights, believing every brand deserves its success story."
+          : " نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
       images: ["https://mila-knight.com/images/logo-dark-footer.webp"],
     },
   };
@@ -230,10 +242,14 @@ const jsonLd = {
 
 export default async function RootLayout({ children, params }) {
   const { lang } = await params;
-  const dir = lang === 'ar' ? 'rtl' : 'ltr';
+  const dir = lang === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={lang} dir={dir} className={`${tajawal.variable} ${fustat.variable}`}>
+    <html
+      lang={lang}
+      dir={dir}
+      className={`${tajawal.variable} ${fustat.variable}`}
+    >
       <head>
         <link rel="stylesheet" href="/css/tech-partners.css" />
         <link
@@ -243,8 +259,20 @@ export default async function RootLayout({ children, params }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <link rel="preload" href="/fonts/tajawal-v12-arabic_latin-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/tajawal-v12-arabic_latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          href="/fonts/tajawal-v12-arabic_latin-regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/tajawal-v12-arabic_latin-700.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -285,4 +313,3 @@ export default async function RootLayout({ children, params }) {
     </html>
   );
 }
-

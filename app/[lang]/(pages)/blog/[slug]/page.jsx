@@ -38,19 +38,19 @@ export async function generateMetadata({ params }) {
         const canonicalSlug = language === 'ar' ? arSlug : enSlug;
 
         return {
-            title: `Milaknight | ${title}`,
+            title: ` ${title}`,
             description,
             icons: {
                 icon: '/images/icons/favicon.ico',
                 shortcut: '/images/icons/favicon.ico',
             },
             openGraph: {
-                title: `Milaknight | ${title}`,
+                title: ` ${title}`,
                 description,
                 images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
             },
             twitter: {
-                title: `Milaknight | ${title}`,
+                title: ` ${title}`,
                 description,
                 images: photoUrl ? [photoUrl] : ["/images/icons/favicon.ico"],
             },
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }) {
         }
     } catch (error) {
         console.error("Metadata error:", error);
-        return { title: 'Milaknight | Blog' };
+        return { title: ' Blog' };
     }
 }
 
@@ -89,7 +89,7 @@ export default async function BlogDetailsPage({ params }) {
         }
 
         const currentLang = lang || 'ar';
-        
+
         // Safe decode
         let decodedSlug = slug;
         try {
