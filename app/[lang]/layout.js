@@ -259,20 +259,6 @@ export default async function RootLayout({ children, params }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <link
-          rel="preload"
-          href="/fonts/tajawal-v12-arabic_latin-regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/tajawal-v12-arabic_latin-700.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
