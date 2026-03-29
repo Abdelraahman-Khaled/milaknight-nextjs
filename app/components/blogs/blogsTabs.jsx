@@ -93,8 +93,8 @@ const BlogsTabs = () => {
                         <Link
                           href={
                             language === "ar"
-                              ? `/blog/${blog.slug_ar}`
-                              : `/blog/${blog.slug}`
+                              ? `/ar/blog/${blog.slug_ar}`
+                              : `/en/blog/${blog.slug}`
                           }
                           className="image-anime"
                           data-cursor-text={t("read_article")}
