@@ -3,6 +3,7 @@ import "../globals.css";
 import BootstrapClient from "../components/BootstrapClient";
 import Providers from "../components/Providers";
 import Script from "next/script";
+import localFont from 'next/font/local';
 
 import DynamicSEO from "../components/DynamicSEO";
 import Preloader from "../components/Preloader";
@@ -11,10 +12,40 @@ import LegacyScripts from "../components/LegacyScripts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/ui/Footer";
 
+// Configure local fonts (Tajawal for Arabic/English)
+const tajawal = localFont({
+  src: [
+    { path: '../fonts/tajawal-v12-arabic_latin-200.woff2', weight: '200' },
+    { path: '../fonts/tajawal-v12-arabic_latin-300.woff2', weight: '300' },
+    { path: '../fonts/tajawal-v12-arabic_latin-regular.woff2', weight: '400' },
+    { path: '../fonts/tajawal-v12-arabic_latin-500.woff2', weight: '500' },
+    { path: '../fonts/tajawal-v12-arabic_latin-700.woff2', weight: '700' },
+    { path: '../fonts/tajawal-v12-arabic_latin-800.woff2', weight: '800' },
+    { path: '../fonts/tajawal-v12-arabic_latin-900.woff2', weight: '900' },
+  ],
+  variable: '--font-tajawal',
+  display: 'swap',
+});
+
+// Fustat fallback or secondary font
+const fustat = localFont({
+  src: [
+    { path: '../fonts/fustat-v4-latin_latin-ext-200.woff2', weight: '200' },
+    { path: '../fonts/fustat-v4-latin_latin-ext-300.woff2', weight: '300' },
+    { path: '../fonts/fustat-v4-latin_latin-ext-regular.woff2', weight: '400' },
+    { path: '../fonts/fustat-v4-latin_latin-ext-500.woff2', weight: '500' },
+    { path: '../fonts/fustat-v4-latin_latin-ext-600.woff2', weight: '600' },
+    { path: '../fonts/fustat-v4-latin_latin-ext-700.woff2', weight: '700' },
+    { path: '../fonts/fustat-v4-latin_latin-ext-800.woff2', weight: '800' },
+  ],
+  variable: '--font-fustat',
+  display: 'swap',
+});
+
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5, // Improved Accessibility
 };
 
 export async function generateMetadata({ params }) {
@@ -202,7 +233,7 @@ export default async function RootLayout({ children, params }) {
   const dir = lang === 'ar' ? 'rtl' : 'ltr';
 
   return (
-    <html lang={lang} dir={dir}>
+    <html lang={lang} dir={dir} className={`${tajawal.variable} ${fustat.variable}`}>
       <head>
         <link rel="stylesheet" href="/css/tech-partners.css" />
         <link
@@ -212,14 +243,14 @@ export default async function RootLayout({ children, params }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <link rel="preload" href="/fonts/tajawal-v12-arabic_latin-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/tajawal-v12-arabic_latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-NSPXXGG5');
-          `}
+            })(window,document,'script','dataLayer','GTM-NSPXXGG5');`}
         </Script>
       </head>
       <body>
@@ -231,6 +262,11 @@ export default async function RootLayout({ children, params }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+
+        <Script src="/js/jquery-3.7.1.min.js" strategy="beforeInteractive" />
+        <Script src="/js/gsap.min.js" strategy="afterInteractive" />
+        <Script src="/js/swiper-bundle.min.js" strategy="afterInteractive" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -249,3 +285,4 @@ export default async function RootLayout({ children, params }) {
     </html>
   );
 }
+

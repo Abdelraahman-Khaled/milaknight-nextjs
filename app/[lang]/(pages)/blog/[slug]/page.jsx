@@ -1,9 +1,6 @@
 import { permanentRedirect } from 'next/navigation';
 import { getBlogDetails } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
-import { cookies } from 'next/headers';
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/ui/Footer";
 import Preloader from "@/app/components/Preloader";
 import LegacyScripts from "@/app/components/LegacyScripts";
 

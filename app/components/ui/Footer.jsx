@@ -11,7 +11,7 @@ const Footer = () => {
 
     return (
         <>
-            <footer className="main-footer">
+            <footer className="main-footer" role="contentinfo">
                 {/* <!-- Let's Work Together start --> */}
                 <div className="footer-work-together">
                     <div className="container">
@@ -27,8 +27,8 @@ const Footer = () => {
 
                                     {/* <!-- Work Together Btn Start --> */}
                                     <div className="work-together-btn">
-                                        <Link href={`/${language}/contact`}>
-                                            <Image src="/images/icons/arrow-dark.svg" alt="arrow" width={24} height={24} />
+                                        <Link href={`/${language}/contact`} aria-label={content.letsWork.buttonText}>
+                                            <Image src="/images/icons/arrow-dark.svg" alt="" width={24} height={24} />
                                             <span>{content.letsWork.buttonText}</span>
                                         </Link>
                                     </div>
@@ -46,13 +46,13 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-4">
                                 <div className="footer-logo">
-                                    <Image src="/images/logo-dark-footer.webp" className="Image-fluid  h-auto" alt="logo" width={512} height={200} />
+                                    <Image src="/images/logo-dark-footer.webp" className="Image-fluid  h-auto" alt="Milaknight - Professional Marketing Branding" width={512} height={200} />
                                 </div>
                             </div>
 
                             <div className="col-lg-2 col-md-3 col-6">
                                 {/* <!-- Footer Links start --> */}
-                                <div className="footer-links">
+                                <nav className="footer-links" aria-label="Quick Links">
                                     <h3>{content.quickLinks.title}</h3>
                                     <ul>
                                         {content.quickLinks.links.map((link, index) => (
@@ -61,13 +61,13 @@ const Footer = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
+                                </nav>
                                 {/* <!-- Footer Links end --> */}
                             </div>
 
                             <div className="col-lg-2 col-md-3 col-6">
                                 {/* <!-- Footer Links start --> */}
-                                <div className="footer-links">
+                                <nav className="footer-links" aria-label="Our Services">
                                     <h3>{content.services.title}</h3>
                                     <ul>
                                         {content.services.links.map((link, index) => (
@@ -76,7 +76,7 @@ const Footer = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
+                                </nav>
                                 {/* <!-- Footer Links end --> */}
                             </div>
 
@@ -86,9 +86,9 @@ const Footer = () => {
                                     {/* <!-- Footer Contact Box Start --> */}
                                     <div className="footer-contact-box">
                                         {/* <!-- Footer Contact Item Start --> */}
-                                        <Link href="tel:+971585856774" className="footer-contact-item">
+                                        <Link href="tel:+971585856774" className="footer-contact-item" aria-label="Call +971 58 585 6774">
                                             <div className="icon-box">
-                                                <Image src="/images/icons/icon-phone.svg" alt="icon-phone" width={18} height={18} />
+                                                <Image src="/images/icons/icon-phone.svg" alt="" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content" dir='ltr'>
                                                 <p>{content.contact.phone}</p>
@@ -97,10 +97,10 @@ const Footer = () => {
                                         {/* <!-- Footer Contact Item End --> */}
 
                                         {/* <!-- Footer Contact Item Start --> */}
-                                        <Link href="mailto:&#073;&#110;&#102;&#111;&#064;&#109;&#105;&#108;&#097;&#107;&#110;&#105;&#103;&#104;&#116;&#115;&#046;&#099;&#111;&#109;"
-                                            className="footer-contact-item">
+                                        <Link href="mailto:Info@milaknight.com"
+                                            className="footer-contact-item" aria-label="Email us at Info@milaknight.com">
                                             <div className="icon-box">
-                                                <Image src="/images/icons/icon-mail.svg" alt="icon-mail" width={18} height={18} />
+                                                <Image src="/images/icons/icon-mail.svg" alt="" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content">
                                                 <p>{content.contact.email}</p>
@@ -109,46 +109,46 @@ const Footer = () => {
                                         {/* <!-- Footer Contact Item End --> */}
                                     </div>
                                     <div className="footer-social-links">
-                                        <ul>
+                                        <ul aria-label="Social Media Links">
                                             <li>
                                                 <Link href="https://www.linkedin.com/company/milaknight/" target="_blank"
-                                                    rel="noopener">
+                                                    rel="noopener" aria-label="LinkedIn">
                                                     <i className="fa-brands fa-linkedin-in"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://x.com/milaknight731?s=21&amp;t=5NWQLtx2htlkEn1qeJG6_A"
-                                                    target="_blank" rel="noopener"><i className="fa-brands fa-x-twitter">
+                                                <Link href="https://x.com/milaknight731"
+                                                    target="_blank" rel="noopener" aria-label="Twitter X"><i className="fa-brands fa-x-twitter">
                                                     </i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.tiktok.com/@milaknight.mk?_t=ZS-8t8UpxZnyCe&_r=1"
-                                                    target="_blank" rel="noopener">
+                                                <Link href="https://www.tiktok.com/@milaknight.mk"
+                                                    target="_blank" rel="noopener" aria-label="TikTok">
                                                     <i className="fa-brands fa-tiktok"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.snapchat.com/add/milaknight.mk?invite_id=2I9cmTWh&amp;locale=en_SA%40calendar%3Dgregorian&amp;share_id=gTTv7vflRoyS-tFeQsuOpA&amp;sid=c4236d6f9d034a8997655018fa1b34e5"
-                                                    target="_blank" rel="noopener">
+                                                <Link href="https://www.snapchat.com/add/milaknight.mk"
+                                                    target="_blank" rel="noopener" aria-label="Snapchat">
                                                     <i className="fa-brands fa-snapchat"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#"
-                                                    target="_blank" rel="noopener">
+                                                <Link href="https://www.facebook.com/milaknight.mena"
+                                                    target="_blank" rel="noopener" aria-label="Facebook">
                                                     <i className="fa-brands fa-facebook-f"></i>
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.instagram.com/milaknight.mena/" target="_blank"
-                                                    rel="noopener">
+                                                    rel="noopener" aria-label="Instagram">
                                                     <i className="fa-brands fa-instagram"></i>
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA"
-                                                    target="_blank" rel="noopener">
+                                                    target="_blank" rel="noopener" aria-label="YouTube">
                                                     <i className="fa-brands fa-youtube"></i>
                                                 </Link>
                                             </li>
@@ -182,13 +182,13 @@ const Footer = () => {
                 {/* <!-- Footer Main End --> */}
             </footer>
 
-            <Link href="https://calendly.com/milaknights-info" target="_blank" rel="noopener" className="whatsapp meeting">
-                <Image src="/images/icons/calender.webp" loading="lazy" alt="meeting" width={24} height={24} />
+            <Link href="https://calendly.com/milaknights-info" target="_blank" rel="noopener" className="whatsapp meeting" aria-label="Book a Meeting">
+                <Image src="/images/icons/calender.webp" loading="lazy" alt="" width={24} height={24} />
                 <span>{content.floatingButtons.meeting}</span>
             </Link>
 
-            <Link href="https://api.whatsapp.com/send?phone=971585856774" target="_blank" rel="noopener" className="whatsapp">
-                <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="whatsapp" width={24} height={24} />
+            <Link href="https://api.whatsapp.com/send?phone=971585856774" target="_blank" rel="noopener" className="whatsapp" aria-label="Chat on WhatsApp">
+                <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="" width={24} height={24} />
                 <span>{content.floatingButtons.consultation}</span>
             </Link>
         </>

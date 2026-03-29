@@ -61,17 +61,19 @@ const Navbar = () => {
 
     return (
 
-        <header className="main-header">
+        <header className="main-header" role="banner">
             <div className="header-sticky">
-                <nav className="navbar navbar-expand-lg">
-                    <div className="container-fluid"><Link className="navbar-brand" href={getLangPath("/")} style={{ position: 'relative', width: '169px', height: '51px', display: 'block' }}><Image src="/images/logo.svg"
-                        alt="Milaknight" fill /></Link>
+                <nav className="navbar navbar-expand-lg" aria-label="Main Navigation">
+                    <div className="container-fluid">
+                        <Link className="navbar-brand" href={getLangPath("/")} aria-label="Milaknight Home" style={{ position: 'relative', width: '169px', height: '51px', display: 'block' }}>
+                            <Image src="/images/logo.svg" alt="Milaknight - Digital Marketing agency" fill priority />
+                        </Link>
                         <div className="collapse navbar-collapse main-menu">
                             <div className="nav-menu-wrapper">
                                 <ul className="navbar-nav mx-auto" id="menu">
                                     <li className="nav-item"><Link className={isActive("/")} href={getLangPath("/")}>{t('home')}</Link></li>
                                     <li className="nav-item"><Link className={isActive("/about")} href={getLangPath("/about")}>{t('about_us')}</Link></li>
-                                    <li className="nav-item submenu"><Link className={isActive("/services")} href={getLangPath("/services")}>{t('services')}</Link>
+                                    <li className="nav-item submenu"><Link className={isActive("/services")} href={getLangPath("/services")} aria-haspopup="true">{t('services')}</Link>
                                         <ul>
                                             <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/web-development")}>{t('web_development')}</Link></li>
                                             <li className="nav-item"><Link className="nav-link" href={getLangPath("/service/digital-marketing")}>{t('digital_marketing')}</Link></li>
@@ -87,7 +89,7 @@ const Navbar = () => {
                                     <li className="nav-item"><Link className={pathname && pathname.startsWith(`/${language}/blog`) ? "nav-link active" : "nav-link"} href={getLangPath("/blog")}>{t('blog')}</Link></li>
                                     <li className="nav-item"><Link className={isActive("/contact")} href={getLangPath("/contact")}>{t('contact_us')}</Link></li>
                                     <li className="nav-item">
-                                        <Link className="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank" rel="noopener">
+                                        <Link className="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank" rel="noopener" aria-label={t('download_company_profile')}>
                                             {t('company_profile')}
                                             <i className={`fa-solid fa-download ${language === 'ar' ? 'me-1' : 'ms-1'}`}></i>
                                         </Link>
@@ -118,55 +120,56 @@ const Navbar = () => {
                                             className="fa-brands fa-youtube"></i></Link></li>
                                 </ul>
                             </div>
-                            <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={handleLanguageToggle} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
+                            <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={handleLanguageToggle} aria-label={language === 'en' ? "تغيير اللغة للعربية" : "Change language to English"} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
                                 {language === 'en' ? (
-                                    <Image src="/images/saudi-arabia.png" alt="Switch to Arabic" width={32} height={32} />
+                                    <Image src="/images/saudi-arabia.png" alt="العربية" width={32} height={32} />
                                 ) : (
-                                    <Image src="/images/united-states.png" alt="Switch to English" width={32} height={32} />
+                                    <Image src="/images/united-states.png" alt="English" width={32} height={32} />
                                 )}
                             </button>
-                            <div className="header-btn d-flex gap-2"><button className="btn btn-popup" type="button" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style={{ position: 'relative', width: '40px', height: '40px' }}><Image
-                                    src="/images/icons/header-btn-dot.svg" alt="btn-dot" width={14} height={14} /></button>
-                                <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight"><button type="button"
-                                    className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                    <div className="offcanvas-body"><Link href="tel:+971585856774">
-                                        <div className="header-contact-box">
-                                            <div className="icon-box"><Image src="/images/icons/icon-phone.svg" alt="icon-phone" width={40} height={40} /></div>
-                                            <div className="header-contact-box-content">
-                                                <p className="title-box-content">{t('phone')}</p>
-                                                <p className="title-2-box-content" dir="ltr">+971 58 585 6774</p>
-                                            </div>
-                                        </div>
-                                    </Link><Link
-                                        href="mailto:&#073;&#110;&#102;&#111;&#064;&#109;&#105;&#108;&#097;&#107;&#110;&#105;&#103;&#104;&#116;&#115;&#046;&#099;&#111;&#109;">
+                            <div className="header-btn d-flex gap-2">
+                                <button className="btn btn-popup" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="Open sidebar menu" style={{ position: 'relative', width: '40px', height: '40px' }}>
+                                    <Image src="/images/icons/header-btn-dot.svg" alt="menu-dot" width={14} height={14} />
+                                </button>
+                                <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="sidebarLabel">
+                                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    <div className="offcanvas-body">
+                                        <Link href="tel:+971585856774" aria-label="Call Us">
                                             <div className="header-contact-box">
-                                                <div className="icon-box">
-                                                    <Image src="/images/icons/icon-mail.svg" alt="icon-mail" width={40} height={40} />
+                                                <div className="icon-box"><Image src="/images/icons/icon-phone.svg" alt="" width={40} height={40} /></div>
+                                                <div className="header-contact-box-content">
+                                                    <p className="title-box-content">{t('phone')}</p>
+                                                    <p className="title-2-box-content" dir="ltr">+971 58 585 6774</p>
                                                 </div>
+                                            </div>
+                                        </Link>
+                                        <Link href="mailto:Info@milaknight.com" aria-label="Email Us">
+                                            <div className="header-contact-box">
+                                                <div className="icon-box"><Image src="/images/icons/icon-mail.svg" alt="" width={40} height={40} /></div>
                                                 <div className="header-contact-box-content">
                                                     <p className="title-box-content">{t('email')}</p>
-                                                    <p className="title-2-box-content">Info[at]milaknights[dot]com</p>
+                                                    <p className="title-2-box-content">Info@milaknight.com</p>
                                                 </div>
                                             </div>
-                                        </Link><Link href="https://maps.app.goo.gl/VjeHxVu3jtSXpXXSA?g_st=im" target="_blank" rel="noopener">
+                                        </Link>
+                                        <Link href="https://maps.app.goo.gl/VjeHxVu3jtSXpXXSA?g_st=im" target="_blank" rel="noopener" aria-label="Find Us on Maps">
                                             <div className="header-contact-box">
-                                                <div className="icon-box"><Image src="/images/icons/icon-location.svg" alt="icon-location" width={40} height={40} /></div>
+                                                <div className="icon-box"><Image src="/images/icons/icon-location.svg" alt="" width={40} height={40} /></div>
                                                 <div className="header-contact-box-content">
                                                     <p className="title-box-content">{t('address')}</p>
                                                     <p className="title-2-box-content">{t('full_address')}</p>
                                                 </div>
                                             </div>
-                                        </Link></div>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="navbar-toggle"></div>
-
+                            <div className="navbar-toggle" aria-label="Toggle Mobile Menu"></div>
                         </div>
-
                     </div>
                 </nav>
-                <div className="responsive-menu"></div>
+                <div className="responsive-menu" aria-label="Mobile Menu Container"></div>
             </div>
         </header>
     )
