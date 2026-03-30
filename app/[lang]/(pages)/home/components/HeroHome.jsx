@@ -21,24 +21,24 @@ const HeroHome = () => {
     return (
         <div className="hero hero-slider-layout">
             <div className="hero-slide slide-2">
-                <video 
-                    autoPlay 
-                    muted 
-                    playsInline 
-                    loop 
-                    className="video" 
-                    src={data[language].src1} 
-                    poster="/images/hero-poster.webp"
+                <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    className="video"
+                    src={data[language].src1}
+                    poster="/images/logo-dark-footer.webp"
                     preload="metadata"
                 ></video>
-                <video 
-                    autoPlay 
-                    muted 
-                    playsInline 
-                    loop 
-                    className="video-2" 
-                    src={data[language].src2} 
-                    poster="/images/hero-poster-mobile.webp"
+                <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    className="video-2"
+                    src={data[language].src2}
+                    poster="/images/logo-dark-footer.webp"
                     preload="metadata"
                 ></video>
                 <h1>{data[language].title}</h1>
