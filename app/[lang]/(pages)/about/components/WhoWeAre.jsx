@@ -4,6 +4,8 @@ import Image from "next/image";
 import { LanguageContext } from '@/app/context/LanguageContext';
 import { aboutData } from '@/app/data/aboutData';
 import SectionTitle from '@/app/components/ui/SectionTitle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const WhoWeAre = () => {
     const { language } = useContext(LanguageContext);
@@ -32,7 +34,7 @@ const WhoWeAre = () => {
                                 <div className="who-we-are-client">
                                     <div className=" comapny-client-rating">
                                         <ul>
-                                            <li><i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i></li>
+                                            <li><FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /></li>
                                         </ul>
                                         <p>( <span className='counter'>40</span>+ {c.ratings})</p>
                                     </div>

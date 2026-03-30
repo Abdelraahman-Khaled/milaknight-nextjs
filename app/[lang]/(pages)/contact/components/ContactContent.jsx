@@ -7,6 +7,8 @@ import emailjs from 'emailjs-com';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import ScrollTicker from '@/app/components/ui/ScrollTicker';
 import dynamic from 'next/dynamic';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter, faFacebookF, faSnapchat, faInstagram, faLinkedinIn, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const DynamicMap = dynamic(() => import('@/app/components/MapComponent'), {
     ssr: false,
@@ -229,7 +231,7 @@ const ContactContent = () => {
                             <div className="agency-social-item">
                                 <div className="icon-box">
                                     <a href="https://x.com/milaknight731?s=21&t=5NWQLtx2htlkEn1qeJG6_A" rel="noopener" target="_blank">
-                                        <i className="fa-brands fa-x-twitter"></i>
+                                        <FontAwesomeIcon icon={faXTwitter} />
                                     </a>
                                 </div>
                                 <div className="agency-social-content">
@@ -247,7 +249,7 @@ const ContactContent = () => {
                             <div className="agency-social-item">
                                 <div className="icon-box">
                                     <a href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" rel="noopener" target="_blank">
-                                        <i className="fa-brands fa-facebook-f"></i>
+                                        <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
                                 </div>
                                 <div className="agency-social-content">
@@ -265,7 +267,7 @@ const ContactContent = () => {
                             <div className="agency-social-item">
                                 <div className="icon-box">
                                     <a href="https://www.snapchat.com/add/milaknight.mk" rel="noopener" target="_blank">
-                                        <i className="fa-brands fa-snapchat"></i>
+                                        <FontAwesomeIcon icon={faSnapchat} />
                                     </a>
                                 </div>
                                 <div className="agency-social-content">
@@ -283,7 +285,7 @@ const ContactContent = () => {
                             <div className="agency-social-item">
                                 <div className="icon-box">
                                     <a href="https://www.instagram.com/milaknight.mena/" rel="noopener" target="_blank">
-                                        <i className="fa-brands fa-instagram"></i>
+                                        <FontAwesomeIcon icon={faInstagram} />
                                     </a>
                                 </div>
                                 <div className="agency-social-content">
@@ -301,7 +303,7 @@ const ContactContent = () => {
                             <div className="agency-social-item">
                                 <div className="icon-box">
                                     <a href="https://www.linkedin.com/company/milaknight/" rel="noopener" target="_blank">
-                                        <i className="fa-brands fa-linkedin-in"></i>
+                                        <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
                                 </div>
                                 <div className="agency-social-content">
@@ -319,7 +321,7 @@ const ContactContent = () => {
                             <div className="agency-social-item">
                                 <div className="icon-box">
                                     <a href="https://www.tiktok.com/@milaknight.mk" rel="noopener" target="_blank">
-                                        <i className="fa-brands fa-tiktok"></i>
+                                        <FontAwesomeIcon icon={faTiktok} />
                                     </a>
                                 </div>
                                 <div className="agency-social-content">
@@ -337,7 +339,7 @@ const ContactContent = () => {
                             <div className="agency-social-item">
                                 <div className="icon-box">
                                     <a href="https://www.youtube.com/@MilaKnight-mk" rel="noopener" target="_blank">
-                                        <i className="fa-brands fa-youtube"></i>
+                                        <FontAwesomeIcon icon={faYoutube} />
                                     </a>
                                 </div>
                                 <div className="agency-social-content">

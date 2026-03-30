@@ -8,7 +8,19 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "browserslist": [
+    "defaults",
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11",
+    "not op_mini all"
+  ],
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.0",
     "@tanstack/react-query": "^5.90.20",
     "@tanstack/react-query-devtools": "^5.91.3",
     "axios": "^1.13.2",

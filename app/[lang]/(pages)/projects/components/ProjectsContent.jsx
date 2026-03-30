@@ -5,6 +5,8 @@ import ProjectCategory from './ProjectCategory';
 import HeroSection from '@/app/components/ui/HeroSection';
 import ScrollTicker from '@/app/components/ui/ScrollTicker';
 import { LanguageContext } from '@/app/context/LanguageContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 const ProjectsContent = () => {
     const { language } = useContext(LanguageContext);
@@ -42,7 +44,7 @@ const ProjectsContent = () => {
                     style={{ backgroundColor: 'var(--accent-color)', color: '#fff !important', borderRadius: '50px' }}
                 >
                     {translations.viewGallery}
-                    <i className={`fa-solid fa-download ${isArabic ? 'me-2' : 'ms-2'}`}></i>
+                    <FontAwesomeIcon icon={faDownload} className={isArabic ? 'me-2' : 'ms-2'} />
                 </a>
             </div>
         </div>

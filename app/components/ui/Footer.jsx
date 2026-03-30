@@ -4,6 +4,8 @@ import React, { useContext } from 'react'
 import Link from 'next/link'
 import { LanguageContext } from '@/app/context/LanguageContext'
 import { footerData } from '@/app/data/footerData'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter, faTiktok, faSnapchat, faFacebookF, faInstagram, faLinkedinIn, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
     const { language } = useContext(LanguageContext);
@@ -113,43 +115,42 @@ const Footer = () => {
                                             <li>
                                                 <Link href="https://www.linkedin.com/company/milaknight/" target="_blank"
                                                     rel="noopener" aria-label="LinkedIn">
-                                                    <i className="fa-brands fa-linkedin-in"></i>
+                                                    <FontAwesomeIcon icon={faLinkedinIn} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://x.com/milaknight731"
-                                                    target="_blank" rel="noopener" aria-label="Twitter X"><i className="fa-brands fa-x-twitter">
-                                                    </i>
+                                                    target="_blank" rel="noopener" aria-label="Twitter X"><FontAwesomeIcon icon={faXTwitter} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.tiktok.com/@milaknight.mk"
                                                     target="_blank" rel="noopener" aria-label="TikTok">
-                                                    <i className="fa-brands fa-tiktok"></i>
+                                                    <FontAwesomeIcon icon={faTiktok} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.snapchat.com/add/milaknight.mk"
                                                     target="_blank" rel="noopener" aria-label="Snapchat">
-                                                    <i className="fa-brands fa-snapchat"></i>
+                                                    <FontAwesomeIcon icon={faSnapchat} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.facebook.com/milaknight.mena"
                                                     target="_blank" rel="noopener" aria-label="Facebook">
-                                                    <i className="fa-brands fa-facebook-f"></i>
+                                                    <FontAwesomeIcon icon={faFacebookF} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.instagram.com/milaknight.mena/" target="_blank"
                                                     rel="noopener" aria-label="Instagram">
-                                                    <i className="fa-brands fa-instagram"></i>
+                                                    <FontAwesomeIcon icon={faInstagram} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA"
                                                     target="_blank" rel="noopener" aria-label="YouTube">
-                                                    <i className="fa-brands fa-youtube"></i>
+                                                    <FontAwesomeIcon icon={faYoutube} />
                                                 </Link>
                                             </li>
                                         </ul>

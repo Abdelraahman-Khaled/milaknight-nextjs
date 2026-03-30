@@ -5,6 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { LanguageContext } from "../context/LanguageContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faXTwitter, faSnapchat, faFacebookF, faInstagram, faLinkedinIn, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const Navbar = () => {
     const { language, toggleLanguage, t } = useContext(LanguageContext);
@@ -66,7 +69,7 @@ const Navbar = () => {
                 <nav className="navbar navbar-expand-lg" aria-label="Main Navigation">
                     <div className="container-fluid">
                         <Link className="navbar-brand" href={getLangPath("/")} aria-label="Milaknight Home" style={{ position: 'relative', width: '169px', height: '51px', display: 'block' }}>
-                            <Image src="/images/logo.svg" alt="Milaknight - Digital Marketing agency" fill priority />
+                            <Image src="/images/logo.svg" alt="Milaknight - Digital Marketing agency" fill priority fetchPriority="high" />
                         </Link>
                         <div className="collapse navbar-collapse main-menu">
                             <div className="nav-menu-wrapper">
@@ -91,7 +94,7 @@ const Navbar = () => {
                                     <li className="nav-item">
                                         <Link className="nav-link company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank" rel="noopener" aria-label={t('download_company_profile')}>
                                             {t('company_profile')}
-                                            <i className={`fa-solid fa-download ${language === 'ar' ? 'me-1' : 'ms-1'}`}></i>
+                                            <FontAwesomeIcon icon={faDownload} className={language === 'ar' ? 'me-1' : 'ms-1'} color='#3faef4' />
                                         </Link>
                                     </li>
                                 </ul>
@@ -101,23 +104,22 @@ const Navbar = () => {
                             <div className="header-social-links">
                                 <ul>
                                     <li><Link href="https://x.com/milaknight731" target="_blank" rel="noopener" aria-label="Twitter"
-                                        title={t('follow_us_twitter')}><i className="fa-brands fa-x-twitter"></i></Link></li>
+                                        title={t('follow_us_twitter')}><FontAwesomeIcon icon={faXTwitter} /></Link></li>
                                     <li><Link href="https://www.snapchat.com/add/milaknight.mk" target="_blank" rel="noopener"
-                                        aria-label="Snapchat" title={t('follow_us_snapchat')}><i className="fa-brands fa-snapchat"></i></Link></li>
+                                        aria-label="Snapchat" title={t('follow_us_snapchat')}><FontAwesomeIcon icon={faSnapchat} /></Link></li>
                                     <li><Link href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" target="_blank" rel="noopener"
-                                        aria-label="Facebook" title={t('follow_us_facebook')}><i className="fa-brands fa-facebook-f"></i></Link>
+                                        aria-label="Facebook" title={t('follow_us_facebook')}><FontAwesomeIcon icon={faFacebookF} /></Link>
                                     </li>
                                     <li><Link href="https://www.instagram.com/milaknight.mena/" target="_blank" rel="noopener"
-                                        aria-label="Instagram" title={t('follow_us_instagram')}><i className="fa-brands fa-instagram"></i></Link>
+                                        aria-label="Instagram" title={t('follow_us_instagram')}><FontAwesomeIcon icon={faInstagram} /></Link>
                                     </li>
                                     <li><Link href="https://www.linkedin.com/company/milaknight" target="_blank" rel="noopener"
-                                        aria-label="LinkedIn" title={t('follow_us_linkedin')}><i className="fa-brands fa-linkedin-in"></i></Link>
+                                        aria-label="LinkedIn" title={t('follow_us_linkedin')}><FontAwesomeIcon icon={faLinkedinIn} /></Link>
                                     </li>
                                     <li><Link href="https://www.tiktok.com/@milaknight.mk" target="_blank" rel="noopener" aria-label="TikTok"
-                                        title={t('follow_us_tiktok')}><i className="fa-brands fa-tiktok"></i></Link></li>
+                                        title={t('follow_us_tiktok')}><FontAwesomeIcon icon={faTiktok} /></Link></li>
                                     <li><Link href="https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA" target="_blank" rel="noopener"
-                                        aria-label="YouTube" title={t('subscribe_youtube')}><i
-                                            className="fa-brands fa-youtube"></i></Link></li>
+                                        aria-label="YouTube" title={t('subscribe_youtube')}><FontAwesomeIcon icon={faYoutube} /></Link></li>
                                 </ul>
                             </div>
                             <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={handleLanguageToggle} aria-label={language === 'en' ? "تغيير اللغة للعربية" : "Change language to English"} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
@@ -129,7 +131,7 @@ const Navbar = () => {
                             </button>
                             <div className="header-btn d-flex gap-2">
                                 <button className="btn btn-popup" type="button" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="Open sidebar menu" style={{ position: 'relative', width: '40px', height: '40px' }}>
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="Open sidebar menu" style={{ position: 'relative', width: '40px', height: '40px' }}>
                                     <Image src="/images/icons/header-btn-dot.svg" alt="menu-dot" width={14} height={14} />
                                 </button>
                                 <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="sidebarLabel">
