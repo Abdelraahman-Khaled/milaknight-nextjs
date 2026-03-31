@@ -18,50 +18,40 @@ const LegacyScripts = () => {
             el.className = classes.join(' ');
         });
 
-        const loadNext = (index) => {
-            const scripts = [
-                "/js/jquery.slicknav.min.js",
-                "/js/jquery.waypoints.min.js",
-                "/js/jquery.counterup.min.js",
-                "/js/isotope.min.js",
-                "/js/jquery.magnific-popup.min.js",
-                "/js/SmoothScroll.min.js",
-                "/js/SplitText.min.js",
-                "/js/ScrollTrigger.min.js",
-                "/js/jquery.mb.YTPlayer.min.js",
-                "/js/typed.min.js",
-                "/js/function.min.js"
-            ];
+        // Re-initialize SlickNav if necessary
+        const initializeSlickNav = () => {
+            if (window.jQuery && window.jQuery.fn.slicknav) {
+                const menu = window.jQuery('#menu');
+                if (menu.length && !window.jQuery('.slicknav_menu').length) {
+                    menu.slicknav({
+                        label: '',
+                        prependTo: '.responsive-menu',
+                        closeOnClick: true,
+                        allowParentLinks: true
+                    });
+                }
+            }
+        };
 
-            if (index >= scripts.length) return;
-            const src = scripts[index];
+        // ScrollTrigger Refresh
+        if (window.ScrollTrigger) {
+            window.ScrollTrigger.refresh();
+        }
 
-            const oldScripts = document.querySelectorAll(`script[src="${src}"]`);
-            oldScripts.forEach(s => s.remove());
-
+        // Re-inject only the main function.js script to trigger animations/initialization on the new page
+        // This is needed because function.js is an IIFE and needs to re-run for neue content
+        const scriptsToReRun = ["/js/function.min.js"];
+        scriptsToReRun.forEach(src => {
+            const oldScript = document.querySelector(`script[src="${src}"]`);
+            if (oldScript) oldScript.remove();
+            
             const script = document.createElement('script');
             script.src = src;
             script.async = true;
-            script.onload = () => {
-                if (src.includes('jquery.slicknav.min.js')) {
-                    if (window.jQuery && window.jQuery.fn.slicknav) {
-                        const menu = window.jQuery('#menu');
-                        if (menu.length && !window.jQuery('.slicknav_menu').length) {
-                            menu.slicknav({
-                                label: '',
-                                prependTo: '.responsive-menu',
-                                closeOnClick: true,
-                                allowParentLinks: true
-                            });
-                        }
-                    }
-                }
-                loadNext(index + 1);
-            };
             document.body.appendChild(script);
-        };
+        });
 
-        loadNext(0);
+        initializeSlickNav();
 
         const playVideos = () => {
             document.querySelectorAll('video').forEach(video => {

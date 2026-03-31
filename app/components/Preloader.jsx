@@ -34,7 +34,7 @@ export default function Preloader() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 500); // Adjust duration as needed
+        }, 200); // Reduced from 500ms to 200ms for faster page access
 
         return () => clearTimeout(timer);
     }, [pathname, language, loading]);

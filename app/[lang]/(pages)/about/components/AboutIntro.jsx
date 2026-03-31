@@ -23,7 +23,7 @@ const AboutIntro = () => {
                             <div className="about-us-image">
                                 <div className="about-us-img">
                                     <figure className="image-anime reveal">
-                                        <Image src="/images/about-us-image.webp" alt={c.about_us_image_alt} width={536} height={605} layout="responsive" loading="eager" />
+                                        <Image src="/images/about-us-image.webp" alt={c.about_us_image_alt} width={536} height={605} layout="responsive" priority />
                                     </figure>
                                 </div>
                                 <div className="about-experience-box">
