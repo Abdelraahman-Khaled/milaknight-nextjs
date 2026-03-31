@@ -14,7 +14,11 @@ const AboutScripts = () => {
 
             // 1. Counters
             if ($('.counter').length && $.fn.counterUp) {
-                $('.counter').counterUp({ delay: 6, time: 3000 });
+                $('.counter').each(function() {
+                    if (!$(this).hasClass('counter-initialized')) {
+                        $(this).addClass('counter-initialized').counterUp({ delay: 10, time: 1000 });
+                    }
+                });
             }
 
             // 2. GSAP Reveal

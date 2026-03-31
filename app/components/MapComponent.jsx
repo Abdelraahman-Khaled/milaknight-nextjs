@@ -82,32 +82,32 @@ const MapComponent = ({ language }) => {
         },
         {
             id: "uae",
-            titleAr: "الدور السادس، مركز الأعمال، القاعة الكبرى، فندق الميدان، شارع الميدان، دبي، الإمارات العربية المتحدة",
-            titleEn: "6th Floor, Business Centre, Grand Auditorium, Meydan Hotel, Meydan Street, Dubai, United Arab Emirates",
+            titleAr: "الإمارات العربية المتحدة، دبي، شارع الميدان، فندق الميدان، القاعة الكبرى، مركز الأعمال، الدور السادس",
+            titleEn: "United Arab Emirates, Dubai, Meydan Street, Meydan Hotel, Grand Auditorium, Business Centre, 6th Floor",
             coords: [25.155658, 55.3003012],
             isProminent: false,
         },
-        {
-            id: "syria",
-            titleAr: "سوريا، دمشق، المنطقة الحرة",
-            titleEn: "Syria, Damascus, Free Zone",
-            coords: [33.513352, 36.311693],
-            isProminent: false,
-        },
-        {
-            id: "portugal",
-            titleAr: "البرتغال، لشبونة",
-            titleEn: "Portugal, Lisbon",
-            coords: [38.7169, -9.1395],
-            isProminent: false,
-        },
-        {
-            id: "canada",
-            titleAr: "كندا، أوتاوا",
-            titleEn: "Canada, Ottawa",
-            coords: [45.4215, -75.6972],
-            isProminent: false,
-        },
+        // {
+        //     id: "syria",
+        //     titleAr: "سوريا، دمشق، المنطقة الحرة",
+        //     titleEn: "Syria, Damascus, Free Zone",
+        //     coords: [33.513352, 36.311693],
+        //     isProminent: false,
+        // },
+        // {
+        //     id: "portugal",
+        //     titleAr: "البرتغال، لشبونة",
+        //     titleEn: "Portugal, Lisbon",
+        //     coords: [38.7169, -9.1395],
+        //     isProminent: false,
+        // },
+        // {
+        //     id: "canada",
+        //     titleAr: "كندا، أوتاوا",
+        //     titleEn: "Canada, Ottawa",
+        //     coords: [45.4215, -75.6972],
+        //     isProminent: false,
+        // },
     ];
 
     return (
@@ -132,7 +132,8 @@ const MapComponent = ({ language }) => {
                 </div>
             )}
             <MapContainer
-                bounds={[[20, -110], [60, 60]]}
+                center={[24.7136, 46.6753]}
+                zoom={5}
                 scrollWheelZoom={false}
                 style={{ height: "100%", width: "100%", zIndex: 1 }}
             >
