@@ -43,7 +43,7 @@ export default function Preloader() {
     if (!render) return null;
 
     return (
-        <div className={`react-preloader ${!loading ? 'loaded' : ''}`} style={{ display: 'flex' }}>
+        <div className={`react-preloader ${!loading ? 'loaded' : ''}`} style={{ display: 'flex', pointerEvents: !loading ? 'none' : 'auto' }}>
             <div className="loading-container">
                 <div className="loading"></div>
                 <div id="loading-icon">

@@ -38,28 +38,35 @@ const LegacyScripts = () => {
             window.ScrollTrigger.refresh();
         }
 
-        // Re-inject only the main function.js script to trigger animations/initialization on the new page
-        // This is needed because function.js is an IIFE and needs to re-run for neue content
-        const scriptsToReRun = ["/js/function.min.js"];
-        scriptsToReRun.forEach(src => {
-            const oldScript = document.querySelector(`script[src="${src}"]`);
-            if (oldScript) oldScript.remove();
-            
-            const script = document.createElement('script');
-            script.src = src;
-            script.async = true;
-            document.body.appendChild(script);
-        });
+        // Defer heavy script re-injection to idle time so navigation is NOT blocked
+        // requestIdleCallback runs after the browser finishes current tasks (paint, layout)
+        const reInjectScript = () => {
+            const scriptsToReRun = ["/js/function.min.js"];
+            scriptsToReRun.forEach(src => {
+                const oldScript = document.querySelector(`script[src="${src}"]`);
+                if (oldScript) oldScript.remove();
 
-        initializeSlickNav();
+                const script = document.createElement('script');
+                script.src = src;
+                script.async = true;
+                document.body.appendChild(script);
+            });
 
-        const playVideos = () => {
+            initializeSlickNav();
+
+            // Resume any paused videos
             document.querySelectorAll('video').forEach(video => {
                 if (video.paused) video.play().catch(() => {});
             });
         };
 
-        setTimeout(playVideos, 100);
+        // Use requestIdleCallback if available, fallback to setTimeout
+        if (typeof window.requestIdleCallback === 'function') {
+            window.requestIdleCallback(reInjectScript, { timeout: 2000 });
+        } else {
+            setTimeout(reInjectScript, 100);
+        }
+
         return () => {};
     }, [pathname]);
 
