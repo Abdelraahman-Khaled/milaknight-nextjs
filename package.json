@@ -38,6 +38,7 @@
     "yet-another-react-lightbox": "^3.30.1"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@netlify/plugin-nextjs": "^5.15.3",
     "eslint": "^9",
     "eslint-config-next": "16.1.1"

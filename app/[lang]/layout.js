@@ -1,4 +1,5 @@
 // import "bootstrap/dist/css/bootstrap.min.css"; // Removed: Already included in globals.css to reduce payload by ~150KB
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../globals.css";
 import BootstrapClient from "../components/BootstrapClient";
 import Providers from "../components/Providers";
