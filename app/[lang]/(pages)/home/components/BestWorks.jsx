@@ -62,6 +62,7 @@ const BestWorks = () => {
                 index={index >= 0 ? index : 0}
                 close={() => setIndex(-1)}
                 slides={slides}
+                controller={{ closeOnBackdropClick: true }}
             />
         </div>
     )

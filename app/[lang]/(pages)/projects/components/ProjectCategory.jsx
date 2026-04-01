@@ -92,6 +92,7 @@ const ProjectCategory = ({ category, language }) => {
                 close={() => setIndex(-1)}
                 slides={slides}
                 plugins={[Video]}
+                controller={{ closeOnBackdropClick: true }}
             />
         </>
     );
