@@ -66,14 +66,17 @@ const ProjectCategory = ({ category, language }) => {
                                     <div className="photo-gallery mb-0 cursor-pointer" onClick={(e) => openLightbox(e, realIndex)}>
                                         <a href={item.path} onClick={(e) => e.preventDefault()} data-cursor-text={isArabic ? 'عرض' : 'View'}>
                                             <figure className="image-anime">
-                                                <img
+                                                <Image
                                                     src={item.path}
-                                                    alt={item.alt}
+                                                    alt={item.alt || ""}
+                                                    width={400}
+                                                    height={300}
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                     style={{
                                                         width: '100%',
-                                                        height: 'auto', // Let CSS or natural size control it
+                                                        height: 'auto',
                                                         borderRadius: '20px',
-                                                        objectFit: objectFit || 'cover' // Effective only if height is constrained by global CSS
+                                                        objectFit: objectFit || 'cover'
                                                     }}
                                                 />
                                             </figure>

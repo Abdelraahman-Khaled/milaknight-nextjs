@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css"; // Removed: Already included in globals.css to reduce payload by ~150KB
 import "../globals.css";
 import BootstrapClient from "../components/BootstrapClient";
 import Providers from "../components/Providers";
@@ -112,10 +112,7 @@ export async function generateMetadata({ params }) {
 }
 
 export function generateStaticParams() {
-  return [
-    { lang: 'en' },
-    { lang: 'ar' },
-  ];
+  return [{ lang: "en" }, { lang: "ar" }];
 }
 
 const jsonLd = {
@@ -260,13 +257,14 @@ export default async function RootLayout({ children, params }) {
       <head>
         <link rel="stylesheet" href="/css/tech-partners.css" />
 
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-NSPXXGG5');`}
         </Script>
+        <link rel="preload" href="/images/page-header-bg.webp" as="image" />
       </head>
       <body>
         <noscript>
@@ -280,13 +278,13 @@ export default async function RootLayout({ children, params }) {
 
         <Script src="/js/jquery-3.7.1.min.js" strategy="afterInteractive" />
         <Script src="/js/jquery.slicknav.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.waypoints.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.counterup.min.js" strategy="afterInteractive" />
-        <Script src="/js/SplitText.min.js" strategy="afterInteractive" />
-        <Script src="/js/gsap.min.js" strategy="afterInteractive" />
-        <Script src="/js/ScrollTrigger.min.js" strategy="afterInteractive" />
-        <Script src="/js/swiper-bundle.min.js" strategy="afterInteractive" />
-        <Script src="/js/function.min.js" strategy="afterInteractive" />
+        <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
+        <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
+        <Script src="/js/SplitText.min.js" strategy="lazyOnload" />
+        <Script src="/js/gsap.min.js" strategy="lazyOnload" />
+        <Script src="/js/ScrollTrigger.min.js" strategy="lazyOnload" />
+        <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
+        <Script src="/js/function.min.js" strategy="lazyOnload" />
 
         <script
           type="application/ld+json"
