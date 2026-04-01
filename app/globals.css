@@ -25654,13 +25654,7 @@ body:has(.offcanvas) {
   transition: all 0.4s ease-in-out;
   z-index: 1;
 }
-.agency-social-item .icon-box .svg-inline--fa {
-  position: relative;
-  font-size: 40px;
-  color: var(--dark-color);
-  transition: all 0.4s ease-in-out;
-  z-index: 1;
-}
+
 .agency-social-content h3 {
   font-size: 22px;
   text-transform: capitalize;
@@ -26432,11 +26426,7 @@ body:has(.offcanvas) {
   font-size: 18px;
   transition: all 0.3s ease-in-out;
 }
-.footer-social-links ul li a .svg-inline--fa {
-  color: var(--accent-color);
-  font-size: 18px;
-  transition: all 0.3s ease-in-out;
-}
+
 .footer-copyright {
   border-top: 1px solid var(--accent-color);
   padding: 30px 0;
@@ -26730,11 +26720,7 @@ body:has(.offcanvas) {
   color: var(--accent-color);
   margin-right: 2px;
 }
-.comapny-client-rating ul li .svg-inline--fa {
-  font-size: 14px;
-  color: var(--accent-color);
-  margin-right: 2px;
-}
+
 .comapny-client-rating p {
   margin: 0;
   color: #000;
@@ -31902,10 +31888,7 @@ html[lang="en"],
   margin: 0 !important;
   width: max-content !important;
 }
-.header-social-links .svg-inline--fa {
-  font-size: 19px;
-  color: var(--accent-color);
-}
+
 
 /* =========================================
    REVEAL ANIMATION (Replaces GSAP ScrollTrigger)
@@ -31926,23 +31909,3 @@ html[lang="en"],
   transform: translateX(0);
   transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-/* =========================================
-   TECH PARTNERS INFINITE SCROLL (Replaces GSAP)
-   ========================================= */
-@keyframes scroll-ltr {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 3)); }
-}
-@keyframes scroll-rtl {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(calc(100% / 3)); }
-}
-.tech-partners-track--scroll-ltr {
-  /* Negative delay = animation starts mid-cycle, looks already running */
-  animation: scroll-ltr 35s linear -17.5s infinite;
-}
-.tech-partners-track--scroll-rtl {
-  animation: scroll-rtl 35s linear -17.5s infinite;
-}
-
