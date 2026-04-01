@@ -275,14 +275,9 @@ export default async function RootLayout({ children, params }) {
         <Script src="/js/jquery.slicknav.min.js" strategy="beforeInteractive" />
         <Script src="/js/jquery.waypoints.min.js" strategy="afterInteractive" />
         <Script src="/js/jquery.counterup.min.js" strategy="afterInteractive" />
-        <Script src="/js/isotope.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.magnific-popup.min.js" strategy="afterInteractive" />
-        <Script src="/js/SmoothScroll.min.js" strategy="afterInteractive" />
         <Script src="/js/SplitText.min.js" strategy="afterInteractive" />
         <Script src="/js/gsap.min.js" strategy="afterInteractive" />
         <Script src="/js/ScrollTrigger.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.mb.YTPlayer.min.js" strategy="afterInteractive" />
-        <Script src="/js/typed.min.js" strategy="afterInteractive" />
         <Script src="/js/swiper-bundle.min.js" strategy="afterInteractive" />
         <Script src="/js/function.min.js" strategy="afterInteractive" />
 

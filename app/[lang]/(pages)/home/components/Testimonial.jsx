@@ -1,6 +1,6 @@
 'use client';
 import HeaderDescription from '@/app/components/ui/HeaderDescription'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { LanguageContext } from '@/app/context/LanguageContext';
@@ -10,12 +10,70 @@ const Testimonial = () => {
     const { language } = useContext(LanguageContext);
     const content = testimonialData[language];
 
+    const swiperRef1 = useRef(null);
+    const swiperRef2 = useRef(null);
+    const testimonialSwiperInstance = useRef(null);
+    const agencySwiperInstance = useRef(null);
+
     const satisfiedClients = [
         "/images/satisfy-client-img-1.webp",
         "/images/satisfy-client-img-2.webp",
         "/images/satisfy-client-img-3.webp",
         "/images/satisfy-client-img-4.webp"
     ];
+
+    useEffect(() => {
+        let checkInterval;
+
+        const initSwipers = () => {
+            if (window.Swiper) {
+                // Initialize Testimonial Slider safely
+                if (swiperRef1.current && !swiperRef1.current.classList.contains('swiper-initialized')) {
+                    testimonialSwiperInstance.current = new window.Swiper(swiperRef1.current, {
+                        slidesPerView: 1,
+                        speed: 1000,
+                        spaceBetween: 60,
+                        loop: true,
+                        autoplay: { delay: 5000 },
+                        pagination: { el: ".testimonial-pagination", clickable: true },
+                        navigation: {
+                            nextEl: ".testimonial-button-next",
+                            prevEl: ".testimonial-button-prev",
+                        },
+                        breakpoints: { 768: { slidesPerView: 2 }, 991: { slidesPerView: 2 } },
+                    });
+                }
+
+                // Initialize Agency Supports Slider safely
+                if (swiperRef2.current && !swiperRef2.current.classList.contains('swiper-initialized')) {
+                    agencySwiperInstance.current = new window.Swiper(swiperRef2.current, {
+                        slidesPerView: 2,
+                        speed: 2000,
+                        spaceBetween: 30,
+                        loop: true,
+                        autoplay: { delay: 5000 },
+                        breakpoints: { 768: { slidesPerView: 4 }, 991: { slidesPerView: 6 } },
+                    });
+                }
+
+                clearInterval(checkInterval);
+            }
+        };
+
+        // Check if Swiper is loaded globally from the template scripts
+        checkInterval = setInterval(initSwipers, 100);
+
+        // Cleanup on unmount to prevent React DOM freezing/conflicts
+        return () => {
+            clearInterval(checkInterval);
+            if (testimonialSwiperInstance.current) {
+                testimonialSwiperInstance.current.destroy(true, true);
+            }
+            if (agencySwiperInstance.current) {
+                agencySwiperInstance.current.destroy(true, true);
+            }
+        };
+    }, [language]); // Re-initialize safely if language changes forces re-render
 
     return (
         <div className='container our-testimonial'>
@@ -62,7 +120,7 @@ const Testimonial = () => {
 
                 <div className="col-lg-8">
                     <div className="testimonial-slider">
-                        <div className="swiper">
+                        <div className="swiper" ref={swiperRef1}>
                             <div className="swiper-wrapper" data-cursor-text={language === 'ar' ? "اسحب" : "Pull"}>
                                 {content.items.map((item, index) => (
                                     <div key={index} className="swiper-slide">

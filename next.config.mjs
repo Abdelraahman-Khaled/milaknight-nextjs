@@ -1,42 +1,19 @@
 const nextConfig = {
-  output: 'standalone',
+  output: "standalone",
   images: {
     unoptimized: true,
-    formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'mila-knight.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'backend.mila-knight.com',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.mila-knight.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'img.logo.dev',
-      },
-      {
-        protocol: 'https',
-        hostname: 'upload.wikimedia.org',
-      },
-    ],
   },
   async redirects() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         has: [
           {
-            type: 'host',
-            value: 'www.mila-knight.com',
+            type: "host",
+            value: "www.mila-knight.com",
           },
         ],
-        destination: 'https://mila-knight.com/:path*',
+        destination: "https://mila-knight.com/:path*",
         permanent: true,
       },
     ];

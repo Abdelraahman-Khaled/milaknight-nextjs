@@ -62,7 +62,7 @@ const WhyChooseUs = ({ home = false }) => {
                     </div>
                     <div className="col-lg-6">
                         <div className="why-choose-image">
-                            <figure className="image-anime reveal"><Image alt={c.why_us_image_alt} src="/images/why-us.webp" width={500} height={400} /></figure>
+                            <figure><Image alt={c.why_us_image_alt} src="/images/why-us.webp" width={500} height={400} /></figure>
                         </div>
                     </div>
                 </div>
