@@ -111,6 +111,13 @@ export async function generateMetadata({ params }) {
   };
 }
 
+export function generateStaticParams() {
+  return [
+    { lang: 'en' },
+    { lang: 'ar' },
+  ];
+}
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -271,8 +278,8 @@ export default async function RootLayout({ children, params }) {
           ></iframe>
         </noscript>
 
-        <Script src="/js/jquery-3.7.1.min.js" strategy="beforeInteractive" />
-        <Script src="/js/jquery.slicknav.min.js" strategy="beforeInteractive" />
+        <Script src="/js/jquery-3.7.1.min.js" strategy="afterInteractive" />
+        <Script src="/js/jquery.slicknav.min.js" strategy="afterInteractive" />
         <Script src="/js/jquery.waypoints.min.js" strategy="afterInteractive" />
         <Script src="/js/jquery.counterup.min.js" strategy="afterInteractive" />
         <Script src="/js/SplitText.min.js" strategy="afterInteractive" />

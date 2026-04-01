@@ -41,16 +41,10 @@ const LegacyScripts = () => {
         // Defer heavy script re-injection to idle time so navigation is NOT blocked
         // requestIdleCallback runs after the browser finishes current tasks (paint, layout)
         const reInjectScript = () => {
-            const scriptsToReRun = ["/js/function.min.js"];
-            scriptsToReRun.forEach(src => {
-                const oldScript = document.querySelector(`script[src="${src}"]`);
-                if (oldScript) oldScript.remove();
-
-                const script = document.createElement('script');
-                script.src = src;
-                script.async = true;
-                document.body.appendChild(script);
-            });
+            // Call the globally exposed legacy functions initializer
+            if (window.initMilaknightFunctions && window.jQuery) {
+                window.initMilaknightFunctions(window.jQuery);
+            }
 
             initializeSlickNav();
 

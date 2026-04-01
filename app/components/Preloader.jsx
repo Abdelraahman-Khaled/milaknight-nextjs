@@ -12,33 +12,23 @@ export default function Preloader() {
     const [prevPathname, setPrevPathname] = useState(pathname);
     const [prevLanguage, setPrevLanguage] = useState(language);
 
-    // Render-phase state update to avoid FOUC
-    if (pathname !== prevPathname || language !== prevLanguage) {
-        setPrevPathname(pathname);
-        setPrevLanguage(language);
-        setLoading(true);
-        setRender(true);
-    }
+    useEffect(() => {
+        // Only on initial mount
+        const timer1 = setTimeout(() => {
+            setLoading(false);
+        }, 200);
+
+        return () => clearTimeout(timer1);
+    }, []);
 
     useEffect(() => {
         if (!loading) {
-            const timer = setTimeout(() => {
+            const timer2 = setTimeout(() => {
                 setRender(false);
-            }, 600); // Wait for animation to finish
-            return () => clearTimeout(timer);
-        } else {
-            setRender(true);
+            }, 600);
+            return () => clearTimeout(timer2);
         }
     }, [loading]);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 200); // Reduced from 500ms to 200ms for faster page access
-
-        return () => clearTimeout(timer);
-    }, [pathname, language, loading]);
-
 
     if (!render) return null;
 

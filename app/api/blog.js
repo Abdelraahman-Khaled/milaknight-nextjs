@@ -2,7 +2,7 @@ const API = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const getBlogs = async () => {
     const res = await fetch(`${API}/plogs_landing`, {
-        cache: 'no-store',
+        next: { revalidate: 60 },
     });
 
     if (!res.ok) throw new Error('Failed to fetch blogs');
@@ -12,7 +12,7 @@ export const getBlogs = async () => {
 export const getBlogDetails = async (slug) => {
     try {
         const res = await fetch(`${API}/plog_show?slug=${slug}`, {
-            cache: 'no-store',
+            next: { revalidate: 60 },
         });
 
         if (!res.ok) return null;
