@@ -12,6 +12,7 @@ import Cursor from "../components/Cursor";
 import LegacyScripts from "../components/LegacyScripts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/ui/Footer";
+import RevealObserver from "../components/RevealObserver";
 
 // Configure local fonts (Tajawal for Arabic/English)
 const tajawal = localFont({
@@ -281,9 +282,9 @@ export default async function RootLayout({ children, params }) {
         <Script src="/js/jquery.slicknav.min.js" strategy="afterInteractive" />
         <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
-        <Script src="/js/SplitText.min.js" strategy="lazyOnload" />
-        <Script src="/js/gsap.min.js" strategy="lazyOnload" />
-        <Script src="/js/ScrollTrigger.min.js" strategy="lazyOnload" />
+        {/* <Script src="/js/SplitText.min.js" strategy="lazyOnload" /> */}
+        {/* <Script src="/js/gsap.min.js" strategy="lazyOnload" /> */}
+        {/* <Script src="/js/ScrollTrigger.min.js" strategy="lazyOnload" /> */}
         <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
         <Script src="/js/function.min.js" strategy="lazyOnload" />
 
@@ -295,6 +296,7 @@ export default async function RootLayout({ children, params }) {
           <DynamicSEO />
           <Preloader />
           <Cursor />
+          <RevealObserver />
           <BootstrapClient />
           <Navbar />
           {children}

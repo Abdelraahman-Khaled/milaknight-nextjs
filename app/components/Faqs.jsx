@@ -32,8 +32,8 @@ const Faqs = ({ initialFaqs = [] }) => {
                     <div className="col-lg-6">
                         <div className="faq-images">
                             <div className="faq-img-2">
-                                <figure className="image-anime reveal">
-                                    <Image alt={c.faq_image_alt} src="/images/FAQs.webp" width={400} height={400} />
+                                <figure className="image-anime reveal ">
+                                    <Image alt={c.faq_image_alt} src="/images/FAQs.webp" width={400} height={600} />
                                 </figure>
                             </div>
                             <div className="faq-cta-box">
