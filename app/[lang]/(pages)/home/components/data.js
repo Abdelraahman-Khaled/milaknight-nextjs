@@ -298,7 +298,7 @@ export const bestWorksData = {
     viewText: "View",
   },
   images: Array.from(
-    { length: 12 },
+    { length: 24 },
     (_, i) => `/images/lastes-work/${i + 1}.webp`,
   ),
 };

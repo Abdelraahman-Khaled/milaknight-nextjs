@@ -38,7 +38,7 @@ export const projectCategories = [
     id: "graphic-design",
     title: { ar: "التصميم الجرافيكي", en: "Graphic design" },
     mediaType: "image",
-    items: Array.from({ length: 27 }, (_, i) => ({
+    items: Array.from({ length: 39 }, (_, i) => ({
       id: i + 1,
       path: `/images/projects/Graphic design/${i + 1}.webp`,
       alt: "Milaknight - ميلانايت",

@@ -1,11 +1,9 @@
 // import "bootstrap/dist/css/bootstrap.min.css"; // Removed: Already included in globals.css to reduce payload by ~150KB
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../globals.css";
 import BootstrapClient from "../components/BootstrapClient";
 import Providers from "../components/Providers";
 import Script from "next/script";
 import localFont from "next/font/local";
-
 import DynamicSEO from "../components/DynamicSEO";
 import Preloader from "../components/Preloader";
 import Cursor from "../components/Cursor";
@@ -13,6 +11,7 @@ import LegacyScripts from "../components/LegacyScripts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/ui/Footer";
 import RevealObserver from "../components/RevealObserver";
+import "../globals.css";
 
 // Configure local fonts (Tajawal for Arabic/English)
 const tajawal = localFont({

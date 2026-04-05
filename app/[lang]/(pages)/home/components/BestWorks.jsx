@@ -35,7 +35,7 @@ const BestWorks = () => {
                 span={content.span}
                 desc={content.desc}
             />
-            <div className="gallery-items new-scrolling page-gallery-box">
+            <div className="gallery-items gallery-items-home new-scrolling page-gallery-box">
                 {allImages.map((src, idx) => {
                     const realIndex = idx % images.length;
                     return (
