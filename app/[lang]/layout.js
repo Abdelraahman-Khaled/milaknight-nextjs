@@ -1,5 +1,4 @@
 // import "bootstrap/dist/css/bootstrap.min.css"; // Removed: Already included in globals.css to reduce payload by ~150KB
-import 'bootstrap/dist/css/bootstrap.min.css';
 import BootstrapClient from "../components/BootstrapClient";
 import Providers from "../components/Providers";
 import Script from "next/script";
@@ -257,6 +256,8 @@ export default async function RootLayout({ children, params }) {
     >
       <head>
         <link rel="stylesheet" href="/css/tech-partners.css" />
+        <link rel="stylesheet" href="/css/vendor.css" media="print" onLoad="this.media='all'" />
+        <noscript><link rel="stylesheet" href="/css/vendor.css" /></noscript>
 
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

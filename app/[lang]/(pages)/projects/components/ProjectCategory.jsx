@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Lightbox from "yet-another-react-lightbox";
 import Video from "yet-another-react-lightbox/plugins/video";
 import "yet-another-react-lightbox/styles.css";
+import LazyVideo from './LazyVideo';
 
 const ProjectCategory = ({ category, language }) => {
     const { title, items, mediaType, objectFit } = category;
@@ -56,9 +57,7 @@ const ProjectCategory = ({ category, language }) => {
                                     >
                                         <a href={item.path} onClick={(e) => e.preventDefault()} data-cursor-text={isArabic ? 'عرض' : 'View'}>
                                             <figure className="image-anime">
-                                                <video autoPlay muted playsInline loop preload="metadata" style={{ pointerEvents: 'none', width: '100%', borderRadius: '20px' }}>
-                                                    <source src={item.path} type="video/mp4" />
-                                                </video>
+                                                <LazyVideo src={item.path} autoPlay muted playsInline loop style={{ pointerEvents: 'none', width: '100%', borderRadius: '20px' }} />
                                             </figure>
                                         </a>
                                     </div>
@@ -72,6 +71,7 @@ const ProjectCategory = ({ category, language }) => {
                                                     width={400}
                                                     height={300}
                                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                    loading="lazy"
                                                     style={{
                                                         width: '100%',
                                                         height: 'auto',
