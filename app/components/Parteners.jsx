@@ -73,8 +73,8 @@ const Parteners = () => {
                              The original page used 'slicknav' etc. Since we are in Next.js, jQuery plugins might not work smoothly without extensive adaptation.
                              For now, I'll render the static structure which might be styled by CSS to scroll.
                          */}
-                    {[...Array(28)].map((_, i) => (
-                        <div className="slide" key={i}>
+                    {[...Array(32)].map((_, i) => (
+                        <div className="slide overflow-hidden" key={i}>
                             <div className="company-logo">
                                 {/* B2B images are named 1.webp to 25.webp. Some were missing or had gaps in original HTML but let's try 1-18 mostly used */}
                                 <Image
