@@ -47,8 +47,15 @@ const Footer = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-4">
-                                <div className="footer-logo">
-                                    <Image src="/images/logo-dark-footer.webp" className="Image-fluid  h-auto" alt="Milaknight - Professional Marketing Branding" width={512} height={200} />
+                                <div className="footer-logo" style={{ minHeight: '80px', display: 'flex', alignItems: 'center' }}>
+                                    <Image 
+                                        src="/images/logo-dark-footer.webp" 
+                                        className="Image-fluid h-auto" 
+                                        alt="Milaknight - Professional Marketing Branding" 
+                                        width={512} 
+                                        height={200} 
+                                        style={{ maxWidth: '100%', height: 'auto' }}
+                                    />
                                 </div>
                             </div>
 
@@ -89,7 +96,7 @@ const Footer = () => {
                                     <div className="footer-contact-box">
                                         {/* <!-- Footer Contact Item Start --> */}
                                         <Link href="tel:+971585856774" className="footer-contact-item" aria-label="Call +971 58 585 6774">
-                                            <div className="icon-box">
+                                            <div className="icon-box" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
                                                 <Image src="/images/icons/icon-phone.svg" alt="" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content" dir='ltr'>
@@ -101,7 +108,7 @@ const Footer = () => {
                                         {/* <!-- Footer Contact Item Start --> */}
                                         <Link href="mailto:Info@milaknight.com"
                                             className="footer-contact-item" aria-label="Email us at Info@milaknight.com">
-                                            <div className="icon-box">
+                                            <div className="icon-box" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
                                                 <Image src="/images/icons/icon-mail.svg" alt="" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content">
@@ -111,46 +118,47 @@ const Footer = () => {
                                         {/* <!-- Footer Contact Item End --> */}
                                     </div>
                                     <div className="footer-social-links">
-                                        <ul aria-label="Social Media Links">
+                                        <ul aria-label="Social Media Links" style={{ display: 'flex', flexWrap: 'wrap' }}>
                                             <li>
                                                 <Link href="https://www.linkedin.com/company/milaknight/" target="_blank"
                                                     rel="noopener" aria-label="LinkedIn">
-                                                    <FontAwesomeIcon icon={faLinkedinIn} />
+                                                    <FontAwesomeIcon icon={faLinkedinIn} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://x.com/milaknight731"
-                                                    target="_blank" rel="noopener" aria-label="Twitter X"><FontAwesomeIcon icon={faXTwitter} />
+                                                    target="_blank" rel="noopener" aria-label="Twitter X">
+                                                    <FontAwesomeIcon icon={faXTwitter} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.tiktok.com/@milaknight.mk"
                                                     target="_blank" rel="noopener" aria-label="TikTok">
-                                                    <FontAwesomeIcon icon={faTiktok} />
+                                                    <FontAwesomeIcon icon={faTiktok} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.snapchat.com/add/milaknight.mk"
                                                     target="_blank" rel="noopener" aria-label="Snapchat">
-                                                    <FontAwesomeIcon icon={faSnapchat} />
+                                                    <FontAwesomeIcon icon={faSnapchat} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.facebook.com/milaknight.mena"
                                                     target="_blank" rel="noopener" aria-label="Facebook">
-                                                    <FontAwesomeIcon icon={faFacebookF} />
+                                                    <FontAwesomeIcon icon={faFacebookF} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.instagram.com/milaknight.mena/" target="_blank"
                                                     rel="noopener" aria-label="Instagram">
-                                                    <FontAwesomeIcon icon={faInstagram} />
+                                                    <FontAwesomeIcon icon={faInstagram} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA"
                                                     target="_blank" rel="noopener" aria-label="YouTube">
-                                                    <FontAwesomeIcon icon={faYoutube} />
+                                                    <FontAwesomeIcon icon={faYoutube} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                         </ul>

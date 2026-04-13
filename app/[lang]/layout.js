@@ -1,3 +1,4 @@
+import "../fontawesome";
 // import "bootstrap/dist/css/bootstrap.min.css"; // Removed: Already included in globals.css to reduce payload by ~150KB
 import BootstrapClient from "../components/BootstrapClient";
 import Providers from "../components/Providers";
@@ -10,19 +11,16 @@ import LegacyScripts from "../components/LegacyScripts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/ui/Footer";
 import RevealObserver from "../components/RevealObserver";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "../vendor.css";
 import "../globals.css";
 
 // Configure local fonts (Tajawal for Arabic/English)
 const tajawal = localFont({
   src: [
-    { path: "../fonts/tajawal-v12-arabic_latin-200.woff2", weight: "200" },
-    { path: "../fonts/tajawal-v12-arabic_latin-300.woff2", weight: "300" },
     { path: "../fonts/tajawal-v12-arabic_latin-regular.woff2", weight: "400" },
     { path: "../fonts/tajawal-v12-arabic_latin-500.woff2", weight: "500" },
     { path: "../fonts/tajawal-v12-arabic_latin-700.woff2", weight: "700" },
-    { path: "../fonts/tajawal-v12-arabic_latin-800.woff2", weight: "800" },
-    { path: "../fonts/tajawal-v12-arabic_latin-900.woff2", weight: "900" },
   ],
   variable: "--font-tajawal",
   display: "swap",
@@ -31,13 +29,9 @@ const tajawal = localFont({
 // Fustat fallback or secondary font
 const fustat = localFont({
   src: [
-    { path: "../fonts/fustat-v4-latin_latin-ext-200.woff2", weight: "200" },
-    { path: "../fonts/fustat-v4-latin_latin-ext-300.woff2", weight: "300" },
     { path: "../fonts/fustat-v4-latin_latin-ext-regular.woff2", weight: "400" },
     { path: "../fonts/fustat-v4-latin_latin-ext-500.woff2", weight: "500" },
-    { path: "../fonts/fustat-v4-latin_latin-ext-600.woff2", weight: "600" },
     { path: "../fonts/fustat-v4-latin_latin-ext-700.woff2", weight: "700" },
-    { path: "../fonts/fustat-v4-latin_latin-ext-800.woff2", weight: "800" },
   ],
   variable: "--font-fustat",
   display: "swap",
@@ -256,29 +250,21 @@ export default async function RootLayout({ children, params }) {
       className={`${tajawal.variable} ${fustat.variable}`}
     >
       <head>
+        <link
+          rel="preload"
+          href="/fonts/tajawal-v12-arabic_latin-regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <link rel="stylesheet" href="/css/tech-partners.css" />
 
-        <Script id="google-tag-manager" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-NSPXXGG5');`}
-        </Script>
+        <GoogleTagManager gtmId="GTM-NSPXXGG5" />
         <link rel="preload" href="/images/page-header-bg.webp" as="image" />
       </head>
       <body>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NSPXXGG5"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-
-        <Script src="/js/jquery-3.7.1.min.js" strategy="lazyOnload" />
-        <Script src="/js/jquery.slicknav.min.js" strategy="lazyOnload" />
+        <Script src="/js/jquery-3.7.1.min.js" strategy="afterInteractive" />
+        <Script src="/js/jquery.slicknav.min.js" strategy="afterInteractive" />
         <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
         {/* <Script src="/js/SplitText.min.js" strategy="lazyOnload" /> */}

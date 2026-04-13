@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useState, useEffect } from 'react'
-import { LanguageContext } from '@/app/context/LanguageContext'
 import Image from 'next/image';
+import { LanguageContext } from '../../../../context/LanguageContext';
 
 const data = {
     ar: {
@@ -17,26 +17,31 @@ const data = {
 }
 
 const HeroHome = () => {
-    const { language } = useContext(LanguageContext);
+    // 1. Destructure with a fallback to avoid the "undefined" error
+    const context = useContext(LanguageContext);
+    const language = context?.language || 'en'; // Default to 'en' if context is missing
+
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
 
+    // 2. Prevent accessing 'data[language]' if the key doesn't exist yet
+    const currentData = data[language] || data['en'];
     return (
         <div className="hero hero-slider-layout">
             <div className="hero-slide slide-2">
                 {/* LCP Element: Optimized Image with Priority */}
-                <Image 
-                    src="/images/page-header-bg.webp" 
-                    alt={data[language].title}
+                <Image
+                    src="/images/page-header-bg.webp"
+                    alt={currentData.title}
                     fill
                     priority
                     className="video"
                     style={{ objectFit: 'cover', zIndex: 1 }}
                 />
-                
+
                 {isMounted && (
                     <>
                         <video
@@ -45,7 +50,7 @@ const HeroHome = () => {
                             playsInline
                             loop
                             className="video"
-                            src={data[language].src1}
+                            src={currentData.src1}
                             poster="/images/page-header-bg.webp"
                             preload="metadata"
                             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 2 }}
@@ -59,14 +64,14 @@ const HeroHome = () => {
                             playsInline
                             loop
                             className="video-2"
-                            src={data[language].src2}
+                            src={currentData.src2}
                             poster="/images/page-header-bg.webp"
                             preload="metadata"
                             style={{ zIndex: 3 }}
                         ></video>
                     </>
                 )}
-                <h1 style={{ zIndex: 10, position: 'relative' }}>{data[language].title}</h1>
+                <h1 style={{ zIndex: 10, position: 'relative' }}>{currentData.title}</h1>
             </div>
         </div>
     )

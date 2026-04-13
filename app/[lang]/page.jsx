@@ -1,4 +1,5 @@
 import React from 'react'
+import Script from 'next/script'
 import HeroHome from '@/app/[lang]/(pages)/home/components/HeroHome'
 import ScrollTicker from '@/app/components/ui/ScrollTicker'
 import AboutAgency from '@/app/[lang]/(pages)/home/components/AboutAgency'
