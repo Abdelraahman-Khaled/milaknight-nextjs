@@ -13,6 +13,7 @@ export const footerData = {
         { text: "أعمالنا", href: "/projects" },
         { text: "أسعارنا", href: "/pricing" },
         { text: "تواصل معنا", href: "/contact" },
+        { text: "سياسة الخصوصية", href: "/privacy-policy" },
       ],
     },
     services: {
@@ -52,6 +53,7 @@ export const footerData = {
         { text: "Our Work", href: "/projects" },
         { text: "Pricing", href: "/pricing" },
         { text: "Contact Us", href: "/contact" },
+        { text: "Privacy Policy", href: "/privacy-policy" },
       ],
     },
     services: {

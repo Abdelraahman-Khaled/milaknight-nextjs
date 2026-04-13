@@ -14,6 +14,7 @@ const translations = {
     pricing: "Pricing",
     blog: "Blog",
     contact_us: "Contact us",
+    privacy_policy: "Privacy Policy",
     company_profile: "Company profile",
     phone: "Phone",
     email: "Email",
@@ -86,6 +87,8 @@ const translations = {
       "Browse More News and Articles about Digital Marketing from Milaknight",
     blog_seo_description:
       "Browse more articles and get to know us. We strive to develop marketing plans that blend the latest technologies with precise insights, believing that every brand deserves its own success story.",
+    privacy_policy_seo_title: "Privacy Policy - Milaknight",
+    privacy_policy_seo_description: "Read our privacy policy to understand how we handle your data and protect your privacy.",
   },
   ar: {
     home: "الرئيسية",
@@ -102,6 +105,7 @@ const translations = {
     pricing: "أسعارنا",
     blog: "المدونة",
     contact_us: "تواصل معنا",
+    privacy_policy: "سياسة الخصوصية",
     company_profile: "معرض أعمال الشركة",
     phone: "الهاتف",
     email: "البريد الإلكتروني",
@@ -171,6 +175,8 @@ const translations = {
       "تصفح المزيد من أخبار ومقالات عن التسويق الالكتروني من ميلا نايت",
     blog_seo_description:
       "تصفح المزيد من المقالات وتعرف علينا فنحن نسعى إلى تطوير خطط تسويقية تمزج بين أحدث التقنيات وأدق رؤى ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة",
+    privacy_policy_seo_title: "سياسة الخصوصية - Milaknight",
+    privacy_policy_seo_description: "اقرأ سياسة الخصوصية الخاصة بنا لفهم كيفية تعاملنا مع بياناتك وحماية خصوصيتك.",
   },
 };
 
