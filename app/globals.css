@@ -331,7 +331,7 @@ header.main-header .header-sticky.active {
   padding: 0;
 }
 .header-social-links ul li a {
-  color: inherit;
+  color: var(--accent-color);
 }
 .header-social-links ul li:last-child {
   margin: 0;
