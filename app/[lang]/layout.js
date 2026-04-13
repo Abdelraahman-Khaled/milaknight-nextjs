@@ -14,6 +14,7 @@ import RevealObserver from "../components/RevealObserver";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "../vendor.css";
 import "../globals.css";
+import "../tech-partners.css";
 
 // Configure local fonts (Tajawal for Arabic/English)
 const tajawal = localFont({
@@ -257,19 +258,15 @@ export default async function RootLayout({ children, params }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link rel="stylesheet" href="/css/tech-partners.css" />
 
         <GoogleTagManager gtmId="GTM-NSPXXGG5" />
         <link rel="preload" href="/images/page-header-bg.webp" as="image" />
       </head>
       <body>
-        <Script src="/js/jquery-3.7.1.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.slicknav.min.js" strategy="afterInteractive" />
+        <Script src="/js/jquery-3.7.1.min.js" strategy="lazyOnload" />
+        <Script src="/js/jquery.slicknav.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
-        {/* <Script src="/js/SplitText.min.js" strategy="lazyOnload" /> */}
-        {/* <Script src="/js/gsap.min.js" strategy="lazyOnload" /> */}
-        {/* <Script src="/js/ScrollTrigger.min.js" strategy="lazyOnload" /> */}
         <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
         <Script src="/js/function.min.js" strategy="lazyOnload" />
 
