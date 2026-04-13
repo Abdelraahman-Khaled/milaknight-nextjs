@@ -2045,6 +2045,7 @@ body:has(.offcanvas) {
 .footer-social-links ul li a {
   border: 1px solid var(--accent-color);
   border-radius: 50%;
+  color: var(--accent-color);
   width: 40px;
   height: 40px;
   display: flex;
