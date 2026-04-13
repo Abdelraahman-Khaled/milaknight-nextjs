@@ -1,5 +1,7 @@
 const nextConfig = {
   output: "standalone",
+  compress: true, // Enable gzip/brotli compression
+
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -40,6 +42,20 @@ const nextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/:all*(svg|jpg|png|webp|avif|css|js|woff2|woff)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
 };
+
 
 export default nextConfig;
