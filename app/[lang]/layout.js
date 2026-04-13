@@ -4,12 +4,13 @@ import Providers from "../components/Providers";
 import Script from "next/script";
 import localFont from "next/font/local";
 import DynamicSEO from "../components/DynamicSEO";
-import Preloader from "../components/Preloader";
+// import Preloader from "../components/Preloader";
 import Cursor from "../components/Cursor";
 import LegacyScripts from "../components/LegacyScripts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/ui/Footer";
 import RevealObserver from "../components/RevealObserver";
+import "../vendor.css";
 import "../globals.css";
 
 // Configure local fonts (Tajawal for Arabic/English)
@@ -256,8 +257,6 @@ export default async function RootLayout({ children, params }) {
     >
       <head>
         <link rel="stylesheet" href="/css/tech-partners.css" />
-        <link rel="stylesheet" href="/css/vendor.css" media="print" onLoad="this.media='all'" />
-        <noscript><link rel="stylesheet" href="/css/vendor.css" /></noscript>
 
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -278,8 +277,8 @@ export default async function RootLayout({ children, params }) {
           ></iframe>
         </noscript>
 
-        <Script src="/js/jquery-3.7.1.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.slicknav.min.js" strategy="afterInteractive" />
+        <Script src="/js/jquery-3.7.1.min.js" strategy="lazyOnload" />
+        <Script src="/js/jquery.slicknav.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
         {/* <Script src="/js/SplitText.min.js" strategy="lazyOnload" /> */}
@@ -294,7 +293,7 @@ export default async function RootLayout({ children, params }) {
         />
         <Providers lang={lang}>
           <DynamicSEO />
-          <Preloader />
+          {/* <Preloader /> */}
           <Cursor />
           <RevealObserver />
           <BootstrapClient />
