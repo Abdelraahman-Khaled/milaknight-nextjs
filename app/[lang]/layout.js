@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/ui/Footer";
 import RevealObserver from "../components/RevealObserver";
 import { GoogleTagManager } from "@next/third-parties/google";
+import "../tech-partners.css";
 import "../vendor.css";
 import "../globals.css";
 

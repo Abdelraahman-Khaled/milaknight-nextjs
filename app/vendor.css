@@ -24305,4 +24305,18 @@ body {
   position: relative;
   display: inline-block;
   line-height: 1.3em;
-  font-size: 16px;}
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--accent-color);
+  color: var(--dark-color);
+  text-transform: capitalize;
+  border-radius: 10px;
+  padding: 15px 30px;
+  border: none;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
+}
+.btn-highlighted:hover {
+  background-color: var(--primary-color);
+}
