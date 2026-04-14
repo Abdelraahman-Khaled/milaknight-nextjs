@@ -1,9 +1,16 @@
 "use client";
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { LanguageContext } from "../context/LanguageContext";
 import SectionTitle from "./ui/SectionTitle";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/autoplay';
 
 const LOGO_DEV_PUBLIC_KEY = 'pk_Xq8rfVKDQFWRKnFrlawKSA';
 
@@ -35,14 +42,10 @@ const content = {
 const TechPartners = () => {
   const { language } = useContext(LanguageContext);
   const c = content[language];
-  const containerRef = useRef(null);
-
-  // Duplicate for seamless infinite scroll
-  const allPartners = [...techPartners, ...techPartners, ...techPartners];
-  const direction = language === 'ar' ? 'scroll-rtl' : 'scroll-ltr';
+  const isArabic = language === 'ar';
 
   return (
-    <section className="tech-partners-section" aria-label={c.badge} ref={containerRef}>
+    <section className="tech-partners-section" aria-label={c.badge}>
       <div className="tech-partners-bg-glow tech-partners-glow-1" />
       <div className="tech-partners-bg-glow tech-partners-glow-2" />
 
@@ -51,49 +54,90 @@ const TechPartners = () => {
           title={c.badge}
           subtitle={c.title}
           span={c.description}
-          className={`mb-5 ${language === 'ar' ? 'text-end' : 'text-start'}`}
+          className={`mb-5 ${isArabic ? 'text-end' : 'text-start'}`}
         />
       </div>
 
-      <div className="tech-partners-slider-container" style={{ overflow: 'hidden' }}>
-        {/* Pure CSS infinite scroll — no GSAP needed */}
-        <div
-          className={`tech-partners-track tech-partners-track--${direction}`}
-          onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
-          onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
-          style={{ display: 'flex', gap: '40px', width: 'max-content' }}
+      <div className="tech-partners-slider-wrapper">
+        <Swiper
+          modules={[Autoplay, FreeMode]}
+          loop={true}
+          speed={5000}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+          }}
+          freeMode={true}
+          slidesPerView={'auto'}
+          spaceBetween={40}
+          dir={isArabic ? 'rtl' : 'ltr'}
+          className="tech-partners-swiper"
         >
-          {allPartners.map((partner, index) => (
-            <Link
-              key={index}
-              href={partner.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="tech-partner-item"
-              title={partner.name}
-            >
-              <Image
-                src={`https://img.logo.dev/${partner.domain}?token=${LOGO_DEV_PUBLIC_KEY}`}
-                alt={partner.name}
-                className="tech-partner-logo"
-                width={128}
-                height={128}
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.target;
-                  target.style.display = 'none';
-                  const parent = target.parentNode;
-                  if (parent) {
-                    const span = document.createElement('span');
-                    span.innerText = partner.name;
-                    span.style.cssText = 'font-size:14px;font-weight:bold;color:#6f42c1;';
-                    parent.appendChild(span);
-                  }
-                }}
-              />
-            </Link>
+          {techPartners.map((partner, index) => (
+            <SwiperSlide key={index} style={{ width: 'auto' }}>
+              <Link
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tech-partner-item"
+                title={partner.name}
+              >
+                <Image
+                  src={`https://img.logo.dev/${partner.domain}?token=${LOGO_DEV_PUBLIC_KEY}`}
+                  alt={partner.name}
+                  className="tech-partner-logo"
+                  width={128}
+                  height={128}
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target;
+                    target.style.display = 'none';
+                    const parent = target.parentNode;
+                    if (parent) {
+                      const span = document.createElement('span');
+                      span.innerText = partner.name;
+                      span.style.cssText = 'font-size:14px;font-weight:bold;color:#6f42c1;';
+                      parent.appendChild(span);
+                    }
+                  }}
+                />
+              </Link>
+            </SwiperSlide>
           ))}
-        </div>
+          {/* Duplicate slides for smooth loop if needed by Swiper, 
+              though loop={true} with slidesPerView auto often handles it */}
+          {techPartners.map((partner, index) => (
+            <SwiperSlide key={`extra-${index}`} style={{ width: 'auto' }}>
+              <Link
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tech-partner-item"
+                title={partner.name}
+              >
+                <Image
+                  src={`https://img.logo.dev/${partner.domain}?token=${LOGO_DEV_PUBLIC_KEY}`}
+                  alt={partner.name}
+                  className="tech-partner-logo"    
+                  width={128}
+                  height={128}
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target;
+                    target.style.display = 'none';
+                    const parent = target.parentNode;
+                    if (parent) {
+                      const span = document.createElement('span');
+                      span.innerText = partner.name;
+                      span.style.cssText = 'font-size:14px;font-weight:bold;color:#6f42c1;';
+                      parent.appendChild(span);
+                    }
+                  }}
+                />
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );
