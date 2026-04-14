@@ -50,20 +50,20 @@ const ProjectCategory = ({ category, language }) => {
                         return (
                             <div key={`${item.id}-${idx}`} className="box-new-scrolling">
                                 {mediaType === 'video' ? (
-                                    <div 
-                                        className="photo-gallery mb-0 cursor-pointer" 
+                                    <div
+                                        className="photo-gallery mb-0 cursor-pointer"
                                         onClick={(e) => openLightbox(e, realIndex)}
                                         style={{ cursor: 'pointer' }}
                                     >
-                                        <a href={item.path} onClick={(e) => e.preventDefault()} data-cursor-text={isArabic ? 'عرض' : 'View'}>
+                                        <Link href={item.path} onClick={(e) => e.preventDefault()} data-cursor-text={isArabic ? 'عرض' : 'View'}>
                                             <figure className="image-anime">
                                                 <LazyVideo src={item.path} autoPlay muted playsInline loop style={{ pointerEvents: 'none', width: '100%', borderRadius: '20px' }} />
                                             </figure>
-                                        </a>
+                                        </Link>
                                     </div>
                                 ) : (
                                     <div className="photo-gallery mb-0 cursor-pointer" onClick={(e) => openLightbox(e, realIndex)}>
-                                        <a href={item.path} onClick={(e) => e.preventDefault()} data-cursor-text={isArabic ? 'عرض' : 'View'}>
+                                        <Link href={item.path} onClick={(e) => e.preventDefault()} data-cursor-text={isArabic ? 'عرض' : 'View'}>
                                             <figure className="image-anime">
                                                 <Image
                                                     src={item.path}
@@ -80,7 +80,7 @@ const ProjectCategory = ({ category, language }) => {
                                                     }}
                                                 />
                                             </figure>
-                                        </a>
+                                        </Link>
                                     </div>
                                 )}
                             </div>

@@ -38,10 +38,10 @@ const ServiceSidebar = ({ categories, contactBox, activeSlug }) => {
 
                 {/* CTA Contact Button Start */}
                 <div className="cta-contact-btn">
-                    <a dir="ltr" href={contactBox.whatsapp_link} target="_blank" rel="noopener">
+                    <Link dir="ltr" href={contactBox.whatsapp_link} target="_blank" rel="noopener">
                         <Image src="/images/icons/whatsapp_white_icon.png" alt="image" width={24} height={24} style={{ marginRight: '8px' }} />
                         {contactBox.phone}
-                    </a>
+                    </Link>
                 </div>
                 {/* CTA Contact Button End */}
             </div>

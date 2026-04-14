@@ -3,6 +3,7 @@ import React, { useContext, useRef } from "react";
 import Image from "next/image";
 import { LanguageContext } from "../context/LanguageContext";
 import SectionTitle from "./ui/SectionTitle";
+import Link from "next/link";
 
 const LOGO_DEV_PUBLIC_KEY = 'pk_Xq8rfVKDQFWRKnFrlawKSA';
 
@@ -63,7 +64,7 @@ const TechPartners = () => {
           style={{ display: 'flex', gap: '40px', width: 'max-content' }}
         >
           {allPartners.map((partner, index) => (
-            <a
+            <Link
               key={index}
               href={partner.url}
               target="_blank"
@@ -90,7 +91,7 @@ const TechPartners = () => {
                   }
                 }}
               />
-            </a>
+            </Link>
           ))}
         </div>
       </div>

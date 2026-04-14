@@ -93,6 +93,8 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
         }
     };
 
+    if (!blog) return null;
+
     const title = language === 'ar' ? (blog.title_ar || blog.title_en) : (blog.title_en || blog.title_ar);
 
     return (

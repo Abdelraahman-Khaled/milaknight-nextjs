@@ -9,7 +9,7 @@ const EmailResponseTemplate = ({ name, phone, email, subject, message }) => {
             <div className="card-body">
                 <div className="mb-3">
                     <strong>From:</strong> {name || 'Unknown'} &lt;
-                    <a href={`mailto:${email}`}>{email || 'No Email'}</a>&gt;
+                    <Link href={`mailto:${email}`}>{email || 'No Email'}</Link>&gt;
                 </div>
                 <div className="mb-3">
                     <strong>Phone:</strong> {phone || 'No Phone provided'}

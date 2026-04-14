@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { customServices } from '@/app/data/pricingData';
+import Link from 'next/link';
 
 const CustomPackage = ({ language = 'ar', translations, onGetQuote }) => {
     const lang = language || 'ar';
@@ -47,13 +48,13 @@ const CustomPackage = ({ language = 'ar', translations, onGetQuote }) => {
                                     </li>
                                 ))}
                             </ul>
-                            <a
+                            <Link
                                 href="javascript:void(0)"
                                 className="getQuote"
                                 onClick={() => onGetQuote?.(translations?.availableServices)}
                             >
                                 {translations?.getQuote}
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

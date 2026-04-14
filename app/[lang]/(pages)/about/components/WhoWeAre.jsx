@@ -47,7 +47,7 @@ const WhoWeAre = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className=" contact-now-btn"><a href="tel:971585856774" className="contact-btn">{c.call_now}</a></div>
+                                    <div className=" contact-now-btn"><Link href="tel:971585856774" className="contact-btn">{c.call_now}</Link></div>
                                 </div>
                             </div>
                         </div>

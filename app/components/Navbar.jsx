@@ -143,7 +143,7 @@ const Navbar = () => {
                             </div>
 
                             <div className="navbar-toggle d-lg-none">
-                                <a 
+                                <Link 
                                     href="#"
                                     className={`slicknav_btn ${isMenuOpen ? 'slicknav_open' : ''} border-0 p-0 bg-transparent`}
                                     onClick={(e) => { e.preventDefault(); toggleMobileMenu(); }}
@@ -156,7 +156,7 @@ const Navbar = () => {
                                         <span className="slicknav_icon-bar"></span>
                                         <span className="slicknav_icon-bar"></span>
                                     </span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -203,4 +203,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar

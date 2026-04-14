@@ -32,7 +32,7 @@ const BlogsTabs = () => {
       ? blogsList
       : blogsList.filter((blog) => blog.category === activeFilter);
 
-  const currentBlogs = [...filteredBlogs].reverse().slice(0, visibleCount);
+  const currentBlogs = filteredBlogs.slice(0, visibleCount);
 
   const handleFilterClick = (e, filterValue) => {
     e.preventDefault();

@@ -7,6 +7,7 @@ import ScrollTicker from '@/app/components/ui/ScrollTicker';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 const ProjectsContent = () => {
     const { language } = useContext(LanguageContext);
@@ -36,7 +37,7 @@ const ProjectsContent = () => {
             </div>
 
             <div className="text-center my-5">
-                <a
+                <Link
                     className="nav-link  d-inline-block py-3 px-5 text-white"
                     href={isArabic ? "https://publuu.com/flip-book/902608/2188910" : "https://publuu.com/flip-book/902608/1992497"}
                     target="_blank"
@@ -45,7 +46,7 @@ const ProjectsContent = () => {
                 >
                     {translations.viewGallery}
                     <FontAwesomeIcon icon={faDownload} className={isArabic ? 'me-2' : 'ms-2'} />
-                </a>
+                </Link>
             </div>
         </div>
     );

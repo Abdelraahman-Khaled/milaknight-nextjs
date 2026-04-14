@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { pricingPackages } from '@/app/data/pricingData';
+import Link from 'next/link';
 
 const INITIAL_VISIBLE_FEATURES = 6;
 
@@ -45,13 +46,13 @@ const PricingPackages = ({ language, translations, onGetQuote }) => {
                                         </div>
                                     )}
                                 </ul>
-                                <a
+                                <Link
                                     href="javascript:void(0)"
                                     className="getQuote"
                                     onClick={() => onGetQuote(pkg.name[language])}
                                 >
                                     {translations.getQuote}
-                                </a>
+                                </Link>
                             </div>
                         );
                     })}

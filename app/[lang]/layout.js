@@ -14,7 +14,6 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import "../tech-partners.css";
 import "../vendor.css";
 import "../globals.css";
-import "../tech-partners.css";
 import Preloader from "../components/Preloader";
 
 // Configure local fonts (Tajawal for Arabic/English)

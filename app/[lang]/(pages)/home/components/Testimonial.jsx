@@ -90,7 +90,7 @@ const Testimonial = () => {
                     <div className="testimonial-review-box">
                         <div className="testimonial-review-header">
                             <div className="testimonial-review-counter-title">
-                                <h2><Counter end={parseInt(content.counter.replace(/[^0-9]/g, ''))} suffix={content.counter.replace(/[0-9]/g, '')} /></h2>
+                                <h2><Counter end={parseInt(content.counter)} suffix={content.counter.replace(/[0-9]/g, '')} /></h2>
                             </div>
 
                             <div className="testimonial-review-image">

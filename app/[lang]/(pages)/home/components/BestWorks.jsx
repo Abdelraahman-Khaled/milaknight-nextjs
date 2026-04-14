@@ -41,11 +41,11 @@ const BestWorks = () => {
                     return (
                         <div key={idx} className="box-new-scrolling">
                             <div className="photo-gallery cursor-pointer" onClick={(e) => openLightbox(e, realIndex)}>
-                                <a href={src} onClick={(e) => e.preventDefault()} data-cursor-text={content.viewText}>
+                                <Link href={src} onClick={(e) => e.preventDefault()} data-cursor-text={content.viewText}>
                                     <figure className="image-anime">
                                         <Image width="250" height="333" alt={`MilaKnight Project - ${realIndex + 1}`} src={src} />
                                     </figure>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     );

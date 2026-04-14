@@ -90,7 +90,7 @@ const ContactContent = () => {
                                 </div>
                                 <div className="contact-info-box">
                                     <div className="info-box-1">
-                                        <a href="tel:+971585856774" className="contact-info-item">
+                                        <Link href="tel:+971585856774" className="contact-info-item">
                                             <div className="icon-box">
                                                 <Image width={50} height={50} alt="phone" src="/images/icons/icon-phone.svg" />
                                             </div>
@@ -98,8 +98,8 @@ const ContactContent = () => {
                                                 <h3>{t('phone')}</h3>
                                                 <p dir="ltr">+971 58 585 6774</p>
                                             </div>
-                                        </a>
-                                        <a href="mailto:Info@milaknights.com" className="contact-info-item">
+                                        </Link>
+                                        <Link href="mailto:Info@milaknights.com" className="contact-info-item">
                                             <div className="icon-box">
                                                 <Image width={50} height={50} alt="email" src="/images/icons/icon-mail.svg" />
                                             </div>
@@ -107,7 +107,7 @@ const ContactContent = () => {
                                                 <h3>{t('email')}</h3>
                                                 <p>Info[at]milaknights[dot]com</p>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="info-box-2">
                                         <div className="contact-info-item align-items-start">
@@ -221,126 +221,126 @@ const ContactContent = () => {
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://x.com/milaknight731?s=21&t=5NWQLtx2htlkEn1qeJG6_A" rel="noopener" target="_blank">
+                                    <Link href="https://x.com/milaknight731?s=21&t=5NWQLtx2htlkEn1qeJG6_A" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faXTwitter} />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>Twitter</h3>
                                     <p>@milaknight731</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://x.com/milaknight731?s=21&t=5NWQLtx2htlkEn1qeJG6_A" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://x.com/milaknight731?s=21&t=5NWQLtx2htlkEn1qeJG6_A" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" rel="noopener" target="_blank">
+                                    <Link href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faFacebookF} />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>Facebook</h3>
                                     <p>milaknight</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.snapchat.com/add/milaknight.mk" rel="noopener" target="_blank">
+                                    <Link href="https://www.snapchat.com/add/milaknight.mk" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faSnapchat} />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>Snapchat</h3>
                                     <p>milaknight</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.snapchat.com/add/milaknight.mk" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://www.snapchat.com/add/milaknight.mk" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.instagram.com/milaknight.mena/" rel="noopener" target="_blank">
+                                    <Link href="https://www.instagram.com/milaknight.mena/" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faInstagram} />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>Instagram</h3>
                                     <p>@milaknight.mk</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.instagram.com/milaknight.mena/" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://www.instagram.com/milaknight.mena/" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.linkedin.com/company/milaknight/" rel="noopener" target="_blank">
+                                    <Link href="https://www.linkedin.com/company/milaknight/" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faLinkedinIn} />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>LinkedIn</h3>
                                     <p>@milaknight.mk</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.linkedin.com/company/milaknight/" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://www.linkedin.com/company/milaknight/" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.tiktok.com/@milaknight.mk" rel="noopener" target="_blank">
+                                    <Link href="https://www.tiktok.com/@milaknight.mk" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faTiktok} />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>TikTok</h3>
                                     <p>@mila.knight</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.tiktok.com/@milaknight.mk" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://www.tiktok.com/@milaknight.mk" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <a href="https://www.youtube.com/@MilaKnight-mk" rel="noopener" target="_blank">
+                                    <Link href="https://www.youtube.com/@MilaKnight-mk" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faYoutube} />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>Youtube</h3>
                                     <p>@MilaKnight-mk</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <a href="https://www.youtube.com/@MilaKnight-mk" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://www.youtube.com/@MilaKnight-mk" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -70,54 +70,54 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogDetailsPage({ params }) {
+    const { lang, slug } = await params;
+    const currentLang = lang || 'ar';
+    const queryClient = new QueryClient();
+
+    let blog = null;
+
     try {
-        const { lang, slug } = await params;
-
-        const queryClient = new QueryClient();
-
-        // Use getBlogDetails for prefetching
         await queryClient.prefetchQuery({
             queryKey: ['blog', slug],
-            queryFn: () => getBlogDetails(slug),
+            queryFn: async () => {
+                try {
+                    const data = await getBlogDetails(slug);
+                    return data;
+                } catch (error) {
+                    // 🔥 هنا السر: اطبع الخطأ عشان تشوف الـ JSON اللي السيرفر بعته
+                    if (error.response) {
+                        console.log("---------------- API ERROR ----------------");
+                        console.log(JSON.stringify(error.response.data, null, 2)); // ده اللي هيظهرلك الـ JSON
+                        console.log("Status:", error.response.status);
+                        console.log("-------------------------------------------");
+                    }
+                    throw error;
+                }
+            },
         });
+        
+        blog = queryClient.getQueryData(['blog', slug]);
 
-        // Get the data from cache or fetch again if needed (usually it's in cache now)
-        const blog = queryClient.getQueryData(['blog', slug]);
-
+        // 3. 🛡️ حماية: لو الـ blog مش موجود أو حصل خطأ 301
         if (!blog || Object.keys(blog).length === 0) {
-            permanentRedirect(`/${lang || 'ar'}`);
+            console.error("Blog not found or moved, redirecting to blog list...");
+            permanentRedirect(`/${currentLang}/blog`);
         }
 
-        const currentLang = lang || 'ar';
+        // 4. بقية الكود
+        let decodedSlug = decodeURIComponent(slug);
+        const arSlug = blog.slug_ar || blog.slug;
+        const enSlug = blog.slug || blog.slug_ar;
 
-        // Safe decode
-        let decodedSlug = slug;
-        try {
-            decodedSlug = decodeURIComponent(slug);
-        } catch (e) {
-            console.error("Slug decoding failed on server:", e);
-        }
-
-        // Canonical slugs from API
-        const arSlug = blog.slug_ar || blog.slug; // Arabic canonical
-        const enSlug = blog.slug || blog.slug_ar;    // English canonical
-
-        // 🔁 CROSS LANGUAGE REDIRECT LOGIC
-        // Determine which language this slug belongs to (only if they are different)
         const isEnglishSlug = decodedSlug === enSlug;
         const isArabicSlug = decodedSlug === arSlug;
 
-        // Condition for redirecting between languages:
-        // Slug is English-only and we are in Arabic section -> Switch to English
         if (isEnglishSlug && !isArabicSlug && currentLang === 'ar') {
             permanentRedirect(`/en/blog/${encodeURIComponent(enSlug)}`);
         }
-        // Slug is Arabic-only and we are in English section -> Switch to Arabic
         if (isArabicSlug && !isEnglishSlug && currentLang === 'en') {
             permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
         }
-
-        // 🔧 NORMALIZATION within the same language context
         if (currentLang === "ar" && decodedSlug !== arSlug) {
             permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
         }
@@ -125,22 +125,23 @@ export default async function BlogDetailsPage({ params }) {
             permanentRedirect(`/en/blog/${encodeURIComponent(enSlug)}`);
         }
 
-        return (
-            <HydrationBoundary state={dehydrate(queryClient)}>
-                <Preloader />
-                <main>
-                    <BlogDetailContent slug={slug} initialBlog={blog} />
-                </main>
-                <LegacyScripts />
-            </HydrationBoundary>
-        );
     } catch (error) {
-        // If it was a redirect error, rethrow it so Next.js can handle it
-        if (error.digest && (error.digest.startsWith('NEXT_REDIRECT') || error.digest.startsWith('NEXT_NOT_FOUND'))) {
-            throw error;
-        }
-        console.error("BlogDetailsPage error:", error);
-        permanentRedirect(`/${lang || 'ar'}/blog`);
+        // لو الخطأ سببه Redirect.. سيبه نيكست يتعامل معاه
+        if (error.digest?.startsWith('NEXT_REDIRECT')) throw error;
+
+        console.error("Page Processing Error:", error);
+        // في حالة أي خطأ تاني (زي API Error: 301) هنحول لصفحة المدونة
+        permanentRedirect(`/${currentLang}/blog`);
     }
+
+    return (
+        <HydrationBoundary state={dehydrate(queryClient)}>
+            <Preloader />
+            <main>
+                <BlogDetailContent slug={slug} initialBlog={blog} />
+            </main>
+            <LegacyScripts />
+        </HydrationBoundary>
+    );
 }
 
