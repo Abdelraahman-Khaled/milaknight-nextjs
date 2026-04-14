@@ -264,10 +264,10 @@ export default async function RootLayout({ children, params }) {
         <link rel="preload" href="/images/page-header-bg.webp" as="image" />
       </head>
       <body>
-        <Script src="/js/jquery-3.7.1.min.js" strategy="lazyOnload" />
+        {/* <Script src="/js/jquery-3.7.1.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.slicknav.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
-        <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" />
+        <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" /> */}
         <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
         <Script src="/js/function.min.js" strategy="lazyOnload" />
 
