@@ -2,7 +2,6 @@ import React from 'react';
 import ProjectsContent from './components/ProjectsContent';
 import { projectsSEO } from '@/app/data/projectsData';
 
-import { cookies } from 'next/headers';
 
 export async function generateMetadata({ params }) {
     const { lang } = await params;

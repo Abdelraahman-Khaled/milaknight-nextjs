@@ -1,6 +1,7 @@
 "use client";
 import React, { useContext } from 'react';
 import Image from "next/image";
+import Link from 'next/link';
 import { LanguageContext } from '@/app/context/LanguageContext';
 import { aboutData } from '@/app/data/aboutData';
 import SectionTitle from '@/app/components/ui/SectionTitle';

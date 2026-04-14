@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import { LanguageContext } from '../context/LanguageContext';
 import BlogFaqs from './blogs/BlogFaqs';
+import Link from 'next/link';
 
 const Faqs = ({ initialFaqs = [] }) => {
     const { language } = useContext(LanguageContext);

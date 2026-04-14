@@ -9,7 +9,6 @@ import WhyChooseUs from './components/WhyChooseUs';
 import { getFaqs } from '@/app/api/FAQ';
 
 import translations from '@/app/context/translations';
-import { cookies } from 'next/headers';
 
 export async function generateMetadata({ params }) {
     const { lang } = await params;
