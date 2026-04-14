@@ -30,7 +30,7 @@ const Footer = () => {
                                     {/* <!-- Work Together Btn Start --> */}
                                     <div className="work-together-btn">
                                         <Link href={`/${language}/contact`} aria-label={content.letsWork.buttonText}>
-                                            <Image src="/images/icons/arrow-dark.svg" alt="" width={24} height={24} />
+                                            <Image src="/images/icons/arrow-dark.svg" alt="arrow" width={24} height={24} />
                                             <span>{content.letsWork.buttonText}</span>
                                         </Link>
                                     </div>
@@ -97,7 +97,7 @@ const Footer = () => {
                                         {/* <!-- Footer Contact Item Start --> */}
                                         <Link href="tel:+971585856774" className="footer-contact-item" aria-label="Call +971 58 585 6774">
                                             <div className="icon-box" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
-                                                <Image src="/images/icons/icon-phone.svg" alt="" width={18} height={18} />
+                                                <Image src="/images/icons/icon-phone.svg" alt="phone icon" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content" dir='ltr'>
                                                 <p>{content.contact.phone}</p>
@@ -109,7 +109,7 @@ const Footer = () => {
                                         <Link href="mailto:Info@milaknight.com"
                                             className="footer-contact-item" aria-label="Email us at Info@milaknight.com">
                                             <div className="icon-box" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
-                                                <Image src="/images/icons/icon-mail.svg" alt="" width={18} height={18} />
+                                                <Image src="/images/icons/icon-mail.svg" alt="mail" width={18} height={18} />
                                             </div>
                                             <div className="footer-contact-content">
                                                 <p>{content.contact.email}</p>
@@ -192,12 +192,12 @@ const Footer = () => {
             </footer>
 
             <Link href="https://calendly.com/milaknights-info" target="_blank" rel="noopener" className="whatsapp meeting" aria-label="Book a Meeting">
-                <Image src="/images/icons/calender.webp" loading="lazy" alt="" width={24} height={24} />
+                <Image src="/images/icons/calender.webp" loading="lazy" alt="calender" width={24} height={24} />
                 <span>{content.floatingButtons.meeting}</span>
             </Link>
 
             <Link href="https://api.whatsapp.com/send?phone=971585856774" target="_blank" rel="noopener" className="whatsapp" aria-label="Chat on WhatsApp">
-                <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="" width={24} height={24} />
+                <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="whatsapp" width={24} height={24} />
                 <span>{content.floatingButtons.consultation}</span>
             </Link>
         </>

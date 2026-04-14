@@ -113,7 +113,7 @@ const Navbar = () => {
                                     <div className="offcanvas-body">
                                         <Link href="tel:+971585856774" aria-label="Call Us">
                                             <div className="header-contact-box">
-                                                <div className="icon-box"><Image src="/images/icons/icon-phone.svg" alt="" width={40} height={40} /></div>
+                                                <div className="icon-box"><Image src="/images/icons/icon-phone.svg" alt="icon" width={40} height={40} /></div>
                                                 <div className="header-contact-box-content">
                                                     <p className="title-box-content">{t('phone')}</p>
                                                     <p className="title-2-box-content" dir="ltr">+971 58 585 6774</p>
@@ -122,7 +122,7 @@ const Navbar = () => {
                                         </Link>
                                         <Link href="mailto:Info@milaknight.com" aria-label="Email Us">
                                             <div className="header-contact-box">
-                                                <div className="icon-box"><Image src="/images/icons/icon-mail.svg" alt="" width={40} height={40} /></div>
+                                                <div className="icon-box"><Image src="/images/icons/icon-mail.svg" alt="icon" width={40} height={40} /></div>
                                                 <div className="header-contact-box-content">
                                                     <p className="title-box-content">{t('email')}</p>
                                                     <p className="title-2-box-content">Info@milaknight.com</p>
@@ -131,7 +131,7 @@ const Navbar = () => {
                                         </Link>
                                         <Link href="https://maps.app.goo.gl/VjeHxVu3jtSXpXXSA?g_st=im" target="_blank" rel="noopener" aria-label="Find Us on Maps">
                                             <div className="header-contact-box">
-                                                <div className="icon-box"><Image src="/images/icons/icon-location.svg" alt="" width={40} height={40} /></div>
+                                                <div className="icon-box"><Image src="/images/icons/icon-location.svg" alt="icon" width={40} height={40} /></div>
                                                 <div className="header-contact-box-content">
                                                     <p className="title-box-content">{t('address')}</p>
                                                     <p className="title-2-box-content">{t('full_address')}</p>
