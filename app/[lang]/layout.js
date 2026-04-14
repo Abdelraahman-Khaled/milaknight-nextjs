@@ -253,7 +253,7 @@ export default async function RootLayout({ children, params }) {
       <head>
         <link
           rel="preload"
-          href="/fonts/tajawal-v12-arabic_latin-regular.woff2"
+          href="/webfonts/tajawal-v12-arabic_latin-regular.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
