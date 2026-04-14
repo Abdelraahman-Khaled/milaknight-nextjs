@@ -7,7 +7,6 @@ import localFont from "next/font/local";
 import DynamicSEO from "../components/DynamicSEO";
 // import Preloader from "../components/Preloader";
 import Cursor from "../components/Cursor";
-import LegacyScripts from "../components/LegacyScripts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/ui/Footer";
 import RevealObserver from "../components/RevealObserver";
@@ -16,6 +15,7 @@ import "../tech-partners.css";
 import "../vendor.css";
 import "../globals.css";
 import "../tech-partners.css";
+import Preloader from "../components/Preloader";
 
 // Configure local fonts (Tajawal for Arabic/English)
 const tajawal = localFont({
@@ -264,27 +264,22 @@ export default async function RootLayout({ children, params }) {
         <link rel="preload" href="/images/page-header-bg.webp" as="image" />
       </head>
       <body>
-        {/* <Script src="/js/jquery-3.7.1.min.js" strategy="lazyOnload" />
-        <Script src="/js/jquery.slicknav.min.js" strategy="lazyOnload" />
-        <Script src="/js/jquery.waypoints.min.js" strategy="lazyOnload" />
-        <Script src="/js/jquery.counterup.min.js" strategy="lazyOnload" /> */}
         <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
-        <Script src="/js/function.min.js" strategy="lazyOnload" />
+        <Script src="/js/function-vanilla.js" strategy="lazyOnload" />
 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Providers lang={lang}>
+          <Preloader />
           <DynamicSEO />
-          {/* <Preloader /> */}
           <Cursor />
           <RevealObserver />
           <BootstrapClient />
           <Navbar />
           {children}
           <Footer />
-          <LegacyScripts />
         </Providers>
       </body>
     </html>

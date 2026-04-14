@@ -7,6 +7,8 @@ import SectionTitle from '@/app/components/ui/SectionTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
+import Counter from '@/app/components/ui/Counter';
+
 const WhoWeAre = () => {
     const { language } = useContext(LanguageContext);
     const c = aboutData[language];
@@ -36,7 +38,7 @@ const WhoWeAre = () => {
                                         <ul>
                                             <li><FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /> <FontAwesomeIcon icon={faStar} /></li>
                                         </ul>
-                                        <p>( <span className='counter'>40</span>+ {c.ratings})</p>
+                                        <p>( <Counter end={40} />+ {c.ratings})</p>
                                     </div>
                                     <div className="company-client-images">
                                         {[0, 1, 2, 3, 4].map(index => (
@@ -56,14 +58,14 @@ const WhoWeAre = () => {
                                 <div className="experts-counter-item">
                                     <div className="icon-box"><Image alt={c.experts_counter_alts[0]} src="/images/icons/icon-who-we-are-counter-1.svg" width={30} height={30} /></div>
                                     <div className="experts-counter-content">
-                                        <span><span className="counter">35</span>k+</span>
+                                        <span><Counter end={35} suffix="k+" /></span>
                                         <p>{c.happy_clients}</p>
                                     </div>
                                 </div>
                                 <div className="experts-counter-item">
                                     <div className="icon-box"><Image alt={c.experts_counter_alts[2]} src="/images/icons/icon-who-we-are-counter-3.svg" width={30} height={30} /></div>
                                     <div className="experts-counter-content">
-                                        <span><span className="counter">250</span>+</span>
+                                        <span><Counter end={250} suffix="+" /></span>
                                         <p>{c.partners_sponsors}</p>
                                     </div>
                                 </div>
@@ -72,14 +74,14 @@ const WhoWeAre = () => {
                                 <div className="experts-counter-item">
                                     <div className="icon-box"><Image alt={c.experts_counter_alts[1]} src="/images/icons/icon-who-we-are-counter-2.svg" width={30} height={30} /></div>
                                     <div className="experts-counter-content">
-                                        <span><span className="counter">120</span>+</span>
+                                        <span><Counter end={120} suffix="+" /></span>
                                         <p>{c.awards}</p>
                                     </div>
                                 </div>
                                 <div className="experts-counter-item">
                                     <div className="icon-box"><Image alt={c.experts_counter_alts[3]} src="/images/icons/icon-who-we-are-counter-4.svg" width={30} height={30} /></div>
                                     <div className="experts-counter-content">
-                                        <span><span className="counter">5</span>k+</span>
+                                        <span><Counter end={5} suffix="k+" /></span>
                                         <p>{c.active_users}</p>
                                     </div>
                                 </div>

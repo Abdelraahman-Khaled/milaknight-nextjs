@@ -20,7 +20,7 @@ const LegacyScripts = () => {
                 if (menu.length && !window.jQuery('.slicknav_menu').length) {
                     menu.slicknav({
                         label: '',
-                        prependTo: '.responsive-menu',
+                        prependTo: '.navbar-toggle',
                         closeOnClick: true,
                         allowParentLinks: true
                     });

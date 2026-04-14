@@ -6,7 +6,7 @@ import { LanguageContext } from '@/app/context/LanguageContext';
 import { aboutData } from '@/app/data/aboutData';
 import TextBox from '@/app/components/ui/TextBox';
 import SectionTitle from '@/app/components/ui/SectionTitle';
-import AboutScripts from './AboutScripts';
+import Counter from '@/app/components/ui/Counter';
 
 const AboutIntro = () => {
     const { language } = useContext(LanguageContext);
@@ -14,7 +14,6 @@ const AboutIntro = () => {
 
     return (
         <>
-            <AboutScripts />
             <div className="about-us page-about-us">
                 <div className="container">
                     <div className="row">
@@ -28,14 +27,13 @@ const AboutIntro = () => {
                                     </div>
                                     <div className="about-experience-box">
                                         <div className="about-experience-counter">
-                                            <h2><span className="counter">3</span>+</h2>
+                                            <h2><Counter end={3} suffix="+" /></h2>
                                         </div>
                                         <div className="about-experience-content">
                                             <p>{c.years_experience} <span>{c.agency_type}</span></p>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div className="about-us-content">
                                     <SectionTitle
                                         title={c.section_title}

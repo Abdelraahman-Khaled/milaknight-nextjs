@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LanguageContext } from '@/app/context/LanguageContext';
 import { testimonialData } from './data';
+import Counter from '@/app/components/ui/Counter'
 
 const Testimonial = () => {
     const { language } = useContext(LanguageContext);
@@ -89,7 +90,7 @@ const Testimonial = () => {
                     <div className="testimonial-review-box">
                         <div className="testimonial-review-header">
                             <div className="testimonial-review-counter-title">
-                                <h2><span className="counter">{content.counter}</span></h2>
+                                <h2><Counter end={parseInt(content.counter.replace(/[^0-9]/g, ''))} suffix={content.counter.replace(/[0-9]/g, '')} /></h2>
                             </div>
 
                             <div className="testimonial-review-image">

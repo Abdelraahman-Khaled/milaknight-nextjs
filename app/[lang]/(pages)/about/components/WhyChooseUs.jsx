@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Image from "next/image";
 import { LanguageContext } from '@/app/context/LanguageContext';
 import { aboutData } from '@/app/data/aboutData';
@@ -9,6 +9,7 @@ import TextBox from '@/app/components/ui/TextBox';
 const WhyChooseUs = ({ home = false }) => {
     const { language } = useContext(LanguageContext);
     const c = aboutData[language];
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
         <div className="why-choose-us">
@@ -50,11 +51,15 @@ const WhyChooseUs = ({ home = false }) => {
                     <div className="col-lg-6">
                         <div className="why-choose-content">
                             {c.why_items.map((item, idx) => (
-                                <div className={`mb-4 ${idx === 0 ? 'active' : ''}`} key={idx}>
+                                <div 
+                                    className={`mb-4`} 
+                                    key={idx}
+                                    onMouseEnter={() => setActiveIndex(idx)}
+                                >
                                     <TextBox
                                         title={item.title}
                                         text={item.desc}
-                                        className="why-choose-item"
+                                        className={`why-choose-item ${activeIndex === idx ? 'active' : ''}`}
                                     />
                                 </div>
                             ))}
@@ -72,3 +77,4 @@ const WhyChooseUs = ({ home = false }) => {
 };
 
 export default WhyChooseUs;
+

@@ -1,69 +1,39 @@
 "use client";
 
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { LanguageContext } from "../context/LanguageContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faXTwitter, faSnapchat, faFacebookF, faInstagram, faLinkedinIn, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const Navbar = () => {
     const { language, toggleLanguage, t } = useContext(LanguageContext);
     const pathname = usePathname();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [openSubmenu, setOpenSubmenu] = useState(null);
 
     const isActive = (path) => pathname === `/${language}${path === '/' ? '' : path}` ? "nav-link active" : "nav-link";
 
     const getLangPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-    // Update SlickNav menu text after language change
-    const handleLanguageToggle = () => {
-        toggleLanguage();
-
-        // Wait for React to update DOM with translations
-        setTimeout(() => {
-            const originalMenu = document.querySelector('#menu');
-            const slicknavMenu = document.querySelector('.slicknav_nav');
-
-            if (originalMenu && slicknavMenu) {
-                const originalLinks = originalMenu.querySelectorAll('a');
-                const clonedLinks = slicknavMenu.querySelectorAll('a');
-
-                clonedLinks.forEach((clonedLink) => {
-                    const href = clonedLink.getAttribute('href');
-                    const matchingOriginal = Array.from(originalLinks).find(
-                        link => link.getAttribute('href') === href
-                    );
-
-                    if (matchingOriginal) {
-                        const getDirectText = (element) => {
-                            return Array.from(element.childNodes)
-                                .filter(node => node.nodeType === Node.TEXT_NODE)
-                                .map(node => node.textContent.trim())
-                                .join(' ');
-                        };
-
-                        const newText = getDirectText(matchingOriginal);
-
-                        if (newText) {
-                            Array.from(clonedLink.childNodes)
-                                .filter(node => node.nodeType === Node.TEXT_NODE)
-                                .forEach(node => node.remove());
-
-                            clonedLink.insertBefore(
-                                document.createTextNode(newText),
-                                clonedLink.firstChild
-                            );
-                        }
-                    }
-                });
-            }
-        }, 200);
+    const toggleMobileMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
-    return (
+    const toggleSubmenu = (name) => {
+        setOpenSubmenu(openSubmenu === name ? null : name);
+    };
 
+    // Close menu on route change
+    useEffect(() => {
+        setIsMenuOpen(false);
+        setOpenSubmenu(null);
+    }, [pathname]);
+
+    return (
         <header className="main-header" role="banner">
             <div className="header-sticky">
                 <nav className="navbar navbar-expand-lg" aria-label="Main Navigation">
@@ -71,7 +41,8 @@ const Navbar = () => {
                         <Link className="navbar-brand" href={getLangPath("/")} aria-label="Milaknight Home" style={{ position: 'relative', width: '169px', height: '51px', display: 'block' }}>
                             <Image src="/images/logo.svg" alt="Milaknight - Digital Marketing agency" fill priority fetchPriority="high" />
                         </Link>
-                        <div className="collapse navbar-collapse main-menu">
+                        
+                        <div className="collapse navbar-collapse main-menu d-none d-lg-block">
                             <div className="nav-menu-wrapper">
                                 <ul className="navbar-nav mx-auto" id="menu">
                                     <li className="nav-item"><Link className={isActive("/")} href={getLangPath("/")}>{t('home')}</Link></li>
@@ -100,8 +71,9 @@ const Navbar = () => {
                                 </ul>
                             </div>
                         </div>
+
                         <div className="header-social-box d-inline-flex gap-2 align-items-center">
-                            <div className="header-social-links">
+                            <div className="header-social-links d-none d-lg-block">
                                 <ul>
                                     <li><Link href="https://x.com/milaknight731" target="_blank" rel="noopener" aria-label="Twitter"
                                         title={t('follow_us_twitter')}><FontAwesomeIcon icon={faXTwitter} /></Link></li>
@@ -122,13 +94,15 @@ const Navbar = () => {
                                         aria-label="YouTube" title={t('subscribe_youtube')}><FontAwesomeIcon icon={faYoutube} /></Link></li>
                                 </ul>
                             </div>
-                            <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={handleLanguageToggle} aria-label={language === 'en' ? "تغيير اللغة للعربية" : "Change language to English"} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
+                            
+                            <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={toggleLanguage} aria-label={language === 'en' ? "تغيير اللغة للعربية" : "Change language to English"} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
                                 {language === 'en' ? (
                                     <Image src="/images/saudi-arabia.png" alt="العربية" width={32} height={32} />
                                 ) : (
                                     <Image src="/images/united-states.png" alt="English" width={32} height={32} />
                                 )}
                             </button>
+
                             <div className="header-btn d-flex gap-2">
                                 <button className="btn btn-popup" type="button" data-bs-toggle="offcanvas"
                                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="Open sidebar menu" style={{ position: 'relative', width: '40px', height: '40px' }}>
@@ -167,14 +141,66 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="navbar-toggle" aria-label="Toggle Mobile Menu"></div>
+
+                            <div className="navbar-toggle d-lg-none">
+                                <a 
+                                    href="#"
+                                    className={`slicknav_btn ${isMenuOpen ? 'slicknav_open' : ''} border-0 p-0 bg-transparent`}
+                                    onClick={(e) => { e.preventDefault(); toggleMobileMenu(); }}
+                                    aria-expanded={isMenuOpen}
+                                    aria-label="Toggle Menu"
+                                    role="button"
+                                >
+                                    <span className="slicknav_icon">
+                                        <span className="slicknav_icon-bar"></span>
+                                        <span className="slicknav_icon-bar"></span>
+                                        <span className="slicknav_icon-bar"></span>
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </nav>
-                <div className="responsive-menu" aria-label="Mobile Menu Container"></div>
+
+                {/* React Mobile Menu */}
+                <div className={`responsive-menu d-lg-none ${isMenuOpen ? 'd-block' : 'd-none'}`}>
+                    <div className="slicknav_menu">
+                        <ul className="slicknav_nav p-0 m-0" style={{ listStyle: 'none' }}>
+                            <li className="nav-item header-btn-inner">
+                                <Link className="nav-link" href={getLangPath("/contact")}>{t('contact_us')}</Link>
+                            </li>
+                            <li><Link href={getLangPath("/")} className={isActive("/")}>{t('home')}</Link></li>
+                            <li><Link href={getLangPath("/about")} className={isActive("/about")}>{t('about_us')}</Link></li>
+                            <li className={`slicknav_parent ${openSubmenu === 'services' ? 'slicknav_open' : 'slicknav_collapsed'}`}>
+                                <div className="slicknav_item slicknav_row" onClick={() => toggleSubmenu('services')} style={{ cursor: 'pointer' }}>
+                                    <span className="slicknav_row_text">{t('services')}</span>
+                                    <span className="slicknav_arrow">{openSubmenu === 'services' ? '▼' : '►'}</span>
+                                </div>
+                                <ul className={`slicknav_hidden ${openSubmenu === 'services' ? 'd-block' : 'd-none'}`} style={{ listStyle: 'none' }}>
+                                    <li><Link href={getLangPath("/service/web-development")}>{t('web_development')}</Link></li>
+                                    <li><Link href={getLangPath("/service/digital-marketing")}>{t('digital_marketing')}</Link></li>
+                                    <li><Link href={getLangPath("/service/graphic-design")}>{t('graphic_design')}</Link></li>
+                                    <li><Link href={getLangPath("/service/e-commerce")}>{t('e_commerce')}</Link></li>
+                                    <li><Link href={getLangPath("/service/video-production")}>{t('video_production')}</Link></li>
+                                    <li><Link href={getLangPath("/service/event-planning")}>{t('event_planning')}</Link></li>
+                                </ul>
+                            </li>
+                            <li><Link href={getLangPath("/projects")} className={isActive("/projects")}>{t('projects')}</Link></li>
+                            <li><Link href={getLangPath("/pricing")} className={isActive("/pricing")}>{t('pricing')}</Link></li>
+                            <li><Link href={getLangPath("/blog")} className={pathname && pathname.startsWith(`/${language}/blog`) ? "active" : ""}>{t('blog')}</Link></li>
+                            <li><Link href={getLangPath("/contact")} className={isActive("/contact")}>{t('contact_us')}</Link></li>
+                            <li>
+                                <Link className="company-profile" href="https://publuu.com/flip-book/902608/1992497" target="_blank" rel="noopener">
+                                    {t('company_profile')}
+                                    <FontAwesomeIcon icon={faDownload} className={language === 'ar' ? 'me-1' : 'ms-1'} color='#3faef4' />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </header>
     )
 }
 
-export default Navbar
+export default Navbar
