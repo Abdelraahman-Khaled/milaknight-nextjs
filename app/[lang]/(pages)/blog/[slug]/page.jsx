@@ -134,8 +134,38 @@ export default async function BlogDetailsPage({ params }) {
         permanentRedirect(`/${currentLang}/blog`);
     }
 
+    // Build FAQ schema if the blog has faqs
+    const faqSchema = blog?.faqs && Array.isArray(blog.faqs) && blog.faqs.length > 0
+        ? {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": blog.faqs.map((faq) => {
+                const question = currentLang === 'ar'
+                    ? (faq.question_ar || faq.question_en)
+                    : (faq.question_en || faq.question_ar);
+                const answer = currentLang === 'ar'
+                    ? (faq.answer_ar || faq.answer_en)
+                    : (faq.answer_en || faq.answer_ar);
+                return {
+                    "@type": "Question",
+                    "name": question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": answer,
+                    },
+                };
+            }),
+        }
+        : null;
+
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
+            {faqSchema && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
+            )}
             <Preloader />
             <main>
                 <BlogDetailContent slug={slug} initialBlog={blog} />
