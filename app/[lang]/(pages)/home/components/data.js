@@ -2,7 +2,7 @@ export const aboutAgencyData = {
   ar: {
     title: "ميلانايت Milaknight",
     description:
-      "Milaknight علامة فارقة في مجال التسويق الالكتروني وإدارة الأعمال يقع مقرنا في منطقة ميدان الحرة بدبي، منذ انطلاقتنا في عام 2024 نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة كما نعمل على تحقيق ذلك من خلال حلول تسويق الكتروني متكاملة تضمن لك التميز، النمو والريادة في مجالك.",
+      "Milaknight علامة فارقة في مجال التسويق الإلكتروني وإدارة الأعمال، يقع مقرنا الرئيسي في المملكة العربية السعودية - الرياض، إلى جانب فرعنا في الإمارات العربية المتحدة - دبي ، منذ انطلاقتنا في عام 2024 نسعى إلى تطوير خطط تسويقية مبتكرة تمزج بين أحدث التقنيات وأدق رؤى السوق ونؤمن بأن كل علامة تجارية تستحق قصة نجاحها الخاصة كما نعمل على تحقيق ذلك من خلال حلول تسويق إلكتروني متكاملة تضمن لك التميز، النمو والريادة في مجالك",
     linkText: "من نحن",
     cards: [
       {
@@ -33,7 +33,7 @@ export const aboutAgencyData = {
   en: {
     title: "Milaknight",
     description:
-      "Milaknight is a landmark in the field of digital marketing and business management. Our headquarters is located in the Meydan Free Zone in Dubai. Since our launch in 2024, we have sought to develop innovative marketing plans that combine the latest technologies with the most accurate market insights. We believe that every brand deserves its own success story, and we work to achieve this through integrated digital marketing solutions that guarantee you excellence, growth, and leadership in your field.",
+      "Milaknight is a landmark in the field of digital marketing and business management. Our headquarters is located in the Kingdom of Saudi Arabia - Riyadh, alongside our branch in the United Arab Emirates - Dubai. Since our launch in 2024, we have sought to develop innovative marketing plans that combine the latest technologies with the most accurate market insights. We believe that every brand deserves its own success story, and we work to achieve this through integrated digital marketing solutions that guarantee you excellence, growth, and leadership in your field.",
     linkText: "About Us",
     cards: [
       {
