@@ -84,7 +84,7 @@ Source: https://mila-knight.com
 # =========================
 Company: MilaKnight LLC-FZ
 Email: info@milaknights.com
-Phone: +971585856774
+Phone: +966 11 497 7257
 Location: Meydan Free Zone, Dubai, UAE
 
 # =========================

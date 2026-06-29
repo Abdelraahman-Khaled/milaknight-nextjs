@@ -48,12 +48,12 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-4">
                                 <div className="footer-logo" style={{ minHeight: '80px', display: 'flex', alignItems: 'center' }}>
-                                    <Image 
-                                        src="/images/logo-dark-footer.webp" 
-                                        className="Image-fluid h-auto" 
-                                        alt="Milaknight - Professional Marketing Branding" 
-                                        width={512} 
-                                        height={200} 
+                                    <Image
+                                        src="/images/logo-dark-footer.webp"
+                                        className="Image-fluid h-auto"
+                                        alt="Milaknight - Professional Marketing Branding"
+                                        width={512}
+                                        height={200}
                                         style={{ maxWidth: '100%', height: 'auto' }}
                                     />
                                 </div>
@@ -95,7 +95,7 @@ const Footer = () => {
                                     {/* <!-- Footer Contact Box Start --> */}
                                     <div className="footer-contact-box">
                                         {/* <!-- Footer Contact Item Start --> */}
-                                        <Link href="tel:+971585856774" className="footer-contact-item" aria-label="Call +971 58 585 6774">
+                                        <Link href="tel:+966 11 497 7257" className="footer-contact-item" aria-label="Call +966 11 497 7257">
                                             <div className="icon-box" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
                                                 <Image src="/images/icons/icon-phone.svg" alt="phone icon" width={18} height={18} />
                                             </div>
@@ -196,7 +196,7 @@ const Footer = () => {
                 <span>{content.floatingButtons.meeting}</span>
             </Link>
 
-            <Link href="https://api.whatsapp.com/send?phone=971585856774" target="_blank" rel="noopener" className="whatsapp" aria-label="Chat on WhatsApp">
+            <Link href="https://api.whatsapp.com/send?phone=966114977257" target="_blank" rel="noopener" className="whatsapp" aria-label="Chat on WhatsApp">
                 <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="whatsapp" width={24} height={24} />
                 <span>{content.floatingButtons.consultation}</span>
             </Link>

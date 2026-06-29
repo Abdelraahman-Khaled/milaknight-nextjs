@@ -29,7 +29,7 @@ export const footerData = {
       ],
     },
     contact: {
-      phone: "+971 58 585 6774",
+      phone: "+966 11 497 7257",
       email: "Info[at]milaknights[dot]com",
       crNumber: "رقم السجل التجاري: 7053075417",
       taxNumber: "رقم التسجيل الضريبي: 314503857500003",
@@ -70,7 +70,7 @@ export const footerData = {
       ],
     },
     contact: {
-      phone: "+971 58 585 6774",
+      phone: "+966 11 497 7257",
       email: "Info[at]milaknights[dot]com",
       crNumber: "Commercial Register No: 7053075417",
       taxNumber: "Tax Registration No: 31450385700003",

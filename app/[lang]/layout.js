@@ -123,7 +123,7 @@ const jsonLd = {
       image: "https://mila-knight.com/images/logo.svg",
       description:
         "وكالة تسويق رقمي متخصصة في السيو والتسويق الإلكتروني وبناء العلامات التجارية وتطوير الحلول الرقمية.",
-      telephone: "+971585856774",
+      telephone: "+966 11 497 7257",
       priceRange: "$$",
       areaServed: "AE",
       address: {

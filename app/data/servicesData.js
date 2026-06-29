@@ -98,8 +98,8 @@ export const servicesData = {
         contact_box: {
           title: "هل لديك أسئلة مختلفة؟",
           desc: "سوف يقوم فريقنا بالرد على جميع أسئلتك. نحن نضمن الرد السريع.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -202,8 +202,8 @@ export const servicesData = {
         contact_box: {
           title: "Have different questions?",
           desc: "Our team will answer all your questions. We guarantee a quick response.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -305,8 +305,8 @@ export const servicesData = {
         contact_box: {
           title: "هل لديك أسئلة مختلفة؟",
           desc: "سوف يقوم فريقنا بالرد على جميع أسئلتك. نحن نضمن الرد السريع.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -408,8 +408,8 @@ export const servicesData = {
         contact_box: {
           title: "Have different questions?",
           desc: "Our team will answer all your questions. We guarantee a quick response.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -513,8 +513,8 @@ export const servicesData = {
         contact_box: {
           title: "هل لديك أسئلة مختلفة؟",
           desc: "سوف يقوم فريقنا بالرد على جميع أسئلتك. نحن نضمن الرد السريع.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -617,8 +617,8 @@ export const servicesData = {
         contact_box: {
           title: "Have different questions?",
           desc: "Our team will answer all your questions. We guarantee a quick response.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -738,8 +738,8 @@ export const servicesData = {
         contact_box: {
           title: "هل لديك أسئلة مختلفة؟",
           desc: "سوف يقوم فريقنا بالرد على جميع أسئلتك. نحن نضمن الرد السريع.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -856,8 +856,8 @@ export const servicesData = {
         contact_box: {
           title: "Have different questions?",
           desc: "Our team will answer all your questions. We guarantee a quick response.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -961,15 +961,16 @@ export const servicesData = {
         contact_box: {
           title: "هل لديك أسئلة مختلفة؟",
           desc: "سوف يقوم فريقنا بالرد على جميع أسئلتك. نحن نضمن الرد السريع.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
     en: {
       meta_title:
         "milaknight's video creation service lets your story come to life.",
-      title: "milaknight's video creation service lets your story come to life.",
+      title:
+        "milaknight's video creation service lets your story come to life.",
       meta_description:
         "Video is one of the most powerful digital marketing tools to convey your message and communicate your brand values effectively. At Milaknight, the best company, we offer comprehensive professional video production solutions.",
       hero: {
@@ -1065,8 +1066,8 @@ export const servicesData = {
         contact_box: {
           title: "Have different questions?",
           desc: "Our team will answer all your questions. We guarantee a quick response.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -1173,8 +1174,8 @@ export const servicesData = {
         contact_box: {
           title: "هل لديك أسئلة مختلفة؟",
           desc: "سوف يقوم فريقنا بالرد على جميع أسئلتك. نحن نضمن الرد السريع.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },
@@ -1281,8 +1282,8 @@ export const servicesData = {
         contact_box: {
           title: "Have different questions?",
           desc: "Our team will answer all your questions. We guarantee a quick response.",
-          phone: "+971 58 585 6774",
-          whatsapp_link: "https://api.whatsapp.com/send?phone=971585856774",
+          phone: "+966 11 497 7257",
+          whatsapp_link: "https://api.whatsapp.com/send?phone=966114977257",
         },
       },
     },

@@ -90,13 +90,13 @@ const ContactContent = () => {
                                 </div>
                                 <div className="contact-info-box">
                                     <div className="info-box-1">
-                                        <Link href="tel:+971585856774" className="contact-info-item">
+                                        <Link href="tel:+966 11 497 7257" className="contact-info-item">
                                             <div className="icon-box">
                                                 <Image width={50} height={50} alt="phone" src="/images/icons/icon-phone.svg" />
                                             </div>
                                             <div className="contact-item-content">
                                                 <h3>{t('phone')}</h3>
-                                                <p dir="ltr">+971 58 585 6774</p>
+                                                <p dir="ltr">+966 11 497 7257</p>
                                             </div>
                                         </Link>
                                         <Link href="mailto:Info@milaknights.com" className="contact-info-item">

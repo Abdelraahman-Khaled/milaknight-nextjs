@@ -41,7 +41,7 @@ const Navbar = () => {
                         <Link className="navbar-brand" href={getLangPath("/")} aria-label="Milaknight Home" style={{ position: 'relative', width: '169px', height: '51px', display: 'block' }}>
                             <Image src="/images/logo.svg" alt="Milaknight - Digital Marketing agency" fill priority fetchPriority="high" />
                         </Link>
-                        
+
                         <div className="collapse navbar-collapse main-menu d-none d-lg-block">
                             <div className="nav-menu-wrapper">
                                 <ul className="navbar-nav mx-auto" id="menu">
@@ -94,7 +94,7 @@ const Navbar = () => {
                                         aria-label="YouTube" title={t('subscribe_youtube')}><FontAwesomeIcon icon={faYoutube} /></Link></li>
                                 </ul>
                             </div>
-                            
+
                             <button className="btn p-0 border-0 bg-transparent flex-shrink-0" onClick={toggleLanguage} aria-label={language === 'en' ? "تغيير اللغة للعربية" : "Change language to English"} style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center' }}>
                                 {language === 'en' ? (
                                     <Image src="/images/saudi-arabia.png" alt="العربية" width={32} height={32} />
@@ -111,12 +111,12 @@ const Navbar = () => {
                                 <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="sidebarLabel">
                                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                     <div className="offcanvas-body">
-                                        <Link href="tel:+971585856774" aria-label="Call Us">
+                                        <Link href="tel:+966 11 497 7257" aria-label="Call Us">
                                             <div className="header-contact-box">
                                                 <div className="icon-box"><Image src="/images/icons/icon-phone.svg" alt="icon" width={40} height={40} /></div>
                                                 <div className="header-contact-box-content">
                                                     <p className="title-box-content">{t('phone')}</p>
-                                                    <p className="title-2-box-content" dir="ltr">+971 58 585 6774</p>
+                                                    <p className="title-2-box-content" dir="ltr">+966 11 497 7257</p>
                                                 </div>
                                             </div>
                                         </Link>
@@ -143,7 +143,7 @@ const Navbar = () => {
                             </div>
 
                             <div className="navbar-toggle d-lg-none">
-                                <Link 
+                                <Link
                                     href="#"
                                     className={`slicknav_btn ${isMenuOpen ? 'slicknav_open' : ''} border-0 p-0 bg-transparent`}
                                     onClick={(e) => { e.preventDefault(); toggleMobileMenu(); }}
