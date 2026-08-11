@@ -9,6 +9,7 @@ import BlogFaqs from './BlogFaqs';
 import { useRouter } from "next/navigation";
 import { useQuery } from '@tanstack/react-query';
 import { getBlogDetails } from '@/app/api/blog';
+import { formatContent } from '@/app/utils/youtube';
 
 const BlogDetailContent = ({ slug, initialBlog }) => {
     const { language, t, setAlternatePath } = useContext(LanguageContext);
@@ -62,7 +63,7 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
             return blog.contents.map((section, index) => (
                 <div key={index} className="blog-section">
                     {/* Render section text based on language */}
-                    <div dangerouslySetInnerHTML={{ __html: language === 'ar' ? (section.content_ar || section.content_en) : (section.content_en || section.content_ar) }} />
+                    <div dangerouslySetInnerHTML={{ __html: formatContent(language === 'ar' ? (section.content_ar || section.content_en) : (section.content_en || section.content_ar)) }} />
 
                     {/* Render section images if they exist */}
                     {section.photos && section.photos.length > 0 && (
