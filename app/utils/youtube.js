@@ -1,5 +1,8 @@
 // Helpers for turning YouTube links coming from the backend content into
 // responsive embeds. Shared by the blog and operations detail pages.
+// TikTok links are handled by app/utils/tiktok.js and plugged into formatContent.
+
+import { formatTiktokLinks } from "./tiktok";
 
 // Extract a YouTube video ID from a full URL or a raw ID
 export const getYoutubeId = (value) => {
@@ -23,8 +26,8 @@ export const buildYoutubeEmbed = (videoId, isShort = false) => {
     return isShort ? `<div class="video-responsive video-short">${iframe}</div>` : iframe;
 };
 
-// Normalize the HTML content: decode escaped iframes, convert YouTube links into
-// embeds and wrap every iframe in a responsive container.
+// Normalize the HTML content: decode escaped iframes, convert YouTube/TikTok
+// links into embeds and wrap every iframe in a responsive container.
 export const formatContent = (htmlContent) => {
     if (!htmlContent) return "";
     let formatted = htmlContent;
@@ -55,9 +58,20 @@ export const formatContent = (htmlContent) => {
         }
     );
 
-    // Wrap any <iframe> (e.g. YouTube embeds coming from the backend) in a responsive
-    // container — skip ones already wrapped to avoid double wrapping.
-    formatted = formatted.replace(/(?<!<div class="video-responsive[^"]*">)(<iframe[\s\S]*?<\/iframe>)/gi, '<div class="video-responsive">$1</div>');
+    // Convert TikTok links / embeds into player iframes
+    formatted = formatTiktokLinks(formatted);
+
+    // Wrap any bare <iframe> (YouTube / TikTok embeds) in a responsive container —
+    // skip ones already wrapped, and give TikTok iframes the portrait container.
+    formatted = formatted.replace(
+        /(?<!<div class="video-responsive[^"]*">)(<iframe[\s\S]*?<\/iframe>)/gi,
+        (match, iframe) => {
+            const cls = /tiktok\.com/i.test(iframe)
+                ? 'video-responsive video-tiktok'
+                : 'video-responsive';
+            return `<div class="${cls}">${iframe}</div>`;
+        }
+    );
 
     return formatted;
 };

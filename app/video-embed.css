@@ -1,4 +1,5 @@
-/* Responsive wrappers for YouTube embeds injected by app/utils/youtube.js */
+/* Responsive wrappers for YouTube / TikTok embeds injected by app/utils/youtube.js.
+   16:9 by default; portrait 9:16 (capped width) for Shorts and TikTok. */
 .video-responsive {
     position: relative;
     width: 100%;
@@ -10,6 +11,19 @@
     background: #000;
 }
 
+.video-responsive.video-short,
+.video-responsive.video-tiktok {
+    padding-top: 0;
+    aspect-ratio: 9 / 16;
+    max-width: 360px;
+}
+
+/* TikTok's player needs a little extra height for its caption/controls bar. */
+.video-responsive.video-tiktok {
+    aspect-ratio: 9 / 16.6;
+    max-width: 340px;
+}
+
 .video-responsive iframe {
     position: absolute;
     top: 0;
@@ -17,10 +31,4 @@
     width: 100%;
     height: 100%;
     border: 0;
-}
-
-/* Shorts are portrait (9:16) and should stay narrow */
-.video-responsive.video-short {
-    max-width: 360px;
-    padding-top: 177.78%;
 }
