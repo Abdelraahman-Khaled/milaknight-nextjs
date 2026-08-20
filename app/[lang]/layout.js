@@ -136,11 +136,11 @@ const jsonLd = {
       },
       sameAs: [
         "https://www.linkedin.com/company/milaknight/",
-        "https://www.instagram.com/milaknight.mena/",
+        "https://www.instagram.com/milaknight.co/",
         "https://x.com/milaknight731",
         "https://www.snapchat.com/add/milaknight.mk",
-        "https://www.facebook.com/milaknight.mena",
-        "https://www.tiktok.com/@milaknight.mk",
+        "https://www.facebook.com/milaknight.co",
+        "https://www.tiktok.com/@milaknight.uk",
         "https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA",
       ],
       openingHoursSpecification: [

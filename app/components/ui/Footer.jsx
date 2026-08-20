@@ -132,7 +132,7 @@ const Footer = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.tiktok.com/@milaknight.mk"
+                                                <Link href="https://www.tiktok.com/@milaknight.uk"
                                                     target="_blank" rel="noopener" aria-label="TikTok">
                                                     <FontAwesomeIcon icon={faTiktok} style={{ width: '1em' }} />
                                                 </Link>
@@ -144,13 +144,13 @@ const Footer = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.facebook.com/milaknight.mena"
+                                                <Link href="https://www.facebook.com/milaknight.co"
                                                     target="_blank" rel="noopener" aria-label="Facebook">
                                                     <FontAwesomeIcon icon={faFacebookF} style={{ width: '1em' }} />
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.instagram.com/milaknight.mena/" target="_blank"
+                                                <Link href="https://www.instagram.com/milaknight.co/" target="_blank"
                                                     rel="noopener" aria-label="Instagram">
                                                     <FontAwesomeIcon icon={faInstagram} style={{ width: '1em' }} />
                                                 </Link>

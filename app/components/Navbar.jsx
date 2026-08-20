@@ -79,16 +79,16 @@ const Navbar = () => {
                                         title={t('follow_us_twitter')}><FontAwesomeIcon icon={faXTwitter} /></Link></li>
                                     <li><Link href="https://www.snapchat.com/add/milaknight.mk" target="_blank" rel="noopener"
                                         aria-label="Snapchat" title={t('follow_us_snapchat')}><FontAwesomeIcon icon={faSnapchat} /></Link></li>
-                                    <li><Link href="https://www.facebook.com/milaknight.mena?rdid=6X8BVNcFdWJhIHGz#" target="_blank" rel="noopener"
+                                    <li><Link href="https://www.facebook.com/milaknight.co" target="_blank" rel="noopener"
                                         aria-label="Facebook" title={t('follow_us_facebook')}><FontAwesomeIcon icon={faFacebookF} /></Link>
                                     </li>
-                                    <li><Link href="https://www.instagram.com/milaknight.mena/" target="_blank" rel="noopener"
+                                    <li><Link href="https://www.instagram.com/milaknight.co/" target="_blank" rel="noopener"
                                         aria-label="Instagram" title={t('follow_us_instagram')}><FontAwesomeIcon icon={faInstagram} /></Link>
                                     </li>
                                     <li><Link href="https://www.linkedin.com/company/milaknight" target="_blank" rel="noopener"
                                         aria-label="LinkedIn" title={t('follow_us_linkedin')}><FontAwesomeIcon icon={faLinkedinIn} /></Link>
                                     </li>
-                                    <li><Link href="https://www.tiktok.com/@milaknight.mk" target="_blank" rel="noopener" aria-label="TikTok"
+                                    <li><Link href="https://www.tiktok.com/@milaknight.uk" target="_blank" rel="noopener" aria-label="TikTok"
                                         title={t('follow_us_tiktok')}><FontAwesomeIcon icon={faTiktok} /></Link></li>
                                     <li><Link href="https://www.youtube.com/channel/UCAYtPE9bp6ygjmJPmhA3GiA" target="_blank" rel="noopener"
                                         aria-label="YouTube" title={t('subscribe_youtube')}><FontAwesomeIcon icon={faYoutube} /></Link></li>
