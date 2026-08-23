@@ -109,15 +109,10 @@ export default async function BlogDetailsPage({ params }) {
         const arSlug = blog.slug_ar || blog.slug;
         const enSlug = blog.slug || blog.slug_ar;
 
-        const isEnglishSlug = decodedSlug === enSlug;
-        const isArabicSlug = decodedSlug === arSlug;
-
-        if (isEnglishSlug && !isArabicSlug && currentLang === 'ar') {
-            permanentRedirect(`/en/blog/${encodeURIComponent(enSlug)}`);
-        }
-        if (isArabicSlug && !isEnglishSlug && currentLang === 'en') {
-            permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
-        }
+        // The locale in the URL decides the language — never the slug. Deciding it
+        // from the slug meant /en/blog/<arabic-slug> redirected straight back to
+        // /ar, so the toggle could never leave Arabic on a blog post. The two
+        // checks below keep the requested locale and correct only the slug.
         if (currentLang === "ar" && decodedSlug !== arSlug) {
             permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
         }

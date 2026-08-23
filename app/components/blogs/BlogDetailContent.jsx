@@ -39,11 +39,10 @@ const BlogDetailContent = ({ slug, initialBlog }) => {
             ? blog.slug_ar || blog.slug
             : blog.slug || blog.slug_ar;
 
-        const newAlternatePath = `/${alternateLang}/blog/${targetSlug}`;
+        const newAlternatePath = `/${alternateLang}/blog/${encodeURIComponent(targetSlug)}`;
         
         if (setAlternatePath) {
-            // Only update if it's different to prevent loops
-            setAlternatePath(prev => prev === newAlternatePath ? prev : newAlternatePath);
+            setAlternatePath(newAlternatePath);
         }
 
         // Check if the current decoded slug matches the current language
