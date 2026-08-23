@@ -150,7 +150,7 @@ const Footer = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="https://www.instagram.com/milaknight.co/" target="_blank"
+                                                <Link href="https://www.instagram.com/mila.knight.uk/" target="_blank"
                                                     rel="noopener" aria-label="Instagram">
                                                     <FontAwesomeIcon icon={faInstagram} style={{ width: '1em' }} />
                                                 </Link>
@@ -196,7 +196,7 @@ const Footer = () => {
                 <span>{content.floatingButtons.meeting}</span>
             </Link>
 
-            <Link href="https://api.whatsapp.com/send?phone=966114977257" target="_blank" rel="noopener" className="whatsapp" aria-label="Chat on WhatsApp">
+            <Link href="https://api.whatsapp.com/send?phone=966535930419" target="_blank" rel="noopener" className="whatsapp" aria-label="Chat on WhatsApp">
                 <Image src="/images/icons/whatsapp_white_icon.png" loading="lazy" alt="whatsapp" width={24} height={24} />
                 <span>{content.floatingButtons.consultation}</span>
             </Link>

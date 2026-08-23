@@ -136,7 +136,7 @@ const jsonLd = {
       },
       sameAs: [
         "https://www.linkedin.com/company/milaknight/",
-        "https://www.instagram.com/milaknight.co/",
+        "https://www.instagram.com/mila.knight.uk/",
         "https://x.com/milaknight731",
         "https://www.snapchat.com/add/milaknight.mk",
         "https://www.facebook.com/milaknight.co",

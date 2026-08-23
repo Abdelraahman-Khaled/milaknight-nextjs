@@ -38,9 +38,9 @@ const Faqs = ({ initialFaqs = [] }) => {
                                 </figure>
                             </div>
                             <div className="faq-cta-box">
-                                <Link href="https://api.whatsapp.com/send?phone=966114977257" rel="noopener noreferrer" dir="ltr" target="_blank">
+                                <Link href="https://api.whatsapp.com/send?phone=966535930419" rel="noopener noreferrer" dir="ltr" target="_blank">
                                     <Image alt={c.whatsapp_alt} src="/images/icons/whatsapp_white_icon.png" width={24} height={24} className="me-2" />
-                                    +966 11 497 7257
+                                    +966 53 593 0419
                                 </Link>
                             </div>
                         </div>

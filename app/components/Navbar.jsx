@@ -82,7 +82,7 @@ const Navbar = () => {
                                     <li><Link href="https://www.facebook.com/milaknight.co" target="_blank" rel="noopener"
                                         aria-label="Facebook" title={t('follow_us_facebook')}><FontAwesomeIcon icon={faFacebookF} /></Link>
                                     </li>
-                                    <li><Link href="https://www.instagram.com/milaknight.co/" target="_blank" rel="noopener"
+                                    <li><Link href="https://www.instagram.com/mila.knight.uk/" target="_blank" rel="noopener"
                                         aria-label="Instagram" title={t('follow_us_instagram')}><FontAwesomeIcon icon={faInstagram} /></Link>
                                     </li>
                                     <li><Link href="https://www.linkedin.com/company/milaknight" target="_blank" rel="noopener"

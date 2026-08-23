@@ -275,16 +275,16 @@ const ContactContent = () => {
                         <div className="col-md-4">
                             <div className="agency-social-item">
                                 <div className="icon-box">
-                                    <Link href="https://www.instagram.com/milaknight.co/" rel="noopener" target="_blank">
+                                    <Link href="https://www.instagram.com/mila.knight.uk/" rel="noopener" target="_blank">
                                         <FontAwesomeIcon icon={faInstagram} />
                                     </Link>
                                 </div>
                                 <div className="agency-social-content">
                                     <h3>Instagram</h3>
-                                    <p>@milaknight.co</p>
+                                    <p>@mila.knight.uk</p>
                                 </div>
                                 <div className="agency-social-btn">
-                                    <Link href="https://www.instagram.com/milaknight.co/" rel="noopener" target="_blank" className="readmore-btn">
+                                    <Link href="https://www.instagram.com/mila.knight.uk/" rel="noopener" target="_blank" className="readmore-btn">
                                         <Image width={20} height={20} alt="arrow" src="/images/icons/arrow-2.svg" />
                                     </Link>
                                 </div>
