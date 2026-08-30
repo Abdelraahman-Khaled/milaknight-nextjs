@@ -1,5 +1,5 @@
-import { permanentRedirect } from 'next/navigation';
-import { getBlogDetails } from '@/app/api/blog';
+import { notFound, permanentRedirect, redirect } from 'next/navigation';
+import { getBlogDetails, isDeleted, isGone, isMissing } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
 import Preloader from "@/app/components/Preloader";
 import LegacyScripts from "@/app/components/LegacyScripts";
@@ -64,6 +64,10 @@ export async function generateMetadata({ params }) {
             }
         }
     } catch (error) {
+        // A deleted post is expected, not a failure — the page renders a 404, so
+        // leave the metadata empty instead of stamping it with a bogus title.
+        if (isGone(error)) return {};
+
         console.error("Metadata error:", error);
         return { title: ' Blog' };
     }
@@ -74,59 +78,54 @@ export default async function BlogDetailsPage({ params }) {
     const currentLang = lang || 'ar';
     const queryClient = new QueryClient();
 
-    let blog = null;
+    let blog;
 
     try {
-        await queryClient.prefetchQuery({
+        blog = await queryClient.fetchQuery({
             queryKey: ['blog', slug],
-            queryFn: async () => {
-                try {
-                    const data = await getBlogDetails(slug);
-                    return data;
-                } catch (error) {
-                    // 🔥 هنا السر: اطبع الخطأ عشان تشوف الـ JSON اللي السيرفر بعته
-                    if (error.response) {
-                        console.log("---------------- API ERROR ----------------");
-                        console.log(JSON.stringify(error.response.data, null, 2)); // ده اللي هيظهرلك الـ JSON
-                        console.log("Status:", error.response.status);
-                        console.log("-------------------------------------------");
-                    }
-                    throw error;
-                }
-            },
+            queryFn: () => getBlogDetails(slug),
+            retry: false,
         });
-        
-        blog = queryClient.getQueryData(['blog', slug]);
-
-        // 3. 🛡️ حماية: لو الـ blog مش موجود أو حصل خطأ 301
-        if (!blog || Object.keys(blog).length === 0) {
-            console.error("Blog not found or moved, redirecting to blog list...");
-            permanentRedirect(`/${currentLang}/blog`);
-        }
-
-        // 4. بقية الكود
-        let decodedSlug = decodeURIComponent(slug);
-        const arSlug = blog.slug_ar || blog.slug;
-        const enSlug = blog.slug || blog.slug_ar;
-
-        // The locale in the URL decides the language — never the slug. Deciding it
-        // from the slug meant /en/blog/<arabic-slug> redirected straight back to
-        // /ar, so the toggle could never leave Arabic on a blog post. The two
-        // checks below keep the requested locale and correct only the slug.
-        if (currentLang === "ar" && decodedSlug !== arSlug) {
-            permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
-        }
-        if (currentLang === "en" && decodedSlug !== enSlug) {
-            permanentRedirect(`/en/blog/${encodeURIComponent(enSlug)}`);
-        }
-
     } catch (error) {
-        // لو الخطأ سببه Redirect.. سيبه نيكست يتعامل معاه
-        if (error.digest?.startsWith('NEXT_REDIRECT')) throw error;
+        const status = error.response?.status;
 
-        console.error("Page Processing Error:", error);
-        // في حالة أي خطأ تاني (زي API Error: 301) هنحول لصفحة المدونة
-        permanentRedirect(`/${currentLang}/blog`);
+        // A deleted post sends the visitor to the home page rather than a dead
+        // end. Temporary on purpose: a permanent redirect is cached by browsers
+        // indefinitely, so restoring the post later would never reach anyone who
+        // had already hit the old URL.
+        if (isDeleted(error)) redirect(`/${currentLang}`);
+        if (isMissing(error)) notFound();
+
+        // A transient failure (500, network blip) must not become a 404 or a
+        // permanent redirect — both stick in caches long after the API recovers.
+        console.error(
+            `Blog fetch failed for "${slug}" (status ${status ?? 'n/a'}):`,
+            error.response?.data ?? error
+        );
+        throw error;
+    }
+
+    if (!blog || Object.keys(blog).length === 0) notFound();
+
+    let decodedSlug = slug;
+    try {
+        decodedSlug = decodeURIComponent(slug);
+    } catch {
+        notFound();
+    }
+
+    const arSlug = blog.slug_ar || blog.slug;
+    const enSlug = blog.slug || blog.slug_ar;
+
+    // The locale in the URL decides the language — never the slug. Deciding it
+    // from the slug meant /en/blog/<arabic-slug> redirected straight back to
+    // /ar, so the toggle could never leave Arabic on a blog post. The two
+    // checks below keep the requested locale and correct only the slug.
+    if (currentLang === "ar" && decodedSlug !== arSlug) {
+        permanentRedirect(`/ar/blog/${encodeURIComponent(arSlug)}`);
+    }
+    if (currentLang === "en" && decodedSlug !== enSlug) {
+        permanentRedirect(`/en/blog/${encodeURIComponent(enSlug)}`);
     }
 
     // Build FAQ schema if the blog has faqs
@@ -169,4 +168,3 @@ export default async function BlogDetailsPage({ params }) {
         </HydrationBoundary>
     );
 }
-
