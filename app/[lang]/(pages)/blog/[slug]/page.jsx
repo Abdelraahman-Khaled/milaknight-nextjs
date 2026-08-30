@@ -1,4 +1,4 @@
-import { notFound, permanentRedirect, redirect } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { getBlogDetails, isDeleted, isGone, isMissing } from '@/app/api/blog';
 import BlogDetailContent from '@/app/components/blogs/BlogDetailContent';
 import Preloader from "@/app/components/Preloader";
@@ -90,10 +90,10 @@ export default async function BlogDetailsPage({ params }) {
         const status = error.response?.status;
 
         // A deleted post sends the visitor to the home page rather than a dead
-        // end. Temporary on purpose: a permanent redirect is cached by browsers
-        // indefinitely, so restoring the post later would never reach anyone who
-        // had already hit the old URL.
-        if (isDeleted(error)) redirect(`/${currentLang}`);
+        // end. Permanent (308) by request: browsers cache this indefinitely, so
+        // a post that is later restored will not reach anyone who already hit
+        // the old URL until they clear their own cache.
+        if (isDeleted(error)) permanentRedirect(`/${currentLang}`);
         if (isMissing(error)) notFound();
 
         // A transient failure (500, network blip) must not become a 404 or a
