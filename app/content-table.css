@@ -1,0 +1,78 @@
+/* Tables in the blog content, wrapped by app/utils/table.js.
+   Same look as the site's .table (purple gradient header, #dee2e6 borders). */
+.content-table {
+    width: 100%;
+    margin: 30px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+}
+
+/* Override the fixed width the editor saves (e.g. width: 624px). */
+.content-table table {
+    width: 100% !important;
+    min-width: 600px;
+    margin: 0;
+    border-collapse: collapse;
+    border-style: hidden; /* the wrapper draws the outer border */
+}
+
+.content-table th,
+.content-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px 15px;
+    vertical-align: top;
+    font-size: 16px;
+    color: #000;
+}
+
+/* Cells hold <p> tags: drop the 20px blog paragraph spacing and the pasted Arial font. */
+.content-table th p,
+.content-table td p {
+    margin: 0 !important;
+    font-size: inherit;
+}
+
+.content-table th *,
+.content-table td * {
+    font-family: inherit !important;
+}
+
+.content-table tbody tr:nth-child(even) {
+    background: #f8f6fc;
+}
+
+/* Header: a real <thead>, or the first row when the table has none. */
+.content-table thead tr,
+.content-table table:not(:has(thead)) tbody tr:first-child {
+    background: linear-gradient(90deg, #6f42c1, #9b59b6);
+}
+
+.content-table thead th,
+.content-table thead td,
+.content-table table:not(:has(thead)) tbody tr:first-child > * {
+    border-color: rgb(255 255 255 / 0.25);
+    font-weight: 700;
+}
+
+.content-table thead *,
+.content-table table:not(:has(thead)) tbody tr:first-child * {
+    color: #fff !important; /* beats the inline color: rgb(0, 0, 0) */
+}
+
+@media (max-width: 576px) {
+    .content-table {
+        margin: 20px 0;
+    }
+
+    .content-table table {
+        min-width: 520px;
+    }
+
+    .content-table th,
+    .content-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

@@ -3,6 +3,7 @@
 // TikTok links are handled by app/utils/tiktok.js and plugged into formatContent.
 
 import { formatTiktokLinks } from "./tiktok";
+import { formatTables } from "./table";
 
 // Extract a YouTube video ID from a full URL or a raw ID
 export const getYoutubeId = (value) => {
@@ -72,6 +73,9 @@ export const formatContent = (htmlContent) => {
             return `<div class="${cls}">${iframe}</div>`;
         }
     );
+
+    // Make tables scroll sideways on small screens
+    formatted = formatTables(formatted);
 
     return formatted;
 };
